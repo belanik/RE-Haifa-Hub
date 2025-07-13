@@ -1,19 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
-    <script>
-    function toggleLanguage() {
-      const isRussian = document.getElementById("header-text").dataset.lang === "ru";
-      const header = document.getElementById("header-text");
-
-      if (isRussian) {
-        header.textContent = "Reducing Waste, Supporting Community";
-        header.dataset.lang = "en";
-      } else {
-        header.textContent = "Сокращаем отходы, поддерживаем сообщество";
-        header.dataset.lang = "ru";
-      }
-    }
-  </script>
 
   <head>
     <meta charset="UTF-8" />
@@ -30,7 +16,7 @@
         
       <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <h1 class="text-xl font-bold text-green-600">RE‑Haifa Hub</h1>
-          <button class="language-switch" onclick="toggleLanguage()">Switch Language</button>
+          <a href="index2.html" class="hover:text-green-600">Switch Language</a>
         <nav class="space-x-4 text-sm md:text-base">
           <a href="#home" class="hover:text-green-600">Главная</a>
           <a href="#about" class="hover:text-green-600">О движении</a>
