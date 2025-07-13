@@ -1,34 +1,45 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RE‑Haifa Hub</title>
-    <!-- Tailwind via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="https://placehold.co/32x32" />
-  </head>
-  <body class="font-sans text-gray-800 bg-gray-50">
-    <!-- Header / Navbar -->
-    <header class="bg-white shadow sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        <h1 class="text-xl font-bold text-green-600">RE‑Haifa Hub</h1>
-        <nav class="space-x-4 text-sm md:text-base">
-          <a href="#home" class="hover:text-green-600">Главная</a>
-          <a href="#about" class="hover:text-green-600">О движении</a>
-          <a href="https://www.facebook.com/profile.php?id=61575821814765" class="hover:text-green-600">Блог</a>
-          <a href="#knowledge" class="hover:text-green-600">База знаний</a>
-          <a href="#projects" class="hover:text-green-600">Проекты</a>
-          <a href="#events" class="hover:text-green-600">События</a>
-          <a href="#contact" class="hover:text-green-600">Контакты</a>
-        </nav>
-      </div>
-    </header>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Waste Management in Haifa</title>
+  <script>
+    function toggleLanguage() {
+      const isRussian = document.getElementById("header-text").dataset.lang === "ru";
+      const header = document.getElementById("header-text");
 
-    <!-- Hero / Home -->
-    <section id="home" class="bg-green-100 py-20"   style="background-image: url('background.jpeg'); background-size: cover; background-position: center;">
-      <div class="max-w-5xl mx-auto px-4 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Сокращаем отходы, поддерживаем сообщество</h2>
+      if (isRussian) {
+        header.textContent = "Reducing Waste, Supporting Community";
+        header.dataset.lang = "en";
+      } else {
+        header.textContent = "Сокращаем отходы, поддерживаем сообщество";
+        header.dataset.lang = "ru";
+      }
+    }
+  </script>
+  <style>
+    .language-switch {
+      cursor: pointer;
+      background-color: #444;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body class="bg-green-100 py-20 text-center">
+
+  <button class="language-switch" onclick="toggleLanguage()">Switch Language</button>
+
+  <h2 id="header-text" data-lang="ru" class="text-3xl md:text-4xl font-bold mb-4 text-white">
+    Сокращаем отходы, поддерживаем сообщество
+  </h2>
+
+</body>
+</html>
+
         <p class="mb-8 text-lg text-white">Городское движение за циркулярную экономику и устойчивое развитие в Хайфе.</p>
         <a href="#projects" class="inline-block bg-green-600 text-white px-6 py-3 rounded-full shadow hover:bg-green-700 transition">Узнать о проектах</a>
       </div>
