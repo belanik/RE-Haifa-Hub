@@ -1,149 +1,27 @@
-<!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RE‑Haifa Hub</title>
-  <!-- Tailwind via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="https://placehold.co/32x32" />
-  <style>
-    .hero-bg {
-      background-image: url('haifa_nof.jpg'), linear-gradient(120deg, #38bdf8 0%, #22c55e 60%, #64748b 100%);
-      background-size: cover, 200% 200%;
-      background-position: center, center;
-      background-repeat: no-repeat, no-repeat;
-    }
-    .pattern-bg {
-      background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg"><ellipse cx="200" cy="100" rx="120" ry="40" fill="%2338bdf8" fill-opacity="0.12"/><ellipse cx="600" cy="60" rx="80" ry="30" fill="%2322c55e" fill-opacity="0.14"/><ellipse cx="400" cy="180" rx="140" ry="20" fill="%2364748b" fill-opacity="0.10"/></svg>');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-  </style>
-</head>
-<body class="font-sans text-gray-800 bg-gray-50">
-
-  <!-- Header -->
-  <header class="bg-white shadow sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
-      <h1 class="text-xl font-bold text-green-600">RE‑Haifa Hub</h1>
-      <a href="index2.html" class="hover:text-green-600">Switch Language</a>
-    </div>
-  </header>
-
-  <!-- Sticky Compact Menu -->
-  <nav class="bg-teal-500 shadow-md py-1 sticky top-[48px] z-40 pattern-bg">
-    <div class="max-w-5xl mx-auto flex justify-center gap-1 flex-wrap">
-      <a href="#home" class="px-2 py-1 rounded text-white hover:bg-green-600 font-semibold transition text-sm">Главная</a>
-      <a href="about_us.html" class="px-2 py-1 rounded text-white hover:bg-green-600 font-semibold transition text-sm">О нас</a>
-      <a href="https://www.facebook.com/profile.php?id=61575821814765" class="px-2 py-1 rounded text-white hover:bg-green-600 font-semibold transition text-sm">Блог</a>
-      <a href="knowledge_base.html" class="px-2 py-1 rounded text-white hover:bg-green-600 font-semibold transition text-sm">База знаний</a>
-      <a href="#projects" class="px-2 py-1 rounded text-white hover:bg-green-600 font-semibold transition text-sm">Проекты</a>
-      <a href="#contact" class="px-2 py-1 rounded text-white hover:bg-green-600 font-semibold transition text-sm">Контакты</a>
-    </div>
-  </nav>
-
-  <!-- Hero Section with abstract background and three buttons -->
-  <div class="max-w-5xl mx-auto px-4 text-center hero-bg py-16 md:py-20 relative mb-2 rounded-xl overflow-hidden shadow-lg">
-    <svg class="absolute left-0 top-0 w-full h-full pointer-events-none" style="z-index:0;" aria-hidden="true" focusable="false">
-      <ellipse cx="15%" cy="20%" rx="80" ry="30" fill="#38bdf8" fill-opacity="0.15"/>
-      <ellipse cx="85%" cy="80%" rx="120" ry="40" fill="#22c55e" fill-opacity="0.10"/>
-      <ellipse cx="60%" cy="45%" rx="100" ry="20" fill="#64748b" fill-opacity="0.09"/>
-    </svg>
-    <div class="relative z-10">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white drop-shadow">
-        RE‑Haifa — это сеть активистов, экспертов и жителей города, которые стремятся сократить количество отходов, развивать циркулярную экономику и поддерживать устойчивое развитие в Хайфе.
-      </h2>
-      <div class="flex justify-center space-x-3">
-        <a href="#projects" class="inline-block bg-teal-600 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-lg font-bold transition">
-          Узнать о проектах
-        </a>
-        <a href="https://forms.gle/CaGatw1zm6Tw6XtQ8" target="_blank" rel="noopener" class="inline-block bg-green-600 hover:bg-teal-700 text-white px-6 py-3 rounded-full shadow-lg font-bold transition">
-          Присоединиться к нам
-        </a>
-        <a href="https://re-haifa-hub.netlify.app/about_us" class="inline-block bg-teal-600 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-lg font-bold transition">
-          О движении
-        </a>
-      </div>
+<!-- ...другой код сохраняется... -->
+<section id="projects" class="py-8 md:py-12 bg-gradient-to-br from-green-50 via-teal-100 to-gray-50 pattern-bg">
+  <div class="max-w-5xl mx-auto px-4">
+    <h3 class="text-xl md:text-2xl font-semibold mb-6 text-center text-green-700">Наши проекты</h3>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <a href="family-eco-school.html" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all border border-sky-100 text-center">
+        <span class="font-semibold text-lg text-blue-700">Family Eco-School</span>
+      </a>
+      <a href="https://github.com/belanik/RE-Haifa-Hub/blob/main/1A%20%20Local%20Resource%20Exchange%20Center.docx" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all border border-sky-100 text-center">
+        <span class="font-semibold text-lg text-blue-700">Local Resource Exchange Center</span>
+      </a>
+      <a href="construction-tool-library.html" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all border border-sky-100 text-center">
+        <span class="font-semibold text-lg text-blue-700">Construction Tool Library</span>
+      </a>
+      <a href="https://github.com/belanik/RE-Haifa-Hub/blob/main/1A%20Neighborhood%20Sharing%20App.docx" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all border border-sky-100 text-center">
+        <span class="font-semibold text-lg text-blue-700">Neighborhood Sharing App</span>
+      </a>
+      <a href="https://github.com/belanik/RE-Haifa-Hub/blob/main/1A%20Organic%20Circular%20Center.docx" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all border border-sky-100 text-center">
+        <span class="font-semibold text-lg text-blue-700">Organic Circular Center</span>
+      </a>
+      <a href="https://github.com/belanik/RE-Haifa-Hub/blob/main/1A%20Toy%20and%20Sport%20equipment%20Library.docx" target="_blank" class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all border border-sky-100 text-center">
+        <span class="font-semibold text-lg text-blue-700">Toy and Sport equipment Library</span>
+      </a>
     </div>
   </div>
-
-  <!-- Секция "О движении" полностью удалена! -->
-
-  <!-- Проекты -->
-  <section id="projects" class="py-8 md:py-12 bg-gradient-to-br from-green-50 via-teal-100 to-gray-50 pattern-bg">
-    <div class="max-w-5xl mx-auto px-4">
-      <h3 class="text-xl md:text-2xl font-semibold mb-6 text-center text-green-700">Наши проекты</h3>
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="bg-white p-5 rounded-lg shadow flex flex-col justify-between min-h-[140px]">
-          <h4 class="font-bold mb-1 text-teal-700">RePair Café Haifa</h4>
-          <p class="text-sm leading-relaxed">Ежемесячные встречи, где мастера помогают бесплатно чинить технику и одежду.</p>
-        </div>
-        <div class="bg-white p-5 rounded-lg shadow flex flex-col justify-between min-h-[140px]">
-          <h4 class="font-bold mb-1 text-teal-700">Swap‑Маркет «Вещам — вторую жизнь»</h4>
-          <p class="text-sm leading-relaxed">Обмен одеждой и бытовыми предметами каждую первую субботу месяца.</p>
-        </div>
-        <div class="bg-white p-5 rounded-lg shadow flex flex-col justify-between min-h-[140px]">
-          <h4 class="font-bold mb-1 text-teal-700">Развиваем циркулярную экономику Хайфе "снизу"</h4>
-          <p class="text-sm leading-relaxed"><a href="Bottom-up-Circular-Economy-in-Haifa-Bay.pdf" class="text-teal-600 hover:underline">Ссылка на файл</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Блог / Новости -->
-  <section id="blog" class="py-8 md:py-12 bg-gradient-to-br from-teal-50 via-green-100 to-gray-50 pattern-bg">
-    <div class="max-w-5xl mx-auto px-4">
-      <h3 class="text-xl md:text-2xl font-semibold mb-6 text-center text-teal-700">Свежие записи блога</h3>
-      <div class="grid gap-4 md:grid-cols-3">
-        <article class="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <h4 class="font-bold mb-1 text-green-700">Как запустить программу foodsharing в соседстве</h4>
-          <p class="text-xs text-gray-600 mb-2">15 апреля 2025</p>
-          <p class="text-sm leading-snug">Пошаговое руководство: от поиска партнёров до логистики распределения продуктов.</p>
-        </article>
-        <article class="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <h4 class="font-bold mb-1 text-green-700">7R‑подход: как применять в повседневной жизни</h4>
-          <p class="text-xs text-gray-600 mb-2">10 апреля 2025</p>
-          <p class="text-sm leading-snug">Refuse, Reduce, Reuse… Практические советы для жителей Хайфы.</p>
-        </article>
-        <article class="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <h4 class="font-bold mb-1 text-green-700">Почему важно раздельно собирать органику</h4>
-          <p class="text-xs text-gray-600 mb-2">5 апреля 2025</p>
-          <p class="text-sm leading-snug">Разбираем, куда отправляется пищевой мусор и как из него делают компост.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- База знаний -->
-  <section id="knowledge" class="py-8 md:py-12 bg-gradient-to-br from-gray-50 via-green-50 to-teal-50 pattern-bg">
-    <div class="max-w-5xl mx-auto px-4">
-      <h3 class="text-xl md:text-2xl font-semibold mb-6 text-center text-teal-700">База знаний</h3>
-      <ul class="list-disc pl-6 space-y-1">
-        <li><a href="sustainability-16-02791-v2 (2).pdf" class="text-teal-600 hover:underline">Статья про RDF </a></li>
-        <li><a href="test.pdf" class="text-teal-600 hover:underline">Евросоюз о расщиренной ответственности производителя</a></li>
-        <li><a href="#" class="text-teal-600 hover:underline">Гид по домашнему компостированию (статья)</a></li>
-        <li><a href="#" class="text-teal-600 hover:underline"> Article 1 (статья)</a></li>
-        <li><a href="#" class="text-teal-600 hover:underline"> Article 2 (статья)</a></li>
-        <li><a href="#" class="text-teal-600 hover:underline">Article 3 (статья)</a></li>
-        <li><a href="#" class="text-teal-600 hover:underline">Интерактивная карта пунктов приёма вторсырья</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Контакты -->
-  <section id="contact" class="py-8 md:py-12 bg-gradient-to-br from-green-100 via-teal-50 to-gray-50 pattern-bg">
-    <div class="max-w-md mx-auto px-4 text-center">
-      <h3 class="text-xl md:text-2xl font-semibold mb-3 text-green-700">Связаться с нами</h3>
-      <p class="mb-4">Пишите на <a href="mailto:info@re‑haifa.org" class="text-teal-700 underline">info@re‑haifa.org</a> или в Telegram @rehaifa.</p>
-      <a href="https://forms.gle/nWkwq7ZTdsms3Ab18" target="_blank" class="inline-block bg-green-600 hover:bg-teal-700 text-white px-5 py-3 rounded-full shadow-lg font-bold transition">Присоединиться к нам</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-white py-3 text-center text-xs text-gray-500">
-    © 2025 RE‑Haifa Hub. Сделано с любовью к городу.
-  </footer>
-</body>
-</html>
+</section>
+<!-- ...остальной код... -->
