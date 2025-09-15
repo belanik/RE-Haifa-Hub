@@ -1,132 +1,201 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RE‑Haifa Hub</title>
-    <!-- Tailwind via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="https://placehold.co/32x32" />
-  </head>
-  <body class="font-sans text-gray-800 bg-gray-50">
-    <header class="bg-white shadow sticky top-0 z-50">
-      
-      <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        <h1 class="text-xl font-bold text-green-600">RE‑Haifa Hub</h1>
-          <a href="index2.html" class="hover:text-green-600">Switch Language</a>
-        <nav class="space-x-4 text-sm md:text-base">
-          <a href="index.html" class="hover:text-green-600">Главная</a>
-          <a href="about_us.html" class="hover:text-green-600">О нас</a>
-          <a href="https://www.facebook.com/profile.php?id=61575821814765" class="hover:text-green-600">Блог</a>
-          <a href="knowledge_base.html" class="hover:text-green-600">База знаний</a>
-          <a href="index.html#projects" class="hover:text-green-600">Проекты</a>
-          <a href="index.html#events" class="hover:text-green-600">События</a>
-          <a href="index.html#contact" class="hover:text-green-600">Контакты</a>
-        </nav>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Наша команда — RE Haifa Hub</title>
+  <meta name="description" content="Команда RE Haifa Hub — опытные специалисты в области устойчивого развития и экологии.">
+  <style>
+    body { margin:0; font-family:Arial,sans-serif; background:#f7fafc; color:#223; }
+    header {
+      background: #1677ff url('about_us.jpg') center center/cover no-repeat;
+      color: #fff;
+      padding: 3.5rem 0 2.5rem 0;
+      text-align: center;
+      position: relative;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      margin:0 0 0.4em 0;
+      font-size:2.7em;
+      letter-spacing:2px;
+      text-shadow: 0 3px 16px #000c;
+    }
+    header p {
+      margin:0 0 0.6em 0;
+      font-size:1.2em;
+      text-shadow: 0 2px 8px #000b;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .back-link {
+      display:inline-block;
+      background:#e9f4ff;
+      color:#1677ff;
+      border-radius:8px;
+      padding: 0.4em 1.1em;
+      margin: 1.5em 0 0 0;
+      transition: background 0.2s;
+      text-decoration:none;
+      font-size:1.05em;
+      font-weight: 500;
+    }
+    .back-link:hover { background:#d2eaff; }
+    main { max-width:1100px; margin:2rem auto; background:#fff; border-radius:12px; box-shadow:0 4px 16px #90cdf4cc; padding:2rem 2.5rem; }
+    .team-grid { display: grid; gap: 2em; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); margin-top: 2em; }
+    .team-member {
+      background: #f7fafc;
+      border-radius: 12px;
+      padding: 1.5em;
+      text-align: center;
+      border: 1px solid #e0eafb;
+      transition: box-shadow 0.2s, border 0.2s;
+    }
+    .team-member:hover {
+      box-shadow: 0 4px 18px #90cdf4cc;
+      border-color: #1677ff;
+    }
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1em;
+      border: 3px solid #e0eafb;
+    }
+    .team-member h3 {
+      color: #1677ff;
+      margin: 0 0 0.5em 0;
+      font-size: 1.25em;
+    }
+    .team-member .title {
+      color: #666;
+      font-size: 0.9em;
+      margin-bottom: 1em;
+      font-style: italic;
+    }
+    .team-member .details {
+      text-align: left;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    .team-member .details p {
+      margin-bottom: 0.8em;
+    }
+    .team-member .details strong {
+      color: #1677ff;
+    }
+    .team-member .details a {
+      color: #1677ff;
+      text-decoration: underline;
+    }
+    .team-member .details a:hover {
+      color: #0056d3;
+    }
+    @media (max-width:600px) {
+      header { padding:2em 0 1.2em 0; }
+      header h1 { font-size:1.7em; }
+      main { padding:1em 0.3em; }
+      .team-grid { grid-template-columns: 1fr; gap: 1.5em; }
+      .team-member { padding: 1em; }
+    }
+    footer { text-align:center; color:#789; font-size:0.96em; margin:2.5em 0 1em 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Наша команда</h1>
+    <p>Опытные специалисты в области устойчивого развития, экологии и социального предпринимательства</p>
+    <a class="back-link" href="index.html">&larr; Вернуться на главную</a>
+  </header>
+  
+  <main>
+    <div class="team-grid">
+      <!-- Бэла Никитина -->
+      <div class="team-member">
+        <img src="bela.jpg" alt="Бэла Никитина">
+        <h3>Бэла Никитина</h3>
+        <div class="title">Социолог-инвайронменталист, PhD</div>
+        <div class="details">
+          <p><strong>Области специализации:</strong> Устойчивое развитие, управление отходами, эколого-экономическое планирование, государственное и муниципальное управление, экологический менеджмент, просвещение в сфере circular economy.</p>
+          <p><strong>Предыдущий профессиональный опыт в проектной области:</strong> Более 20 лет опыта в сфере устойчивого развития и управления отходами в России. Автор монографий и публикаций по вопросам circular economy и экологического менеджмента. Руководитель общественных экспертных групп по оценке экологической безопасности инфраструктурных проектов. Преподавала экологический менеджмент и экономику природопользования для студентов и специалистов.</p>
+          <p><strong>Опыт работы с региональными органами власти, учреждениями или организациями:</strong> 15 лет была членом общественного экспертного совета при Министерстве финансов Самарской области. Участвовала в разработке региональных программ по обращению с отходами, бюджетированию в сфере охраны окружающей среды, сотрудничала с органами власти и промышленными предприятиями в рамках экологической экспертизы и внедрения устойчивых решений.</p>
+        </div>
       </div>
-    </header>
-  </body>
-</html>
-    </section>
-<!Здесь кончается хедер>
 
-    <section id="about" class="py-16 bg-gray-100">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <section id="home" class="bg-green-100 py-20" style="background-image: url('about_us.jpg'); background-size: cover; background-position: center;margin-bottom: 40px;">
-    <div><h2 class="inline-block text-3xl text-white font-bold mb-12 bg-gray-800/50 px-3 py-1 rounded">О нас</h2></div>
-<p class="text-700 text-white max-w-2xl mx-auto mb-12 text-base inline-block bg-gray-800/50 px-3 py-1 rounded">
-  RE‑Haifa — это сеть активистов, экспертов и жителей города, которые стремятся сократить количество отходов, продвигать повторное использование и развивать экологическое просвещение. Мы организуем мастер‑классы, свопы, RePair Café и работаем с муниципалитетом над системными решениями.
-    </p></section>
-    <div class="grid gap-10 sm:grid-cols-1 md:grid-cols-2">
-
-  <!-- Бэла Никитина -->
-  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
-    <img src="bela.jpg" alt="Бэла Никитина" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-    <h3 class="text-xl font-semibold text-center">
-      Бэла Никитина<br>
-      <span class="text-sm font-normal">Социолог-инвайронменталист, PhD</span>
-    </h3>
-    <div class="text-gray-700 text-sm mt-4 space-y-3">
-      <p><strong>Области специализации:</strong> Устойчивое развитие, управление отходами, эколого-экономическое планирование, государственное и муниципальное управление, экологический менеджмент, просвещение в сфере circular economy.</p>
-      <p><strong>Предыдущий профессиональный опыт в проектной области:</strong> Более 20 лет опыта в сфере устойчивого развития и управления отходами в России. Автор монографий и публикаций по вопросам circular economy и экологического менеджмента. Руководитель общественных экспертных групп по оценке экологической безопасности инфраструктурных проектов. Преподавала экологический менеджмент и экономику природопользования для студентов и специалистов.</p>
-      <p><strong>Опыт работы с региональными органами власти, учреждениями или организациями:</strong> 15 лет была членом общественного экспертного совета при Министерстве финансов Самарской области. Участвовала в разработке региональных программ по обращению с отходами, бюджетированию в сфере охраны окружающей среды, сотрудничала с органами власти и промышленными предприятиями в рамках экологической экспертизы и внедрения устойчивых решений.</p>
-    </div>
-  </div>
-
-  <!-- Анна Зив -->
-  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
-    <img src="anna.jpg" alt="Анна Зив" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-    <h3 class="text-xl font-semibold text-center">Анна Зив</h3>
-    <div class="text-gray-700 text-sm mt-4 space-y-3">
-      <p><strong>Области специализации:</strong> Экологическое просвещение, устойчивое потребление, организация и проведение экологических мероприятий, развитие городских сообществ, межсекторное взаимодействие, управление волонтёрскими проектами.</p>
-      <p><strong>Профессиональный опыт:</strong> Основатель и координатор инициативы GreenMove, направленной на продвижение экологичного образа жизни. Организатор и ведущая мастер-классов, акций по раздельному сбору отходов и образовательных мероприятий. Активно использует соцсети для продвижения экологических тем.</p>
-      <p><strong>Опыт работы с организациями:</strong> Сотрудничала с муниципальными учреждениями и образовательными организациями. Работала с НКО и сообществами по программам экологического просвещения и вовлечения населения.</p>
-    </div>
-  </div>
-
-  <!-- Елена Купцова -->
-  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
-    <img src="elena.jpg" alt="Елена Купцова" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-    <h3 class="text-xl font-semibold text-center">
-      Елена Купцова<br>
-      <span class="text-sm font-normal">Социолог-инвайронменталист, PhD</span>
-    </h3>
-    <div class="text-gray-700 text-sm mt-4 space-y-3">
-      <p><strong>Области специализации:</strong> Экономика устойчивого развития, эколого-экономическое моделирование, региональное развитие, экологическое просвещение, ЗОЖ, коучинг и обучение взрослых.</p>
-      <p><strong>Профессиональный опыт:</strong> Доктор экономических наук, более 20 лет опыта в преподавании, коучинге и консалтинге. Автор диссертации по региональным системам экологического жизнеобеспечения. Руководила грантами ЕС, вела тренинги по устойчивому развитию.</p>
-      <p><strong>Опыт работы с организациями:</strong> Руководитель проекта ЕС в Херсоне, сотрудничала с Академией наук и НКО. В Израиле активно участвует в волонтёрской и просветительской деятельности (Хайфа, Ришон-ле-Цион), помогает НКО в маркетинге и бухгалтерии.</p>
-    </div>
-  </div>
-
-  <!-- Александра Цейтлина -->
-  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
-    <img src="alex.jpg" alt="Александра Цейтлина" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-    <h3 class="text-xl font-semibold text-center">Александра Цейтлина</h3>
-    <div class="text-gray-700 text-sm mt-4 space-y-3">
-      <p><strong>Области специализации:</strong> Биоэкология, экологическое образование, устойчивое развитие, инклюзивное природоохранное проектирование, общественный мониторинг, экологическая аналитика и визуализация данных.</p>
-      <p><strong>Профессиональный опыт:</strong> Более 15 лет в сфере охраны природы. Координатор проектов WWF, Kolarctic CBC, разработчик инициатив по биоразнообразию, водорослям и устойчивому туризму. Эксперт по отчётности и коммуникации с НКО.</p>
-      <p><strong>Опыт работы с организациями:</strong> Сотрудничала с Росприроднадзором, Минприроды Мурманской области, заповедниками, музеями и НКО.</p>
-    </div>
-  </div>
-
-  <!-- Екатерина Бирюкова -->
-  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
-    <img src="ekat.jpg" alt="Екатерина Бирюкова" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-    <h3 class="text-xl font-semibold text-center">Екатерина Бирюкова</h3>
-    <div class="text-gray-700 text-sm mt-4 space-y-3">
-      <p><strong>Области специализации:</strong> Экологическое просвещение, устойчивое потребление, культурные инициативы, реставрация, экологические коммуникации и медиа.</p>
-      <p><strong>Профессиональный опыт:</strong> Сооснователь проекта «Раздельный сбор — Раменское», автор проекта <a href="https://horlovo.ru/news/voskresensk/item/2285-proekt-muzej-istorii-musora-mozhet-realizovatsya-v-tsibino" class="text-blue-600 underline hover:text-blue-800">«Музей Мусора»</a>, лауреат премии Подмосковья. Проект приостановлен из-за военных событий.</p>
-      <p><strong>Опыт работы с организациями:</strong> Сотрудничала с муниципальными администрациями, школами, библиотеками и НКО. Развивает экопросвещение и медиа в соцсетях.</p>
-    </div>
-  </div>
-
-  <!-- Татьяна Фрумина -->
-  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
-    <img src="tatyana.jpg" alt="Татьяна Фрумина" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-    <h3 class="text-xl font-semibold text-center">Татьяна Фрумина<br><span class="text-sm font-normal">Социальный активист, волонтёр</span></h3>
-    <div class="text-gray-700 text-sm mt-4 space-y-3">
-      <p><strong>Опыт в России:</strong> Занималась обеспечением доступности транспорта и инфраструктуры, взаимодействовала с муниципальными властями, организовала локальное сообщество из 1000+ участников.</p>
-      <p><strong>Опыт в Израиле:</strong> Прошла курс социального активизма в Хайфе, участвовала в экологических круглых столах, организовывала Swap Market, формирует культуру устойчивости.</p>
-    </div>
-  </div>
-
-</div>
-    
-    </div>
-  </div>
-</section>
-    <!-- Contact -->
-    <section id="contact" class="py-16 bg-green-100">
-      <div class="max-w-md mx-auto px-4 text-center">
-        <h3 class="text-2xl font-semibold mb-4">Связаться с нами</h3>
-        <p class="mb-6">Пишите на <a href="mailto:info@re‑haifa.org" class="text-green-700 underline">info@re‑haifa.org</a> или в Telegram @rehaifa.</p>
-        <a href="https://forms.gle/nWkwq7ZTdsms3Ab18" target="_blank" class="inline-block bg-green-600 text-white px-6 py-3 rounded-full shadow hover:bg-green-700 transition">Стать волонтёром</a>
+      <!-- Анна Зив -->
+      <div class="team-member">
+        <img src="anna.jpg" alt="Анна Зив">
+        <h3>Анна Зив</h3>
+        <div class="details">
+          <p><strong>Области специализации:</strong> Экологическое просвещение, устойчивое потребление, организация и проведение экологических мероприятий, развитие городских сообществ, межсекторное взаимодействие, управление волонтёрскими проектами.</p>
+          <p><strong>Профессиональный опыт:</strong> Основатель и координатор инициативы GreenMove, направленной на продвижение экологичного образа жизни. Организатор и ведущая мастер-классов, акций по раздельному сбору отходов и образовательных мероприятий. Активно использует соцсети для продвижения экологических тем.</p>
+          <p><strong>Опыт работы с организациями:</strong> Сотрудничала с муниципальными учреждениями и образовательными организациями. Работала с НКО и сообществами по программам экологического просвещения и вовлечения населения.</p>
+        </div>
       </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-white py-4 text-center text-sm text-gray-500">
-      © 2025 RE‑Haifa Hub. Сделано с любовью к городу.
-    </footer>
-  </body>
+      <!-- Елена Купцова -->
+      <div class="team-member">
+        <img src="elena.jpg" alt="Елена Купцова">
+        <h3>Елена Купцова</h3>
+        <div class="title">Социолог-инвайронменталист, PhD</div>
+        <div class="details">
+          <p><strong>Области специализации:</strong> Экономика устойчивого развития, эколого-экономическое моделирование, региональное развитие, экологическое просвещение, ЗОЖ, коучинг и обучение взрослых.</p>
+          <p><strong>Профессиональный опыт:</strong> Доктор экономических наук, более 20 лет опыта в преподавании, коучинге и консалтинге. Автор диссертации по региональным системам экологического жизнеобеспечения. Руководила грантами ЕС, вела тренинги по устойчивому развитию.</p>
+          <p><strong>Опыт работы с организациями:</strong> Руководитель проекта ЕС в Херсоне, сотрудничала с Академией наук и НКО. В Израиле активно участвует в волонтёрской и просветительской деятельности (Хайфа, Ришон-ле-Цион), помогает НКО в маркетинге и бухгалтерии.</p>
+        </div>
+      </div>
+
+      <!-- Александра Цейтлина -->
+      <div class="team-member">
+        <img src="alex.jpg" alt="Александра Цейтлина">
+        <h3>Александра Цейтлина</h3>
+        <div class="details">
+          <p><strong>Области специализации:</strong> Биоэкология, экологическое образование, устойчивое развитие, инклюзивное природоохранное проектирование, общественный мониторинг, экологическая аналитика и визуализация данных.</p>
+          <p><strong>Профессиональный опыт:</strong> Более 15 лет в сфере охраны природы. Координатор проектов WWF, Kolarctic CBC, разработчик инициатив по биоразнообразию, водорослям и устойчивому туризму. Эксперт по отчётности и коммуникации с НКО.</p>
+          <p><strong>Опыт работы с организациями:</strong> Сотрудничала с Росприроднадзором, Минприроды Мурманской области, заповедниками, музеями и НКО.</p>
+        </div>
+      </div>
+
+      <!-- Екатерина Бирюкова -->
+      <div class="team-member">
+        <img src="ekat.jpg" alt="Екатерина Бирюкова">
+        <h3>Екатерина Бирюкова</h3>
+        <div class="details">
+          <p><strong>Области специализации:</strong> Экологическое просвещение, устойчивое потребление, культурные инициативы, реставрация, экологические коммуникации и медиа.</p>
+          <p><strong>Профессиональный опыт:</strong> Сооснователь проекта «Раздельный сбор — Раменское», автор проекта <a href="https://horlovo.ru/news/voskresensk/item/2285-proekt-muzej-istorii-musora-mozhet-realizovatsya-v-tsibino">«Музей Мусора»</a>, лауреат премии Подмосковья. Проект приостановлен из-за военных событий.</p>
+          <p><strong>Опыт работы с организациями:</strong> Сотрудничала с муниципальными администрациями, школами, библиотеками и НКО. Развивает экопросвещение и медиа в соцсетях.</p>
+        </div>
+      </div>
+
+      <!-- Татьяна Фрумина -->
+      <div class="team-member">
+        <img src="tatyana.jpg" alt="Татьяна Фрумина">
+        <h3>Татьяна Фрумина</h3>
+        <div class="title">Социальный активист, волонтёр</div>
+        <div class="details">
+          <p><strong>Опыт в России:</strong> Занималась обеспечением доступности транспорта и инфраструктуры, взаимодействовала с муниципальными властями, организовала локальное сообщество из 1000+ участников.</p>
+          <p><strong>Опыт в Израиле:</strong> Прошла курс социального активизма в Хайфе, участвовала в экологических круглых столах, организовывала Swap Market, формирует культуру устойчивости.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    &copy; RE Haifa Hub, 2025 &mdash; Экология, обмен и сообщество в Хайфе
+  </footer>
+</body>
 </html>
