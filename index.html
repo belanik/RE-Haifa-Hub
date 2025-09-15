@@ -7,13 +7,53 @@
   <meta name="description" content="RE Haifa Hub — проекты устойчивого развития, обмена ресурсами и экологии в Хайфе.">
   <style>
     body { margin:0; font-family:Arial,sans-serif; background:#f7fafc; color:#223; }
-    header { background:#1677ff; color:#fff; padding:2rem 0 1rem 0; text-align:center; }
-    header h1 { margin:0 0 0.5em 0; font-size:2.3em; letter-spacing:2px; }
-    header p { margin:0; font-size:1.2em; }
+    header {
+      background: #1677ff url('haifa_nof.jpg') center center/cover no-repeat;
+      color: #fff;
+      padding: 3.5rem 0 2.5rem 0;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      margin:0 0 0.4em 0;
+      font-size:2.7em;
+      letter-spacing:2px;
+      text-shadow: 0 3px 16px #000c;
+    }
+    header p {
+      margin:0 0 0.6em 0;
+      font-size:1.2em;
+      text-shadow: 0 2px 8px #000b;
+    }
     nav { margin-top:1em; }
     nav a { color: #f0f8ff; text-decoration:underline; margin: 0 1em; }
+    .facebook-link {
+      display:inline-block;
+      background:#e9f4ff;
+      color:#1677ff;
+      border-radius:8px;
+      padding: 0.4em 1.1em;
+      margin: 1.5em 0 0 0;
+      transition: background 0.2s;
+      text-decoration:none;
+      font-size:1.05em;
+      font-weight: 500;
+    }
+    .facebook-link:hover { background:#d2eaff; }
     main { max-width:900px; margin:2rem auto; background:#fff; border-radius:12px; box-shadow:0 4px 16px #90cdf4cc; padding:2rem 2.5rem; }
-    section { margin-bottom:2.5em; }
+    .about-card {
+      background: #1677ff;
+      color: #fff;
+      border-radius: 14px;
+      max-width: 760px;
+      margin: 2em auto 2.5em auto;
+      padding: 1.2em 2em;
+      font-size: 1.15em;
+      font-weight: 500;
+      line-height: 1.6;
+      text-align: center;
+      box-shadow:0 2px 10px #90cdf4cc;
+    }
     h2 { color:#1677ff; margin-top:0; }
     .projects-grid { display:grid; gap:1.3em; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
     .project-card {
@@ -22,52 +62,19 @@
     }
     .project-card:hover { box-shadow:0 4px 18px #90cdf4cc; border-color:#1677ff; }
     .project-card span { font-weight:600; color:#1677ff; font-size:1.07em; }
-    .about-card {
-      max-width: 760px;
-      margin: 2em auto 2.5em auto;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px #90cdf4cc;
-      position: relative;
-      background: #222;
-      color: #fff;
-      min-height: 340px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .about-card-bg {
-      background: url('haifa_nof.jpg') center center/cover no-repeat;
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      opacity: 1;
-      filter: brightness(1.08) contrast(1.13) saturate(1.15);
-      z-index: 0;
-      transition: filter .3s;
-    }
-    .about-card-content {
-      position: relative;
-      z-index: 1;
-      padding: 2.5em 2em;
-      text-align: center;
-      font-size: 1.22em;
+    .contacts a, .facebook-link {
+      color: #1677ff;
+      text-decoration:underline;
+      margin: 0 1.2em 0 0;
       font-weight: 500;
-      line-height: 1.5;
-      background: rgba(255,255,255,0.85);
-      color: #223;
-      border-radius: 18px;
-      box-shadow: 0 2px 18px #fff8;
-      text-shadow: 0 2px 8px #fff, 0 1px 2px #eee;
-      max-width: 90%;
-      margin: 0 auto;
     }
     @media (max-width:600px) {
+      header { padding:2em 0 1.2em 0; }
+      header h1 { font-size:1.7em; }
+      .about-card { padding: 1em 0.4em; font-size: 1em;}
       main { padding:1em 0.3em; }
-      .about-card-content { padding: 1.2em 0.7em; font-size: 1em; }
-      .about-card { min-height: 220px; }
     }
     footer { text-align:center; color:#789; font-size:0.96em; margin:2.5em 0 1em 0; }
-    .contacts a { color:#1677ff; text-decoration:underline; margin:0 1.2em; }
   </style>
 </head>
 <body>
@@ -79,14 +86,14 @@
       <a href="#projects">Наши проекты</a>
       <a href="#contacts">Контакты</a>
     </nav>
+    <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Мы на Facebook</a>
   </header>
   <main>
-    <div class="about-card">
-      <div class="about-card-bg"></div>
-      <div class="about-card-content">
+    <section id="about">
+      <div class="about-card">
         Движение RE Haifa — это инициативная платформа, объединяющая жителей Хайфы для обмена знаниями, опытом и ресурсами. Мы создаём экосистему локальных проектов, направленных на устойчивое развитие, сокращение отходов и поддержку экологических инициатив в нашем городе. Присоединяйтесь к нам — вместе мы сможем больше!
       </div>
-    </div>
+    </section>
 
     <section id="projects">
       <h2>Наши проекты</h2>
@@ -118,6 +125,7 @@
         <a href="mailto:info@re-haifa-hub.org">info@re-haifa-hub.org</a>
         <a href="https://t.me/rehaifahub" target="_blank">Telegram</a>
         <a href="https://github.com/belanik/RE-Haifa-Hub" target="_blank">GitHub</a>
+        <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Мы на Facebook</a>
       </div>
     </section>
   </main>
