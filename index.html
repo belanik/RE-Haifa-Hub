@@ -25,8 +25,6 @@
       font-size:1.2em;
       text-shadow: 0 2px 8px #000b;
     }
-    nav { margin-top:1em; }
-    nav a { color: #f0f8ff; text-decoration:underline; margin: 0 1em; }
     .facebook-link {
       display:inline-block;
       background:#e9f4ff;
@@ -41,6 +39,8 @@
     }
     .facebook-link:hover { background:#d2eaff; }
     main { max-width:900px; margin:2rem auto; background:#fff; border-radius:12px; box-shadow:0 4px 16px #90cdf4cc; padding:2rem 2.5rem; }
+    .section-block { margin-bottom:2.8em; }
+    .section-block h2 { color:#1677ff; margin-top:0; margin-bottom:1.1em; font-size:1.42em;}
     .about-card {
       background: #1677ff;
       color: #fff;
@@ -54,11 +54,26 @@
       text-align: center;
       box-shadow:0 2px 10px #90cdf4cc;
     }
-    h2 { color:#1677ff; margin-top:0; }
+    .events-list, .partners-list {
+      padding: 0;
+      margin: 0 0 1.1em 0;
+      list-style: none;
+      font-size: 1.07em;
+    }
+    .events-list li, .partners-list li {
+      margin-bottom: 0.55em;
+      background: #f0f8ff;
+      padding: 0.7em 1.1em;
+      border-radius: 8px;
+      box-shadow: 0 1px 5px #e0eafb;
+      display: inline-block;
+    }
     .projects-grid { display:grid; gap:1.3em; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
     .project-card {
       background:#f7fafc; border-radius:10px; border:1.5px solid #e0eafb; box-shadow:0 1px 5px #e0eafb;
       padding:1.2em 1em; text-align:center; transition:box-shadow .2s,border .2s;
+      text-decoration: none;
+      color: #223;
     }
     .project-card:hover { box-shadow:0 4px 18px #90cdf4cc; border-color:#1677ff; }
     .project-card span { font-weight:600; color:#1677ff; font-size:1.07em; }
@@ -73,6 +88,7 @@
       header h1 { font-size:1.7em; }
       .about-card { padding: 1em 0.4em; font-size: 1em;}
       main { padding:1em 0.3em; }
+      .events-list li, .partners-list li { display:block; }
     }
     footer { text-align:center; color:#789; font-size:0.96em; margin:2.5em 0 1em 0; }
   </style>
@@ -81,22 +97,27 @@
   <header>
     <h1>RE Haifa Hub</h1>
     <p>Городской центр обмена ресурсами, экопросвещения и устойчивого развития в Хайфе</p>
-    <nav>
-      <a href="#about">О проекте</a>
-      <a href="#projects">Наши проекты</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
     <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Мы на Facebook</a>
   </header>
   <main>
     <section id="about">
       <div class="about-card">
-        Движение RE Haifa — это инициативная платформа, объединяющая жителей Хайфы для обмена знаниями, опытом и ресурсами. Мы создаём экосистему локальных проектов, направленных на устойчивое развитие, сокращение отходов и поддержку экологических инициатив в нашем городе. Присоединяйтесь к нам — вместе мы сможем больше!
+        Движение RE Haifa — инициативная платформа, объединяющая жителей Хайфы для обмена знаниями, опытом и ресурсами. Мы создаём экосистему локальных проектов, направленных на устойчивое развитие, сокращение отходов и поддержку экологических инициатив в нашем городе. Присоединяйтесь к нам — вместе мы сможем больше!
       </div>
     </section>
 
-    <section id="projects">
-      <h2>Наши проекты</h2>
+    <section class="section-block">
+      <h2>Текущие мероприятия</h2>
+      <ul class="events-list">
+        <li>Зеленый фестиваль</li>
+        <li>Круглый стол по рециклингу мебели</li>
+        <li>Маленькие герои — обмен игрушками</li>
+        <li>Обмен бижутерией</li>
+      </ul>
+    </section>
+
+    <section class="section-block" id="projects">
+      <h2>Проекты в работе</h2>
       <div class="projects-grid">
         <a href="family-eco-school.html" class="project-card">
           <span>Family Eco-School</span>
@@ -104,19 +125,29 @@
         <a href="construction-tool-library.html" class="project-card">
           <span>Construction Tool Library</span>
         </a>
-        <a href="https://github.com/belanik/RE-Haifa-Hub/blob/main/1A%20%20Local%20Resource%20Exchange%20Center.docx" target="_blank" class="project-card">
+        <a href="https://github.com/belanik/RE-Haifa-Hub/raw/main/1A%20%20Local%20Resource%20Exchange%20Center.docx" class="project-card" target="_blank">
           <span>Local Resource Exchange Center</span>
         </a>
-        <a href="https://github.com/belanik/RE-Haifa-Hub/blob/main/1A%20Neighborhood%20Sharing%20App.docx" target="_blank" class="project-card">
+        <a href="https://github.com/belanik/RE-Haifa-Hub/raw/main/1A%20Neighborhood%20Sharing%20App.docx" class="project-card" target="_blank">
           <span>Neighborhood Sharing App</span>
         </a>
-        <a href="https://github.com/belanik/RE-Haifa-Hub/blob/main/1A%20Organic%20Circular%20Center.docx" target="_blank" class="project-card">
+        <a href="https://github.com/belanik/RE-Haifa-Hub/raw/main/1A%20Organic%20Circular%20Center.docx" class="project-card" target="_blank">
           <span>Organic Circular Center</span>
         </a>
-        <a href="https://github.com/belanik/RE-Haifa-Hub/blob/main/1A%20Toy%20and%20Sport%20equipment%20Library.docx" target="_blank" class="project-card">
+        <a href="https://github.com/belanik/RE-Haifa-Hub/raw/main/1A%20Toy%20and%20Sport%20equipment%20Library.docx" class="project-card" target="_blank">
           <span>Toy and Sport Equipment Library</span>
         </a>
       </div>
+    </section>
+
+    <section class="section-block" id="partners">
+      <h2>Наши взаимодействия с органами власти и партнёрами</h2>
+      <ul class="partners-list">
+        <li>Муниципалитет Хайфы</li>
+        <li>Экологические организации</li>
+        <li>Образовательные учреждения</li>
+        <li>Бизнес-партнёры и волонтёры</li>
+      </ul>
     </section>
 
     <section id="contacts">
