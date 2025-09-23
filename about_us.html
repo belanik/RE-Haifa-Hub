@@ -7,10 +7,35 @@
     <!-- Tailwind via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="https://placehold.co/32x32" />
+    <style>   header {
+  background: rgba(67,160,71,0.85) url('haifa_nof.jpg') center center/cover no-repeat;
+  color: #fff;
+  padding: 3.5rem 0 2.5rem 0;
+  text-align: center;
+}
+header h1 {
+  margin: 0 0 0.4em 0;
+  font-size: 2.7em;
+  letter-spacing: 2px;
+  text-shadow: 0 3px 16px #000c;
+}
+header p {
+  margin: 0 0 0.6em 0;
+  font-size: 1.2em;
+  text-shadow: 0 2px 8px #000b;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  header { padding: 2em 0 1.2em 0; }
+  header h1 { font-size: 1.6em; letter-spacing: 1px; }
+  header p { font-size: 1em; }
+} </style>
   </head>
+  
   <body class="font-sans text-gray-800 bg-gray-50">
     <header class="bg-white shadow sticky top-0 z-50">
-      
+  
       <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <h1 class="text-xl font-bold text-green-600">RE‑Haifa Hub</h1>
           <a href="index2.html" class="hover:text-green-600">Switch Language</a>
