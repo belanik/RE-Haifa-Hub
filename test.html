@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Dropout Side Menu Example</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body {
+      margin:0; font-family:Arial,sans-serif;
+      background:#f7fafc; color:#223;
+    }
+
+    header {
+      background: rgba(67,160,71,0.85);
+      color: #fff;
+      padding: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 { margin:0; font-size:1.5em; }
+
+    /* Menu button */
+    .menu-btn {
+      font-size: 1.8em;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: #fff;
+    }
+
+    /* Side menu */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1200;
+      top: 0;
+      left: 0;
+      background-color: rgba(67,160,71,0.95);
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 3rem;
+    }
+    .side-menu a {
+      display: block;
+      padding: 0.8em 1.2em;
+      text-decoration: none;
+      font-size: 1.2em;
+      color: #fff;
+      transition: background 0.2s;
+    }
+    .side-menu a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .side-menu .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2em;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main { padding: 2rem; }
+
+    /* Desktop view: show as sidebar */
+    @media (min-width: 800px) {
+      .side-menu {
+        width: 220px;
+        padding-top: 2rem;
+      }
+      .side-menu a { font-size: 1.05em; }
+      .menu-btn, .close-btn { display: none; }
+      main { margin-left: 220px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Eco Site</h1>
+    <button class="menu-btn" onclick="openMenu()">☰</button>
+  </header>
+
+  <nav id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">×</a>
+    <a href="index.html">🏡 Главная</a>
+    <a href="projects.html">🌿 Проекты</a>
+    <a href="events.html">📅 События</a>
+    <a href="about.html">ℹ️ О нас</a>
+    <a href="contacts.html">📬 Контакты</a>
+  </nav>
+
+  <main>
+    <h2>Добро пожаловать!</h2>
+    <p>Это пример с выпадающим боковым меню, которое работает и на смартфоне, и на компьютере.</p>
+  </main>
+
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "250px";
+    }
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0";
+    }
+  </script>
+</body>
+</html>
