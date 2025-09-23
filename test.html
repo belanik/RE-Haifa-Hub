@@ -52,7 +52,7 @@
       background: rgba(46,125,50,0.95);
     }
 
-    /* Side menu */
+    /* Side menu (overlay style) */
     .side-menu {
       height: 100%;
       width: 0;
@@ -77,7 +77,7 @@
       background: rgba(255,255,255,0.2);
     }
 
-    /* Main content */
+    /* Main content (always centered) */
     main {
       max-width:900px;
       margin:2rem auto;
@@ -85,7 +85,6 @@
       border-radius:12px;
       box-shadow:0 4px 16px rgba(67,160,71,0.25);
       padding:2rem 2.5rem;
-      transition: margin-left .3s;
       z-index: 0;
       position: relative;
     }
@@ -205,7 +204,7 @@
     <a href="#contacts">📬 Контакты</a>
   </nav>
 
-  <main id="mainContent">
+  <main>
     <section id="about">
       <div class="about-card">
         Движение RE Haifa — инициативная платформа, объединяющая жителей Хайфы для обмена знаниями, опытом и ресурсами ради устойчивого будущего города.
@@ -265,45 +264,12 @@
   <script>
     function toggleMenu() {
       const menu = document.getElementById("sideMenu");
-      const main = document.getElementById("mainContent");
-
-      if (menu.style.width === "220px" || menu.style.width === "250px") {
+      if (menu.style.width === "250px" || menu.style.width === "220px") {
         menu.style.width = "0";
-        main.style.marginLeft = "0";
       } else {
-        if (window.innerWidth >= 800) {
-          menu.style.width = "220px";
-          main.style.marginLeft = "220px";
-        } else {
-          menu.style.width = "250px";
-        }
+        menu.style.width = "250px";
       }
     }
-
-    // Default: open on desktop
-    window.addEventListener("load", () => {
-      const menu = document.getElementById("sideMenu");
-      const main = document.getElementById("mainContent");
-      if (window.innerWidth >= 800) {
-        menu.style.width = "220px";
-        main.style.marginLeft = "220px";
-      }
-    });
-
-    // Adjust on resize
-    window.addEventListener("resize", () => {
-      const menu = document.getElementById("sideMenu");
-      const main = document.getElementById("mainContent");
-      if (window.innerWidth < 800) {
-        main.style.marginLeft = "0";
-        if (menu.style.width === "220px") menu.style.width = "0";
-      } else {
-        if (menu.style.width !== "0px") {
-          menu.style.width = "220px";
-          main.style.marginLeft = "220px";
-        }
-      }
-    });
   </script>
 </body>
 </html>
