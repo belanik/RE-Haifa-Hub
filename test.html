@@ -20,7 +20,7 @@
       margin:0; font-size:1.5em;
     }
 
-    /* Menu button always fixed in corner */
+    /* Menu button always visible */
     .menu-btn {
       position: fixed;
       top: 15px; left: 15px;
@@ -29,4 +29,49 @@
       border: none;
       background: rgba(67,160,71,0.85);
       color: #fff;
-      border-radius
+      border-radius: 6px;
+      padding: 0.2em 0.5em;
+      z-index: 1501;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .menu-btn:hover {
+      background: rgba(46,125,50,0.95);
+    }
+
+    /* Side menu */
+    .side-menu {
+      height: 100%;
+      width: 0; /* default closed on mobile */
+      position: fixed;
+      z-index: 1200;
+      top: 0;
+      left: 0;
+      background-color: rgba(67,160,71,0.95);
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 3rem;
+    }
+    .side-menu a {
+      display: block;
+      padding: 0.8em 1.2em;
+      text-decoration: none;
+      font-size: 1.2em;
+      color: #fff;
+      transition: background 0.2s;
+    }
+    .side-menu a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    /* Desktop view: menu always open */
+    @media (min-width: 800px) {
+      .side-menu {
+        width: 220px !important; /* force menu open */
+        padding-top: 2rem;
+      }
+      main {
+        margin-left: 220px; /* push content*
