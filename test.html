@@ -20,6 +20,7 @@
       padding: 3.5rem 0 2.5rem 0;
       text-align: center;
       position: relative;
+      z-index: 1;
     }
     header h1 {
       margin:0 0 0.4em 0;
@@ -33,7 +34,7 @@
       text-shadow: 0 2px 8px #000b;
     }
 
-    /* Side menu */
+    /* Menu button */
     .menu-btn {
       position: fixed;
       top: 15px; left: 15px;
@@ -45,4 +46,268 @@
       border-radius: 6px;
       padding: 0.2em 0.5em;
       z-index: 1501;
-      box-shadow: 0 2px 8px rgba(0
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .menu-btn:hover {
+      background: rgba(46,125,50,0.95);
+    }
+
+    /* Side menu */
+    .side-menu {
+      height: 100%;
+      width: 0; /* closed on mobile by default */
+      position: fixed;
+      z-index: 1200;
+      top: 0;
+      left: 0;
+      background-color: rgba(67,160,71,0.95);
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 3rem;
+    }
+    .side-menu a {
+      display: block;
+      padding: 0.8em 1.2em;
+      text-decoration: none;
+      font-size: 1.2em;
+      color: #fff;
+      transition: background 0.2s;
+    }
+    .side-menu a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Desktop: menu always open */
+    @media (min-width: 800px) {
+      .side-menu {
+        width: 220px;
+        padding-top: 2rem;
+      }
+      main {
+        margin-left: 220px;
+      }
+      .menu-btn { display: none; }
+    }
+
+    /* Main content */
+    main {
+      max-width:900px;
+      margin:2rem auto;
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(67,160,71,0.25);
+      padding:2rem 2.5rem;
+      transition: margin-left .3s;
+      z-index: 0;
+      position: relative;
+    }
+
+    .section-block { margin-bottom:2.8em; }
+    .section-block h2 {
+      color:#2e7d32;
+      margin-top:0;
+      margin-bottom:1.1em;
+      font-size:1.42em;
+    }
+
+    .about-card {
+      background: rgba(67,160,71,0.85);
+      color: #fff;
+      border-radius: 14px;
+      max-width: 760px;
+      margin: 2em auto 2.5em auto;
+      padding: 1.2em 2em;
+      font-size: 1.15em;
+      font-weight: 500;
+      line-height: 1.6;
+      text-align: center;
+      box-shadow:0 2px 10px rgba(67,160,71,0.25);
+    }
+
+    /* Buttons & links */
+    .facebook-link {
+      display:inline-block;
+      background: rgba(255,255,255,0.7);
+      color:#2e7d32 !important;
+      border-radius:8px;
+      padding: 0.7em 1.2em;
+      margin: 0.8em 0;
+      text-decoration:none;
+      font-size:1.05em;
+      font-weight: 1000;
+      border: none;
+      box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+      transition: background 0.2s, box-shadow 0.2s;
+      text-align:center;
+      cursor: pointer;
+    }
+    .team-link, .event-button, .contacts a {
+      display:inline-block;
+      background: rgba(67,160,71,0.85);
+      color:#fff !important;
+      border-radius:8px;
+      padding: 0.7em 1.2em;
+      margin: 0.8em 0;
+      text-decoration:none;
+      font-size:1.05em;
+      font-weight: 500;
+      border: none;
+      box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+      transition: background 0.2s, box-shadow 0.2s;
+      text-align:center;
+      cursor: pointer;
+    }
+    .facebook-link:hover, .team-link:hover, .event-button:hover, .contacts a:hover {
+      background: rgba(46,125,50,0.95);
+      box-shadow:0 4px 14px rgba(67,160,71,0.35);
+    }
+
+    .event-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin:1em 0;
+      padding:0;
+    }
+
+    /* News section */
+    .news-section {
+      background: rgba(67,160,71,0.08);
+      border-left: 6px solid rgba(67,160,71,0.85);
+      padding: 24px 20px;
+      margin-bottom: 2.8em;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(67,160,71,0.15);
+    }
+    .news-section h2 {
+      color: #2e7d32;
+      margin-top: 0;
+      margin-bottom: 0.8em;
+    }
+
+    /* News photos */
+    .news-photos {
+      display: flex;
+      gap: 16px;
+      margin: 18px 0 8px 0;
+      flex-wrap: wrap;
+    }
+    .news-photos img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(67,160,71,0.25);
+      object-fit: cover;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .news-photos img:hover { opacity: 0.85; }
+
+    /* Responsive */
+    @media (max-width:600px) {
+      header { padding:2em 0 1.2em 0; }
+      header h1 { font-size:1.7em; }
+      .about-card { padding: 1em 0.4em; font-size: 1em;}
+      main { padding:1em 0.3em; }
+      .events-list li, .partners-list li { display:block; }
+      .event-buttons { flex-direction: column; gap: 12px; }
+      .event-button { width: 100%; }
+      .news-photos { flex-direction: column; gap: 10px; align-items: flex-start; }
+      .news-photos img { width: 100%; max-width: 260px; }
+    }
+
+    footer {
+      text-align:center;
+      color:#789;
+      font-size:0.96em;
+      margin:2.5em 0 1em 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RE Haifa Hub</h1>
+    <p>Городской центр обмена ресурсами, экопросвещения и устойчивого развития в Хайфе</p>
+    <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Мы на Facebook</a>
+  </header>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <nav id="sideMenu" class="side-menu">
+    <a href="index.html">🏡 Главная</a>
+    <a href="#about">ℹ️ О нас</a>
+    <a href="#projects">🌿 Проекты</a>
+    <a href="#team">👥 Команда</a>
+    <a href="#partners">🤝 Партнёры</a>
+    <a href="#contacts">📬 Контакты</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <div class="about-card">
+        Движение RE Haifa — инициативная платформа, объединяющая жителей Хайфы для обмена знаниями, опытом и ресурсами ради устойчивого будущего города.
+      </div>
+    </section>
+
+    <section class="news-section">
+      <h2>Новости нашего движения</h2>
+      <p><strong>Победа!! Мы получили первый приз в номинации "Вдохновляющий проект"!</strong></p>
+      <div class="news-photos">
+        <img src="victory1.jpg" alt="Победа RE Haifa Hub фото 1">
+        <img src="victory2.jpg" alt="Победа RE Haifa Hub фото 2">
+      </div>
+    </section>
+
+    <section class="section-block" id="projects">
+      <h2>Проекты в работе</h2>
+      <div class="projects-grid">
+        <a href="/projects_in_works/family_eco_school.html" class="project-card"><span>Family Eco-School</span></a>
+        <a href="/projects_in_works/construction-tool-library.html" class="project-card"><span>Construction Tool Library</span></a>
+        <a href="/projects_in_works/local-resource-exchange-center.html" class="project-card"><span>Local Resource Exchange Center</span></a>
+        <a href="/projects_in_works/neighborhood-sharing-app.html" class="project-card"><span>Neighborhood Sharing App</span></a>
+        <a href="/projects_in_works/organic-circular-center.html" class="project-card"><span>Organic Circular Center</span></a>
+        <a href="/projects_in_works/toy-and-sport-equipment-library.html" class="project-card"><span>Toy and Sport Equipment Library</span></a>
+      </div>
+    </section>
+
+    <section class="section-block" id="team">
+      <h2>Наша команда</h2>
+      <a href="about_us.html" class="team-link">Узнать больше о нашей команде</a>
+    </section>
+
+    <section class="section-block" id="partners">
+      <h2>Наши партнёры</h2>
+      <ul class="partners-list">
+        <li>Муниципалитет Хайфы</li>
+        <li>Экологические организации</li>
+        <li>Образовательные учреждения</li>
+        <li>Бизнес-партнёры и волонтёры</li>
+      </ul>
+    </section>
+
+    <section id="contacts">
+      <h2>Контакты</h2>
+      <div class="contacts">
+        <a href="mailto:info@re-haifa-hub.org">info@re-haifa-hub.org</a>
+        <a href="https://t.me/rehaifahub" target="_blank">Telegram</a>
+        <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Мы на Facebook</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; RE Haifa Hub, 2025 — Экология, обмен и сообщество в Хайфе
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("sideMenu");
+      if (menu.style.width === "250px") {
+        menu.style.width = "0";
+      } else {
+        menu.style.width = "250px";
+      }
+    }
+  </script>
+</body>
+</html>
