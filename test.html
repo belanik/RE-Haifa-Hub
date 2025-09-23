@@ -55,7 +55,7 @@
     /* Side menu */
     .side-menu {
       height: 100%;
-      width: 0; /* closed on mobile by default */
+      width: 0;
       position: fixed;
       z-index: 1200;
       top: 0;
@@ -77,18 +77,6 @@
       background: rgba(255,255,255,0.2);
     }
 
-    /* Desktop: menu always open */
-    @media (min-width: 800px) {
-      .side-menu {
-        width: 220px;
-        padding-top: 2rem;
-      }
-      main {
-        margin-left: 220px;
-      }
-      .menu-btn { display: none; }
-    }
-
     /* Main content */
     main {
       max-width:900px;
@@ -102,6 +90,7 @@
       position: relative;
     }
 
+    /* Section styling */
     .section-block { margin-bottom:2.8em; }
     .section-block h2 {
       color:#2e7d32;
@@ -109,7 +98,6 @@
       margin-bottom:1.1em;
       font-size:1.42em;
     }
-
     .about-card {
       background: rgba(67,160,71,0.85);
       color: #fff;
@@ -162,14 +150,6 @@
       box-shadow:0 4px 14px rgba(67,160,71,0.35);
     }
 
-    .event-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin:1em 0;
-      padding:0;
-    }
-
     /* News section */
     .news-section {
       background: rgba(67,160,71,0.08);
@@ -184,8 +164,6 @@
       margin-top: 0;
       margin-bottom: 0.8em;
     }
-
-    /* News photos */
     .news-photos {
       display: flex;
       gap: 16px;
@@ -194,27 +172,12 @@
     }
     .news-photos img {
       width: 200px;
-      height: auto;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(67,160,71,0.25);
-      object-fit: cover;
       cursor: pointer;
       transition: 0.3s;
     }
     .news-photos img:hover { opacity: 0.85; }
-
-    /* Responsive */
-    @media (max-width:600px) {
-      header { padding:2em 0 1.2em 0; }
-      header h1 { font-size:1.7em; }
-      .about-card { padding: 1em 0.4em; font-size: 1em;}
-      main { padding:1em 0.3em; }
-      .events-list li, .partners-list li { display:block; }
-      .event-buttons { flex-direction: column; gap: 12px; }
-      .event-button { width: 100%; }
-      .news-photos { flex-direction: column; gap: 10px; align-items: flex-start; }
-      .news-photos img { width: 100%; max-width: 260px; }
-    }
 
     footer {
       text-align:center;
@@ -242,7 +205,7 @@
     <a href="#contacts">📬 Контакты</a>
   </nav>
 
-  <main>
+  <main id="mainContent">
     <section id="about">
       <div class="about-card">
         Движение RE Haifa — инициативная платформа, объединяющая жителей Хайфы для обмена знаниями, опытом и ресурсами ради устойчивого будущего города.
@@ -261,18 +224,18 @@
     <section class="section-block" id="projects">
       <h2>Проекты в работе</h2>
       <div class="projects-grid">
-        <a href="/projects_in_works/family_eco_school.html" class="project-card"><span>Family Eco-School</span></a>
-        <a href="/projects_in_works/construction-tool-library.html" class="project-card"><span>Construction Tool Library</span></a>
-        <a href="/projects_in_works/local-resource-exchange-center.html" class="project-card"><span>Local Resource Exchange Center</span></a>
-        <a href="/projects_in_works/neighborhood-sharing-app.html" class="project-card"><span>Neighborhood Sharing App</span></a>
-        <a href="/projects_in_works/organic-circular-center.html" class="project-card"><span>Organic Circular Center</span></a>
-        <a href="/projects_in_works/toy-and-sport-equipment-library.html" class="project-card"><span>Toy and Sport Equipment Library</span></a>
+        <a href="#" class="project-card"><span>Family Eco-School</span></a>
+        <a href="#" class="project-card"><span>Construction Tool Library</span></a>
+        <a href="#" class="project-card"><span>Local Resource Exchange Center</span></a>
+        <a href="#" class="project-card"><span>Neighborhood Sharing App</span></a>
+        <a href="#" class="project-card"><span>Organic Circular Center</span></a>
+        <a href="#" class="project-card"><span>Toy and Sport Equipment Library</span></a>
       </div>
     </section>
 
     <section class="section-block" id="team">
       <h2>Наша команда</h2>
-      <a href="about_us.html" class="team-link">Узнать больше о нашей команде</a>
+      <a href="#" class="team-link">Узнать больше о нашей команде</a>
     </section>
 
     <section class="section-block" id="partners">
@@ -302,12 +265,45 @@
   <script>
     function toggleMenu() {
       const menu = document.getElementById("sideMenu");
-      if (menu.style.width === "250px") {
+      const main = document.getElementById("mainContent");
+
+      if (menu.style.width === "220px" || menu.style.width === "250px") {
         menu.style.width = "0";
+        main.style.marginLeft = "0";
       } else {
-        menu.style.width = "250px";
+        if (window.innerWidth >= 800) {
+          menu.style.width = "220px";
+          main.style.marginLeft = "220px";
+        } else {
+          menu.style.width = "250px";
+        }
       }
     }
+
+    // Default: open on desktop
+    window.addEventListener("load", () => {
+      const menu = document.getElementById("sideMenu");
+      const main = document.getElementById("mainContent");
+      if (window.innerWidth >= 800) {
+        menu.style.width = "220px";
+        main.style.marginLeft = "220px";
+      }
+    });
+
+    // Adjust on resize
+    window.addEventListener("resize", () => {
+      const menu = document.getElementById("sideMenu");
+      const main = document.getElementById("mainContent");
+      if (window.innerWidth < 800) {
+        main.style.marginLeft = "0";
+        if (menu.style.width === "220px") menu.style.width = "0";
+      } else {
+        if (menu.style.width !== "0px") {
+          menu.style.width = "220px";
+          main.style.marginLeft = "220px";
+        }
+      }
+    });
   </script>
 </body>
 </html>
