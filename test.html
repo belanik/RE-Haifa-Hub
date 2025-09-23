@@ -2,139 +2,47 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Dropout Side Menu Example</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RE Haifa Hub</title>
+  <meta name="description" content="RE Haifa Hub — проекты устойчивого развития, обмена ресурсами и экологии в Хайфе.">
   <style>
     body {
-      margin:0; font-family:Arial,sans-serif;
-      background:#f7fafc; color:#223;
+      margin:0;
+      font-family:Arial,sans-serif;
+      background:#f7fafc;
+      color:#223;
     }
 
+    /* Header */
     header {
-      background: rgba(67,160,71,0.85);
+      background: rgba(67,160,71,0.85) url('haifa_nof.jpg') center center/cover no-repeat;
       color: #fff;
-      padding: 1.2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 3.5rem 0 2.5rem 0;
+      text-align: center;
+      position: relative;
     }
-    header h1 { margin:0; font-size:1.5em; }
-
-    /* Menu button */
-    .menu-btn {
-      font-size: 1.8em;
-      cursor: pointer;
-      border: none;
-      background: none;
-      color: #fff;
+    header h1 {
+      margin:0 0 0.4em 0;
+      font-size:2.7em;
+      letter-spacing:2px;
+      text-shadow: 0 3px 16px #000c;
+    }
+    header p {
+      margin:0 0 0.6em 0;
+      font-size:1.2em;
+      text-shadow: 0 2px 8px #000b;
     }
 
     /* Side menu */
-    .side-menu {
-      height: 100%;
-      width: 0;
+    .menu-btn {
       position: fixed;
-      z-index: 1200;
-      top: 0;
-      left: 0;
-      background-color: rgba(67,160,71,0.95);
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 3rem;
-    }
-    .side-menu a {
-      display: block;
-      padding: 0.8em 1.2em;
-      text-decoration: none;
-      font-size: 1.2em;
+      top: 15px; left: 15px;
+      font-size: 1.8em;
+      cursor: pointer;
+      border: none;
+      background: rgba(67,160,71,0.85);
       color: #fff;
-      transition: background 0.2s;
-    }
-    .side-menu a:hover {
-      background: rgba(255,255,255,0.2);
-    }
-    .side-menu .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 2em;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    main { padding: 2rem; transition: margin-left .3s; /* CHANGED: smooth shift */ }
-
-    /* Desktop view */
-    @media (min-width: 800px) {
-      .side-menu {
-        width: 220px;
-        padding-top: 2rem;
-      }
-      .side-menu a { font-size: 1.05em; }
-      /* CHANGED: keep buttons visible on desktop */
-      /* .menu-btn, .close-btn { display: none; }  <-- REMOVED */
-      main { margin-left: 220px; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>My Eco Site</h1>
-    <button class="menu-btn" onclick="openMenu()">☰</button>
-  </header>
-
-  <nav id="sideMenu" class="side-menu">
-    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">×</a>
-    <a href="index.html">🏡 Главная</a>
-    <a href="projects.html">🌿 Проекты</a>
-    <a href="events.html">📅 События</a>
-    <a href="about.html">ℹ️ О нас</a>
-    <a href="contacts.html">📬 Контакты</a>
-  </nav>
-
-  <main>
-    <h2>Добро пожаловать!</h2>
-    <p>Это пример с выпадающим боковым меню, которое работает и на смартфоне, и на компьютере.</p>
-  </main>
-
-  <script>
-    function openMenu() {
-      const menu = document.getElementById("sideMenu");
-      const main = document.querySelector("main");
-      // Open different widths for mobile/desktop (optional)
-      if (window.innerWidth >= 800) {
-        menu.style.width = "220px";
-        main.style.marginLeft = "220px"; // CHANGED: push content when opening on desktop
-      } else {
-        menu.style.width = "250px";
-      }
-    }
-    function closeMenu() {
-      const menu = document.getElementById("sideMenu");
-      const main = document.querySelector("main");
-      menu.style.width = "0";
-      if (window.innerWidth >= 800) {
-        main.style.marginLeft = "0"; // CHANGED: reclaim space when closed on desktop
-      }
-    }
-    // Optional: keep layout sane on resize
-    window.addEventListener("resize", () => {
-      const menu = document.getElementById("sideMenu");
-      const main = document.querySelector("main");
-      if (window.innerWidth < 800) {
-        main.style.marginLeft = "0";
-      } else {
-        // If the menu is closed on desktop, keep content full-width; if open, give it space.
-        if (menu.style.width === "0px" || menu.style.width === "0") {
-          main.style.marginLeft = "0";
-        } else if (menu.style.width) {
-          main.style.marginLeft = menu.style.width;
-        } else {
-          // default desktop state (CSS open)
-          main.style.marginLeft = "220px";
-        }
-      }
-    });
-  </script>
-</body>
-</html>
+      border-radius: 6px;
+      padding: 0.2em 0.5em;
+      z-index: 1501;
+      box-shadow: 0 2px 8px rgba(0
