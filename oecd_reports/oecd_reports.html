@@ -17,11 +17,53 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <a href="index.html" class="back-link">&larr; Назад к проектам</a>
-    <h1>Доклады организации экономического сотрудничества и развития (ОЭСР)</h1>
-    <h3>Обзоры экологической результативности в разных странах мира</h3>
-    <ul>
+<div class="container">
+  <a href="/" class="back-link" id="backLink" rel="prev" aria-label="Назад к проектам">
+    &larr; Назад к проектам
+  </a>
+
+  <h1>Доклады организации экономического сотрудничества и развития (ОЭСР)</h1>
+  <h3>Обзоры экологической результативности в разных странах мира</h3>
+  <ul>
+    <!-- ... ваш список ... -->
+  </ul>
+</div>
+
+<style>
+  /* чтобы ссылка была кликабельной и не перекрывалась */
+  .back-link{
+    display:inline-block;
+    margin-bottom:1em;
+    text-decoration:underline;
+    position:relative;
+    z-index:10;
+    pointer-events:auto;
+    cursor:pointer;
+  }
+</style>
+
+<script>
+/* Если пользователь пришёл с любой страницы внутри вашего домена —
+   вернёмся назад по истории, иначе откроем главную (/) */
+(function(){
+  var link = document.getElementById('backLink');
+  link.addEventListener('click', function (e) {
+    try {
+      if (document.referrer) {
+        var ref = new URL(document.referrer);
+        if (ref.origin === window.location.origin) {
+          e.preventDefault();
+          window.history.back();
+        }
+      }
+      // если нет referrer или он с другого сайта — сработает href="/"
+    } catch(err) {
+      // на всякий случай пусть сработает href="/"
+    }
+  });
+})();
+</script>
+
       <li><a href="Food Waste Index Report 2024.pdf">Food Waste Index Report 2024</a></li>
       <li><a href="ISRAEL 2023.pdf">ISRAEL 2023</a></li>
       <li><a href="SLOVAK REPUBLIC 2024.pdf">SLOVAK REPUBLIC 2024</a></li>
