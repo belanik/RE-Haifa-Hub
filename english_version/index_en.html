@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RE Haifa Hub</title>
+
+   <style>
+
+
+
+header .btn {
+  display: inline-block;
+  padding: 10px 22px;
+  margin: 6px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.6); /* semi-transparent white background */
+  border: 2px solid #0a192f;        /* very dark blue */
+  color: #0a192f;                   /* very dark blue text */
+}
+
+header .btn:hover {
+  background: rgba(255,255,255,0.85); /* slightly denser on hover */
+  color: #000;                        /* even darker text */
+}
+
+
+    
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="green.jpg" />
+  <meta name="description" content="RE Haifa Hub — projects in sustainability, resource exchange, and ecology in Haifa.">
+  <style>
+  body {
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f7fafc;
+    color:#223;
+  }
+
+  header {
+    background: rgba(67,160,71,0.85) url('haifa_nof.jpg') center center/cover no-repeat;
+    color: #fff;
+    padding: 3.5rem 0 2.5rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  header h1 {
+    margin:0 0 0.4em 0;
+    font-size:2.7em;
+    letter-spacing:2px;
+    text-shadow: 0 3px 16px #000c;
+    font-weight: bold;
+  }
+  header p {
+    margin:0 0 0.6em 0;
+    font-size:1.2em;
+    text-shadow: 0 2px 8px #000b;
+  }
+.menu-btn {
+      position: fixed;
+      top: 15px; left: 15px;
+      font-size: 1.8em;
+      cursor: pointer;
+      border: none;
+      background: rgba(67,160,71,0.85);
+      color: #fff;
+      border-radius: 6px;
+      padding: 0.2em 0.5em;
+      z-index: 1501;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .menu-btn:hover {
+      background: rgba(46,125,50,0.95);
+    }
+
+    /* Side menu (overlay style) */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1200;
+      top: 0;
+      left: 0;
+      background-color: rgba(67,160,71,0.95);
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 3rem;
+    }
+    .side-menu a {
+      display: block;
+      padding: 0.8em 1.2em;
+      text-decoration: none;
+      font-size: 1.2em;
+      color: #fff;
+      transition: background 0.2s;
+    }
+    .side-menu a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Main content (always centered) */
+    main {
+      max-width:900px;
+      margin:2rem auto;
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(67,160,71,0.25);
+      padding:2rem 2.5rem;
+      z-index: 0;
+      position: relative;
+    }
+
+  .section-block { margin-bottom:2.8em; }
+  .section-block h2 {
+    color:#223;
+    margin-top:0;
+    margin-bottom:1.1em;
+    font-size:1.42em;
+  }
+
+  .about-card {
+    background: rgba(67,160,71,0.85);
+    color: #fff;
+    border-radius: 14px;
+    max-width: 760px;
+    margin: 2em auto 2.5em auto;
+    padding: 1.2em 2em;
+    font-size: 1.15em;
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: center;
+    box-shadow:0 2px 10px rgba(67,160,71,0.25);
+  }
+
+  /* Lists */
+  .events-list, .partners-list {
+    padding: 0;
+    margin: 0 0 1.1em 0;
+    list-style: none;
+    font-size: 1.07em;
+  }
+  .events-list li, .partners-list li {
+    margin-bottom: 0.55em;
+    background: rgba(67,160,71,0.08);
+    padding: 0.7em 1.1em;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(67,160,71,0.15);
+    display: inline-block;
+  }
+
+  /* Project cards */
+  .projects-grid { display:grid; gap:1.3em; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .project-card {
+    background:#f7fafc;
+    border-radius:10px;
+    border:1.5px solid rgba(67,160,71,0.25);
+    box-shadow:0 1px 5px rgba(67,160,71,0.15);
+    padding:1.2em 1em;
+    text-align:center;
+    transition:box-shadow .2s,border .2s;
+    text-decoration: none;
+    color: #223;
+  }
+  .project-card:hover {
+    box-shadow:0 4px 18px rgba(67,160,71,0.35);
+    border-color:rgba(67,160,71,0.7);
+  }
+  .project-card span {
+    font-weight:600;
+    color:#2e7d32;
+    font-size:1.07em;
+  }
+.facebook-link {
+    display:inline-block;
+    background: rgba(255,255,255,0.7);
+    color:#2e7d32 !important;
+    border-radius:8px;
+    padding: 0.7em 1.2em;
+    margin: 0.8em 0;
+    text-decoration:none;
+    
+    font-size:1.05em;
+    font-weight: 1000;
+    border: none;
+    box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+    transition: background 0.2s, box-shadow 0.2s;
+    text-align:center;
+    cursor: pointer;
+  }
+  .team-link, .event-button, .contacts a {
+    display:inline-block;
+    background: rgba(67,160,71,0.85);
+    color:#fff !important;
+    border-radius:8px;
+    padding: 0.7em 1.2em;
+    margin: 0.8em 0;
+    text-decoration:none;
+    font-size:1.05em;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+    transition: background 0.2s, box-shadow 0.2s;
+    text-align:center;
+    cursor: pointer;
+  }
+  .facebook-link:hover, .team-link:hover, .event-button:hover, .contacts a:hover {
+    background: rgba(46,125,50,0.95);
+    box-shadow:0 4px 14px rgba(67,160,71,0.35);
+  }
+
+  .event-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin:1em 0;
+    padding:0;
+  }
+
+  /* News section */
+  .news-section {
+    background: rgba(67,160,71,0.08);
+    border-left: 6px solid rgba(67,160,71,0.85);
+    padding: 24px 20px;
+    margin-bottom: 2.8em;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(67,160,71,0.15);
+  }
+  .news-section h2 {
+    color: #2e7d32;
+    margin-top: 0;
+    margin-bottom: 0.8em;
+  }
+
+  /* News photos + modal */
+  .news-photos {
+    display: flex;
+    gap: 16px;
+    margin: 18px 0 8px 0;
+    flex-wrap: wrap;
+  }
+  .news-photos img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(67,160,71,0.25);
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .news-photos img:hover { opacity: 0.85; }
+
+  /* Fullscreen modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+  }
+  .modal img {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%;
+  }
+  .modal:target { display: block; }
+  .close {
+    position: absolute;
+    top: 20px; right: 40px;
+    color: white;
+    font-size: 40px;
+    text-decoration: none;
+  }
+
+  /* Responsive */
+  @media (max-width:600px) {
+    header { padding:2em 0 1.2em 0; }
+    header h1 { font-size:1.7em; }
+    .about-card { padding: 1em 0.4em; font-size: 1em;}
+    main { padding:1em 0.3em; }
+    .events-list li, .partners-list li { display:block; }
+    .event-buttons { flex-direction: column; gap: 12px; }
+    .event-button { width: 100%; }
+    .news-photos { flex-direction: column; gap: 10px; align-items: flex-start; }
+    .news-photos img { width: 100%; max-width: 260px; }
+  }
+
+  footer {
+    text-align:center;
+    color:#789;
+    font-size:0.96em;
+    margin:2.5em 0 1em 0;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>RE Haifa Hub</h1>
+    <p>Urban Center for Resource Exchange, Environmental Education, and Sustainable Development in Haifa</p>
+  
+
+    <a class="btn fb-link" 
+     href="https://www.facebook.com/profile.php?id=61575821814765" 
+     target="_blank" rel="noopener">
+     We are on Facebook
+  </a>
+  <!-- Анкета -->
+  <a class="btn join-link" 
+     href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" 
+     target="_blank" rel="noopener">
+     Join Us
+  </a>
+</header>
+  
+  
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+
+  <!-- Language Switch Buttons -->
+  <div style="text-align: center; margin-top: 10px;">
+    <button onclick="location.href='index.html'" class="btn" title="Russian version">RU</button>
+    <button onclick="location.href='english_version/index_en.html'" class="btn" title="English version">EN</button>
+    <button onclick="location.href='hebrew_version/index_heb.html'" class="btn" title="גרסה בעברית">HE</button>
+  </div>
+
+  
+  
+  <nav id="sideMenu" class="side-menu">
+    <a href="index.html">Home</a>
+    <a href="#past-events">Events</a>
+    <a href="#projects">Projects</a>
+    <a href="about_us.html">Team</a>
+    <a href="экоанатилика на сайт/eco-analitika.html">Eco-Analytics</a>
+    <a href="#contacts">Contacts</a>
+    <a href="oecd_reports/oecd_reports.html">OECD Reports</a>
+    <a href="eco-law-ru.html">Eco Laws</a>
+  </nav>
+  
+  <main>
+    <section id="about">
+      <div class="about-card">
+        The RE Haifa movement is an association of residents of Haifa and the Krayot to share knowledge, experience, and resources for a sustainable future.
+      </div>
+    </section>
+
+    <section class="news-section">
+      <h2>News of Our Movement</h2>
+  <p>
+      18–20.09.2025 In Haifa, the “Local Hope” congress took place, with most members of our team participating in various events. Lots of new contacts, plans, and inspiration! Information about the organizer — the Center for Social Justice — <a href="https://www.facebook.com/merkaz.tzedek" target="_blank" rel="noopener noreferrer" style="color:black; text-decoration: underline;">  <span style="color:#0057ff; font-weight:700;">HERE</span></a>  
+      <p>
+      16.09.2025 Victory! We won first prize in the “Inspiring Project” category in the social business initiatives competition!
+          (<a href="https://competition.mati.co.il/#comp" target="_blank" rel="noopener noreferrer" style="color:black; text-decoration: underline;">more details about the competition <span style="color:#0057ff; font-weight:700;">HERE</span></a>)
+     <p>
+      <div class="news-photos">
+      <a href="#img1"><img src="victory1.jpg" alt="RE Haifa Hub victory photo 1"></a>
+      <a href="#img2"><img src="victory2.jpg" alt="RE Haifa Hub victory photo 2"></a>
+    </div>
+    
+    <!-- Modals -->
+    <div id="img1" class="modal">
+      <a href="#" class="close">&times;</a>
+      <img src="victory1.jpg" alt="">
+    </div>
+    
+    <div id="img2" class="modal">
+      <a href="#" class="close">&times;</a>
+      <img src="victory2.jpg" alt="">
+    </div>  
+      <p>
+        <a href="re-haifa-hub-project.html" rel="noopener" style="color:black" text-decoration:underline;">Learn more about our project <span style="color:#0057ff; font-weight:700;">HERE</span></a>  
+      </p>
+    </section>
+
+    <section class="section-block" id="past-events">
+      <h2>Past Events</h2>
+      <div class="event-buttons">
+        <a class="event-button" href="/past_events/green_festival.html" title="Green Festival">Green Festival</a>
+        <a class="event-button" href="/past_events/round_table_repair.html" title="Roundtable on Furniture Repair">Roundtable on Furniture Repair</a>
+        <a class="event-button" href="/past_events/tiny-eco-heroes.html" title="Tiny Eco Heroes — Toy Swap">Tiny Eco Heroes — Toy Swap</a>
+        <a class="event-button" href="/past_events/accessories_exchange.html" title="Accessories Exchange">Accessories Exchange</a>
+        <a class="event-button" href="/past_events/swap_party.html" title="Presentation — Clothing Swap">Presentation — Clothing Swap</a>
+        
+      </div>
+    </section>
+
+    <section class="section-block" id="projects">
+      <h2>Projects in Progress</h2>
+      <div class="projects-grid">
+        <a href="/projects_in_works/family_eco_school.html" class="project-card"><span>Family Eco-School</span></a>
+        <a href="/projects_in_works/construction-tool-library.html" class="project-card"><span>Construction Tool Library</span></a>
+        <a href="/projects_in_works/local-resource-exchange-center.html" class="project-card"><span>Local Resource Exchange Center</span></a>
+        <a href="/projects_in_works/neighborhood-sharing-app.html" class="project-card"><span>Neighborhood Sharing App</span></a>
+        <a href="/projects_in_works/organic-circular-center.html" class="project-card"><span>Organic Circular Center</span></a>
+        <a href="/projects_in_works/toy-and-sport-equipment-library.html" class="project-card"><span>Toy and Sport Equipment Library</span></a>
+      </div>
+    </section>
+
+
+    <section class="section-block" id="partners">
+      <h2>Our Engagement with Authorities and Partners</h2>
+      <ul class="partners-list">
+        <li>Haifa Municipality</li>
+        <li>Environmental organizations</li>
+        <li>Educational institutions</li>
+        <li>Business partners and volunteers</li>
+        
+      </ul>
+    </section>
+    <section id="contacts">
+      <h2>Contacts</h2>
+      <div class="contacts">
+        <a href="mailto:info@re-haifa-hub.org">info@re-haifa-hub.org</a>
+        <a href="https://t.me/rehaifahub" target="_blank">Telegram</a>
+        <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">We are on Facebook</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; RE Haifa Hub, 2025 &mdash; Ecology, exchange, and community in Haifa
+  </footer>
+    <script>
+    function toggleMenu() {
+      const menu = document.getElementById("sideMenu");
+      if (menu.style.width === "250px" || menu.style.width === "220px") {
+        menu.style.width = "0";
+      } else {
+        menu.style.width = "250px";
+      }
+    }
+  </script>
+</body>
+</html>
