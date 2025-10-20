@@ -1,337 +1,144 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RE Haifa Hub</title>
-  <script src="/main/https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="green.jpg" />
-  <meta name="description" content="RE Haifa Hub — проекты устойчивого развития, обмена ресурсами и экологии в Хайфе.">
-  <style>
-  body {
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f7fafc;
-    color:#223;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RE Haifa Hub — Team (Safe)</title>
+<link rel="icon" href="../green.jpg">
+<meta name="description" content="RE Haifa Hub — Team">
+<style>
+  /* ===== Minimal safe CSS (no external CDN) ===== */
+  :root { --green:#43a047; --green-dark:#2e7d32; --ink:#223; --bg:#f7fafc; }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+  header{
+    background: var(--green);
+    color:#fff; text-align:center; padding:40px 12px 28px;
+    /* фон из корня; даже если он не найдётся, будет зелёная подложка */
+    background-image:url('../haifa_nof.jpg');
+    background-position:center; background-size:cover; background-repeat:no-repeat;
+    box-shadow:inset 0 0 0 100vmax rgba(67,160,71,.55);
   }
-
-  header {
-    background: rgba(67,160,71,0.85) url('haifa_nof.jpg') center center/cover no-repeat;
-    color: #fff;
-    padding: 3.5rem 0 2.5rem 0;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-  header h1 {
-    margin:0 0 0.4em 0;
-    font-size:2.7em;
-    letter-spacing:2px;
-    text-shadow: 0 3px 16px #000c;
-    font-weight: bold;
-  }
-  header p {
-    margin:0 0 0.6em 0;
-    font-size:1.2em;
-    text-shadow: 0 2px 8px #000b;
-  }
-.menu-btn {
-      position: fixed;
-      top: 15px; left: 15px;
-      font-size: 1.8em;
-      cursor: pointer;
-      border: none;
-      background: rgba(67,160,71,0.85);
-      color: #fff;
-      border-radius: 6px;
-      padding: 0.2em 0.5em;
-      z-index: 1501;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-    .menu-btn:hover {
-      background: rgba(46,125,50,0.95);
-    }
-
-    /* Side menu (overlay style) */
-    .side-menu {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1200;
-      top: 0;
-      left: 0;
-      background-color: rgba(67,160,71,0.95);
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 3rem;
-    }
-    .side-menu a {
-      display: block;
-      padding: 0.8em 1.2em;
-      text-decoration: none;
-      font-size: 1.2em;
-      color: #fff;
-      transition: background 0.2s;
-    }
-    .side-menu a:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    /* Main content (always centered) */
-    main {
-      max-width:900px;
-      margin:2rem auto;
-      background:#fff;
-      border-radius:12px;
-      box-shadow:0 4px 16px rgba(67,160,71,0.25);
-      padding:2rem 2.5rem;
-      z-index: 0;
-      position: relative;
-    }
-
-  .section-block { margin-bottom:2.8em; }
-  .section-block h2 {
-    color:#2e7d32;
-    margin-top:0;
-    margin-bottom:1.1em;
-    font-size:1.42em;
-  }
-
-  .about-card {
-    background: rgba(67,160,71,0.85);
-    color: #fff;
-    border-radius: 14px;
-    max-width: 760px;
-    margin: 2em auto 2.5em auto;
-    padding: 1.2em 2em;
-    font-size: 1.15em;
-    font-weight: 500;
-    line-height: 1.6;
-    text-align: center;
-    box-shadow:0 2px 10px rgba(67,160,71,0.25);
-  }
-
-  /* Lists */
-  .events-list, .partners-list {
-    padding: 0;
-    margin: 0 0 1.1em 0;
-    list-style: none;
-    font-size: 1.07em;
-  }
-  .events-list li, .partners-list li {
-    margin-bottom: 0.55em;
-    background: rgba(67,160,71,0.08);
-    padding: 0.7em 1.1em;
-    border-radius: 8px;
-    box-shadow: 0 1px 5px rgba(67,160,71,0.15);
-    display: inline-block;
-  }
-
-  /* Project cards */
-  .projects-grid { display:grid; gap:1.3em; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
-  .project-card {
-    background:#f7fafc;
-    border-radius:10px;
-    border:1.5px solid rgba(67,160,71,0.25);
-    box-shadow:0 1px 5px rgba(67,160,71,0.15);
-    padding:1.2em 1em;
-    text-align:center;
-    transition:box-shadow .2s,border .2s;
-    text-decoration: none;
-    color: #223;
-  }
-  .project-card:hover {
-    box-shadow:0 4px 18px rgba(67,160,71,0.35);
-    border-color:rgba(67,160,71,0.7);
-  }
-  .project-card span {
-    font-weight:600;
-    color:#2e7d32;
-    font-size:1.07em;
-  }
-.facebook-link {
-    display:inline-block;
-    background: rgba(255,255,255,0.7);
-    color:#2e7d32 !important;
-    border-radius:8px;
-    padding: 0.7em 1.2em;
-    margin: 0.8em 0;
-    text-decoration:none;
-    
-    font-size:1.05em;
-    font-weight: 1000;
-    border: none;
-    box-shadow: 0 2px 8px rgba(67,160,71,0.25);
-    transition: background 0.2s, box-shadow 0.2s;
-    text-align:center;
-    cursor: pointer;
-  }
-  .team-link, .event-button, .contacts a {
-    display:inline-block;
-    background: rgba(67,160,71,0.85);
-    color:#fff !important;
-    border-radius:8px;
-    padding: 0.7em 1.2em;
-    margin: 0.8em 0;
-    text-decoration:none;
-    font-size:1.05em;
-    font-weight: 500;
-    border: none;
-    box-shadow: 0 2px 8px rgba(67,160,71,0.25);
-    transition: background 0.2s, box-shadow 0.2s;
-    text-align:center;
-    cursor: pointer;
-  }
-  .facebook-link:hover, .team-link:hover, .event-button:hover, .contacts a:hover {
-    background: rgba(46,125,50,0.95);
-    box-shadow:0 4px 14px rgba(67,160,71,0.35);
-  }
-
-  .event-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin:1em 0;
-    padding:0;
-  }
-
-  /* News section */
-  .news-section {
-    background: rgba(67,160,71,0.08);
-    border-left: 6px solid rgba(67,160,71,0.85);
-    padding: 24px 20px;
-    margin-bottom: 2.8em;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(67,160,71,0.15);
-  }
-  .news-section h2 {
-    color: #2e7d32;
-    margin-top: 0;
-    margin-bottom: 0.8em;
-  }
-
-
-  footer {
-    text-align:center;
-    color:#789;
-    font-size:0.96em;
-    margin:2.5em 0 1em 0;
-  }
+  header h1{margin:0 0 8px;font-size:34px;text-shadow:0 3px 12px rgba(0,0,0,.35)}
+  header p{margin:0 0 10px;font-size:16px;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+  .btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none}
+  .btn-facebook{background:#fff;color:var(--green-dark);font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+  main{max-width:1000px;margin:24px auto;padding:16px}
+  h2.section{color:var(--green-dark);text-align:center;margin:0 0 18px}
+  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+  .photo{width:120px;height:120px;border-radius:999px;object-fit:cover;display:block;margin:0 auto 12px;border:3px solid rgba(67,160,71,.2)}
+  .name{text-align:center;font-weight:700;margin:0 0 4px}
+  .role{text-align:center;color:#555;font-size:14px;margin:0 0 10px}
+  .text{font-size:14px;line-height:1.55;color:#333}
+  .text p{margin:0 0 8px}
+  .contacts{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+  .contacts a{background:var(--green);color:#fff;text-decoration:none;padding:8px 12px;border-radius:8px}
+  footer{text-align:center;color:#789;font-size:14px;margin:24px 0}
+  /* простое меню без JS, чтобы исключить влияния скриптов */
+  nav.top {display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:10px 0 0}
+  nav.top a{color:#fff;text-decoration:underline}
 </style>
 </head>
 <body>
-  <header>
-    <h1>RE Haifa Hub</h1>
-    <p>Городской центр обмена ресурсами, экопросвещения и устойчивого развития в Хайфе</p>
-    <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Мы на Facebook</a>
-  </header>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-  <nav id="sideMenu" class="side-menu">
-    <a href="index.html">Главная</a>
-    <a href="index.html#about">About Us</a>
-    <a href="index.html#projects">Проекты</a>
-    <a href="index.html#team">Команда</a>
-    <a href="index.html#partners">Партнёры</a>
-    <a href="#contacts">Контакты</a>
-    <a href="index.html#partners">Доклады ОЭСР</a>
+<header>
+  <h1>RE Haifa Hub</h1>
+  <p>Urban Center for Resource Exchange, Environmental Education, and Sustainable Development in Haifa</p>
+  <a class="btn btn-facebook" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">We are on Facebook</a>
+  <nav class="top">
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#partners">Partners</a>
+    <a href="#contacts">Contacts</a>
   </nav>
-  
-  <main>
-    
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <div class="grid gap-10 sm:grid-cols-1 md:grid-cols-2">
-        <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
-          <img src="/main/bela.jpg" alt="Бэла Никитина" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-          <h3 class="text-xl font-semibold text-center">
-            Бэла Никитина<br>
-            <span class="text-sm font-normal">Социолог-инвайронменталист, PhD</span>
-          </h3>
-          <div class="text-gray-700 text-sm mt-4 space-y-3">
-            <p><strong>Области специализации:</strong> Устойчивое развитие, управление отходами, эколого-экономическое планирование, государственное и муниципальное управление, экологический менеджмент, просвещение в сфере circular economy.</p>
-            <p><strong>Предыдущий профессиональный опыт в проектной области:</strong> Более 20 лет опыта в сфере устойчивого развития и управления отходами в России. Автор монографий и публикаций по вопросам circular economy и экологического менеджмента. Руководитель общественных экспертных групп по оценке экологической безопасности инфраструктурных проектов. Преподавала экологический менеджмент и экономику природопользования для студентов и специалистов.</p>
-            <p><strong>Опыт работы с региональными органами власти, учреждениями или организациями:</strong> 15 лет была членом общественного экспертного совета при Министерстве финансов Самарской области. Участвовала в разработке региональных программ по обращению с отходами, бюджетированию в сфере охраны окружающей среды, сотрудничала с органами власти и промышленными предприятиями в рамках экологической экспертизы и внедрения устойчивых решений.</p>
-          </div>
-        </div>
-      <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
-    <img src="/main/anna.jpg" alt="Анна Зив" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-    <h3 class="text-xl font-semibold text-center">Анна Зив</h3>
-    <div class="text-gray-700 text-sm mt-4 space-y-3">
-      <p><strong>Области специализации:</strong> Экологическое просвещение, устойчивое потребление, организация и проведение экологических мероприятий, развитие городских сообществ, межсекторное взаимодействие, управление волонтёрскими проектами.</p>
-      <p><strong>Профессиональный опыт:</strong> Основатель и координатор инициативы GreenMove, направленной на продвижение экологичного образа жизни. Организатор и ведущая мастер-классов, акций по раздельному сбору отходов и образовательных мероприятий. Активно использует соцсети для продвижения экологических тем.</p>
-      <p><strong>Опыт работы с организациями:</strong> Сотрудничала с муниципальными учреждениями и образовательными организациями. Работала с НКО и сообществами по программам экологического просвещения и вовлечения населения.</p>
-    </div>
-  </div>
+</header>
 
-  <!-- Елена Купцова -->
-  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
-    <img src="/main/elena.jpg" alt="Елена Купцова" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-    <h3 class="text-xl font-semibold text-center">
-      Елена Купцова<br>
-      <span class="text-sm font-normal">Социолог-инвайронменталист, PhD</span>
-    </h3>
-    <div class="text-gray-700 text-sm mt-4 space-y-3">
-      <p><strong>Области специализации:</strong> Экономика устойчивого развития, эколого-экономическое моделирование, региональное развитие, экологическое просвещение, ЗОЖ, коучинг и обучение взрослых.</p>
-      <p><strong>Профессиональный опыт:</strong> Доктор экономических наук, более 20 лет опыта в преподавании, коучинге и консалтинге. Автор диссертации по региональным системам экологического жизнеобеспечения. Руководила грантами ЕС, вела тренинги по устойчивому развитию.</p>
-      <p><strong>Опыт работы с организациями:</strong> Руководитель проекта ЕС в Херсоне, сотрудничала с Академией наук и НКО. В Израиле активно участвует в волонтёрской и просветительской деятельности (Хайфа, Ришон-ле-Цион), помогает НКО в маркетинге и бухгалтерии.</p>
-    </div>
-  </div>
+<main>
+  <h2 class="section">Our Team</h2>
 
-  <!-- Александра Цейтлина -->
-  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
-    <img src="/main/alex.jpg" alt="Александра Цейтлина" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-    <h3 class="text-xl font-semibold text-center">Александра Цейтлина</h3>
-    <div class="text-gray-700 text-sm mt-4 space-y-3">
-      <p><strong>Области специализации:</strong> Биоэкология, экологическое образование, устойчивое развитие, инклюзивное природоохранное проектирование, общественный мониторинг, экологическая аналитика и визуализация данных.</p>
-      <p><strong>Профессиональный опыт:</strong> Более 15 лет в сфере охраны природы. Координатор проектов WWF, Kolarctic CBC, разработчик инициатив по биоразнообразию, водорослям и устойчивому туризму. Эксперт по отчётности и коммуникации с НКО.</p>
-      <p><strong>Опыт работы с организациями:</strong> Сотрудничала с Росприроднадзором, Минприроды Мурманской области, заповедниками, музеями и НКО.</p>
-    </div>
-  </div>
+  <div class="grid">
 
-  <!-- Екатерина Бирюкова -->
-  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
-    <img src="/main/ekat.jpg" alt="Екатерина Бирюкова" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-    <h3 class="text-xl font-semibold text-center">Екатерина Бирюкова</h3>
-    <div class="text-gray-700 text-sm mt-4 space-y-3">
-      <p><strong>Области специализации:</strong> Экологическое просвещение, устойчивое потребление, культурные инициативы, реставрация, экологические коммуникации и медиа.</p>
-      <p><strong>Профессиональный опыт:</strong> Сооснователь проекта «Раздельный сбор — Раменское», автор проекта <a href="https://horlovo.ru/news/voskresensk/item/2285-proekt-muzej-istorii-musora-mozhet-realizovatsya-v-tsibino" class="text-blue-600 underline hover:text-blue-800">«Музей Мусора»</a>, лауреат премии Подмосковья. Проект приостановлен из-за военных событий.</p>
-      <p><strong>Опыт работы с организациями:</strong> Сотрудничала с муниципальными администрациями, школами, библиотеками и НКО. Развивает экопросвещение и медиа в соцсетях.</p>
-    </div>
-  </div>
-
-  <!-- Татьяна Фрумина -->
-  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
-    <img src="/main/tatyana.jpg" alt="Татьяна Фрумина" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-    <h3 class="text-xl font-semibold text-center">Татьяна Фрумина<br><span class="text-sm font-normal">Социальный активист, волонтёр</span></h3>
-    <div class="text-gray-700 text-sm mt-4 space-y-3">
-      <p><strong>Опыт в России:</strong> Занималась обеспечением доступности транспорта и инфраструктуры, взаимодействовала с муниципальными властями, организовала локальное сообщество из 1000+ участников.</p>
-      <p><strong>Опыт в Израиле:</strong> Прошла курс социального активизма в Хайфе, участвовала в экологических круглых столах, организовывала Swap Market, формирует культуру устойчивости.</p>
-    </div>
-  </div>
-    </div>
-    </div>
-    
-    <section id="contacts">
-      <h2>Контакты</h2>
-      <div class="contacts" id="contacts">
-        <a href="mailto:info@re-haifa-hub.org">info@re-haifa-hub.org</a>
-        <a href="https://t.me/rehaifahub" target="_blank">Telegram</a>
-        <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Мы на Facebook</a>
+    <!-- Bela -->
+    <article class="card">
+      <img class="photo" src="../bela.jpg" alt="Bela Nikitina">
+      <h3 class="name">Bela Nikitina</h3>
+      <div class="role">Environmental Sociologist, PhD</div>
+      <div class="text">
+        <p><strong>Expertise:</strong> Sustainable development, municipal solid waste management, eco-economic planning, public administration, environmental management, circular-economy education.</p>
+        <p><strong>Background:</strong> 20+ years in sustainability and waste management. Author of monographs and articles; led civic expert groups assessing environmental risks of infrastructure projects; taught environmental management and natural-resource economics.</p>
+        <p><strong>Public/Institutional work:</strong> 15 years on the Public Expert Council at the Samara Ministry of Finance; contributed to regional WM programs and green budgeting; collaborated with authorities and industry.</p>
       </div>
-    </section>
-  </main>
-  <footer>
-    &copy; RE Haifa Hub, 2025 &mdash; Экология, обмен и сообщество в Хайфе
-  </footer>
-    <script>
-    function toggleMenu() {
-      const menu = document.getElementById("sideMenu");
-      if (menu.style.width === "250px" || menu.style.width === "220px") {
-        menu.style.width = "0";
-      } else {
-        menu.style.width = "250px";
-      }
-    }
-  </script>
+    </article>
+
+    <!-- Anna Ziv -->
+    <article class="card">
+      <img class="photo" src="../anna.jpg" alt="Anna Ziv">
+      <h3 class="name">Anna Ziv</h3>
+      <div class="role">Environmental Educator, Community Organizer</div>
+      <div class="text">
+        <p><strong>Expertise:</strong> Environmental education, sustainable consumption, public events, community building, cross-sector partnerships, volunteer management.</p>
+        <p><strong>Background:</strong> Founder and coordinator of the GreenMove initiative; organizer and host of workshops and source-separation campaigns; active communicator on environmental topics.</p>
+        <p><strong>Organizations:</strong> Collaborations with municipal and educational institutions, NGOs, and community groups.</p>
+      </div>
+    </article>
+
+    <!-- Elena Kuptsova -->
+    <article class="card">
+      <img class="photo" src="../elena.jpg" alt="Elena Kuptsova">
+      <h3 class="name">Elena Kuptsova</h3>
+      <div class="role">Environmental Sociologist, PhD (Economics)</div>
+      <div class="text">
+        <p><strong>Expertise:</strong> Sustainability economics, eco-economic modelling, regional development, adult education & coaching.</p>
+        <p><strong>Background:</strong> Doctor of Economics; 20+ years in teaching, coaching, consulting; PhD on regional systems for environmental well-being; PI on EU-funded projects; trainer on sustainability.</p>
+        <p><strong>Organizations:</strong> EU project lead in Kherson; collaborations with academies and NGOs; in Israel — active volunteer/educator (Haifa, Rishon LeZion).</p>
+      </div>
+    </article>
+
+    <!-- Alexandra Tseitlina -->
+    <article class="card">
+      <img class="photo" src="../alex.jpg" alt="Alexandra Tseitlina">
+      <h3 class="name">Alexandra Tseitlina</h3>
+      <div class="role">Bioecologist, Environmental Educator</div>
+      <div class="text">
+        <p><strong>Expertise:</strong> Bioecology, inclusive conservation design, citizen monitoring, environmental analytics & data viz, sustainable development.</p>
+        <p><strong>Background:</strong> 15+ years in nature conservation; project coordinator at WWF and Kolarctic CBC; initiatives on biodiversity, algae research, and sustainable tourism; NGO reporting & communications expert.</p>
+        <p><strong>Organizations:</strong> Worked with environmental authorities, protected areas, museums, NGOs.</p>
+      </div>
+    </article>
+
+    <!-- Ekaterina Biryukova -->
+    <article class="card">
+      <img class="photo" src="../ekat.jpg" alt="Ekaterina Biryukova">
+      <h3 class="name">Ekaterina Biryukova</h3>
+      <div class="role">Eco-Educator, Communications & Culture</div>
+      <div class="text">
+        <p><strong>Expertise:</strong> Environmental education, sustainable consumption, cultural initiatives, restoration, eco-media.</p>
+        <p><strong>Background:</strong> Co-founder of “Separate Collection — Ramenskoye”; author of the
+          <a href="https://horlovo.ru/news/voskresensk/item/2285-proekt-muzej-istorii-musora-mozhet-realizovatsya-v-tsibino" target="_blank" rel="noopener">“Museum of Waste History”</a> project; award-winning regional initiative (temporarily suspended due to the war).</p>
+        <p><strong>Organizations:</strong> Worked with municipalities, schools, libraries, NGOs; develops eco-education and media outreach.</p>
+      </div>
+    </article>
+
+    <!-- Tatyana Frumina -->
+    <article class="card">
+      <img class="photo" src="../tatyana.jpg" alt="Tatyana Frumina">
+      <h3 class="name">Tatyana Frumina</h3>
+      <div class="role">Social Activist & Volunteer</div>
+      <div class="text">
+        <p><strong>Russia:</strong> Advocated for accessible transport & infrastructure; coordinated with municipal authorities; built a 1,000+ member community.</p>
+        <p><strong>Israel:</strong> Graduated from a social-activism course in Haifa; participated in environmental roundtables; organized a Swap Market; promotes a culture of sustainability.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <section id="contacts" class="contacts">
+    <a href="mailto:info@re-haifa-hub.org">info@re-haifa-hub.org</a>
+    <a href="https://t.me/rehaifahub" target="_blank" rel="noopener">Telegram</a>
+    <a href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Facebook</a>
+  </section>
+</main>
+
+<footer>&copy; RE Haifa Hub, 2025 — Ecology, exchange, and community in Haifa</footer>
 </body>
 </html>
