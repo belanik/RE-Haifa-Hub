@@ -224,7 +224,7 @@ or  <title>RE Haifa Hub — Стратегия</title>
     }
 
     function resolvePath(baseFile, href) {
-      // baseFile like "strategy/Strateg.md" or "Strateg.md"
+      // baseFile like "Strategy/Strateg.md" or "Strateg.md"
       // href like "./01-x/02-y.md"
       if (/^(https?:)?\/\//i.test(href) || href.startsWith('mailto:') || href.startsWith('#')) return href;
       if (href.startsWith('/')) return href.replace(/^\/+/, '');
@@ -244,7 +244,7 @@ or  <title>RE Haifa Hub — Стратегия</title>
     }
 
     async function detectBasePath() {
-      const candidates = ['strategy/Strateg.md', 'Strateg.md'];
+      const candidates = ['Strategy/Strateg.md', 'Strateg.md'];
       for (const c of candidates) {
         try {
           const r = await fetch(c, { method: 'GET', cache: 'no-cache' });
@@ -290,3 +290,4 @@ or  <title>RE Haifa Hub — Стратегия</title>
   </script>
 </body>
 </html>
+
