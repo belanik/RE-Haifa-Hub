@@ -243,16 +243,20 @@ or  <title>RE Haifa Hub — Стратегия</title>
       return 'md.html?file=' + encodeURIComponent(filePath);
     }
 
-    async function detectBasePath() {
-      const candidates = ['strategy/Strateg.md', 'Strateg.md'];
-      for (const c of candidates) {
-        try {
-          const r = await fetch(c, { method: 'GET', cache: 'no-cache' });
-          if (r.ok) return c;
-        } catch (e) {}
-      }
-      return null;
-    }
+async function detectBasePath() {
+  const candidates = [
+    'strategy/Strateg.md',
+    'Strateg.md'
+  ];
+  for (const c of candidates) {
+    try {
+      const r = await fetch(c, { method: 'GET', cache: 'no-cache' });
+      if (r.ok) return c;
+    } catch (e) {}
+  }
+  return null;
+}
+
 
     async function loadAndRenderStrateg() {
       const baseFile = await detectBasePath();
