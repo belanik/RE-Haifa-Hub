@@ -5,64 +5,42 @@
   <title>Эко-законодательство Израиля — RE-HAIFA HUB</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Ключевые законы и стратегические документы Израиля по отходам и циркулярной экономике, простые объяснения и ссылки на официальные источники." />
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="green.jpg" />
-  <link rel="stylesheet" href="styles.css"> 
+  <style>
+    :root{
+      --primary:#1677ff; --accent:#1e90ff; --bg:#e6f7ff; --paper:#fff; --ink:#222; --muted:#446; 
+      --card-shadow: 0 4px 16px #90cdf4cc;
+    }
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    a{color:var(--accent)}
+    .wrap{max-width:1080px;margin:2.5rem auto;padding:0 1rem}
+    .hero{background:linear-gradient(135deg,#e6f7ff, #ffffff); border-radius:16px; padding:2rem 2rem; box-shadow:var(--card-shadow)}
+    .hero h1{margin:0;color:var(--primary)}
+    .hero p{margin:.5rem 0 0;color:#334}
+    .toc, .table, .cards{background:var(--paper); border-radius:16px; box-shadow:var(--card-shadow); padding:1.25rem 1.5rem; margin-top:1.25rem}
+    .toc h2, .table h2, .cards h2{margin:.25rem 0 1rem;color:var(--accent)}
+    .note{font-size:.95rem; color:#3a4a5a}
+    table{width:100%; border-collapse:collapse; font-size:.97rem}
+    th, td{padding:.6rem .5rem; border-bottom:1px solid #eef3f9; vertical-align:top}
+    th{background:#f5fbff; text-align:left}
+    .badge{display:inline-block; font-size:.78rem; color:#0a4; background:#e7f8ee; padding:.15rem .5rem; border-radius:999px; margin-left:.33rem}
+    .card{border:1px solid #eef3f9; border-radius:14px; padding:1rem 1rem; margin:.6rem 0 1rem; background:#fff}
+    .card h3{margin:.2rem 0 .4rem; color:#123}
+    .pill{display:inline-block; font-size:.75rem; background:#eef6ff; color:#125; padding:.15rem .5rem; border-radius:999px; margin:.15rem .35rem .15rem 0}
+    .list{margin:.2rem 0 .2rem 1.1rem}
+    .footer{margin:2rem 0 3rem; color:#456; font-size:.9rem}
+    .sr{position:absolute;left:-9999px}
+    @media (max-width:680px){ th:nth-child(3), td:nth-child(3){display:none} }
+  </style>
 </head>
 <body>
-
-  <header>
-    <h1>RE Haifa Hub</h1>
-    <p>Городской центр обмена ресурсами, экопросвещения и устойчивого развития в Хайфе</p>
-
-    <a class="btn fb-link"
-      href="https://www.facebook.com/profile.php?id=61575821814765"
-      target="_blank" rel="noopener">
-      Мы на Facebook
-    </a>
-    <a class="btn join-link"
-      href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html"
-      target="_blank" rel="noopener">
-      Присоединиться к нам
-    </a>
-  </header>
-
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-  <div class="language-switcher">
-    <button onclick="location.href='index.html'" class="lang-btn active" title="Русская версия">RU</button>
-    <button onclick="location.href='english_version/index_en.html'" class="lang-btn" title="English version">EN</button>
-    <button onclick="location.href='hebrew_version/index_he.html'" class="lang-btn" title="Hebrew version">HE</button>
-  </div>
-
-  <nav id="sideMenu" class="side-menu">
-    <a href="index.html">Главная</a>
-    <a href="#past-events">Мероприятия</a>
-    <a href="about_us.html">Наша команда</a>
-    <a href="экоанатилика на сайт/ecoanalytics-ru.html">Эко-аналитика</a>
-    <a href="eco-law-ru.html">Эко законы Израиля</a>
-    <a href="/programma/">Израиль на пути к ЦЭ (проект программы)</a>
-
-    <a href="textbookWM.html">Школа управления отходами</a>
-    <a href="oecd_reports/oecd_reports.html">Полезные ссылки</a>
-    <a href="oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
-  </nav>
-
-  <div style="text-align: center; margin-bottom: 20px;">
-      <a class="btn" href="index.html">
-        &#x2190; Вернуться на Главную
-      </a>
-  </div>
-
-  <main>
-    <header class="hero" style="margin-top: 0; border-radius: 0; padding: 1.5em 1rem;">
+  <div class="wrap">
+    <header class="hero">
       <h1>Эко-законодательство Израиля</h1>
       <p>Подборка ключевых законов и стратегических документов по отходам и циркулярной экономике с краткими пояснениями и ссылками на официальные источники.</p>
       <p class="note">Фокус: раздельный сбор, депозитная тара, EPR (расширенная ответственность производителя), электронные отходы, шины, плата за захоронение, пищевые отходы и нац. стратегия до 2030/2050.</p>
     </header>
 
-    <nav class="toc" aria-label="Оглавление" style="border-radius: 0; padding-left: 1rem; padding-right: 1rem;">
+    <nav class="toc" aria-label="Оглавление">
       <h2>Оглавление</h2>
       <div>
         <a class="pill" href="#law-1">1. Закон о чистоте (1984)</a>
@@ -80,7 +58,7 @@
       </div>
     </nav>
 
-    <section class="table" aria-labelledby="laws-table" style="border-radius: 0; padding-left: 1rem; padding-right: 1rem;">
+    <section class="table" aria-labelledby="laws-table">
       <h2 id="laws-table">Таблица: ключевые законы и документы (ссылки на официальные источники)</h2>
       <table>
         <thead>
@@ -181,7 +159,7 @@
       <p class="note">Все ссылки — на официальные порталы: NEVO (правовая база), Gov.il (Минприроды/правправительства), Кнессет (тексты законов и пресс-релизы).</p>
     </section>
 
-    <section class="cards" style="border-radius: 0; padding-left: 1rem; padding-right: 1rem;">
+    <section class="cards">
       <h2>Простые объяснения и что важно на практике</h2>
 
       <article id="law-1" class="card">
@@ -296,12 +274,9 @@
       </article>
     </section>
 
-  </main>
-
-  <footer>
-    &copy; RE Haifa Hub, 2025 &mdash; Экология, обмен и сообщество в Хайфе
-  </footer>
-  
-  <script src="menu.js"></script> 
+    <footer class="footer">
+      <p>Последняя проверка/обновление: <strong>01.10.2025</strong>. Сообщите нам об ошибке или предложите дополнение: <a href="mailto:belanik@gmail.com">belanik@gmail.com</a>.</p>
+    </footer>
+  </div>
 </body>
 </html>
