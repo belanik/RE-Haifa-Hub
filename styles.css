@@ -63,13 +63,28 @@ ul li a:hover {
 }
 
 .back-button {
-    display: inline-block;
+    display: inline-flex; /* Для выравнивания иконки и текста */
+    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
-    padding: 10px 15px;
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
+    padding: 8px 15px; /* Немного уменьшим вертикальный отступ */
+    
+    /* Стили как у языковой кнопки, но с черным контуром */
+    background-color: #e8f5e9; /* Светло-зеленый фон */
+    color: #2e7d32; /* Темно-зеленый текст */
+    border: 2px solid #223; /* ЧЕРНЫЙ контур */
     border-radius: 5px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Эффект при наведении (hover) */
+.back-button:hover {
+    background: #d0f8d0; /* Более темный зеленый при наведении */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
 }
 
 /* Стили для RTL (ивритской) версии */
