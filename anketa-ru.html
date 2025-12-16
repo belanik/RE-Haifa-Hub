@@ -1,24 +1,75 @@
 <!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>...</title>
+    <link rel="icon" href="../green.jpg" />
+    
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+<body dir="rtl">
+    </body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Анкета волонтёров Re-Haifa Hub</title>     <link rel="icon" href="../green.jpg" />
-    
-        <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Присоединяйтесь к нам — анкета добровольцев | RE‑HAIFA HUB</title>
+  <style>
+    :root{
+      --bg:#f7fafc;--card:#ffffff;--text:#111827;--muted:#6b7280;--brand:#1677ff;--brand2:#0ea5e9;--ok:#16a34a;--warn:#d97706;--danger:#dc2626;--ring: rgba(22,119,255,.25)
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans",sans-serif;background:var(--bg);color:var(--text)}
+    a{color:var(--brand)}
+    .container{max-width:960px;margin:24px auto;padding:16px}
+    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 6px 16px rgba(0,0,0,.06);padding:20px;margin:14px 0}
+    .title{font-size:28px;margin:8px 0 2px}
+    .subtitle{color:var(--muted);margin:0 0 12px;font-size:14px}
+    h2{font-size:20px;margin:18px 0 10px}
+    h3{font-size:16px;margin:14px 0 8px;color:#111}
+    .grid{display:grid;gap:12px}
+    @media(min-width:768px){.grid.cols-2{grid-template-columns:1fr 1fr}.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    label{font-size:14px;color:#111;margin-bottom:6px;display:block}
+    input[type=text],input[type=email],input[type=tel],input[type=url],select,textarea{
+      width:100%;padding:12px 14px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;outline:none
+    }
+    input:focus,select:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 4px var(--ring)}
+    textarea{min-height:96px;resize:vertical}
+    .note{font-size:12px;color:var(--muted)}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef2ff;border:1px solid #e5e7eb;font-size:12px;color:#1f2937;margin:2px}
+    .checks{display:grid;gap:8px}
+    .checks.cols-2{grid-template-columns:1fr 1fr}
+    .section-hint{font-size:13px;color:var(--muted);margin-top:-4px;margin-bottom:10px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;font-weight:700;cursor:pointer}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
+    .btn.secondary{background:#111827;color:#fff}
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .hr{height:1px;background:#e5e7eb;margin:12px 0}
+    .required::after{content:" *";color:var(--danger)}
+    .flex{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .kav{color:#9ca3af}
+    .footer{font-size:12px;color:var(--muted);margin-top:18px}
+    .tag{background:#ecfeff;color:#0369a1;border:1px solid #bae6fd;padding:2px 8px;border-radius:999px;margin-left:6px}
+  </style>
 </head>
-
-    
 <body>
-<div class="container">
-        <a href="index.html" class="back-button" aria-label="Назад к сайту">
-      <span aria-hidden>←</span>
-      <span>Назад на главную</span>
-        </a>
+  <div class="container">
+    <a href="index.html" class="flex" aria-label="Назад к сайту">
+      <span aria-hidden>←</span>
+      <span>Назад на главную</span>
+    </a>
 
-    
     <div class="card">
-      <h1 class="title">Присоединяйтесь к нам — анкета волонтера </h1>
+      <h1 class="title">Присоединяйтесь к нам — анкета добровольцев</h1>
       <div class="hr"></div>
       <p>Выберите, чем вы хотите и можете помочь. Анкета занимает 5–7 минут. Поля, помеченные <span style="color:#dc2626">*</span>, обязательны.</p>
       
@@ -276,10 +327,6 @@
   </script>
 </body>
 </html>
-
-
-
-
 
 
 
