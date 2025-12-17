@@ -150,13 +150,14 @@ ul li a:hover {
 
 
 body.bg-home {
-  background: url("haifa_nof.jpg") center center / cover no-repeat fixed;
+  background: url("haifa_hof.jpg") center center / cover no-repeat fixed;
 }
 
 body.bg-team {
-  background: url("team.jpg") center center / cover no-repeat fixed;
+  background: url("about_us.jpg") center center / cover no-repeat fixed;
 }
 
+/* Чтобы “лист” читался поверх фото */
 body.bg-home .page,
 body.bg-team .page {
   background: rgba(247, 250, 252, 0.95);
