@@ -1,165 +1,219 @@
 /* Общие стили для всех языковых версий */
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    max-width: 900px;
-    margin: 0px auto;
-    padding: 0px;
-    background-color: #f7fafc;
-    color: #223;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f7fafc; /* фон по умолчанию для всех страниц */
+  color: #223;
 }
 
+/* “Лист” страницы (контентная карточка) */
 .page {
   max-width: 900px;
   margin: 20px auto;
   padding: 20px;
   background: #f7fafc;
   border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(67,160,71,0.18);
 }
 
-
-
-h1 {
-    color: #2c3e50;
-    border-bottom: 3px solid #43a047;
-    padding-bottom: 15px;
-    margin-top: 0;
-    font-size: 2em;
-    text-align: center;
+/* Заголовки только внутри “листа”, чтобы не портить hero-шапку */
+.page h1 {
+  color: #2c3e50;
+  border-bottom: 3px solid #43a047;
+  padding-bottom: 15px;
+  margin-top: 0;
+  font-size: 2em;
+  text-align: center;
 }
 
-h2 {
-    color: #43a047;
-    margin-top: 35px;
-    padding-top: 10px;
-    font-size: 1.6em;
+.page h2 {
+  color: #43a047;
+  margin-top: 35px;
+  padding-top: 10px;
+  font-size: 1.6em;
 }
 
+/* ---------- HERO HEADER (шапка) ---------- */
+header {
+  color: #fff;
+  text-align: center;
+  padding: 2.2rem 1rem;
+  background: rgba(67, 160, 71, 0.85); /* по умолчанию без фото */
+}
+
+/* Заголовок и подзаголовок в шапке */
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+header p {
+  margin: 0.8rem auto 1.2rem auto;
+  max-width: 900px;
+  font-size: 1.1rem;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.30);
+}
+
+/* Кнопки в шапке и на странице */
+a.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #fff;
+  color: #223;
+  border: 2px solid #223;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  margin: 0 10px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+a.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.20);
+}
+
+/* ---------- Списки ссылок ---------- */
 ul {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
 ul li {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 ul li a {
-    display: flex;
-    align-items: center;
-    padding: 15px 20px;
-    background: #e8f5e9; 
-    text-decoration: none;
-    color: #223;
-    font-weight: 600;
-    border-radius: 4px;
-    transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background: #e8f5e9;
+  text-decoration: none;
+  color: #223;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.3s;
 }
 
 ul li a:hover {
-    background: #d0f8d0;
-    text-decoration: underline;
+  background: #d0f8d0;
+  text-decoration: underline;
 }
 
 .file-type {
-    font-size: 0.8em;
-    color: #777;
-    margin-left: auto;
-    background: #fff;
-    padding: 5px 10px;
-    border-radius: 3px;
-    border: 1px solid #ddd;
+  font-size: 0.8em;
+  color: #777;
+  margin-left: auto;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
 }
 
+/* Кнопка “назад” */
 .back-button {
-    display: inline-flex; /* Для выравнивания иконки и текста */
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    padding: 8px 15px; /* Немного уменьшим вертикальный отступ */
-    
-    /* Стили как у языковой кнопки, но с черным контуром */
-    background-color: #e8f5e9; /* Светло-зеленый фон */
-    color: #2e7d32; /* Темно-зеленый текст */
-    border: 2px solid #223; /* ЧЕРНЫЙ контур */
-    border-radius: 5px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 8px 15px;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 2px solid #223;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Эффект при наведении (hover) */
 .back-button:hover {
-    background: #d0f8d0; /* Более темный зеленый при наведении */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
+  background: #d0f8d0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
 }
 
-/* Стили для RTL (ивритской) версии */
+/* RTL (иврит) */
 [dir="rtl"] ul {
-    padding-right: 0; 
-    padding-left: initial;
+  padding-right: 0;
+  padding-left: initial;
 }
 
 [dir="rtl"] ul li a {
-    /* Меняем границу для RTL: слева направо */
-    border-left: none;
-    border-right: 5px solid #43a047;
+  border-left: none;
+  border-right: 5px solid #43a047;
 }
 
 [dir="rtl"] .file-type {
-    /* Меняем расположение для RTL: слева направо */
-    margin-right: auto; 
-    margin-left: initial;
+  margin-right: auto;
+  margin-left: initial;
 }
 
-    /* ----------------------------------------------------- */
-    /* ПЕРЕКЛЮЧАТЕЛИ ЯЗЫКА (Кружочки) */
-    /* ----------------------------------------------------- */
-    .language-switcher {
-      text-align: center;
-      margin: 10px 0 20px 0; /* Небольшой отступ */
-    }
-    .lang-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      padding: 0;
-      margin: 0 5px;
-      border-radius: 50%; /* Круглая форма */
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      background: #fff;
-      border: 2px solid #2e7d32; /* Зеленый контур */
-      color: #2e7d32;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .lang-btn:hover {
-      background: #e6ffe6;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-    }
-    .lang-btn.active {
-      background: #2e7d32;
-      color: #fff;
-    }
+/* ---------- Переключатели языка (кружочки) ---------- */
+.language-switcher {
+  text-align: center;
+  margin: 10px 0 20px 0;
+}
 
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  margin: 0 5px;
+  border-radius: 50%;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background: #fff;
+  border: 2px solid #2e7d32;
+  color: #2e7d32;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
+.lang-btn:hover {
+  background: #e6ffe6;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.lang-btn.active {
+  background: #2e7d32;
+  color: #fff;
+}
+
+/* ---------- Фоны (ТОЛЬКО где нужно) ---------- */
+body.bg-home header {
+  background: rgba(67, 160, 71, 0.65) url("haifa_hof.jpg") center center / cover no-repeat;
+}
+
+body.bg-team header {
+  background: rgba(67, 160, 71, 0.65) url("about_us.jpg") center center / cover no-repeat;
+}
+
+/* Если хочешь, чтобы на этих страницах и фон всего сайта был фото:
+   раскомментируй ниже (не обязательно)
+*/
+/*
 body.bg-home {
-  background: url("haifa_nof.jpg") center center / cover no-repeat fixed;
+  background: url("haifa_hof.jpg") center center / cover no-repeat fixed;
 }
 
 body.bg-team {
   background: url("about_us.jpg") center center / cover no-repeat fixed;
 }
 
-/* Чтобы “лист” читался поверх фото */
 body.bg-home .page,
 body.bg-team .page {
   background: rgba(247, 250, 252, 0.95);
 }
-
+*/
