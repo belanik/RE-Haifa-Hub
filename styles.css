@@ -195,7 +195,7 @@ ul li a:hover {
 
 /* ---------- Фоны (ТОЛЬКО где нужно) ---------- */
 body.bg-home header {
-  background: rgba(67, 160, 71, 0.65) url("haifa_hof.jpg") center center / cover no-repeat;
+  background: rgba(67, 160, 71, 0.65) url("haifa_nof.jpg") center center / cover no-repeat;
 }
 
 body.bg-team header {
@@ -207,7 +207,7 @@ body.bg-team header {
 */
 /*
 body.bg-home {
-  background: url("haifa_hof.jpg") center center / cover no-repeat fixed;
+  background: url("haifa_nof.jpg") center center / cover no-repeat fixed;
 }
 
 body.bg-team {
