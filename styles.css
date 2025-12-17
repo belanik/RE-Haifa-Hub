@@ -1,6 +1,8 @@
 /* Общие стили для всех языковых версий */
 
 body {
+body { outline: 8px solid red; }
+
   font-family: Arial, sans-serif;
   line-height: 1.6;
   margin: 0;
