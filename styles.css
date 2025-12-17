@@ -1,170 +1,319 @@
-/* Общие стили для всех языковых версий */
-
+/* ----------------------------------------------------- */
+/* ОБЩИЕ СТИЛИ И ШРИФТ (как в index2.html) */
+/* ----------------------------------------------------- */
 body {
-body { outline: 8px solid red; }
-
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
   margin: 0;
-  padding: 0;
-  background-color: #f7fafc; /* фон по умолчанию для всех страниц */
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+  background: #f7fafc;
   color: #223;
 }
 
-/* “Лист” страницы (контентная карточка) */
-.page {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #f7fafc;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(67,160,71,0.18);
-}
+strong { font-weight: 700; }
 
-/* Заголовки только внутри “листа”, чтобы не портить hero-шапку */
-.page h1 {
-  color: #2c3e50;
-  border-bottom: 3px solid #43a047;
-  padding-bottom: 15px;
-  margin-top: 0;
-  font-size: 2em;
-  text-align: center;
-}
-
-.page h2 {
-  color: #43a047;
-  margin-top: 35px;
-  padding-top: 10px;
-  font-size: 1.6em;
-}
-
-/* ---------- HERO HEADER (шапка) ---------- */
+/* ----------------------------------------------------- */
+/* ШАПКА */
+/* По умолчанию: зелёная без фото */
+/* Фото — только на главной (bg-home) и на "команда" (bg-team) */
+/* ----------------------------------------------------- */
 header {
+  background: rgba(67,160,71,0.85); /* без картинки по умолчанию */
   color: #fff;
+  padding: 2.5rem 0;
   text-align: center;
-  padding: 2.2rem 1rem;
-  background: rgba(67, 160, 71, 0.85); /* по умолчанию без фото */
+  position: relative;
+  z-index: 1;
 }
 
-/* Заголовок и подзаголовок в шапке */
+/* Фото только на нужных страницах */
+body.bg-home header {
+  background: rgba(67,160,71,0.85) url("haifa_hof.jpg") center center/cover no-repeat;
+}
+body.bg-team header {
+  background: rgba(67,160,71,0.85) url("about_us.jpg") center center/cover no-repeat;
+}
+
 header h1 {
-  margin: 0;
-  font-size: 3rem;
-  letter-spacing: 1px;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  margin: 0 0 0.4em 0;
+  font-size: 2.7em;
+  letter-spacing: 2px;
+  text-shadow: 0 3px 16px #000c;
+  font-weight: bold;
 }
 
 header p {
-  margin: 0.8rem auto 1.2rem auto;
-  max-width: 900px;
-  font-size: 1.1rem;
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.30);
+  margin: 0 0 0.6em 0;
+  font-size: 1.2em;
+  text-shadow: 0 2px 8px #000b;
 }
 
-/* Кнопки в шапке и на странице */
-a.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: #fff;
-  color: #223;
-  border: 2px solid #223;
+/* ----------------------------------------------------- */
+/* КНОПКИ В ШАПКЕ (Мы на FB / Присоединиться) */
+/* ----------------------------------------------------- */
+header .btn {
+  display: inline-block;
+  padding: 10px 22px;
+  margin: 6px;
+  border-radius: 30px;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-  margin: 0 10px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: all 0.3s ease;
+  background: #fff;
+  border: 2px solid #0a192f;
+  color: #0a192f;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+header .btn:hover {
+  background: #f0f0f0;
+  color: #000;
+  border-color: #000;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-a.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.20);
+/* ----------------------------------------------------- */
+/* КНОПКА МЕНЮ + БОКОВОЕ МЕНЮ */
+/* ----------------------------------------------------- */
+.menu-btn {
+  position: fixed;
+  top: 0px;
+  left: 15px;
+  font-size: 1.8em;
+  cursor: pointer;
+  border: none;
+  background: rgba(67,160,71,0.85);
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.2em 0.5em;
+  z-index: 1501;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.menu-btn:hover { background: rgba(46,125,50,0.95); }
+
+.side-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1200;
+  top: 0;
+  left: 0;
+  background-color: rgba(67,160,71,0.95);
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 3rem;
+}
+.side-menu a {
+  display: block;
+  padding: 0.8em 1.2em;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #fff;
+  transition: background 0.2s;
+}
+.side-menu a:hover { background: rgba(255,255,255,0.2); }
+
+/* ----------------------------------------------------- */
+/* ОСНОВНОЙ БЕЛЫЙ "ЛИСТ" */
+/* Важно: не делай <main> внутри <main> */
+/* ----------------------------------------------------- */
+main, .page {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(67,160,71,0.25);
+  padding: 2rem 2.5rem;
+  z-index: 0;
+  position: relative;
 }
 
-/* ---------- Списки ссылок ---------- */
-ul {
+.section-block { margin-bottom: 2.8em; }
+.section-block h2 {
+  color: #223;
+  margin-top: 0;
+  margin-bottom: 1.1em;
+  font-size: 1.42em;
+}
+
+.about-card {
+  background: rgba(67,160,71,0.15);
+  color: #000;
+  border-radius: 14px;
+  max-width: 760px;
+  margin: 0 auto 1em auto;
+  padding: 1.2em 2em;
+  font-size: 1.15em;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(67,160,71,0.25);
+}
+
+/* Lists */
+.events-list, .partners-list {
+  padding: 0;
+  margin: 0 0 1.1em 0;
   list-style: none;
-  padding-left: 0;
+  font-size: 1.07em;
+}
+.events-list li, .partners-list li {
+  margin-bottom: 0.55em;
+  background: rgba(67,160,71,0.08);
+  padding: 0.7em 1.1em;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(67,160,71,0.15);
+  display: inline-block;
 }
 
-ul li {
-  margin-bottom: 15px;
+/* Project cards */
+.projects-grid {
+  display: grid;
+  gap: 1.3em;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
-
-ul li a {
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
-  background: #e8f5e9;
+.project-card {
+  background: #f7fafc;
+  border-radius: 10px;
+  border: 1.5px solid rgba(67,160,71,0.25);
+  box-shadow: 0 1px 5px rgba(67,160,71,0.15);
+  padding: 1.2em 1em;
+  text-align: center;
+  transition: box-shadow .2s, border .2s;
   text-decoration: none;
   color: #223;
+}
+.project-card:hover {
+  box-shadow: 0 4px 18px rgba(67,160,71,0.35);
+  border-color: rgba(67,160,71,0.7);
+}
+.project-card span {
   font-weight: 600;
-  border-radius: 6px;
-  transition: background 0.3s;
-}
-
-ul li a:hover {
-  background: #d0f8d0;
-  text-decoration: underline;
-}
-
-.file-type {
-  font-size: 0.8em;
-  color: #777;
-  margin-left: auto;
-  background: #fff;
-  padding: 5px 10px;
-  border-radius: 3px;
-  border: 1px solid #ddd;
-}
-
-/* Кнопка “назад” */
-.back-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  padding: 8px 15px;
-  background-color: #e8f5e9;
   color: #2e7d32;
-  border: 2px solid #223;
-  border-radius: 6px;
+  font-size: 1.07em;
+}
+
+/* Buttons in content */
+.facebook-link {
+  display: inline-block;
+  background: rgba(255,255,255,0.7);
+  color: #2e7d32 !important;
+  border-radius: 8px;
+  padding: 0.7em 1.2em;
+  margin: 0.8em 0;
+  text-decoration: none;
+  font-size: 1.05em;
+  font-weight: 1000;
+  border: none;
+  box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+  transition: background 0.2s, box-shadow 0.2s;
+  text-align: center;
+  cursor: pointer;
+}
+.team-link, .event-button, .contacts a {
+  display: inline-block;
+  background: rgba(67,160,71,0.85);
+  color: #fff !important;
+  border-radius: 8px;
+  padding: 0.7em 1.2em;
+  margin: 0.8em 0;
+  text-decoration: none;
+  font-size: 1.05em;
+  font-weight: 500;
+  border: none;
+  box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+  transition: background 0.2s, box-shadow 0.2s;
+  text-align: center;
+  cursor: pointer;
+}
+.facebook-link:hover, .team-link:hover, .event-button:hover, .contacts a:hover {
+  background: rgba(46,125,50,0.95);
+  box-shadow: 0 4px 14px rgba(67,160,71,0.35);
+}
+
+.event-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* NEWS */
+.news-section {
+  background: rgba(67,160,71,0.08);
+  border-left: 6px solid rgba(67,160,71,0.85);
+  padding: 24px 20px;
+  margin-bottom: 2.8em;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(67,160,71,0.15);
+}
+.news-section h2 {
+  color: #2e7d32;
+  margin-top: 0;
+  margin-bottom: 0.8em;
+}
+
+.news-item {
+  margin-bottom: 1.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px dashed rgba(67,160,71,0.3);
+  line-height: 1.6;
+}
+.news-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.news-item .announcement-tag {
   font-weight: 700;
+  color: #e53e3e;
+}
+
+/* photos + modal */
+.news-photos {
+  display: flex;
+  gap: 16px;
+  margin: 18px 0 8px 0;
+  flex-wrap: wrap;
+}
+.news-photos img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(67,160,71,0.25);
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.news-photos img:hover { opacity: 0.85; }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
+.modal img {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+}
+.modal:target { display: block; }
+.close {
+  position: absolute;
+  top: 20px; right: 40px;
+  color: white;
+  font-size: 40px;
   text-decoration: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.back-button:hover {
-  background: #d0f8d0;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-}
-
-/* RTL (иврит) */
-[dir="rtl"] ul {
-  padding-right: 0;
-  padding-left: initial;
-}
-
-[dir="rtl"] ul li a {
-  border-left: none;
-  border-right: 5px solid #43a047;
-}
-
-[dir="rtl"] .file-type {
-  margin-right: auto;
-  margin-left: initial;
-}
-
-/* ---------- Переключатели языка (кружочки) ---------- */
+/* Language circles */
 .language-switcher {
   text-align: center;
   margin: 10px 0 20px 0;
 }
-
 .lang-btn {
   display: inline-flex;
   align-items: center;
@@ -182,40 +331,32 @@ ul li a:hover {
   color: #2e7d32;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .lang-btn:hover {
   background: #e6ffe6;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
-
 .lang-btn.active {
   background: #2e7d32;
   color: #fff;
 }
 
-/* ---------- Фоны (ТОЛЬКО где нужно) ---------- */
-body.bg-home header {
-  background: rgba(67, 160, 71, 0.65) url("haifa_nof.jpg") center center / cover no-repeat;
+/* Responsive */
+@media (max-width:600px) {
+  header { padding: 2em 0 1.2em 0; }
+  header h1 { font-size: 1.7em; }
+  .about-card { padding: 0; font-size: 1em; }
+  main, .page { padding: 1em 0.3em; }
+  .events-list li, .partners-list li { display: block; }
+  .event-buttons { flex-direction: column; gap: 12px; }
+  .event-button { width: 100%; }
+  .news-photos { flex-direction: column; gap: 10px; align-items: flex-start; }
+  .news-photos img { width: 100%; max-width: 260px; }
 }
 
-body.bg-team header {
-  background: rgba(67, 160, 71, 0.65) url("about_us.jpg") center center / cover no-repeat;
+footer {
+  text-align: center;
+  color: #789;
+  font-size: 0.96em;
+  margin: 2.5em 0 1em 0;
 }
 
-/* Если хочешь, чтобы на этих страницах и фон всего сайта был фото:
-   раскомментируй ниже (не обязательно)
-*/
-/*
-body.bg-home {
-  background: url("haifa_nof.jpg") center center / cover no-repeat fixed;
-}
-
-body.bg-team {
-  background: url("about_us.jpg") center center / cover no-repeat fixed;
-}
-
-body.bg-home .page,
-body.bg-team .page {
-  background: rgba(247, 250, 252, 0.95);
-}
-*/
