@@ -4,11 +4,21 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 0px auto;
+    padding: 0px;
     background-color: #f7fafc;
     color: #223;
 }
+
+.page {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f7fafc;
+  border-radius: 12px;
+}
+
+
 
 h1 {
     color: #2c3e50;
@@ -137,4 +147,18 @@ ul li a:hover {
       background: #2e7d32;
       color: #fff;
     }
+
+
+body.bg-home {
+  background: url("haifa_nof.jpg") center center / cover no-repeat fixed;
+}
+
+body.bg-team {
+  background: url("team.jpg") center center / cover no-repeat fixed;
+}
+
+body.bg-home .page,
+body.bg-team .page {
+  background: rgba(247, 250, 252, 0.95);
+}
 
