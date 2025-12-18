@@ -1,347 +1,379 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пособие по управлению муниципальными отходами в Израиле</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Школа управления отходами — пособие</title>
+  <link rel="icon" href="green.jpg" />
 
-body.page-textbook{
-  margin: 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background: #f7fafc;
-  color: #223;
-  line-height: 1.6;
-  font-size: 16px;
-  padding: 0;
-}
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-.site-header{
-  background: rgba(67,160,71,0.92); /* без фото */
-  color: #fff;
-  text-align: center;
-  padding: 1.6rem 0 1.0rem 0;
-}
+    /* === БАЗА САЙТА === */
+    body.page-textbook{
+      margin: 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      background: #f7fafc;
+      color: #223;
+      line-height: 1.6;
+      font-size: 16px;
+    }
 
-.site-header h1{
-  margin: 0 0 0.5rem 0;
-  font-size: 2.2rem;
-  letter-spacing: 1px;
-  font-weight: 700;
-}
+    /* Верхняя зелёная шапка без фото */
+    .site-header{
+      background: rgba(67,160,71,0.92);
+      color: #fff;
+      text-align: center;
+      padding: 1.6rem 0 1.0rem 0;
+      position: relative;
+      z-index: 1;
+    }
+    .site-header h1{
+      margin: 0 0 0.5rem 0;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      font-weight: 800;
+      color: #fff;                 /* чтобы было ВИДНО */
+      text-shadow: 0 2px 10px rgba(0,0,0,0.28);
+    }
 
-/* Языковые кружочки */
-.language-switcher{
-  text-align: center;
-  margin: 0.2rem 0 0.2rem 0;
-}
-.lang-btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  margin: 0 6px;
-  border-radius: 50%;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  background: #fff;
-  border: 2px solid #0a192f;   /* под твой “чёрный контур” */
-  color: #0a192f;
-}
-.lang-btn:hover{
-  background: #f0f0f0;
-}
-.lang-btn.active{
-  background: #0a192f;
-  color: #fff;
-}
+    /* Кружочки переключения языков */
+    .language-switcher{
+      text-align: center;
+      margin: 0.2rem 0 0.2rem 0;
+    }
+    .lang-btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      margin: 0 6px;
+      border-radius: 50%;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      background: #fff;
+      border: 2px solid #0a192f;   /* чёрный контур как на сайте */
+      color: #0a192f;
+    }
+    .lang-btn:hover{ background: #f0f0f0; }
+    .lang-btn.active{
+      background: #0a192f;
+      color: #fff;
+    }
 
+    /* === ГАМБУРГЕР (белый, с чёрной рамкой — на зелёном видно) === */
+    .menu-btn{
+      position: fixed;
+      top: 12px;
+      left: 15px;
+      font-size: 1.8em;
+      cursor: pointer;
+      border: 2px solid #0a192f;   /* чёрная рамка */
+      background: #fff;            /* белая кнопка */
+      color: #0a192f;              /* чёрная “☰” */
+      border-radius: 10px;
+      padding: 0.12em 0.45em;
+      z-index: 1501;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.20);
+    }
+    .menu-btn:hover{
+      background: #f0f0f0;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+    }
 
+    /* === SIDE MENU === */
+    .side-menu{
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1200;
+      top: 0;
+      left: 0;
+      background-color: rgba(67,160,71,0.95);
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 3rem;
+    }
+    .side-menu a{
+      display: block;
+      padding: 0.85em 1.2em;
+      text-decoration: none;
+      font-size: 1.15em;
+      color: #fff;
+      transition: background 0.2s;
+    }
+    .side-menu a:hover{
+      background: rgba(255,255,255,0.18);
+    }
 
+    /* === ОБЁРТКА КОНТЕНТА === */
+    .site-main{
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(67,160,71,0.25);
+      padding: 2rem 2.2rem;
+      position: relative;
+      z-index: 0;
+    }
 
+    /* ВАЖНО: контейнер не должен рисовать второй “фон-карточку” */
+    .container{
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+    }
 
-      
- .site-main{
-  max-width: 900px;
-  margin: 2rem auto;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(67,160,71,0.25);
-  padding: 2rem 2.2rem;
-}
+    /* === “САЙТОВЫЙ” ЗАГОЛОВОК КНИГИ (внутри контента) === */
+    .book-title{
+      color: #223;
+      text-align: left;
+      margin: 0 0 6px 0;
+      font-size: 1.65rem;
+      line-height: 1.25;
+      letter-spacing: 0;
+      font-weight: 800;
+    }
+    .book-subtitle{
+      color: #223;
+      text-align: left;
+      margin: 0 0 10px 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+    .author{
+      color: #556;
+      text-align: left;
+      margin-bottom: 18px;
+      font-size: 1rem;
+      font-style: italic;
+    }
 
-.container{
-  /* теперь контейнер не “рисует” второй фон */
-  max-width: none;
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
-}
+    /* === ДАЛЬШЕ: твои существующие стили книги (аккордеоны/секции/модалка) === */
+    .accordion { margin-bottom: 10px; }
 
-        h1 {
-            color: #5a9e4a;
-            text-align: center;
-            margin-bottom: 8px;
-            font-size: 1.4em;
-            line-height: 1.3;
-        }
+    .accordion-header{
+      background: #dce6dc;
+      color: #4a8c3a;
+      padding: 14px 18px;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-size: 0.95em;
+      font-weight: 700;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .accordion-header:hover{
+      background: #cfdccf;
+      color: #3a7a2a;
+    }
+    .accordion-header.active{
+      background: #c5d6c5;
+      border-radius: 8px 8px 0 0;
+    }
+    .accordion-icon{
+      transition: transform 0.3s ease;
+      color: #5a9e4a;
+    }
+    .accordion-header.active .accordion-icon{ transform: rotate(180deg); }
 
-        .author {
-            color: #6ba85a;
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 0.95em;
-            font-style: italic;
-        }
+    .accordion-content{
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #e8ede8;
+      border-radius: 0 0 8px 8px;
+    }
+    /* чтобы ничего не “обрезалось” */
+    .accordion-content.active{ max-height: 3000px; }
 
-        .accordion {
-            margin-bottom: 10px;
-        }
+    .accordion-body{
+      padding: 16px 18px;
+      color: #4a8c3a;
+      font-size: 0.9em;
+      line-height: 1.65;
+    }
 
-        .accordion-header {
-            background: #dce6dc;
-            color: #4a8c3a;
-            padding: 14px 18px;
-            cursor: pointer;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-size: 0.9em;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .section-title{
+      color: #3a7a2a;
+      font-weight: 800;
+      margin-top: 20px;
+      margin-bottom: 12px;
+      font-size: 1.1em;
+      padding-left: 10px;
+      border-left: 4px solid #5a9e4a;
+    }
 
-        .accordion-header:hover {
-            background: #cfdccf;
-            color: #3a7a2a;
-        }
+    .intro-section, .conclusion-section{
+      background: #e8ede8;
+      padding: 18px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      color: #4a8c3a;
+      font-size: 0.95em;
+    }
+    .conclusion-section{ margin-top: 25px; }
 
-        .accordion-header.active {
-            background: #c5d6c5;
-            border-radius: 8px 8px 0 0;
-        }
+    .intro-section h2, .conclusion-section h2{
+      color: #3a7a2a;
+      margin-bottom: 10px;
+      font-size: 1.15em;
+      font-weight: 800;
+    }
+    .intro-section p, .conclusion-section p{ margin-bottom: 6px; }
 
-        .accordion-icon {
-            transition: transform 0.3s ease;
-            color: #5a9e4a;
-        }
+    .request-section{
+      background: #dce6dc;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 25px;
+      text-align: center;
+    }
+    .request-section h3{
+      color: #3a7a2a;
+      margin-bottom: 15px;
+      font-size: 1.1em;
+      font-weight: 800;
+    }
+    .request-button{
+      background: #5a9e4a;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-weight: 700;
+    }
+    .request-button:hover{ background: #4a8c3a; }
 
-        .accordion-header.active .accordion-icon {
-            transform: rotate(180deg);
-        }
+    /* Модалка — поверх меню */
+    .modal{
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      overflow: auto;
+    }
+    .modal-content{
+      background-color: #f0f4f0;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    .close{
+      color: #6ba85a;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      line-height: 20px;
+    }
+    .close:hover{ color: #3a7a2a; }
 
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: #e8ede8;
-            border-radius: 0 0 8px 8px;
-        }
+    .modal h2{
+      color: #3a7a2a;
+      margin-bottom: 20px;
+      font-size: 1.3em;
+      font-weight: 800;
+    }
+    .form-group{ margin-bottom: 15px; }
+    .form-group label{
+      display: block;
+      color: #4a8c3a;
+      margin-bottom: 5px;
+      font-weight: 700;
+      font-size: 0.9em;
+    }
+    .form-group input{
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #c5d6c5;
+      border-radius: 6px;
+      font-size: 0.95em;
+      background: white;
+      color: #333;
+    }
+    .form-group input:focus{
+      outline: none;
+      border-color: #5a9e4a;
+    }
 
-        .accordion-content.active {
-            max-height: 500px;
-        }
+    .submit-button{
+      background: #5a9e4a;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      font-weight: 800;
+      transition: background 0.3s ease;
+    }
+    .submit-button:hover{ background: #4a8c3a; }
 
-        .accordion-body {
-            padding: 16px 18px;
-            color: #4a8c3a;
-            font-size: 0.85em;
-            line-height: 1.6;
-        }
+    .success-message{
+      display: none;
+      background: #c5d6c5;
+      color: #3a7a2a;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: 800;
+    }
 
-        .section-title {
-            color: #3a7a2a;
-            font-weight: 700;
-            margin-top: 20px;
-            margin-bottom: 12px;
-            font-size: 1.05em;
-            padding-left: 10px;
-            border-left: 4px solid #5a9e4a;
-        }
-
-        .intro-section {
-            background: #e8ede8;
-            padding: 18px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            color: #4a8c3a;
-            font-size: 0.9em;
-        }
-
-        .intro-section h2 {
-            color: #3a7a2a;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-
-        .intro-section p {
-            margin-bottom: 6px;
-        }
-
-        .conclusion-section {
-            background: #e8ede8;
-            padding: 18px;
-            border-radius: 8px;
-            margin-top: 25px;
-            margin-bottom: 20px;
-            color: #4a8c3a;
-            font-size: 0.9em;
-        }
-
-        .conclusion-section h2 {
-            color: #3a7a2a;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .request-section {
-            background: #dce6dc;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 25px;
-            text-align: center;
-        }
-
-        .request-section h3 {
-            color: #3a7a2a;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-
-        .request-button {
-            background: #5a9e4a;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 6px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            font-weight: 600;
-        }
-
-        .request-button:hover {
-            background: #4a8c3a;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            overflow: auto;
-        }
-
-        .modal-content {
-            background-color: #f0f4f0;
-            margin: 5% auto;
-            padding: 30px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .close {
-            color: #6ba85a;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 20px;
-        }
-
-        .close:hover {
-            color: #3a7a2a;
-        }
-
-        .modal h2 {
-            color: #3a7a2a;
-            margin-bottom: 20px;
-            font-size: 1.3em;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            color: #4a8c3a;
-            margin-bottom: 5px;
-            font-weight: 600;
-            font-size: 0.9em;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #c5d6c5;
-            border-radius: 6px;
-            font-size: 0.9em;
-            background: white;
-            color: #333;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #5a9e4a;
-        }
-
-        .submit-button {
-            background: #5a9e4a;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 6px;
-            font-size: 1em;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        .submit-button:hover {
-            background: #4a8c3a;
-        }
-
-        .success-message {
-            display: none;
-            background: #c5d6c5;
-            color: #3a7a2a;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 15px;
-            text-align: center;
-            font-weight: 600;
-        }
-    </style>
+    @media (max-width: 700px){
+      .site-main{ padding: 1.3rem 1rem; margin: 1.2rem auto; }
+      .site-header h1{ font-size: 1.8rem; }
+      .book-title{ font-size: 1.35rem; }
+    }
+  </style>
 </head>
-<body> 
+
 <body class="page-textbook">
+
+  <!-- Гамбургер -->
+  <button class="menu-btn" onclick="toggleMenu()" aria-label="Открыть меню">☰</button>
+
+  <!-- Side menu -->
+  <nav id="sideMenu" class="side-menu" aria-label="Навигация">
+    <a href="index.html">Главная</a>
+    <a href="about_us.html">Наша команда</a>
+    <a href="экоанатилика%20на%20сайт/ecoanalytics-ru.html">Эко-аналитика</a>
+    <a href="eco-law-ru.html">Эко законы Израиля</a>
+    <a href="programma">Проект программы перехода к циркулярной экономике</a>
+    <a href="textbookWM.html">Школа управления отходами</a>
+    <a href="oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
+  </nav>
+
+  <!-- Верхняя шапка -->
   <header class="site-header">
     <h1>Re-Haifa Hub</h1>
 
     <div class="language-switcher" aria-label="Переключение языка">
-      <!-- замени href на свои реальные страницы -->
       <a class="lang-btn active" href="textbookWM.html">RU</a>
       <a class="lang-btn" href="textbookWM-en.html">EN</a>
       <a class="lang-btn" href="textbookWM-he.html" lang="he" dir="rtl">HE</a>
@@ -350,18 +382,11 @@ body.page-textbook{
 
   <main class="site-main">
     <div class="container">
-      <!-- дальше твой существующий контент без изменений -->
 
-  
-  
-  
-  
-  
-  
-  <div class="container">
-        <h1>Пособие по управлению муниципальными отходами в Израиле:<br>книга для активистов и активисток</h1>
-        <div class="author">Автор: Бэла Никитина</div>
-
+      <h1 class="book-title">Пособие по управлению муниципальными отходами в Израиле</h1>
+      <div class="book-subtitle">Книга для активистов и активисток</div>
+      <div class="author">Автор: Бэла Никитина</div>
+ 
         <div class="intro-section">
             <h2>ВВЕДЕНИЕ</h2>
             <p><strong>ДЛЯ ТЕХ, КОМУ НАДОЕЛ МУСОР В ИЗРАИЛЕ: ЗАЧЕМ ЧИТАТЬ ЭТУ КНИГУ</strong></p>
@@ -631,97 +656,113 @@ body.page-textbook{
         </div>
     </div>
 
-    <!-- Модальное окно -->
+
+    <!-- Модальное окно (оставляем как было) -->
     <div id="requestModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">×</span>
-            <h2>Запрос полного текста книги</h2>
-            <form id="requestForm" onsubmit="submitForm(event)">
-                <div class="form-group">
-                    <label for="firstName">Имя *</label>
-                    <input type="text" id="firstName" name="firstName" required>
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Фамилия *</label>
-                    <input type="text" id="lastName" name="lastName" required>
-                </div>
-                <div class="form-group">
-                    <label for="country">Страна жительства *</label>
-                    <input type="text" id="country" name="country" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Телефон *</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="workplace">Место работы *</label>
-                    <input type="text" id="workplace" name="workplace" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Электронная почта *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <button type="submit" class="submit-button">Отправить запрос</button>
-            </form>
-            <div id="successMessage" class="success-message">
-                Спасибо! Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.
-            </div>
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <h2>Запрос полного текста книги</h2>
+        <form id="requestForm" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label for="firstName">Имя *</label>
+            <input type="text" id="firstName" name="firstName" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Фамилия *</label>
+            <input type="text" id="lastName" name="lastName" required />
+          </div>
+          <div class="form-group">
+            <label for="country">Страна жительства *</label>
+            <input type="text" id="country" name="country" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Телефон *</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="workplace">Место работы *</label>
+            <input type="text" id="workplace" name="workplace" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Электронная почта *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <button type="submit" class="submit-button">Отправить запрос</button>
+        </form>
+
+        <div id="successMessage" class="success-message">
+          Спасибо! Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.
         </div>
+      </div>
     </div>
 
-    <script>
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
+  </main>
 
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                const isActive = this.classList.contains('active');
+  <script>
+    /* Side menu toggle */
+    function toggleMenu() {
+      const menu = document.getElementById("sideMenu");
+      if (menu.style.width === "250px" || menu.style.width === "220px") {
+        menu.style.width = "0";
+      } else {
+        menu.style.width = "250px";
+      }
+    }
 
-                // Закрыть все аккордеоны
-                accordionHeaders.forEach(h => {
-                    h.classList.remove('active');
-                    h.nextElementSibling.classList.remove('active');
-                });
+    /* Accordion */
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const isActive = this.classList.contains('active');
 
-                // Открыть текущий, если он был закрыт
-                if (!isActive) {
-                    this.classList.add('active');
-                    content.classList.add('active');
-                }
-            });
+        accordionHeaders.forEach(h => {
+          h.classList.remove('active');
+          h.nextElementSibling.classList.remove('active');
         });
 
-        function openModal() {
-            document.getElementById('requestModal').style.display = 'block';
+        if (!isActive) {
+          this.classList.add('active');
+          content.classList.add('active');
         }
+      });
+    });
 
-        function closeModal() {
-            document.getElementById('requestModal').style.display = 'none';
-            document.getElementById('requestForm').reset();
-            document.getElementById('successMessage').style.display = 'none';
-        }
+    /* Modal */
+    function openModal() {
+      document.getElementById('requestModal').style.display = 'block';
+      document.getElementById('requestForm').style.display = 'block';
+      document.getElementById('successMessage').style.display = 'none';
+    }
 
-        window.onclick = function(event) {
-            const modal = document.getElementById('requestModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+    function closeModal() {
+      document.getElementById('requestModal').style.display = 'none';
+      document.getElementById('requestForm').reset();
+      document.getElementById('successMessage').style.display = 'none';
+      document.getElementById('requestForm').style.display = 'block';
+    }
 
-        function submitForm(event) {
-            event.preventDefault();
+    window.onclick = function(event) {
+      const modal = document.getElementById('requestModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
 
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                country: document.getElementById('country').value,
-                phone: document.getElementById('phone').value,
-                workplace: document.getElementById('workplace').value,
-                email: document.getElementById('email').value
-            };
+    function submitForm(event) {
+      event.preventDefault();
 
-            // Формируем тело письма
-            const emailBody = `
+      const formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        country: document.getElementById('country').value,
+        phone: document.getElementById('phone').value,
+        workplace: document.getElementById('workplace').value,
+        email: document.getElementById('email').value
+      };
+
+      const emailBody = `
 Запрос на полный текст книги "Пособие по управлению муниципальными отходами в Израиле"
 
 Имя: ${formData.firstName}
@@ -730,25 +771,42 @@ body.page-textbook{
 Телефон: ${formData.phone}
 Место работы: ${formData.workplace}
 Электронная почта: ${formData.email}
-            `.trim();
+      `.trim();
 
-            // Формируем mailto ссылку
-            const mailtoLink = `mailto:belanik@gmail.com?subject=${encodeURIComponent('Запрос на полный текст книги')}&body=${encodeURIComponent(emailBody)}`;
+      const mailtoLink =
+        `mailto:belanik@gmail.com?subject=${encodeURIComponent('Запрос на полный текст книги')}&body=${encodeURIComponent(emailBody)}`;
 
-            // Открываем почтовый клиент
-            window.location.href = mailtoLink;
+      window.location.href = mailtoLink;
 
-            // Показываем сообщение об успехе
-            document.getElementById('requestForm').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'block';
+      document.getElementById('requestForm').style.display = 'none';
+      document.getElementById('successMessage').style.display = 'block';
 
-            // Закрываем модальное окно через 3 секунды
-            setTimeout(() => {
-                closeModal();
-                document.getElementById('requestForm').style.display = 'block';
-            }, 3000);
-        }
-    </script>
-</div></main>     
-    </body>
+      setTimeout(() => {
+        closeModal();
+      }, 3000);
+    }
+  </script>
+</body>
 </html>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
