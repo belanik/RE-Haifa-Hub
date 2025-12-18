@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RE Haifa Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="green.jpg" />
+  <meta name="description" content="RE Haifa Hub — проекты устойчивого развития, обмена ресурсами и экологии в Хайфе.">
+  <style>
+  body {
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f7fafc;
+    color:#223;
+  }
+
+  header {
+    background: rgba(67,160,71,0.85) url('haifa_nof.jpg') center center/cover no-repeat;
+    color: #fff;
+    padding: 3.5rem 0 2.5rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  header h1 {
+    margin:0 0 0.4em 0;
+    font-size:2.7em;
+    letter-spacing:2px;
+    text-shadow: 0 3px 16px #000c;
+    font-weight: bold;
+  }
+  header p {
+    margin:0 0 0.6em 0;
+    font-size:1.2em;
+    text-shadow: 0 2px 8px #000b;
+  }
+.menu-btn {
+      position: fixed;
+      top: 15px; left: 15px;
+      font-size: 1.8em;
+      cursor: pointer;
+      border: none;
+      background: rgba(67,160,71,0.85);
+      color: #fff;
+      border-radius: 6px;
+      padding: 0.2em 0.5em;
+      z-index: 1501;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .menu-btn:hover {
+      background: rgba(46,125,50,0.95);
+    }
+
+    /* Side menu (overlay style) */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1200;
+      top: 0;
+      left: 0;
+      background-color: rgba(67,160,71,0.95);
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 3rem;
+    }
+    .side-menu a {
+      display: block;
+      padding: 0.8em 1.2em;
+      text-decoration: none;
+      font-size: 1.2em;
+      color: #fff;
+      transition: background 0.2s;
+    }
+    .side-menu a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Main content (always centered) */
+    main {
+      max-width:900px;
+      margin:2rem auto;
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(67,160,71,0.25);
+      padding:2rem 2.5rem;
+      z-index: 0;
+      position: relative;
+    }
+
+  .section-block { margin-bottom:2.8em; }
+  .section-block h2 {
+    color:#2e7d32;
+    margin-top:0;
+    margin-bottom:1.1em;
+    font-size:1.42em;
+  }
+
+  .about-card {
+    background: rgba(67,160,71,0.85);
+    color: #fff;
+    border-radius: 14px;
+    max-width: 760px;
+    margin: 2em auto 2.5em auto;
+    padding: 1.2em 2em;
+    font-size: 1.15em;
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: center;
+    box-shadow:0 2px 10px rgba(67,160,71,0.25);
+  }
+
+  /* Lists */
+  .events-list, .partners-list {
+    padding: 0;
+    margin: 0 0 1.1em 0;
+    list-style: none;
+    font-size: 1.07em;
+  }
+  .events-list li, .partners-list li {
+    margin-bottom: 0.55em;
+    background: rgba(67,160,71,0.08);
+    padding: 0.7em 1.1em;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(67,160,71,0.15);
+    display: inline-block;
+  }
+
+  /* Project cards */
+  .projects-grid { display:grid; gap:1.3em; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .project-card {
+    background:#f7fafc;
+    border-radius:10px;
+    border:1.5px solid rgba(67,160,71,0.25);
+    box-shadow:0 1px 5px rgba(67,160,71,0.15);
+    padding:1.2em 1em;
+    text-align:center;
+    transition:box-shadow .2s,border .2s;
+    text-decoration: none;
+    color: #223;
+  }
+  .project-card:hover {
+    box-shadow:0 4px 18px rgba(67,160,71,0.35);
+    border-color:rgba(67,160,71,0.7);
+  }
+  .project-card span {
+    font-weight:600;
+    color:#2e7d32;
+    font-size:1.07em;
+  }
+.facebook-link {
+    display:inline-block;
+    background: rgba(255,255,255,0.7);
+    color:#2e7d32 !important;
+    border-radius:8px;
+    padding: 0.7em 1.2em;
+    margin: 0.8em 0;
+    text-decoration:none;
+    
+    font-size:1.05em;
+    font-weight: 1000;
+    border: none;
+    box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+    transition: background 0.2s, box-shadow 0.2s;
+    text-align:center;
+    cursor: pointer;
+  }
+  .team-link, .event-button, .contacts a {
+    display:inline-block;
+    background: rgba(67,160,71,0.85);
+    color:#fff !important;
+    border-radius:8px;
+    padding: 0.7em 1.2em;
+    margin: 0.8em 0;
+    text-decoration:none;
+    font-size:1.05em;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+    transition: background 0.2s, box-shadow 0.2s;
+    text-align:center;
+    cursor: pointer;
+  }
+  .facebook-link:hover, .team-link:hover, .event-button:hover, .contacts a:hover {
+    background: rgba(46,125,50,0.95);
+    box-shadow:0 4px 14px rgba(67,160,71,0.35);
+  }
+
+  .event-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin:1em 0;
+    padding:0;
+  }
+
+  /* News section */
+  .news-section {
+    background: rgba(67,160,71,0.08);
+    border-left: 6px solid rgba(67,160,71,0.85);
+    padding: 24px 20px;
+    margin-bottom: 2.8em;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(67,160,71,0.15);
+  }
+  .news-section h2 {
+    color: #2e7d32;
+    margin-top: 0;
+    margin-bottom: 0.8em;
+  }
+
+
+  footer {
+    text-align:center;
+    color:#789;
+    font-size:0.96em;
+    margin:2.5em 0 1em 0;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>RE Haifa Hub</h1>
+    <p>Городской центр обмена ресурсами, экопросвещения и устойчивого развития в Хайфе</p>
+    <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Мы на Facebook</a>
+  </header>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <a href="/" class="back-link">&larr; Назад к проектам</a>
+  
+
+  <nav id="sideMenu" class="side-menu">
+    <a href="index.html">Главная</a>
+    <a href="index.html#about">О нас</a>
+    <a href="index.html#projects">Проекты</a>
+    <a href="index.html#team">Команда</a>
+    <a href="index.html#partners">Партнёры</a>
+    <a href="#contacts">Контакты</a>
+    <a href="index.html#partners">Доклады ОЭСР</a>
+  </nav>
+  
+  <main>
+    
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <div class="grid gap-10 sm:grid-cols-1 md:grid-cols-2">
+        <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
+          <img src="bela.jpg" alt="Бэла Никитина" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+          <h3 class="text-xl font-semibold text-center">
+            Бэла Никитина<br>
+            <span class="text-sm font-normal">Социолог-инвайронменталист, PhD</span>
+          </h3>
+          <div class="text-gray-700 text-sm mt-4 space-y-3">
+            <p><strong>Области специализации:</strong> Устойчивое развитие, управление отходами, эколого-экономическое планирование, государственное и муниципальное управление, экологический менеджмент, просвещение в сфере circular economy.</p>
+            <p><strong>Предыдущий профессиональный опыт в проектной области:</strong> Более 20 лет опыта в сфере устойчивого развития и управления отходами в России. Автор монографий и публикаций по вопросам circular economy и экологического менеджмента. Руководитель общественных экспертных групп по оценке экологической безопасности инфраструктурных проектов. Преподавала экологический менеджмент и экономику природопользования для студентов и специалистов.</p>
+            <p><strong>Опыт работы с региональными органами власти, учреждениями или организациями:</strong> 15 лет была членом общественного экспертного совета при Министерстве финансов Самарской области. Участвовала в разработке региональных программ по обращению с отходами, бюджетированию в сфере охраны окружающей среды, сотрудничала с органами власти и промышленными предприятиями в рамках экологической экспертизы и внедрения устойчивых решений.</p>
+          </div>
+        </div>
+      <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
+    <img src="anna.jpg" alt="Анна Зив" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+    <h3 class="text-xl font-semibold text-center">Анна Зив</h3>
+    <div class="text-gray-700 text-sm mt-4 space-y-3">
+      <p><strong>Области специализации:</strong> Экологическое просвещение, устойчивое потребление, организация и проведение экологических мероприятий, развитие городских сообществ, межсекторное взаимодействие, управление волонтёрскими проектами.</p>
+      <p><strong>Профессиональный опыт:</strong> Основатель и координатор инициативы GreenMove, направленной на продвижение экологичного образа жизни. Организатор и ведущая мастер-классов, акций по раздельному сбору отходов и образовательных мероприятий. Активно использует соцсети для продвижения экологических тем.</p>
+      <p><strong>Опыт работы с организациями:</strong> Сотрудничала с муниципальными учреждениями и образовательными организациями. Работала с НКО и сообществами по программам экологического просвещения и вовлечения населения.</p>
+    </div>
+  </div>
+
+  <!-- Александра Цейтлина -->
+  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
+    <img src="alex.jpg" alt="Александра Цейтлина" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+    <h3 class="text-xl font-semibold text-center">Александра Цейтлина</h3>
+    <div class="text-gray-700 text-sm mt-4 space-y-3">
+      <p><strong>Области специализации:</strong> Биоэкология, экологическое образование, устойчивое развитие, инклюзивное природоохранное проектирование, общественный мониторинг, экологическая аналитика и визуализация данных.</p>
+      <p><strong>Профессиональный опыт:</strong> Более 15 лет в сфере охраны природы. Координатор проектов WWF, Kolarctic CBC, разработчик инициатив по биоразнообразию, водорослям и устойчивому туризму. Эксперт по отчётности и коммуникации с НКО.</p>
+      <p><strong>Опыт работы с организациями:</strong> Сотрудничала с Росприроднадзором, Минприроды Мурманской области, заповедниками, музеями и НКО.</p>
+    </div>
+  </div>
+
+  <!-- Екатерина Бирюкова -->
+  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
+    <img src="ekat.jpg" alt="Екатерина Бирюкова" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+    <h3 class="text-xl font-semibold text-center">Екатерина Бирюкова</h3>
+    <div class="text-gray-700 text-sm mt-4 space-y-3">
+      <p><strong>Области специализации:</strong> Экологическое просвещение, устойчивое потребление, культурные инициативы, реставрация, экологические коммуникации и медиа.</p>
+      <p><strong>Профессиональный опыт:</strong> Сооснователь проекта «Раздельный сбор — Раменское», автор проекта <a href="https://horlovo.ru/news/voskresensk/item/2285-proekt-muzej-istorii-musora-mozhet-realizovatsya-v-tsibino" class="text-blue-600 underline hover:text-blue-800">«Музей Мусора»</a>, лауреат премии Подмосковья. Проект приостановлен из-за военных событий.</p>
+      <p><strong>Опыт работы с организациями:</strong> Сотрудничала с муниципальными администрациями, школами, библиотеками и НКО. Развивает экопросвещение и медиа в соцсетях.</p>
+    </div>
+  </div>
+
+  <!-- Татьяна Фрумина -->
+  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
+    <img src="tatyana.jpg" alt="Татьяна Фрумина" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+    <h3 class="text-xl font-semibold text-center">Татьяна Фрумина<br><span class="text-sm font-normal">Социальный активист, волонтёр</span></h3>
+    <div class="text-gray-700 text-sm mt-4 space-y-3">
+      <p><strong>Опыт в России:</strong> Занималась обеспечением доступности транспорта и инфраструктуры, взаимодействовала с муниципальными властями, организовала локальное сообщество из 1000+ участников.</p>
+      <p><strong>Опыт в Израиле:</strong> Прошла курс социального активизма в Хайфе, участвовала в экологических круглых столах, организовывала Swap Market, формирует культуру устойчивости.</p>
+    </div>
+  </div>
+    </div>
+    </div>
+    
+    <section id="contacts">
+      <h2>Контакты</h2>
+      <div class="contacts" id="contacts">
+        <a href="mailto:rehaifahub@gmail.com">rehaifahub@gmail.com</a>
+        <a href="https://t.me/rehaifahub" target="_blank">Telegram</a>
+        <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Мы на Facebook</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; RE Haifa Hub, 2025 &mdash; Экология, обмен и сообщество в Хайфе
+  </footer>
+    <script>
+    function toggleMenu() {
+      const menu = document.getElementById("sideMenu");
+      if (menu.style.width === "250px" || menu.style.width === "220px") {
+        menu.style.width = "0";
+      } else {
+        menu.style.width = "250px";
+      }
+    }
+  </script>
+</body>
+</html>
