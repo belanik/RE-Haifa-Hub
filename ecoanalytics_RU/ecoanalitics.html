@@ -4,223 +4,233 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Эко-аналитика — RE-HAIFA HUB</title>
+
+  <!-- favicon в корне репозитория -->
   <link rel="icon" href="../green.jpg" />
 
   <style>
     :root{
-      --green: rgba(67,160,71,0.92);
-      --ink: #223;
-      --paper: #fff;
-      --bg: #f7fafc;
-      --shadow: 0 4px 16px rgba(67,160,71,0.22);
-      --border: rgba(0,0,0,0.14);
-      --black: #0a192f;
+      --green:#43a047;
+      --ink:#0a192f;
+      --bg:#f7fafc;
+      --paper:#ffffff;
+      --muted:#5b6776;
+      --shadow: 0 10px 30px rgba(0,0,0,0.10);
+      --radius: 14px;
     }
 
     *{ box-sizing:border-box; }
     html,body{ margin:0; padding:0; }
     body{
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: Georgia, "Times New Roman", Times, serif;
       background: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
+      color:#223;
+      line-height:1.6;
     }
 
-    /* Гамбургер */
+    /* ====== Header ====== */
+    .site-header{
+      position: relative;
+      background: rgba(67,160,71,0.92);
+      color:#fff;
+      text-align:center;
+      padding: 1.6rem 0 1.0rem 0;
+    }
+    .site-header h1{
+      margin:0 0 .55rem 0;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color:#fff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+
+    /* ====== Language switcher ====== */
+    .language-switcher{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap: 12px;
+      padding-bottom: .2rem;
+    }
+    .lang-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      text-decoration:none;
+      font-weight: 700;
+      background:#fff;
+      border: 2px solid var(--ink);
+      color: var(--ink);
+      transition: transform .12s ease, background .12s ease;
+      user-select:none;
+    }
+    .lang-btn:hover{ transform: translateY(-1px); background:#f0f0f0; }
+    .lang-btn.active{ background: var(--ink); color:#fff; }
+
+    /* ====== Main container ====== */
+    .site-main{
+      max-width: 980px;
+      margin: 1.6rem auto 2.4rem auto;
+      padding: 0 1rem;
+    }
+    .card{
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.4rem 1.4rem;
+    }
+    .page-title{
+      margin:0 0 .4rem 0;
+      font-size: 1.55rem;
+      color:#123;
+    }
+    .lead{
+      margin:0 0 1.1rem 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    /* ====== Doc list ====== */
+    .doc-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap: 12px;
+    }
+    .doc-link{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      text-decoration:none;
+      color:#123;
+      background: #f2f7f2;
+      border-left: 5px solid var(--green);
+      transition: transform .12s ease, background .12s ease;
+    }
+    .doc-link:hover{
+      background:#e7f4e7;
+      transform: translateY(-1px);
+    }
+    .doc-title{
+      font-weight: 700;
+    }
+    .badge{
+      flex: 0 0 auto;
+      font-size: .78rem;
+      background:#fff;
+      border:1px solid #d7dde5;
+      color:#2b3440;
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* ====== Footer ====== */
+    .site-footer{
+      text-align:center;
+      color:#6a7686;
+      font-size:.95rem;
+      padding: 1.2rem 0 2rem 0;
+    }
+
+    /* ====== Hamburger button ====== */
     .menu-btn{
       position: fixed;
-      top: 16px;
-      left: 16px;
+      top: 14px;
+      left: 14px;
+      z-index: 1200;
       width: 44px;
       height: 44px;
-      border-radius: 10px;
-      border: 2px solid #000;
+      border-radius: 12px;
+      border: 2px solid var(--ink);
       background: #fff;
-      color: #000;
-      font-size: 22px;
-      font-weight: 900;
+      color: var(--ink);
       cursor: pointer;
-      z-index: 1100;
-      display: grid;
-      place-items: center;
+      font-size: 22px;
+      line-height: 1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
-    .menu-btn:focus{ outline: 3px solid rgba(0,0,0,0.25); outline-offset: 2px; }
 
-    /* Меню */
+    /* ====== Side menu ====== */
     .side-menu{
       position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 290px;
-      background: #fff;
-      padding: 70px 16px 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      transform: translateX(-105%);
-      transition: transform .22s ease;
-      z-index: 1000;
-      overflow-y: auto;
+      top:0; left:0;
+      height:100%;
+      width: 280px;
+      background:#ffffff;
+      z-index: 1300;
+      padding: 18px 14px;
+      box-shadow: 18px 0 40px rgba(0,0,0,0.18);
+      transform: translateX(-110%);
+      transition: transform .18s ease;
+      overflow:auto;
     }
     .side-menu.open{ transform: translateX(0); }
 
     .side-menu a{
-      display: block;
+      display:block;
       padding: 12px 12px;
       margin: 6px 0;
       border-radius: 10px;
-      text-decoration: none;
-      color: #123;
-      font-weight: 650;
-      border: 1px solid rgba(0,0,0,0.06);
-      background: #f8fafc;
+      text-decoration:none;
+      color:#123;
+      font-weight:700;
+      background:#f7fafc;
+      border: 1px solid #eef2f7;
     }
-    .side-menu a:hover{ background:#eef6ef; }
+    .side-menu a:hover{ background:#eef6ff; }
+    .side-menu a.active{
+      border-color: #cfe7cf;
+      background:#eaf6ea;
+    }
 
     .menu-backdrop{
       position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.25);
-      display: none;
-      z-index: 900;
+      inset:0;
+      background: rgba(0,0,0,0.35);
+      z-index: 1250;
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .18s ease;
     }
-    .menu-backdrop.open{ display:block; }
-
-    /* Шапка */
-    .site-header{
-      background: var(--green);
-      color: #fff;
-      text-align: center;
-      padding: 1.8rem 1rem 1.1rem;
-      position: relative;
-      z-index: 2;
-    }
-    .brand{
-      margin: 0;
-      font-size: 2.1rem;
-      letter-spacing: 1px;
-      font-weight: 800;
-      color: #fff;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    .menu-backdrop.open{
+      opacity:1;
+      pointer-events:auto;
     }
 
-    /* Языковые кружочки */
-    .language-switcher{
-      margin-top: .7rem;
-    }
-    .lang-btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      margin: 0 6px;
-      border-radius: 50%;
-      font-weight: 800;
-      text-decoration: none;
-      transition: all .18s ease;
-      background: #fff;
-      border: 2px solid var(--black);
-      color: var(--black);
-    }
-    .lang-btn:hover{ background:#f0f0f0; }
-    .lang-btn.active{
-      background: var(--black);
-      color: #fff;
+    .sr{
+      position:absolute;
+      left:-9999px;
     }
 
-    /* Контент */
-    .site-main{
-      max-width: 980px;
-      margin: 1.8rem auto 3rem;
-      padding: 0 1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .card{
-      background: var(--paper);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      padding: 1.4rem 1.6rem;
-    }
-
-    .page-title{
-      margin: 0 0 .3rem 0;
-      font-size: 1.6rem;
-      font-weight: 850;
-      color: #1b3a1b;
-    }
-    .page-subtitle{
-      margin: 0 0 1.2rem 0;
-      color: #345;
-      font-size: 1rem;
-    }
-
-    .doc-list{
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .doc-link{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 14px;
-      border-radius: 12px;
-      text-decoration: none;
-      background: #eef6ef;
-      border: 1px solid rgba(67,160,71,0.22);
-      color: #123;
-      font-weight: 700;
-      transition: transform .12s ease, background .2s ease;
-    }
-    .doc-link:hover{
-      background: #e3f1e4;
-      transform: translateY(-1px);
-    }
-
-    .doc-title{ flex: 1; }
-    .file-type{
-      font-size: .78rem;
-      font-weight: 800;
-      background: #fff;
-      border: 1px solid var(--border);
-      padding: 6px 10px;
-      border-radius: 999px;
-      color: #234;
-      white-space: nowrap;
-    }
-
-    .note{
-      margin-top: 1rem;
-      padding: .9rem 1rem;
-      border-radius: 12px;
-      background: #f6fbff;
-      border: 1px solid rgba(0,0,0,0.08);
-      color: #345;
-      font-size: .95rem;
-    }
-
-    @media (max-width: 560px){
-      .brand{ font-size: 1.7rem; }
-      .page-title{ font-size: 1.25rem; }
-      .doc-link{ flex-direction: column; align-items: flex-start; }
-      .file-type{ align-self: flex-start; }
+    @media (max-width: 720px){
+      .site-header h1{ font-size: 1.95rem; }
+      .doc-link{ padding: 12px 12px; }
     }
   </style>
 </head>
 
-<body class="page-ecoanalytics">
+<body>
 
+  <!-- Гамбургер -->
   <button class="menu-btn" id="menuBtn" aria-label="Открыть меню" aria-controls="sideMenu" aria-expanded="false">☰</button>
 
+  <!-- Сайд-меню -->
   <nav id="sideMenu" class="side-menu" aria-label="Навигация">
     <a href="../index.html">Главная</a>
     <a href="../about_us.html">Наша команда</a>
-    <a href="../ecoanalytics_RU/ecoanalytics.html">Эко-аналитика</a>
+    <a class="active" href="ecoanalytics.html">Эко-аналитика</a>
     <a href="../eco-law-ru.html">Эко законы Израиля</a>
     <a href="../programma">Проект программы перехода к циркулярной экономике</a>
     <a href="../textbookWM.html">Школа управления отходами</a>
@@ -229,8 +239,9 @@
 
   <div id="menuBackdrop" class="menu-backdrop" aria-hidden="true"></div>
 
+  <!-- Шапка (без фото) -->
   <header class="site-header">
-    <h1 class="brand">Re-Haifa Hub</h1>
+    <h1>RE-HAIFA HUB</h1>
 
     <div class="language-switcher" aria-label="Переключение языка">
       <a class="lang-btn active" href="ecoanalytics.html">RU</a>
@@ -239,77 +250,96 @@
     </div>
   </header>
 
+  <!-- Контент -->
   <main class="site-main">
     <section class="card">
-      <h2 class="page-title">Эко-аналитика: отчёты и исследования по отходам и ЦЭ в Израиле</h2>
-      <p class="page-subtitle">Подборка аналитических материалов и исследовательских заметок команды Re-Haifa.</p>
+      <h2 class="page-title">Эко-аналитика: отчёты и исследования по отходам и циркулярной экономике в Израиле</h2>
+      <p class="lead">Материалы для активистов и практиков: обзорные исследования, институциональные разборы и тематические аналитические записки.</p>
 
       <ul class="doc-list">
         <li>
           <a class="doc-link" href="Israel_waste_management_legislation_report.pdf" target="_blank" rel="noopener">
             <span class="doc-title">Законодательство Израиля по обращению с муниципальными отходами (2000–2025)</span>
-            <span class="file-type">PDF</span>
+            <span class="badge">PDF</span>
           </a>
         </li>
 
         <li>
           <a class="doc-link" href="Statistical_report_2000_2025.pdf" target="_blank" rel="noopener">
-            <span class="doc-title">Статистический обзор системы обращения с отходами в Израиле (2000–2025)</span>
-            <span class="file-type">PDF</span>
-          </a>
-        </li>
-
-        <li>
-          <a class="doc-link" href="Glass_Flows_Israel_Report_Bela_Nikitina_2025.pdf" target="_blank" rel="noopener">
-            <span class="doc-title">Жизненный цикл стекла в Израиле: аналитическая записка</span>
-            <span class="file-type">PDF</span>
-          </a>
-        </li>
-
-        <li>
-          <a class="doc-link" href="Sharing_in_Nahariya.pdf" target="_blank" rel="noopener">
-            <span class="doc-title">Повторное использование вещей и адаптация новых репатриантов: кейс Нагарии</span>
-            <span class="file-type">PDF</span>
-          </a>
-        </li>
-
-        <li>
-          <a class="doc-link" href="Recycling_of_furniture.pdf" target="_blank" rel="noopener">
-            <span class="doc-title">Циркулярность мебельного сектора: потребление и переработка (2014–2024)</span>
-            <span class="file-type">PDF</span>
+            <span class="doc-title">Статистический обзор обращения с муниципальными отходами в Израиле (2000–2025)</span>
+            <span class="badge">PDF</span>
           </a>
         </li>
 
         <li>
           <a class="doc-link" href="The_Israeli_Recycling_Corporation_TAMIR.pdf" target="_blank" rel="noopener">
-            <span class="doc-title">Ассоциация TAMIR — ключевой игрок в системе обращения с отходами в Израиле</span>
-            <span class="file-type">PDF</span>
+            <span class="doc-title">Ассоциация TAMIR — ключевой игрок израильской системы обращения с отходами</span>
+            <span class="badge">PDF</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="doc-link" href="Glass_Flows_Israel_Report_Bela_Nikitina_2025.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Жизненный цикл стекла и стеклоизделий в Израиле: аналитическая записка</span>
+            <span class="badge">PDF</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="doc-link" href="Sharing_in_Nahariya.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Повторное использование и адаптация новых репатриантов: опыт Нагарии</span>
+            <span class="badge">PDF</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="doc-link" href="Recycling_of_furniture.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Циркулярность мебельного сектора в Израиле (2014–2024): потребление и переработка</span>
+            <span class="badge">PDF</span>
           </a>
         </li>
       </ul>
-
-      <div class="note">
-        Если какой-то PDF не открывается: проверь, что имя файла в папке <strong>полностью совпадает</strong> со ссылкой (включая подчёркивания, регистр и отсутствие пробелов).
-      </div>
     </section>
   </main>
 
+  <footer class="site-footer">
+    © RE-HAIFA HUB, 2025
+  </footer>
+
   <script>
-    const btn = document.getElementById('menuBtn');
-    const menu = document.getElementById('sideMenu');
-    const backdrop = document.getElementById('menuBackdrop');
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const menu = document.getElementById('sideMenu');
+      const backdrop = document.getElementById('menuBackdrop');
 
-    function setOpen(open){
-      menu.classList.toggle('open', open);
-      backdrop.classList.toggle('open', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      backdrop.setAttribute('aria-hidden', open ? 'false' : 'true');
-    }
+      function openMenu(){
+        menu.classList.add('open');
+        backdrop.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
+      function closeMenu(){
+        menu.classList.remove('open');
+        backdrop.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      }
 
-    btn.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
-    backdrop.addEventListener('click', () => setOpen(false));
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+      btn.addEventListener('click', () => {
+        const isOpen = menu.classList.contains('open');
+        isOpen ? closeMenu() : openMenu();
+      });
+
+      backdrop.addEventListener('click', closeMenu);
+
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') closeMenu();
+      });
+
+      // закрывать меню после клика по ссылке
+      menu.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if(a) closeMenu();
+      });
+    })();
   </script>
-
 </body>
 </html>
