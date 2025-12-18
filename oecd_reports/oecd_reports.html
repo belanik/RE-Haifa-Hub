@@ -1,47 +1,342 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Доклады ОЭСР по экологической результативности...</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Доклады ОЭСР по экологической результативности</title>
+  <link rel="icon" href="../green.jpg" />
+
   <style>
-    body { background: #e6f7ff; font-family: Arial, sans-serif; color: #222; margin: 0; padding: 0; }
-    .container { max-width: 800px; margin: 3rem auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 16px #90cdf4cc; padding: 2rem 2.5rem; }
-    h1 { color: #1677ff; margin-top: 0; }
-    h2, h3 { color: #1e90ff; }
-    ul { padding-left: 1.5em; }
-    li { margin: 0.5em 0; }
-    a { color: #1677ff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .back-link { display: inline-block; margin-bottom: 1em; color: #1677ff; text-decoration: underline; font-size: 1em; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body.page-oecd{
+      margin: 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      background: #f7fafc;
+      color: #223;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* === ГАМБУРГЕР === */
+    .menu-btn{
+      position: fixed;
+      top: 12px;
+      left: 15px;
+      font-size: 1.8em;
+      cursor: pointer;
+      border: 2px solid #0a192f;
+      background: #fff;
+      color: #0a192f;
+      border-radius: 10px;
+      padding: 0.12em 0.45em;
+      z-index: 1501;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.20);
+    }
+    .menu-btn:hover{
+      background: #f0f0f0;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+    }
+
+    /* === SIDE MENU === */
+    .side-menu{
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1200;
+      top: 0;
+      left: 0;
+      background-color: rgba(67,160,71,0.95);
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 3rem;
+    }
+    .side-menu a{
+      display: block;
+      padding: 0.85em 1.2em;
+      text-decoration: none;
+      font-size: 1.15em;
+      color: #fff;
+      transition: background 0.2s;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 700;
+    }
+    .side-menu a:hover{
+      background: rgba(255,255,255,0.18);
+    }
+
+    /* Backdrop */
+    .menu-backdrop{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 1100;
+    }
+    .menu-backdrop.open{
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* === ШАПКА === */
+    .site-header{
+      background: rgba(67,160,71,0.92);
+      color: #fff;
+      text-align: center;
+      padding: 1.6rem 0 1.0rem 0;
+      position: relative;
+      z-index: 1;
+    }
+    .site-header h1{
+      margin: 0 0 0.5rem 0;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      font-weight: 800;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.28);
+    }
+
+    /* Языки */
+    .language-switcher{
+      text-align: center;
+      margin: 0.2rem 0 0.2rem 0;
+    }
+    .lang-btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      margin: 0 6px;
+      border-radius: 50%;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      background: #fff;
+      border: 2px solid #0a192f;
+      color: #0a192f;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .lang-btn:hover{ background: #f0f0f0; }
+    .lang-btn.active{
+      background: #0a192f;
+      color: #fff;
+    }
+
+    /* === ОСНОВНОЙ БЛОК === */
+    .site-main{
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(67,160,71,0.25);
+      padding: 2rem 2.2rem;
+    }
+
+    .page-title{
+      color: #223;
+      text-align: left;
+      margin: 0 0 8px 0;
+      font-size: 1.7rem;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+    .page-subtitle{
+      margin: 0 0 16px 0;
+      color: #223;
+      font-size: 1.05rem;
+      font-weight: 600;
+      opacity: 0.92;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    .section-title{
+      color: #2e7d32;
+      margin-top: 10px;
+      padding-top: 4px;
+      font-size: 1.15rem;
+      font-weight: 900;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    /* Список PDF */
+    .docs{
+      list-style: none;
+      padding-left: 0;
+      margin-top: 14px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .docs li{ margin-bottom: 12px; }
+
+    .doc-link{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      background: #e8f5e9;
+      border-left: 5px solid #43a047;
+      text-decoration: none;
+      color: #223;
+      font-weight: 700;
+      border-radius: 10px;
+      transition: background 0.2s ease, transform 0.05s ease;
+    }
+    .doc-link:hover{ background: #dff3df; }
+    .doc-link:active{ transform: translateY(1px); }
+
+    .file-type{
+      font-size: 0.8em;
+      color: #223;
+      margin-left: auto;
+      background: #fff;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.12);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .note{
+      margin-top: 14px;
+      color: #556;
+      font-size: 0.95rem;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    @media (max-width: 900px){
+      .site-main{ padding: 1.4rem 1.1rem; }
+    }
   </style>
 </head>
-<body>
-    <div class="container">
-    <a href="/" class="back-link">&larr; Назад к проектам</a>
-    <h1>Доклады организации экономического сотрудничества и развития (ОЭСР)</h1>
-    <h3>Обзоры экологической результативности в разных странах мира</h3>
-    <ul>
-      <li><a href="Food Waste Index Report 2024.pdf">Food Waste Index Report 2024</a></li>
-      <li><a href="ISRAEL 2023.pdf">ISRAEL 2023</a></li>
-      <li><a href="SLOVAK REPUBLIC 2024.pdf">SLOVAK REPUBLIC 2024</a></li>
-      <li><a href="UNITED STATES 2023.pdf">UNITED STATES 2023</a></li>
-      <li><a href="LITHUANIA 2021.pdf">LITHUANIA 2021</a></li>
-      <li><a href="Japan 2025.pdf">Japan 2025</a></li>
-      <li><a href="NORWAY 2022.pdf">NORWAY 2022</a></li>
-      <li><a href="CHILE 2024.pdf">CHILE 2024</a></li>
-      <li><a href="BELGIUM 2021.pdf">BELGIUM 2021</a></li>
-      <li><a href="Sweden 2025.pdf">Sweden 2025</a></li>
-      <li><a href="TURKEY 2019.pdf">TURKEY 2019</a></li>
-      <li><a href="AUSTRALIA 2019.pdf">AUSTRALIA 2019</a></li>
-      <li><a href="IRELAND 2021.pdf">IRELAND 2021</a></li>
-      <li><a href="UNITED KINGDOM 2022.pdf">UNITED KINGDOM 2022</a></li>
-      <li><a href="OECD Green Growth Policy Review of Egypt 2024.pdf">OECD Green Growth Policy Review of Egypt 2024</a></li>
-      <li><a href="Greece 2020.pdf">Greece 2020</a></li>
-      <li><a href="FINLAND 2021.pdf">FINLAND 2021</a></li>
-      <li><a href="PORTUGAL 2023.pdf">PORTUGAL 2023</a></li>
-      <li><a href="GERMANY 2023.pdf">GERMANY 2023</a></li>
+
+<body class="page-oecd">
+
+  <!-- Гамбургер -->
+  <button class="menu-btn" id="menuBtn" aria-label="Открыть меню" aria-controls="sideMenu" aria-expanded="false">☰</button>
+
+  <!-- Side menu (страница в папке => ссылки на корень через ../) -->
+  <nav id="sideMenu" class="side-menu" aria-label="Навигация">
+    <a href="../index.html">Главная</a>
+    <a href="../about_us.html">Наша команда</a>
+    <a href="../экоанатилика%20на%20сайт/ecoanalytics-ru.html">Эко-аналитика</a>
+    <a href="../eco-law-ru.html">Эко законы Израиля</a>
+    <a href="../programma">Проект программы перехода к циркулярной экономике</a>
+    <a href="../textbookWM.html">Школа управления отходами</a>
+    <a href="../oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
+  </nav>
+
+  <!-- Backdrop -->
+  <div id="menuBackdrop" class="menu-backdrop" aria-hidden="true"></div>
+
+  <!-- Шапка -->
+  <header class="site-header">
+    <h1>Re-Haifa Hub</h1>
+    <div class="language-switcher" aria-label="Переключение языка">
+      <!-- если у тебя в этой папке есть RU/EN/HE версии — оставь,
+           если нет — можешь заменить EN/HE на заглушки или убрать -->
+      <a class="lang-btn active" href="oecd_reports.html">RU</a>
+      <a class="lang-btn" href="oecd_reports_en.html">EN</a>
+      <a class="lang-btn" href="oecd_reports_he.html" lang="he" dir="rtl">HE</a>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <h1 class="page-title">Доклады ОЭСР</h1>
+    <p class="page-subtitle">Обзоры экологической результативности в разных странах мира</p>
+
+    <h2 class="section-title">PDF-доклады</h2>
+
+    <ul class="docs">
+      <li><a class="doc-link" href="Food Waste Index Report 2024.pdf" target="_blank" rel="noopener">
+        Food Waste Index Report 2024 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="ISRAEL 2023.pdf" target="_blank" rel="noopener">
+        ISRAEL 2023 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="SLOVAK REPUBLIC 2024.pdf" target="_blank" rel="noopener">
+        SLOVAK REPUBLIC 2024 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="UNITED STATES 2023.pdf" target="_blank" rel="noopener">
+        UNITED STATES 2023 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="LITHUANIA 2021.pdf" target="_blank" rel="noopener">
+        LITHUANIA 2021 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="Japan 2025.pdf" target="_blank" rel="noopener">
+        Japan 2025 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="NORWAY 2022.pdf" target="_blank" rel="noopener">
+        NORWAY 2022 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="CHILE 2024.pdf" target="_blank" rel="noopener">
+        CHILE 2024 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="BELGIUM 2021.pdf" target="_blank" rel="noopener">
+        BELGIUM 2021 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="Sweden 2025.pdf" target="_blank" rel="noopener">
+        Sweden 2025 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="TURKEY 2019.pdf" target="_blank" rel="noopener">
+        TURKEY 2019 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="AUSTRALIA 2019.pdf" target="_blank" rel="noopener">
+        AUSTRALIA 2019 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="IRELAND 2021.pdf" target="_blank" rel="noopener">
+        IRELAND 2021 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="UNITED KINGDOM 2022.pdf" target="_blank" rel="noopener">
+        UNITED KINGDOM 2022 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="OECD Green Growth Policy Review of Egypt 2024.pdf" target="_blank" rel="noopener">
+        OECD Green Growth Policy Review of Egypt 2024 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="Greece 2020.pdf" target="_blank" rel="noopener">
+        Greece 2020 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="FINLAND 2021.pdf" target="_blank" rel="noopener">
+        FINLAND 2021 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="PORTUGAL 2023.pdf" target="_blank" rel="noopener">
+        PORTUGAL 2023 <span class="file-type">PDF</span></a></li>
+
+      <li><a class="doc-link" href="GERMANY 2023.pdf" target="_blank" rel="noopener">
+        GERMANY 2023 <span class="file-type">PDF</span></a></li>
     </ul>
-  </div>
+
+    <p class="note">
+      Если какой-то PDF не открывается: проверь точное имя файла (пробелы/регистр) и что он лежит в этой же папке.
+    </p>
+  </main>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const backdrop = document.getElementById('menuBackdrop');
+
+    function openMenu(){
+      sideMenu.style.width = "250px";
+      backdrop.classList.add('open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu(){
+      sideMenu.style.width = "0";
+      backdrop.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    menuBtn.addEventListener('click', () => {
+      (sideMenu.style.width === "250px") ? closeMenu() : openMenu();
+    });
+
+    backdrop.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  </script>
 </body>
 </html>
