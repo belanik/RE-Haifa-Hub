@@ -3,31 +3,266 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Эко-аналитика — Re-Haifa Hub</title>
+  <title>Эко-аналитика Re-Haifa Hub</title>
+  <link rel="icon" href="../green.jpg" />
+
   <style>
-    body{margin:0;font-family:Arial,sans-serif;background:#f7fafc;color:#223}
-    .wrap{max-width:900px;margin:32px auto;padding:0 16px}
-    .card{background:#fff;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.08);padding:22px}
-    h1{margin:0 0 10px 0}
-    ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-    a{display:block;padding:14px 16px;background:#e8f5e9;border-left:5px solid #43a047;border-radius:10px;
-      text-decoration:none;color:#223;font-weight:700}
-    a:hover{text-decoration:underline;background:#dff3df}
+    * { box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      background:#f7fafc;
+      color:#223;
+      line-height:1.6;
+    }
+
+    /* HEADER */
+    .site-header{
+      background: rgba(67,160,71,0.92);
+      color:#fff;
+      text-align:center;
+      padding: 1.6rem 1rem 1rem;
+      position: relative;
+    }
+    .site-header h1{
+      margin: 0 0 .35rem 0;
+      font-size: 2.05rem;
+      letter-spacing: .5px;
+      font-weight: 700;
+      color:#fff;
+      text-shadow: 0 2px 10px rgba(0,0,0,.25);
+    }
+    .site-header p{
+      margin: 0;
+      font-size: 1.05rem;
+      opacity: .98;
+      text-shadow: 0 2px 10px rgba(0,0,0,.20);
+    }
+
+    /* Hamburger */
+    .menu-btn{
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 1501;
+
+      background: rgba(67,160,71,0.92);
+      color: #fff;                 /* белый значок */
+      border: 2px solid #000;      /* чёрная рамка, чтобы не терялся */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+      font-size: 22px;
+      line-height: 1;
+    }
+    .menu-btn:hover{ filter: brightness(0.97); }
+
+    /* Side menu */
+    .side-menu{
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1200;
+      top: 0;
+      left: 0;
+      background-color: rgba(67,160,71,0.95);
+      overflow-x: hidden;
+      transition: 0.25s ease;
+      padding-top: 3.2rem;
+    }
+    .side-menu a{
+      display:block;
+      padding: .85rem 1.2rem;
+      text-decoration:none;
+      font-size: 1.12rem;
+      color:#fff;
+    }
+    .side-menu a:hover{
+      background: rgba(255,255,255,0.18);
+    }
+
+    .menu-backdrop{
+      display:none;
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,0.35);
+      z-index: 1100;
+    }
+
+    /* MAIN */
+    .site-main{
+      max-width: 920px;
+      margin: 1.8rem auto 2.4rem;
+      padding: 0 1rem;
+    }
+    .card{
+      background:#fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(67,160,71,0.22);
+      padding: 1.6rem 1.6rem;
+    }
+
+    .back-link{
+      display:inline-block;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      color: #2e7d32;
+      font-weight: 700;
+      border-bottom: 1px dashed rgba(46,125,50,.55);
+    }
+    .back-link:hover{ border-bottom-style: solid; }
+
+    .lead{
+      margin: .2rem 0 1.2rem;
+      color:#344;
+      font-size: 1.05rem;
+    }
+
+    .doc-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap: .85rem;
+    }
+    .doc-link{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      text-decoration:none;
+      background: rgba(67,160,71,0.10);
+      border: 1px solid rgba(67,160,71,0.22);
+      color:#223;
+      font-weight: 650;
+      transition: transform .12s ease, background .18s ease;
+    }
+    .doc-link:hover{
+      background: rgba(67,160,71,0.16);
+      transform: translateY(-1px);
+      text-decoration: underline;
+    }
+    .doc-title{ flex:1; }
+    .badge{
+      font-size: .82rem;
+      font-weight: 800;
+      color:#2e7d32;
+      background:#fff;
+      border: 1px solid rgba(46,125,50,.25);
+      padding: .25rem .55rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    footer{
+      text-align:center;
+      color:#789;
+      font-size:.95rem;
+      margin: 1.8rem 0 1.2rem;
+    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
+  <button class="menu-btn" id="menuBtn" aria-label="Открыть меню" aria-controls="sideMenu" aria-expanded="false">☰</button>
+
+  <nav id="sideMenu" class="side-menu" aria-label="Навигация">
+    <a href="../index.html">Главная</a>
+    <a href="../index.html#projects">Проекты</a>
+    <a href="../index.html#about">О нас</a>
+    <a href="../oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
+  </nav>
+  <div id="menuBackdrop" class="menu-backdrop" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <h1>Эко-аналитика</h1>
+    <p>Отчёты и исследования Re-Haifa Hub (RU)</p>
+  </header>
+
+  <main class="site-main">
     <div class="card">
-      <h1>Эко-аналитика</h1>
-      <ul>
-        <li><a href="Israel_waste_management_legislation_report.pdf" target="_blank">Законодательство Израиля по отходам (2000–2025)</a></li>
-        <li><a href="Statistical_report_2000_2025.pdf" target="_blank">Статистический обзор отходов в Израиле (2000–2025)</a></li>
-        <li><a href="The_Israeli_Recycling_Corporation_TAMIR.pdf" target="_blank">TAMIR — ключевой игрок системы</a></li>
-        <li><a href="Glass_Flows_Israel_Report_Bela_Nikitina_2025.pdf" target="_blank">Жизненный цикл стекла в Израиле</a></li>
-        <li><a href="Sharing_in_Nahariya.pdf" target="_blank">Повторное использование и опыт Нагарии</a></li>
-        <li><a href="Recycling_of_furniture.pdf" target="_blank">Циркулярность мебельного сектора</a></li>
+      <a class="back-link" href="../index.html">&larr; Назад к проектам</a>
+
+      <p class="lead">
+        Ниже — подборка аналитических материалов по отходам и циркулярной экономике в Израиле.
+        Файлы открываются в новой вкладке.
+      </p>
+
+      <ul class="doc-list">
+        <li>
+          <a class="doc-link" href="Israel_waste_management_legislation_report.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Законодательство Израиля в сфере обращения с муниципальными отходами (2000–2025)</span>
+            <span class="badge">PDF</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="doc-link" href="Statistical_report_2000_2025.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Статистический обзор обращения с муниципальными отходами в Израиле (2000–2025)</span>
+            <span class="badge">PDF</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="doc-link" href="The_Israeli_Recycling_Corporation_TAMIR.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Ассоциация TAMIR — ключевой игрок системы обращения с упаковкой</span>
+            <span class="badge">PDF</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="doc-link" href="Glass_Flows_Israel_Report_Bela_Nikitina_2025.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Жизненный цикл стекла и стеклоизделий в Израиле — аналитическая записка</span>
+            <span class="badge">PDF</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="doc-link" href="Sharing_in_Nahariya.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Повторное использование вещей и адаптация новых репатриантов: опыт Нагарии</span>
+            <span class="badge">PDF</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="doc-link" href="Recycling_of_furniture.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Потребление мебели и переработка: циркулярность мебельного сектора</span>
+            <span class="badge">PDF</span>
+          </a>
+        </li>
       </ul>
     </div>
-  </div>
+  </main>
+
+  <footer>Re-Haifa Hub</footer>
+
+  <script>
+    const sideMenu = document.getElementById('sideMenu');
+    const btn = document.getElementById('menuBtn');
+    const backdrop = document.getElementById('menuBackdrop');
+
+    function openMenu(){
+      sideMenu.style.width = '290px';
+      backdrop.style.display = 'block';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu(){
+      sideMenu.style.width = '0';
+      backdrop.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    function toggleMenu(){
+      if (sideMenu.style.width && sideMenu.style.width !== '0px') closeMenu();
+      else openMenu();
+    }
+
+    btn.addEventListener('click', toggleMenu);
+    backdrop.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+    closeMenu();
+  </script>
 </body>
 </html>
