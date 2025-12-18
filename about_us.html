@@ -8,36 +8,70 @@
   <link rel="icon" href="green.jpg" />
   <meta name="description" content="RE Haifa Hub — проекты устойчивого развития, обмена ресурсами и экологии в Хайфе.">
   <style>
-  body {
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f7fafc;
-    color:#223;
-  }
+    /* ----------------------------------------------------- */
+    /* ОБЩИЕ СТИЛИ И ШРИФТ (Times New Roman-like) */
+    /* ----------------------------------------------------- */
+    body {
+      margin: 0;
+      /* Шрифтовой стек, похожий на Times New Roman */
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-weight: 400;
+      background: #f7fafc;
+      color: #223;
+    }
+    strong {
+        font-weight: 700;
+    }
 
-  header {
-    background: rgba(67,160,71,0.85) url('haifa_nof.jpg') center center/cover no-repeat;
-    color: #fff;
-    padding: 3.5rem 0 2.5rem 0;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-  header h1 {
-    margin:0 0 0.4em 0;
-    font-size:2.7em;
-    letter-spacing:2px;
-    text-shadow: 0 3px 16px #000c;
-    font-weight: bold;
-  }
-  header p {
-    margin:0 0 0.6em 0;
-    font-size:1.2em;
-    text-shadow: 0 2px 8px #000b;
-  }
-.menu-btn {
+    /* ----------------------------------------------------- */
+    /* КНОПКИ В ШАПКЕ (Четкий контур) */
+    /* ----------------------------------------------------- */
+    header .btn {
+      display: inline-block;
+      padding: 10px 22px;
+      margin: 6px;
+      border-radius: 30px;
+      font-weight: 700; /* Жирный шрифт */
+      text-decoration: none;
+      transition: all 0.3s ease;
+      background: #fff; /* Четкий белый фон */
+      border: 2px solid #0a192f; /* Четкий контур */
+      color: #0a192f;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    header .btn:hover {
+      background: #f0f0f0;
+      color: #000;
+      border-color: #000;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ----------------------------------------------------- */
+    /* ОСНОВНОЙ LAYOUT */
+    /* ----------------------------------------------------- */
+    header {
+      background: rgba(67,160,71,0.85) url('haifa_nof.jpg') center center/cover no-repeat;
+      color: #fff;
+      padding: 2.5rem 0 2.5rem 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      margin: 0 0 0.4em 0;
+      font-size: 2.7em;
+      letter-spacing: 2px;
+      text-shadow: 0 3px 16px #000c;
+      font-weight: bold;
+    }
+    header p {
+      margin: 0 0 0.6em 0;
+      font-size: 1.2em;
+      text-shadow: 0 2px 8px #000b;
+    }
+    .menu-btn {
       position: fixed;
-      top: 15px; left: 15px;
+      top: 0px; left: 15px;
       font-size: 1.8em;
       cursor: pointer;
       border: none;
@@ -79,166 +113,297 @@
 
     /* Main content (always centered) */
     main {
-      max-width:900px;
-      margin:2rem auto;
-      background:#fff;
-      border-radius:12px;
-      box-shadow:0 4px 16px rgba(67,160,71,0.25);
-      padding:2rem 2.5rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(67,160,71,0.25);
+      padding: 2rem 2.5rem;
       z-index: 0;
       position: relative;
     }
 
-  .section-block { margin-bottom:2.8em; }
-  .section-block h2 {
-    color:#2e7d32;
-    margin-top:0;
-    margin-bottom:1.1em;
-    font-size:1.42em;
-  }
+    .section-block { margin-bottom: 2.8em; }
+    .section-block h2 {
+      color: #223;
+      margin-top: 0;
+      margin-bottom: 1.1em;
+      font-size: 1.42em;
+    }
 
-  .about-card {
-    background: rgba(67,160,71,0.85);
-    color: #fff;
-    border-radius: 14px;
-    max-width: 760px;
-    margin: 2em auto 2.5em auto;
-    padding: 1.2em 2em;
-    font-size: 1.15em;
-    font-weight: 500;
-    line-height: 1.6;
-    text-align: center;
-    box-shadow:0 2px 10px rgba(67,160,71,0.25);
-  }
+    .about-card {
+      background: rgba(67,160,71,0.15);
+      color: #000;
+      border-radius: 14px;
+      max-width: 760px;
+      margin: 0 auto 1em auto;
+      padding: 1.2em 2em;
+      font-size: 1.15em;
+      font-weight: 500;
+      line-height: 1.6;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(67,160,71,0.25);
+    }
 
-  /* Lists */
-  .events-list, .partners-list {
-    padding: 0;
-    margin: 0 0 1.1em 0;
-    list-style: none;
-    font-size: 1.07em;
-  }
-  .events-list li, .partners-list li {
-    margin-bottom: 0.55em;
-    background: rgba(67,160,71,0.08);
-    padding: 0.7em 1.1em;
-    border-radius: 8px;
-    box-shadow: 0 1px 5px rgba(67,160,71,0.15);
-    display: inline-block;
-  }
+    /* Lists */
+    .events-list, .partners-list {
+      padding: 0;
+      margin: 0 0 1.1em 0;
+      list-style: none;
+      font-size: 1.07em;
+    }
+    .events-list li, .partners-list li {
+      margin-bottom: 0.55em;
+      background: rgba(67,160,71,0.08);
+      padding: 0.7em 1.1em;
+      border-radius: 8px;
+      box-shadow: 0 1px 5px rgba(67,160,71,0.15);
+      display: inline-block;
+    }
 
-  /* Project cards */
-  .projects-grid { display:grid; gap:1.3em; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
-  .project-card {
-    background:#f7fafc;
-    border-radius:10px;
-    border:1.5px solid rgba(67,160,71,0.25);
-    box-shadow:0 1px 5px rgba(67,160,71,0.15);
-    padding:1.2em 1em;
-    text-align:center;
-    transition:box-shadow .2s,border .2s;
-    text-decoration: none;
-    color: #223;
-  }
-  .project-card:hover {
-    box-shadow:0 4px 18px rgba(67,160,71,0.35);
-    border-color:rgba(67,160,71,0.7);
-  }
-  .project-card span {
-    font-weight:600;
-    color:#2e7d32;
-    font-size:1.07em;
-  }
-.facebook-link {
-    display:inline-block;
-    background: rgba(255,255,255,0.7);
-    color:#2e7d32 !important;
-    border-radius:8px;
-    padding: 0.7em 1.2em;
-    margin: 0.8em 0;
-    text-decoration:none;
-    
-    font-size:1.05em;
-    font-weight: 1000;
-    border: none;
-    box-shadow: 0 2px 8px rgba(67,160,71,0.25);
-    transition: background 0.2s, box-shadow 0.2s;
-    text-align:center;
-    cursor: pointer;
-  }
-  .team-link, .event-button, .contacts a {
-    display:inline-block;
-    background: rgba(67,160,71,0.85);
-    color:#fff !important;
-    border-radius:8px;
-    padding: 0.7em 1.2em;
-    margin: 0.8em 0;
-    text-decoration:none;
-    font-size:1.05em;
-    font-weight: 500;
-    border: none;
-    box-shadow: 0 2px 8px rgba(67,160,71,0.25);
-    transition: background 0.2s, box-shadow 0.2s;
-    text-align:center;
-    cursor: pointer;
-  }
-  .facebook-link:hover, .team-link:hover, .event-button:hover, .contacts a:hover {
-    background: rgba(46,125,50,0.95);
-    box-shadow:0 4px 14px rgba(67,160,71,0.35);
-  }
+    /* Project cards */
+    .projects-grid { display: grid; gap: 1.3em; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+    .project-card {
+      background: #f7fafc;
+      border-radius: 10px;
+      border: 1.5px solid rgba(67,160,71,0.25);
+      box-shadow: 0 1px 5px rgba(67,160,71,0.15);
+      padding: 1.2em 1em;
+      text-align: center;
+      transition: box-shadow .2s, border .2s;
+      text-decoration: none;
+      color: #223;
+    }
+    .project-card:hover {
+      box-shadow: 0 4px 18px rgba(67,160,71,0.35);
+      border-color: rgba(67,160,71,0.7);
+    }
+    .project-card span {
+      font-weight: 600;
+      color: #2e7d32;
+      font-size: 1.07em;
+    }
+    .facebook-link {
+      display: inline-block;
+      background: rgba(255,255,255,0.7);
+      color: #2e7d32 !important;
+      border-radius: 8px;
+      padding: 0.7em 1.2em;
+      margin: 0.8em 0;
+      text-decoration: none;
 
-  .event-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin:1em 0;
-    padding:0;
-  }
+      font-size: 1.05em;
+      font-weight: 1000;
+      border: none;
+      box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+      transition: background 0.2s, box-shadow 0.2s;
+      text-align: center;
+      cursor: pointer;
+    }
+    .team-link, .event-button, .contacts a {
+      display: inline-block;
+      background: rgba(67,160,71,0.85);
+      color: #fff !important;
+      border-radius: 8px;
+      padding: 0.7em 1.2em;
+      margin: 0.8em 0;
+      text-decoration: none;
+      font-size: 1.05em;
+      font-weight: 500;
+      border: none;
+      box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+      transition: background 0.2s, box-shadow 0.2s;
+      text-align: center;
+      cursor: pointer;
+    }
+    .facebook-link:hover, .team-link:hover, .event-button:hover, .contacts a:hover {
+      background: rgba(46,125,50,0.95);
+      box-shadow: 0 4px 14px rgba(67,160,71,0.35);
+    }
 
-  /* News section */
-  .news-section {
-    background: rgba(67,160,71,0.08);
-    border-left: 6px solid rgba(67,160,71,0.85);
-    padding: 24px 20px;
-    margin-bottom: 2.8em;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(67,160,71,0.15);
-  }
-  .news-section h2 {
-    color: #2e7d32;
-    margin-top: 0;
-    margin-bottom: 0.8em;
-  }
+    .event-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 1em 0;
+      padding: 0;
+    }
+
+    /* ----------------------------------------------------- */
+    /* РАЗДЕЛ НОВОСТЕЙ */
+    /* ----------------------------------------------------- */
+    .news-section {
+      background: rgba(67,160,71,0.08);
+      border-left: 6px solid rgba(67,160,71,0.85);
+      padding: 24px 20px;
+      margin-bottom: 2.8em;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(67,160,71,0.15);
+    }
+    .news-section h2 {
+      color: #2e7d32;
+      margin-top: 0;
+      margin-bottom: 0.8em;
+    }
+
+    /* Стиль для отдельной новости (решает проблему интервалов) */
+    .news-item {
+        margin-bottom: 1.5em; /* Отступ между новостями */
+        padding-bottom: 0.5em;
+        border-bottom: 1px dashed rgba(67,160,71,0.3); /* Легкий разделитель */
+        line-height: 1.6;
+    }
+    .news-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    /* Стиль для выделения жирным текста (дат) */
+    .news-item strong {
+        font-weight: 700;
+        color: #223; /* Стандартный цвет для дат */
+    }
+
+    /* Стиль для слова АННОНС */
+    .news-item .announcement-tag {
+        font-weight: 700;
+        color: #e53e3e; /* Красный цвет */
+    }
+
+    /* News photos + modal */
+    .news-photos {
+      display: flex;
+      gap: 16px;
+      margin: 18px 0 8px 0;
+      flex-wrap: wrap;
+    }
+    .news-photos img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(67,160,71,0.25);
+      object-fit: cover;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .news-photos img:hover { opacity: 0.85; }
+
+    /* Fullscreen modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.9);
+    }
+    .modal img {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80%;
+    }
+    .modal:target { display: block; }
+    .close {
+      position: absolute;
+      top: 20px; right: 40px;
+      color: white;
+      font-size: 40px;
+      text-decoration: none;
+    }
+
+    /* ----------------------------------------------------- */
+    /* ПЕРЕКЛЮЧАТЕЛИ ЯЗЫКА (Кружочки) */
+    /* ----------------------------------------------------- */
+    .language-switcher {
+      text-align: center;
+      margin: 10px 0 20px 0; /* Небольшой отступ */
+    }
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      margin: 0 5px;
+      border-radius: 50%; /* Круглая форма */
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      background: #fff;
+      border: 2px solid #2e7d32; /* Зеленый контур */
+      color: #2e7d32;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .lang-btn:hover {
+      background: #e6ffe6;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    }
+    .lang-btn.active {
+      background: #2e7d32;
+      color: #fff;
+    }
 
 
-  footer {
-    text-align:center;
-    color:#789;
-    font-size:0.96em;
-    margin:2.5em 0 1em 0;
-  }
-</style>
+    /* Responsive */
+    @media (max-width:600px) {
+      header { padding: 2em 0 1.2em 0; }
+      header h1 { font-size: 1.7em; }
+      .about-card { padding: 0 0; font-size: 1em; }
+      main { padding: 1em 0.3em; }
+      .events-list li, .partners-list li { display: block; }
+      .event-buttons { flex-direction: column; gap: 12px; }
+      .event-button { width: 100%; }
+      .news-photos { flex-direction: column; gap: 10px; align-items: flex-start; }
+      .news-photos img { width: 100%; max-width: 260px; }
+    }
+
+    footer {
+      text-align: center;
+      color: #789;
+      font-size: 0.96em;
+      margin: 2.5em 0 1em 0;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>RE Haifa Hub</h1>
     <p>Городской центр обмена ресурсами, экопросвещения и устойчивого развития в Хайфе</p>
-    <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Мы на Facebook</a>
+<div class="header-btn-row">
+  <a class="btn" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">
+    Мы на Facebook
+  </a>
+
+  <a class="btn" href="index.html">
+    Вернуться на главную
+  </a>
+
+  <!-- ВАЖНО: вставь сюда тот же href на анкету, что и на главной странице -->
+  <a class="btn" href= href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" 
+    target="_blank" rel="noopener">
+    Присоединиться к нам
+  </a>
+</div>
   </header>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-  <a href="/" class="back-link">&larr; Назад к проектам</a>
-  
-
+ 
   <nav id="sideMenu" class="side-menu">
     <a href="index.html">Главная</a>
-    <a href="index.html#about">О нас</a>
-    <a href="index.html#projects">Проекты</a>
-    <a href="index.html#team">Команда</a>
-    <a href="index.html#partners">Партнёры</a>
-    <a href="#contacts">Контакты</a>
-    <a href="index.html#partners">Доклады ОЭСР</a>
+    <a href="экоанатилика на сайт/ecoanalytics-ru.html">Эко-аналитика</a>
+    <a href="eco-law-ru.html">Эко законы Израиля</a>
+    <a href="programma">Проект программы перехода к циркулярной экономике</a>
+    <a href="textbookWM.html">Школа управления отходами</a>
+    <a href="oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
   </nav>
+
+
+
+
+
+
   
   <main>
     
