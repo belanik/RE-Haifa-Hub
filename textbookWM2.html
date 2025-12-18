@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пособие по управлению муниципальными отходами в Израиле</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+body.page-textbook{
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: #f7fafc;
+  color: #223;
+  line-height: 1.6;
+  font-size: 16px;
+  padding: 0;
+}
+
+.site-header{
+  background: rgba(67,160,71,0.92); /* без фото */
+  color: #fff;
+  text-align: center;
+  padding: 1.6rem 0 1.0rem 0;
+}
+
+.site-header h1{
+  margin: 0 0 0.5rem 0;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+/* Языковые кружочки */
+.language-switcher{
+  text-align: center;
+  margin: 0.2rem 0 0.2rem 0;
+}
+.lang-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin: 0 6px;
+  border-radius: 50%;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background: #fff;
+  border: 2px solid #0a192f;   /* под твой “чёрный контур” */
+  color: #0a192f;
+}
+.lang-btn:hover{
+  background: #f0f0f0;
+}
+.lang-btn.active{
+  background: #0a192f;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+      
+ .site-main{
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(67,160,71,0.25);
+  padding: 2rem 2.2rem;
+}
+
+.container{
+  /* теперь контейнер не “рисует” второй фон */
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+        h1 {
+            color: #5a9e4a;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 1.4em;
+            line-height: 1.3;
+        }
+
+        .author {
+            color: #6ba85a;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+            font-style: italic;
+        }
+
+        .accordion {
+            margin-bottom: 10px;
+        }
+
+        .accordion-header {
+            background: #dce6dc;
+            color: #4a8c3a;
+            padding: 14px 18px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 0.9em;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header:hover {
+            background: #cfdccf;
+            color: #3a7a2a;
+        }
+
+        .accordion-header.active {
+            background: #c5d6c5;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s ease;
+            color: #5a9e4a;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #e8ede8;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .accordion-content.active {
+            max-height: 500px;
+        }
+
+        .accordion-body {
+            padding: 16px 18px;
+            color: #4a8c3a;
+            font-size: 0.85em;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            color: #3a7a2a;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+            padding-left: 10px;
+            border-left: 4px solid #5a9e4a;
+        }
+
+        .intro-section {
+            background: #e8ede8;
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: #4a8c3a;
+            font-size: 0.9em;
+        }
+
+        .intro-section h2 {
+            color: #3a7a2a;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .intro-section p {
+            margin-bottom: 6px;
+        }
+
+        .conclusion-section {
+            background: #e8ede8;
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 25px;
+            margin-bottom: 20px;
+            color: #4a8c3a;
+            font-size: 0.9em;
+        }
+
+        .conclusion-section h2 {
+            color: #3a7a2a;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .request-section {
+            background: #dce6dc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .request-section h3 {
+            color: #3a7a2a;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .request-button {
+            background: #5a9e4a;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+
+        .request-button:hover {
+            background: #4a8c3a;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: #f0f4f0;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            color: #6ba85a;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 20px;
+        }
+
+        .close:hover {
+            color: #3a7a2a;
+        }
+
+        .modal h2 {
+            color: #3a7a2a;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #4a8c3a;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #c5d6c5;
+            border-radius: 6px;
+            font-size: 0.9em;
+            background: white;
+            color: #333;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #5a9e4a;
+        }
+
+        .submit-button {
+            background: #5a9e4a;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: #4a8c3a;
+        }
+
+        .success-message {
+            display: none;
+            background: #c5d6c5;
+            color: #3a7a2a;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>  возможно это надо убрать?
+<body class="page-textbook">
+  <header class="site-header">
+    <h1>Re-Haifa Hub</h1>
+
+    <div class="language-switcher" aria-label="Переключение языка">
+      <!-- замени href на свои реальные страницы -->
+      <a class="lang-btn active" href="textbookWM.html">RU</a>
+      <a class="lang-btn" href="textbookWM-en.html">EN</a>
+      <a class="lang-btn" href="textbookWM-he.html" lang="he" dir="rtl">HE</a>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- дальше твой существующий контент без изменений -->
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="container">
+        <h1>Пособие по управлению муниципальными отходами в Израиле:<br>книга для активистов и активисток</h1>
+        <div class="author">Автор: Бэла Никитина</div>
+
+        <div class="intro-section">
+            <h2>ВВЕДЕНИЕ</h2>
+            <p><strong>ДЛЯ ТЕХ, КОМУ НАДОЕЛ МУСОР В ИЗРАИЛЕ: ЗАЧЕМ ЧИТАТЬ ЭТУ КНИГУ</strong></p>
+            <p>От субботника «своими руками» к разбору системы: почему мусор во дворе, в парке и в «вади» - одна и та же проблема, и как из «бесплатного дворника» превратиться в системного гражданского дизайнера</p>
+        </div>
+
+        <div class="section-title">ЧАСТЬ I. С ЧЕГО НАЧИНАЕТСЯ МУСОР</div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 1. Что такое отходы: определения, право и реальность</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Что законы называют отходами, какие бывают типы (бытовые, муниципальные, строительные, опасные), где граница между «вещью» и «мусором», и как это всё расходится с реальной жизнью горожан.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 2. Кто управляет мусором в Израиле? (И почему это не один «главный начальник»)</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Министерство охраны окружающей среды, муниципалитеты, региональные операторы, Tamir, депозитная система, суды и гос-аудитор: кто за что отвечает формально и фактически.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 3. У бака и во дворе: как решения жителей запускают мусорные потоки</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Сцена у контейнеров, цветные баки, «контейнер не философ», роль привычек и «секундного решения усталого человека», первая точка ответственности двора и города.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 4. Сколько стоит мусор: массовый баланс, контракты и система PAYT</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Простой массовый баланс (100 кг/житель, город 100 тыс.), сколько стоит сбор, вывоз и захоронение, как это спрятано в арноне, зачем нужны PAYT и «плати за то, что выкинул».
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 5. От ведра до полигона: маршрут нашего мусора</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Обобщённый маршрут «квартира → двор → мусоровоз → перегрузка → полигон/сортировка», типичные точки потерь денег и материалов, практическое задание: нарисовать маршрут своего двора и подготовить 5–7 вопросов к мэрии.
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">ЧАСТЬ II. ЛОГИСТИКА И ГЕОГРАФИЯ</div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 6. Маршруты городов А, Б и В: как граждане работают с логистикой</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Три типичных города (центр, периферия, смешанная застройка), как у них устроены маршруты, где рвётся система, и как активисты могут работать с картой рейсов, частотой вывоза и договорами.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 7. География отходов Израиля: полигоны, перегрузки, сортировка</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Национальная карта полигонов, перегрузочных станций и сортировочных комплексов, кто живёт рядом с тяжёлой инфраструктурой, как распределяется экологическая нагрузка между центром и периферией.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 8. Север (Хайфа и агломерация): куда реально уезжает мусор</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Разбор конкретного региона: маршруты из Хайфы и Крайот, какие полигоны и сортировки используются.
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">ЧАСТЬ III. ЧТО ИМЕННО ТАМ ТЕЧЁТ: ФРАКЦИИ И ВЕЩИ</div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 9. Органика и климат: пищевые отходы, почвы и метан</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Почему органика даёт до 40 % потока и львиную долю метана, связь с климатом и почвенным плодородием, варианты: компост, анаэробное сбраживание, «коричневые баки» и локальные решения.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 10. Упаковка и её экологические характеристики: что стоит класть в корзину</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Типы упаковки в израильском супермаркете, «зелёные/жёлтые/красные» материалы, какие реально перерабатываются, а какие почти всегда идут на полигон или сжигание, как не сойти с ума у полки.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 11. Пластиковые и другие упаковочные отходы: перерабатываемость, микропластик и пределы переработки</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Где проходят технические и экономические «потолки» переработки, откуда берётся микропластик в море и почве, что могут и чего не могут сделать даже лучшие сортировки.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 12. «Этический мусор»: одежда, игрушки, мебель и другие вещи, которые жалко выбросить</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Почему диваны, игрушки и одежда оказываются у контейнеров, как здесь переплетаются экология, память и социальная справедливость, и как этот поток превращается в ресурс для свопов и Repair Café.
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">ЧАСТЬ IV. ПРАВО, ДЕНЬГИ И УПАКОВКА КАК ПОЛИТИКА</div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 13. Закон о чистоте и городская чистота как «общественный договор»</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Основные статьи закона о чистоте, полномочия муниципалитета и инспекторов, «слепые зоны» (собаки, кошки, детские площадки), чистота как маркер того, чувствуют ли жители, что о них заботятся.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 14. Кто платит за мусор: арнона, подрядчики и «дешёвый полигон»</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Как деньги текут от жителей к подрядчикам: арнона, плата за полигоны, субсидии на сортировку и переработку, почему городу «выгодно» дешёвое захоронение и к чему это приводит.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 15. Контракты, KPI и роль подрядчиков: почему система возит тонны, а не уменьшает поток</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Тендеры на вывоз, типичные KPI, завязанные на «чистоту» и тоннаж, а не на сокращение отходов, перекосы мотивации и то, как это видно жителям в виде переполненных баков и бессмысленных рейсов.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 16. Упаковка как политика: EPR, Tamir, депозит и война за полку</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Расширенная ответственность производителя в израильской версии, оператор Tamir, депозитные бутылки, интересы производителей и ритейла, как «политика упаковки» отражается на дворовых баках.
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">ЧАСТЬ V. КЕЙСЫ, РЕФОРМЫ И «ЗЕЛЁНЫЙ ФАСАД»</div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 17. Север (Хайфа и агломерация): куда реально уезжает мусор и какие тут есть возможности</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Разбор конкретного региона: маршруты из Хайфы и Крайот, какие полигоны и сортировки используются, где сильные и слабые стороны, какие окна возможностей открываются для местных активистов.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 18. Как не дать реформам превратиться в «зелёный фасад»: кто что красит и зачем</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Где в израильской системе отходов реформы уже идут, но рискуют остаться витриной, как отличать реальные изменения от PR, какие вопросы стоит задавать мэрии и министерству.
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">ЧАСТЬ VI. СООБЩЕСТВО И БЫСТРЫЙ СТАРТ</div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 19. Сообщество в действии: проверка на сообщество, неделя чистого двора, Repair Café и свопы</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Как собрать минимальное рабочее ядро соседей, провести «неделю чистого двора», запустить обмен вещами и ремонтные форматы так, чтобы не выгореть и не превратить инициативу в «бесплатный сервис».
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>Глава 20. Экспресс-программа для самых нетерпеливых: что сделать за одну неделю, чтобы увидеть систему и начать её менять</span>
+                <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    Сжатый план: какие шаги можно сделать за 7 дней на уровне квартиры, двора и переписки с мэрией, чтобы почувствовать всю систему и увидеть первые результаты, даже если времени и сил мало.
+                </div>
+            </div>
+        </div>
+
+        <div class="conclusion-section">
+            <h2>ЗАКЛЮЧЕНИЕ</h2>
+            <p>Заключение обращается к читателю как к будущему «гражданскому дизайнеру» системы отходов. Здесь подведены итоги, обозначены три ключевые точки вмешательства — на уровне двора, муниципалитета и национальной политики — и даны ориентиры, как использовать инструменты из пособия: чек-листы, шаблоны обращений, идеи «недели чистого двора», свопов, Repair Café и работы с данными. Это приглашение не просто ещё раз выйти на субботник, а перейти к осмысленным, долгосрочным изменениям в своём районе и городе.</p>
+        </div>
+
+        <div class="request-section">
+            <h3>Полный текст книги может быть представлен по запросу</h3>
+            <button class="request-button" onclick="openModal()">Прошу прислать мне полный текст книги</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <h2>Запрос полного текста книги</h2>
+            <form id="requestForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label for="firstName">Имя *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Фамилия *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Страна жительства *</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="workplace">Место работы *</label>
+                    <input type="text" id="workplace" name="workplace" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Электронная почта *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit" class="submit-button">Отправить запрос</button>
+            </form>
+            <div id="successMessage" class="success-message">
+                Спасибо! Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+
+                // Закрыть все аккордеоны
+                accordionHeaders.forEach(h => {
+                    h.classList.remove('active');
+                    h.nextElementSibling.classList.remove('active');
+                });
+
+                // Открыть текущий, если он был закрыт
+                if (!isActive) {
+                    this.classList.add('active');
+                    content.classList.add('active');
+                }
+            });
+        });
+
+        function openModal() {
+            document.getElementById('requestModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('requestModal').style.display = 'none';
+            document.getElementById('requestForm').reset();
+            document.getElementById('successMessage').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('requestModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                country: document.getElementById('country').value,
+                phone: document.getElementById('phone').value,
+                workplace: document.getElementById('workplace').value,
+                email: document.getElementById('email').value
+            };
+
+            // Формируем тело письма
+            const emailBody = `
+Запрос на полный текст книги "Пособие по управлению муниципальными отходами в Израиле"
+
+Имя: ${formData.firstName}
+Фамилия: ${formData.lastName}
+Страна жительства: ${formData.country}
+Телефон: ${formData.phone}
+Место работы: ${formData.workplace}
+Электронная почта: ${formData.email}
+            `.trim();
+
+            // Формируем mailto ссылку
+            const mailtoLink = `mailto:belanik@gmail.com?subject=${encodeURIComponent('Запрос на полный текст книги')}&body=${encodeURIComponent(emailBody)}`;
+
+            // Открываем почтовый клиент
+            window.location.href = mailtoLink;
+
+            // Показываем сообщение об успехе
+            document.getElementById('requestForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+
+            // Закрываем модальное окно через 3 секунды
+            setTimeout(() => {
+                closeModal();
+                document.getElementById('requestForm').style.display = 'block';
+            }, 3000);
+        }
+    </script>
+</div></main>     
+    </body>
+</html>
