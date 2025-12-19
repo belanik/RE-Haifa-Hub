@@ -1,367 +1,137 @@
 <!DOCTYPE html>
 <html lang="ru">
-<header class="subpage-hero">
-  <div class="hero-bar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Re-Haifa Hub — тестовая страница</title>
+  <link rel="icon" href="green.jpg" />
 
-    <!-- Гамбургер -->
-    <button class="menu-btn" id="menuBtn" aria-label="Открыть меню" aria-controls="sideMenu" aria-expanded="false">
-      <div class="menu-icon"><span></span></div>
-    </button>
+  <style>
+    :root{
+      --green:#43a047;
+      --text:#223;
+      --bg:#f7fafc;
+      --card:#fff;
+      --border:#111;
+    }
 
-    <!-- Заголовок -->
-    <h1 class="hero-title">Re-Haifa Hub</h1>
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
 
-    <!-- Языки (вместо "Новости") -->
-    <div class="lang-group" aria-label="Переключение языка">
-      <a class="lang-btn active" href="<!-- RU текущая -->">RU</a>
-      <a class="lang-btn" href="<!-- EN -->">EN</a>
-      <a class="lang-btn" href="<!-- HE -->" dir="rtl">HE</a>
-    </div>
+    /* ====== HERO (яркая картинка без затемнения) ====== */
+    .subpage-hero{
+      background: url("/RE-Haifa-Hub/assets/subpage-hero.png") center/cover no-repeat;
+      border-bottom: 6px solid rgba(67,160,71,.85);
+    }
 
-  </div>
-</header>
+    .hero-bar{
+      max-width:1100px;
+      margin:0 auto;
+      padding:10px 16px;
+      display:grid;
+      grid-template-columns:52px 1fr auto;
+      align-items:center;
+      gap:10px;
+      min-height:110px;
+    }
 
-<body class="page-ecolaw">
+    /* гамбургер */
+    .menu-btn{
+      width:44px;height:44px;
+      border-radius:12px;
+      border:2px solid var(--border);
+      background:#fff;
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+    }
+    .menu-icon{ width:20px;height:14px; position:relative; }
+    .menu-icon::before,.menu-icon::after,.menu-icon span{
+      content:"";
+      position:absolute;
+      left:0;right:0;
+      height:2px;
+      background:#111;
+      border-radius:2px;
+    }
+    .menu-icon::before{ top:0; }
+    .menu-icon span{ top:6px; }
+    .menu-icon::after{ bottom:0; }
 
-  <!-- Гамбургер -->
-  <button class="menu-btn" id="menuBtn" aria-label="Открыть меню" aria-controls="sideMenu" aria-expanded="false">☰</button>
+    /* заголовок */
+    .hero-title{
+      justify-self:center;
+      margin:0;
+      color:#fff;
+      font-weight:900;
+      letter-spacing:.4px;
+      font-size:clamp(22px,2.6vw,34px);
+      padding:6px 14px;
+      border-radius:999px;
+      background: rgba(0,0,0,.28); /* подложка только под текстом */
+      text-shadow:0 2px 10px rgba(0,0,0,.25);
+    }
 
-  <!-- Side menu -->
+    /* языки */
+    .lang-group{
+      justify-self:end;
+      display:inline-flex;
+      gap:8px;
+      padding:6px 8px;
+      border-radius:999px;
+      background:rgba(255,255,255,.22);
+      border:1px solid rgba(255,255,255,.35);
+      backdrop-filter: blur(2px);
+    }
+    .lang-btn{
+      border:2px solid #111;
+      background:#fff;
+      color:#111;
+      border-radius:999px;
+      padding:8px 10px;
+      font-weight:850;
+      font-size:13px;
+      text-decoration:none;
+      line-height:1;
+      white-space:nowrap;
+    }
+    .lang-btn.active{ background:#111; color:#fff; }
 
+    /* ====== SIDE MENU ====== */
+    .side-menu{
+      position:fixed;
+      top:0; left:-290px;
+      width:270px;
+      height:100vh;
+      background:#fff;
+      border-right:1px solid rgba(0,0,0,.12);
+      box-shadow: 0 16px 40px rgba(0,0,0,.18);
+      padding:14px 12px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      z-index:9999;
+      transition:left .18s ease;
+    }
+    .side-menu.open{ left:0; }
 
-  <nav id="sideMenu" class="side-menu" aria-label="Навигация">
-    <a href="/RE-Haifa-Hub/index.html">Главная</a>
-    <a href="/RE-Haifa-Hub/about_us.html">Наша команда</a>
+    .side-menu a{
+      text-decoration:none;
+      color:#111;
+      font-weight:750;
+      padding:10px 12px;
+      border-radius:12px;
+      background:#f2f6f3;
+      border-left:5px solid var(--green);
+    }
+    .side-menu a:hover{ text-decoration:underline; }
 
-    <!-- ВАЖНО: тут я поставила «нормальный» путь на латинице.
-         Если у вас другая папка/файл — замените ОДНУ строку ниже. -->
-    <a href="/RE-Haifa-Hub/ecoanalytics_RU/ecoanalytics.html">Эко-аналитика</a>
-
-    <a href="/RE-Haifa-Hub/eco-law-ru.html">Эко законы Израиля</a>
-
-    <!-- если у вас папка programCE — замените на /RE-Haifa-Hub/programCE/index.html или нужный файл -->
-    <a href="/RE-Haifa-Hub/programCE/index.html">Проект программы перехода к циркулярной экономике</a>
-
-    <a href="/RE-Haifa-Hub/textbookWM.html">Школа управления отходами</a>
-    <a href="/RE-Haifa-Hub/oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
-  </nav>
-
-  <div id="menuBackdrop" class="menu-backdrop" aria-hidden="true"></div>
-
-  <!-- HERO -->
-  <header class="subpage-hero" role="banner">
-    <div class="hero-inner">
-      <h1 class="hero-title">Re-Haifa Hub</h1>
-      <p class="hero-subtitle">Проекты, знания и инструменты для устойчивой Хайфы</p>
-
-      <div class="hero-controls">
-        <div class="hero-actions">
-          <!-- замените ссылки на ваши реальные -->
-          <a class="btn" href="/RE-Haifa-Hub/index.html#join">Присоединиться</a>
-          <a class="btn" href="/RE-Haifa-Hub/index.html#news">Новости</a>
-          <a class="btn" href="#" target="_blank" rel="noopener">Facebook</a>
-        </div>
-
-        <div class="lang-group" aria-label="Переключение языка">
-          <a class="lang-btn active" href="/RE-Haifa-Hub/eco-law-ru.html">RU</a>
-          <a class="lang-btn" href="/RE-Haifa-Hub/eco-law-en.html">EN</a>
-          <a class="lang-btn" href="/RE-Haifa-Hub/eco-law-he.html" lang="he" dir="rtl">HE</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="page-wrap">
-    <section class="page-card">
-
-      <h1 class="page-title">Эко-законодательство Израиля</h1>
-      <p class="page-lead">Подборка ключевых законов и стратегических документов по отходам и циркулярной экономике — с краткими пояснениями и ссылками на официальные источники.</p>
-      <p class="page-note">Фокус: раздельный сбор, депозитная тара, EPR (расширенная ответственность производителя), электронные отходы, шины, плата за захоронение, пищевые отходы и нац. стратегия до 2030/2050.</p>
-
-      <!-- Оглавление -->
-      <nav class="block" aria-label="Оглавление">
-        <h2>Оглавление</h2>
-        <div>
-          <a class="pill" href="#law-1">1. Закон о чистоте (1984)</a>
-          <a class="pill" href="#law-2">2–3. Раздельный сбор: закон и регламенты (1993/1998)</a>
-          <a class="pill" href="#law-4">4–5. Депозитная тара и расширение (1999/2021)</a>
-          <a class="pill" href="#law-6">6. Закон об упаковках (2011, EPR)</a>
-          <a class="pill" href="#law-7">7. Электроника и батареи (2012)</a>
-          <a class="pill" href="#law-8">8. Пластиковые пакеты (2016/2017)</a>
-          <a class="pill" href="#law-9">9. Плата за захоронение (с 2007)</a>
-          <a class="pill" href="#law-10">10. Шины (2007)</a>
-          <a class="pill" href="#law-11">11. Нац. стратегия 2030 / CE-2050</a>
-          <a class="pill" href="#law-12">12. Передача излишков еды (2024)</a>
-          <a class="pill" href="#law-13">13. Запрет одноразовой посуды в госструктурах (2022→)</a>
-          <a class="pill" href="#law-14">14. Нац. план по потере/отходам пищи</a>
-        </div>
-      </nav>
-
-      <!-- Таблица -->
-      <section class="block" aria-labelledby="laws-table">
-        <h2 id="laws-table">Таблица: ключевые законы и документы (ссылки на официальные источники)</h2>
-
-        <table>
-          <thead>
-            <tr>
-              <th>№</th>
-              <th>Название / год</th>
-              <th>Официальная ссылка</th>
-              <th>Коротко</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td><strong>חוק שמירת הניקיון, 1984</strong> — Закон о чистоте</td>
-              <td><a href="https://www.nevo.co.il/law_html/law00/5166.htm" target="_blank" rel="noopener">NEVO</a> · <a href="https://www.gov.il/BlobFolder/guide/landfilling_in_israel/ar/waste_maintenance_of_cleanliness_law_1984.pdf" target="_blank" rel="noopener">Gov.il (PDF)</a></td>
-              <td>Базовый закон о чистоте, запрет мусора, полномочия муниципалитетов, штрафы.</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><strong>חוק איסוף ופינוי פסולת למחזור, 1993</strong> — Раздельный сбор (рамочный закон)</td>
-              <td>См. регламенты и текущие страницы Минприроды</td>
-              <td>Обязанности местных властей по организации систем раздельного сбора.</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td><strong>תקנות איסוף ופינוי פסולת למיחזור, 1998</strong> — Регламенты к закону 1993</td>
-              <td><a href="https://www.nevo.co.il/law_html/law00/5167.htm" target="_blank" rel="noopener">NEVO (Фонд чистоты, рег.)</a></td>
-              <td>Стандарты/сроки/ответственность для раздельного сбора и переработки.</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td><strong>חוק הפיקדון על מכלי משקה, 1999</strong> — Депозитная тара</td>
-              <td><a href="https://www.nevo.co.il/law_html/law00/4579.htm" target="_blank" rel="noopener">NEVO</a> · <a href="https://www.gov.il/he/pages/lp_bottle_deposit_expansion" target="_blank" rel="noopener">Gov.il (обзор)</a></td>
-              <td>Депозит за бутылки/банки с возвратом при сдаче тары.</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td><strong>הרחבת חוק הפיקדון, 2021</strong> — Расширение на тару &gt;1.5 л</td>
-              <td><a href="https://www.gov.il/he/departments/faq/bottle_deposit_expansion_faq" target="_blank" rel="noopener">Gov.il (FAQ)</a></td>
-              <td>С 1.12.2021 депозит распространяется и на крупные бутылки.</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td><strong>חוק להסדרת הטיפול באריזות, 2011</strong> — Упаковки (EPR)</td>
-              <td><a href="https://www.nevo.co.il/law_html/law00/75777.htm" target="_blank" rel="noopener">NEVO</a> · <a href="https://www.gov.il/he/pages/packaging_waste_law_2011" target="_blank" rel="noopener">Gov.il</a></td>
-              <td>EPR для упаковок: взносы, цели, отчётность, операторы (напр., Tamir).</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td><strong>חוק לטיפול סביבתי בציוד חשמלי ואלקטרוני וסוללות, 2012</strong> — Э-отходы (WEEE)</td>
-              <td><a href="https://fs.knesset.gov.il/18/law/18_lsr_301464.pdf" target="_blank" rel="noopener">Кнессет (PDF)</a> · <a href="https://www.gov.il/he/pages/electronic_waste_law_2012" target="_blank" rel="noopener">Gov.il</a></td>
-              <td>Сбор/переработка техники и батарей, запрет захоронения э-отходов.</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td><strong>חוק לצמצום השימוש בשקיות נשיאה חד-פעמיות, 2016/2017</strong> — Пластиковые пакеты</td>
-              <td><a href="https://m.knesset.gov.il/activity/legislation/laws/pages/LawPrimary.aspx?lawitemid=2002362" target="_blank" rel="noopener">Кнессет</a> · <a href="https://www.gov.il/he/pages/plastic_bag_law_2016" target="_blank" rel="noopener">Gov.il</a></td>
-              <td>Платная выдача пакетов в крупных сетях, снижение потребления.</td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td><strong>היטל הטמנה (с 2007)</strong> — Плата за захоронение (поправка к Закону о чистоте)</td>
-              <td><a href="https://www.gov.il/BlobFolder/legalinfo/maintenance_of_cleanliness_law_1984/ar/waste_maintenance_of_cleanliness_law_amendment9_2007.pdf" target="_blank" rel="noopener">Gov.il (PDF)</a> · <a href="https://www.gov.il/he/pages/landfilling_in_israel?chapterIndex=4" target="_blank" rel="noopener">Gov.il</a></td>
-              <td>Леви на каждую тонну захоронённых отходов; деньги в Фонд чистоты.</td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td><strong>חוק לסילוק ולמחזור צמיגים, 2007</strong> — Шины</td>
-              <td><a href="https://www.gov.il/he/pages/tire_disposal_and_recycling_law_2007" target="_blank" rel="noopener">Gov.il</a></td>
-              <td>Обязанности производителей/импортёров по сбору и переработке шин.</td>
-            </tr>
-            <tr>
-              <td>11</td>
-              <td><strong>אסטרטגיית פסולת 2030; כלכלה מעגלית 2050</strong> — Нац. стратегия 2021–2030</td>
-              <td><a href="https://www.gov.il/he/departments/topics/circular_economy" target="_blank" rel="noopener">Gov.il (CE)</a></td>
-              <td>Цели по сокращению захоронения, развитию CE; ориентир для городов.</td>
-            </tr>
-            <tr>
-              <td>12</td>
-              <td><strong>חוק עידוד תרומות מזון (תיקון), 2024</strong> — Передача излишков еды</td>
-              <td><a href="https://m.knesset.gov.il/EN/News/PressReleases/Pages/press261124q.aspx" target="_blank" rel="noopener">Кнессет (EN)</a> · <a href="https://main.knesset.gov.il/Activity/Legislation/Laws/pages/lawbill.aspx?lawitemid=2198381" target="_blank" rel="noopener">Законопроект → Закон</a> · <a href="https://fs.knesset.gov.il/25/law/25_lsr_5220054.pdf" target="_blank" rel="noopener">Оф. текст (PDF)</a></td>
-              <td>Публичные органы (≥500 порций/раб.день) обязаны жертвовать излишки НКО.</td>
-            </tr>
-            <tr>
-              <td>13</td>
-              <td><strong>Решение правительства (2022→)</strong> — Запрет одноразовой посуды в министерствах/IDF</td>
-              <td><a href="https://www.gov.il/he/departments/news/plastic_free_government" target="_blank" rel="noopener">Gov.il</a></td>
-              <td>Переход госструктур на многоразовую посуду; поддержка школ/садов.</td>
-            </tr>
-            <tr>
-              <td>14</td>
-              <td><strong>התוכנית הלאומית לצמצום אובדן ובזבוז מזון</strong> — Нац. план по потере/отходам пищи</td>
-              <td><a href="https://www.gov.il/BlobFolder/reports/food-loss-reduction/en/waste_food-loss-and-waste.pdf" target="_blank" rel="noopener">Gov.il (PDF)</a></td>
-              <td>Сокращение потерь/отходов пищи; связка с законом о пожертвованиях.</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p class="note">Все ссылки — на официальные порталы: NEVO (правовая база), Gov.il (Минприроды/правправительства), Кнессет (тексты законов и пресс-релизы).</p>
-      </section>
-
-      <!-- Карточки -->
-      <section class="block">
-        <h2>Простые объяснения и что важно на практике</h2>
-
-        <article id="law-1" class="card">
-          <h3>1) Закон о чистоте (1984) <span class="badge">базовый</span></h3>
-          <p><strong>О чём:</strong> “конституция чистоты”: запрет мусорить, обязанности муниципалитетов, штрафы; действует Фонд чистоты.</p>
-          <ul class="list">
-            <li><strong>Хайфа:</strong> обращайся с жалобами на нелегальные свалки/строймусор, ссылаясь на закон; город обязан реагировать.</li>
-            <li><strong>Финансирование:</strong> плата за захоронение (см. ниже) идёт в Фонд — аргумент за инвестирование в сортировку/переработку.</li>
-          </ul>
-          <p><a href="https://www.nevo.co.il/law_html/law00/5166.htm" target="_blank" rel="noopener">Текст на NEVO</a></p>
-        </article>
-
-        <article id="law-2" class="card">
-          <h3>2–3) Раздельный сбор: закон (1993) и регламенты (1998)</h3>
-          <p><strong>О чём:</strong> обязанность местных властей организовать раздельный сбор; регламенты задают стандарты/сроки/ответственность.</p>
-          <ul class="list">
-            <li><strong>Практика:</strong> если контейнеры переполнены или потоки не вывозятся — можно ссылаться на регламенты и требовать исправления.</li>
-          </ul>
-          <p><a href="https://www.nevo.co.il/law_html/law00/5167.htm" target="_blank" rel="noopener">Связанные регламенты / Фонд чистоты</a></p>
-        </article>
-
-        <article id="law-4" class="card">
-          <h3>4–5) Депозитная тара (1999) и расширение (2021)</h3>
-          <p><strong>О чём:</strong> при покупке напитка платится депозит; при сдаче пустой тары он возвращается. С 1.12.2021 это также касается больших бутылок.</p>
-          <ul class="list">
-            <li><strong>Практика:</strong> магазины обязаны принимать маркированную тару и возвращать депозит (есть лимиты по количеству/день).</li>
-            <li><strong>Гражданам/НКО:</strong> жалобы на отказ приёма подкрепляй ссылкой на <a href="https://www.gov.il/he/departments/faq/bottle_deposit_expansion_faq" target="_blank" rel="noopener">FAQ Минприроды</a>.</li>
-          </ul>
-          <p><a href="https://www.nevo.co.il/law_html/law00/4579.htm" target="_blank" rel="noopener">Текст на NEVO</a></p>
-        </article>
-
-        <article id="law-6" class="card">
-          <h3>6) Упаковки (2011, EPR)</h3>
-          <p><strong>О чём:</strong> расширенная ответственность производителя (EPR) для упаковок: взносы, цели, отчёты; операторы (напр., Tamir).</p>
-          <ul class="list">
-            <li><strong>Практика:</strong> “оранжевые контейнеры” для смешанных упаковок; производители/импортёры обязаны финансировать сбор/переработку.</li>
-          </ul>
-          <p><a href="https://www.nevo.co.il/law_html/law00/75777.htm" target="_blank" rel="noopener">NEVO</a> · <a href="https://www.gov.il/he/pages/packaging_waste_law_2011" target="_blank" rel="noopener">Gov.il</a></p>
-        </article>
-
-        <article id="law-7" class="card">
-          <h3>7) Электроника и батареи (2012, WEEE)</h3>
-          <p><strong>О чём:</strong> сбор/переработка электротехники и батарей, запрет захоронения э-отходов, обмен “1-к-1” при покупке новой техники.</p>
-          <ul class="list">
-            <li><strong>Практика:</strong> магазины обязаны принять старое устройство при продаже нового; муниципалитеты — пункты приёма.</li>
-          </ul>
-          <p><a href="https://fs.knesset.gov.il/18/law/18_lsr_301464.pdf" target="_blank" rel="noopener">Кнессет (PDF)</a> · <a href="https://www.gov.il/he/pages/electronic_waste_law_2012" target="_blank" rel="noopener">Gov.il</a></p>
-        </article>
-
-        <article id="law-8" class="card">
-          <h3>8) Пластиковые пакеты (2016/2017)</h3>
-          <p><strong>О чём:</strong> платная выдача пакетов в крупных сетях, чтобы уменьшить использование одноразовых.</p>
-          <ul class="list">
-            <li><strong>Практика:</strong> берём многоразовые сумки; средства от платы направляются по гос-механизму на экологические цели.</li>
-          </ul>
-          <p><a href="https://m.knesset.gov.il/activity/legislation/laws/pages/LawPrimary.aspx?lawitemid=2002362" target="_blank" rel="noopener">Кнессет</a> · <a href="https://www.gov.il/he/pages/plastic_bag_law_2016" target="_blank" rel="noopener">Gov.il</a></p>
-        </article>
-
-        <article id="law-9" class="card">
-          <h3>9) Плата за захоронение (с 2007)</h3>
-          <p><strong>О чём:</strong> лендфилл-леви делает захоронение дорогим и экономически невыгодным.</p>
-          <ul class="list">
-            <li><strong>Практика:</strong> аргумент за инвестиции в сортировку/переработку вместо “дешёвых” полигонов.</li>
-          </ul>
-          <p><a href="https://www.gov.il/BlobFolder/legalinfo/maintenance_of_cleanliness_law_1984/ar/waste_maintenance_of_cleanliness_law_amendment9_2007.pdf" target="_blank" rel="noopener">Gov.il (PDF)</a></p>
-        </article>
-
-        <article id="law-10" class="card">
-          <h3>10) Шины (2007)</h3>
-          <p><strong>О чём:</strong> обязанности производителей/импортёров по сбору/переработке шин; отчёты о выполнении.</p>
-          <ul class="list">
-            <li><strong>Практика:</strong> шиномонтажи должны передавать шины в систему; нелегальные свалки — под санкциями.</li>
-          </ul>
-          <p><a href="https://www.gov.il/he/pages/tire_disposal_and_recycling_law_2007" target="_blank" rel="noopener">Gov.il</a></p>
-        </article>
-
-        <article id="law-11" class="card">
-          <h3>11) Национальная стратегия 2030 / Циркулярная экономика 2050</h3>
-          <p><strong>О чём:</strong> уход от захоронения к сортировке/переработке и CE-модели; ориентиры для регионов и городов.</p>
-          <ul class="list">
-            <li><strong>Практика:</strong> сверяй планы Хайфы с целями стратегии; проси публиковать прогресс и открытые данные.</li>
-          </ul>
-          <p><a href="https://www.gov.il/he/departments/topics/circular_economy" target="_blank" rel="noopener">Gov.il: Circular Economy</a></p>
-        </article>
-
-        <article id="law-12" class="card">
-          <h3>12) Передача излишков еды (поправка, 2024)</h3>
-          <p><strong>О чём:</strong> публичные органы, подающие <em>≥ 500 порций/раб.день</em>, обязаны заключить партнёрство с НКО и передавать излишки.</p>
-          <ul class="list">
-            <li><strong>Хайфа:</strong> больницы, муниципальные кухни, вузы, части IDF — зона применения; НКО обязаны соблюдать требования пищевой безопасности и отчётности.</li>
-            <li><strong>Практика:</strong> инициируй MoU между учреждениями и локальными банками еды; мониторь исполнение (ссылки на оф. тексты).</li>
-          </ul>
-          <p><a href="https://m.knesset.gov.il/EN/News/PressReleases/Pages/press261124q.aspx" target="_blank" rel="noopener">Кнессет (принятие)</a> · <a href="https://fs.knesset.gov.il/25/law/25_lsr_5220054.pdf" target="_blank" rel="noopener">Оф. текст (PDF)</a></p>
-        </article>
-
-        <article id="law-13" class="card">
-          <h3>13) Запрет одноразовой посуды в госструктурах (2022→)</h3>
-          <p><strong>О чём:</strong> правительственный курс на отказ от одноразовой посуды в министерствах/ведомствах (частично — и в IDF); для школ/садов — поддержка посудомоек.</p>
-          <ul class="list">
-            <li><strong>Практика:</strong> для городских учреждений — готовые аргументы и примеры закупок многоразовой посуды и оборудования.</li>
-          </ul>
-          <p><a href="https://www.gov.il/he/departments/news/plastic_free_government" target="_blank" rel="noopener">Gov.il: Plastic-free Government</a></p>
-        </article>
-
-        <article id="law-14" class="card">
-          <h3>14) Нац. план по потере/отходам пищи</h3>
-          <p><strong>О чём:</strong> долгосрочный план сокращения потерь/отходов пищи; логическая связка со стратегией 2030 и законом о пожертвованиях.</p>
-          <ul class="list">
-            <li><strong>Практика:</strong> можно привлекать финансирование под “food rescue” проекты Хайфы, связывая их с нац. целями.</li>
-          </ul>
-          <p><a href="https://www.gov.il/BlobFolder/reports/food-loss-reduction/en/waste_food-loss-and-waste.pdf" target="_blank" rel="noopener">Gov.il (PDF)</a></p>
-        </article>
-      </section>
-
-      <footer class="footer">
-        <p>Последняя проверка/обновление: <strong>01.10.2025</strong>. Сообщите нам об ошибке или предложите дополнение: <a href="mailto:belanik@gmail.com">belanik@gmail.com</a>.</p>
-      </footer>
-
-    </section>
-  </main>
-
-  <script>
-    (function(){
-      const menuBtn = document.getElementById('menuBtn');
-      const menu = document.getElementById('sideMenu');
-      const backdrop = document.getElementById('menuBackdrop');
-
-      function openMenu(){
-        menu.classList.add('open');
-        backdrop.classList.add('show');
-        menuBtn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-      }
-      function closeMenu(){
-        menu.classList.remove('open');
-        backdrop.classList.remove('show');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
-      function toggleMenu(){
-        if(menu.classList.contains('open')) closeMenu();
-        else openMenu();
-      }
-
-      menuBtn.addEventListener('click', toggleMenu);
-      backdrop.addEventListener('click', closeMenu);
-
-      document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape') closeMenu();
-      });
-
-      // закрывать меню при клике по ссылке
-      menu.addEventListener('click', (e) => {
-        const a = e.target.closest('a');
-        if(a) closeMenu();
-      });
-    })();
-  </script>
-
-</body>
-</html>
-
+    .menu-backdrop{
+      position:fixed;
+      inset:0;
+      background: rgba(0,
