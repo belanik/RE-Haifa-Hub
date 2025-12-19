@@ -7,236 +7,201 @@
   <title>Эко-законодательство Израиля — RE-HAIFA HUB</title>
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root{
+    --green: #43a047;
+    --text: #223;
+    --bg: #f7fafc;
+    --card: #ffffff;
+    --border: #111;
 
-    body.page-ecolaw{
-      margin: 0;
-      font-family: Georgia, "Times New Roman", Times, serif;
-      background: #f7fafc;
-      color: #223;
-      line-height: 1.6;
-      font-size: 16px;
-    }
+    /* ширина сайд-меню */
+    --menu-w: 270px;
 
-    a{ color:#2e7d32; }
-    a:hover{ opacity:0.9; }
+    /* путь к картинке hero */
+    --hero-img: url("/RE-Haifa-Hub/assets/subpage-hero.png");
+  }
 
-    /* === Гамбургер: белый, чёрная рамка (видно на зелёном фоне) === */
-    .menu-btn{
-      position: fixed;
-      top: 12px;
-      left: 15px;
-      font-size: 1.8em;
-      cursor: pointer;
-      border: 2px solid #0a192f;
-      background: #fff;
-      color: #0a192f;
-      border-radius: 10px;
-      padding: 0.12em 0.45em;
-      z-index: 1501;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.20);
-    }
-    .menu-btn:hover{
-      background: #f0f0f0;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.22);
-    }
+  *{ box-sizing: border-box; }
 
-    /* === Side menu (как на странице пособия) === */
-    .side-menu{
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1200;
-      top: 0;
-      left: 0;
-      background-color: rgba(67,160,71,0.95);
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 3rem;
-    }
-    .side-menu a{
-      display: block;
-      padding: 0.85em 1.2em;
-      text-decoration: none;
-      font-size: 1.15em;
-      color: #fff;
-      transition: background 0.2s;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-weight: 700;
-    }
-    .side-menu a:hover{
-      background: rgba(255,255,255,0.18);
-    }
+  body{
+    margin:0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+  }
 
-    /* === Шапка сайта без фото === */
-    .site-header{
-      background: rgba(67,160,71,0.92);
-      color: #fff;
-      text-align: center;
-      padding: 1.6rem 0 1.0rem 0;
-      position: relative;
-      z-index: 1;
-    }
-    .site-header h1{
-      margin: 0 0 0.5rem 0;
-      font-size: 2.2rem;
-      letter-spacing: 1px;
-      font-weight: 800;
-      color: #fff;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.28);
-      font-family: Georgia, "Times New Roman", Times, serif;
-    }
+  /* =========================
+     HERO (шапка страниц 2 уровня)
+     ========================= */
+  .subpage-hero{
+    position: relative;
+    min-height: 240px;
+    padding: 18px 16px 14px;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.52), rgba(0,0,0,.22)),
+      var(--hero-img);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 6px solid rgba(67,160,71,.85);
+  }
 
-    /* Кружочки языков */
-    .language-switcher{
-      text-align: center;
-      margin: 0.2rem 0 0.2rem 0;
-    }
-    .lang-btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      margin: 0 6px;
-      border-radius: 50%;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      background: #fff;
-      border: 2px solid #0a192f;
-      color: #0a192f;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
-    .lang-btn:hover{ background: #f0f0f0; }
-    .lang-btn.active{
-      background: #0a192f;
-      color: #fff;
-    }
+  .hero-inner{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+  }
 
-    /* === Основной блок как на сайте === */
-    .site-main{
-      max-width: 1080px;
-      margin: 2rem auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(67,160,71,0.25);
-      padding: 2rem 2.2rem;
-    }
-    .container{ max-width: none; }
+  .hero-title{
+    margin: 0;
+    text-align: center;
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: .4px;
+    font-size: clamp(26px, 3.2vw, 42px);
+    text-shadow: 0 2px 14px rgba(0,0,0,.45);
+  }
 
-    /* === “Сайтовый” заголовок страницы (вместо синего hero) === */
-    .page-title{
-      color: #223;
-      text-align: left;
-      margin: 0 0 6px 0;
-      font-size: 1.7rem;
-      line-height: 1.25;
-      font-weight: 800;
-    }
-    .page-lead{
-      margin: 0 0 8px 0;
-      color: #223;
-      font-size: 1.05rem;
-      font-weight: 600;
-      opacity: 0.92;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
-    .page-note{
-      margin: 0 0 18px 0;
-      color: #556;
-      font-size: 0.95rem;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
+  /* 3 кнопки в одну линию, симметрично */
+  .hero-actions{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(170px, 1fr));
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    max-width: 860px;
+    margin: 0 auto;
+  }
 
-    /* === Блоки контента (toc/table/cards) в едином стиле === */
-    .block{
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(67,160,71,0.18);
-      padding: 1.25rem 1.4rem;
-      margin-top: 1rem;
-      border: 1px solid #e6efe6;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
-    .block h2{
-      margin: 0.1rem 0 0.9rem 0;
-      color: #2e7d32;
-      font-size: 1.15rem;
-      font-weight: 800;
-    }
+  .hero-controls{
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+  }
 
-    /* Пилюли оглавления */
-    .pill{
-      display: inline-block;
-      font-size: .78rem;
-      background: rgba(67,160,71,0.12);
-      color: #1f3a2a;
-      padding: .22rem .6rem;
-      border-radius: 999px;
-      margin: .15rem .35rem .15rem 0;
-      text-decoration: none;
-      border: 1px solid rgba(67,160,71,0.25);
-    }
-    .pill:hover{ background: rgba(67,160,71,0.16); }
+  @media (max-width: 700px){
+    .hero-actions{ grid-template-columns: 1fr; max-width: 520px; }
+  }
 
-    /* Таблица */
-    table{ width:100%; border-collapse:collapse; font-size:.97rem; }
-    th, td{ padding:.6rem .5rem; border-bottom:1px solid #eef3f9; vertical-align:top; }
-    th{
-      background: #f0f6f0;
-      text-align:left;
-      color:#1f3a2a;
-      font-weight: 800;
-    }
+  /* =========================
+     BUTTONS
+     ========================= */
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border: 2px solid var(--border);
+    background: #fff;
+    color: #111;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: transform .08s ease, filter .12s ease;
+  }
+  .btn:hover{ text-decoration: underline; transform: translateY(-1px); }
 
-    .note{
-      font-size: .95rem;
-      color:#556;
-      margin-top: 0.9rem;
-    }
+  .btn.small{ padding: 9px 12px; font-size: 13px; }
 
-    /* Карточки */
-    .card{
-      border: 1px solid #e6efe6;
-      border-radius: 12px;
-      padding: 1rem 1rem;
-      margin: .6rem 0 1rem;
-      background: #fff;
-    }
-    .card h3{
-      margin: .2rem 0 .4rem;
-      color: #123;
-      font-size: 1.05rem;
-      font-weight: 900;
-    }
-    .badge{
-      display:inline-block;
-      font-size:.78rem;
-      color:#1f6a32;
-      background:#e7f8ee;
-      padding:.15rem .5rem;
-      border-radius:999px;
-      margin-left:.33rem;
-      border: 1px solid rgba(31,106,50,0.18);
-    }
-    .list{ margin:.2rem 0 .2rem 1.1rem; }
+  .lang-group{
+    display: inline-flex;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.25);
+    backdrop-filter: blur(2px);
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
+  }
 
-    .footer{
-      margin: 1.6rem 0 0.5rem;
-      color:#556;
-      font-size:.92rem;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
+  .lang-btn{
+    border: 2px solid #000;
+    background: #fff;
+    color:#111;
+    border-radius: 999px;
+    padding: 8px 10px;
+    font-weight: 900;
+    font-size: 13px;
+    text-decoration: none;
+    line-height: 1;
+  }
+  .lang-btn.active{
+    background: #111;
+    color: #fff;
+  }
 
-    .sr{position:absolute;left:-9999px}
+  /* =========================
+     MAIN CARD
+     ========================= */
+  .page-wrap{
+    max-width: 1100px;
+    margin: 18px auto 34px;
+    padding: 0 16px;
+  }
+  .card{
+    background: var(--card);
+    border-radius: 14px;
+    box-shadow: 0 10px 26px rgba(0,0,0,.08);
+    border: 1px solid rgba(0,0,0,.06);
+    padding: 18px 18px;
+  }
 
-    @media (max-width: 900px){
-      .site-main{ padding: 1.4rem 1.1rem; }
-    }
-    @media (max-width:680px){
-      th:nth-child(3), td:nth-child(3){ display:none; }
-    }
+  /* =========================
+     HAMBURGER + SIDE MENU
+     ========================= */
+  .menu-btn{
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 2000;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 2px solid #111;     /* чёрная рамка */
+    background: #fff;           /* белая кнопка */
+    color: #111;                /* чёрная иконка */
+    font-size: 22px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,.18);
+  }
+  .menu-btn:hover{ filter: brightness(0.98); }
+
+  .side-menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 0;
+    overflow-x: hidden;
+    z-index: 1900;
+    background: rgba(67,160,71,0.96);
+    transition: width .22s ease;
+    padding-top: 64px;
+  }
+  .side-menu.open{ width: var(--menu-w); }
+
+  .side-menu a{
+    display: block;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+    border-bottom: 1px solid rgba(255,255,255,.16);
+  }
+  .side-menu a:hover{ background: rgba(255,255,255,.16); }
+
+  .menu-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.25);
+    z-index: 1800;
+  }
   </style>
 </head>
 
