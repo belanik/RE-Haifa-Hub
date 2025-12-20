@@ -37,7 +37,6 @@
       padding: 1.6rem 0 1.0rem 0;
     }
     .site-header h1{
-      background: rgba(67,160,71,0.85) url('/haifa_nof.jpg') center center/cover no-repeat;
       margin:0 0 .55rem 0;
       font-size: 2.2rem;
       letter-spacing: 1px;
@@ -133,7 +132,14 @@
       border-radius: 999px;
       white-space: nowrap;
     }
-
+    header {
+      background: rgba(67,160,71,0.85) url('haifa_nof.jpg') center center/cover no-repeat;
+      color: #fff;
+      padding: 2.5rem 0 2.5rem 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
     /* ====== Footer ====== */
     .site-footer{
       text-align:center;
@@ -241,7 +247,7 @@
   <div id="menuBackdrop" class="menu-backdrop" aria-hidden="true"></div>
 
   <!-- Шапка (без фото) -->
-  <header class="site-header">
+  <header>
     <h1>RE-HAIFA HUB</h1>
 
     <div class="language-switcher" aria-label="Переключение языка">
