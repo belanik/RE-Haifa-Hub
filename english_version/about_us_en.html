@@ -11,7 +11,22 @@
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    .team-link, .event-button, .contacts a {
+      display: inline-block;
+      background: rgba(67,160,71,0.85);
+      color: #fff !important;
+      border-radius: 8px;
+      padding: 0.7em 1.2em;
+      margin: 0.8em 0;
+      text-decoration: none;
+      font-size: 1.05em;
+      font-weight: 500;
+      border: none;
+      box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+      transition: background 0.2s, box-shadow 0.2s;
+      text-align: center;
+      cursor: pointer;
+    }
     body.page-ecolaw{
       margin: 0;
       font-family: Georgia, "Times New Roman", Times, serif;
@@ -24,7 +39,7 @@
     a{ color:#2e7d32; }
     a:hover{ opacity:0.9; }
 
-    /* ===== HAMBURGER ===== */
+    /* ===== ГАМБУРГЕР ===== */
     .menu-btn{
       position: fixed;
       top: 12px;
@@ -43,23 +58,8 @@
       background: #ffffff;
       box-shadow: 0 4px 14px rgba(0,0,0,0.22);
     }
-    .team-link, .event-button, .contacts a {
-      display: inline-block;
-      background: rgba(67,160,71,0.85);
-      color: #fff !important;
-      border-radius: 8px;
-      padding: 0.7em 1.2em;
-      margin: 0.8em 0;
-      text-decoration: none;
-      font-size: 1.05em;
-      font-weight: 500;
-      border: none;
-      box-shadow: 0 2px 8px rgba(67,160,71,0.25);
-      transition: background 0.2s, box-shadow 0.2s;
-      text-align: center;
-      cursor: pointer;
-    }
-    /* ===== BACKDROP (to close the menu by clicking) ===== */
+
+    /* ===== BACKDROP (чтобы закрывать меню кликом) ===== */
     .menu-backdrop{
       position: fixed;
       inset: 0;
@@ -101,7 +101,7 @@
       background: rgba(255,255,255,0.18);
     }
 
-    /* ===== NEW HEADER WITH IMAGE longline.png ===== */
+    /* ===== НОВАЯ ШАПКА С КАРТИНКОЙ longline.png ===== */
     .site-header{
       position: relative;
       background-image: url("/assets/longline.png");
@@ -197,7 +197,7 @@
       color: #fff;
     }
 
-    /* ===== MAIN BLOCK ===== */
+    /* ===== ОСНОВНОЙ БЛОК ===== */
     .site-main{
       max-width: 1080px;
       margin: 2rem auto;
@@ -315,7 +315,7 @@
     }
     @media (max-width: 680px){
       th:nth-child(3), td:nth-child(3){ display:none; }
-      .brand{ text-align: right; } /* so it doesn't conflict with the hamburger on the left */
+      .brand{ text-align: right; } /* чтобы не конфликтовать с гамбургером слева */
       .header-actions{ justify-content: center; }
       .action-pill{ gap: 6px; }
       .hdr-btn{ padding: 7px 10px; font-size: 12.5px; }
