@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RE Haifa Hub — Team (Safe)</title>
-<link rel="icon" href="../green.jpg">
-<meta name="description" content="RE Haifa Hub — Team">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="RE Haifa Hub — sustainable development projects, resource sharing, and ecology in Haifa." />
+  <title>RE Haifa Hub</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="green.jpg" />
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,7 +24,7 @@
     a{ color:#2e7d32; }
     a:hover{ opacity:0.9; }
 
-    /* ===== ГАМБУРГЕР ===== */
+    /* ===== HAMBURGER ===== */
     .menu-btn{
       position: fixed;
       top: 12px;
@@ -42,7 +44,7 @@
       box-shadow: 0 4px 14px rgba(0,0,0,0.22);
     }
 
-    /* ===== BACKDROP (чтобы закрывать меню кликом) ===== */
+    /* ===== BACKDROP (to close the menu by clicking) ===== */
     .menu-backdrop{
       position: fixed;
       inset: 0;
@@ -84,7 +86,7 @@
       background: rgba(255,255,255,0.18);
     }
 
-    /* ===== НОВАЯ ШАПКА С КАРТИНКОЙ longline.png ===== */
+    /* ===== NEW HEADER WITH IMAGE longline.png ===== */
     .site-header{
       position: relative;
       background-image: url("/assets/longline.png");
@@ -180,7 +182,7 @@
       color: #fff;
     }
 
-    /* ===== ОСНОВНОЙ БЛОК ===== */
+    /* ===== MAIN BLOCK ===== */
     .site-main{
       max-width: 1080px;
       margin: 2rem auto;
@@ -298,113 +300,157 @@
     }
     @media (max-width: 680px){
       th:nth-child(3), td:nth-child(3){ display:none; }
-      .brand{ text-align: right; } /* чтобы не конфликтовать с гамбургером слева */
+      .brand{ text-align: right; } /* so it doesn't conflict with the hamburger on the left */
       .header-actions{ justify-content: center; }
       .action-pill{ gap: 6px; }
       .hdr-btn{ padding: 7px 10px; font-size: 12.5px; }
       .lang-btn{ width: 34px; height: 34px; }
     }
   </style>
-
-
-
-
-
-
-
-
-
-  
-
 </head>
-<body>
-<header>
-  <h1>RE Haifa Hub</h1>
-  <p>Urban Center for Resource Exchange, Environmental Education, and Sustainable Development in Haifa</p>
-  <a class="btn btn-facebook" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">We are on Facebook</a>
-  <nav class="top">
-    <a href="index.html">Home</a>
-    <a href="index.html#projects">Projects</a>
-    <a href="index.html#partners">Partners</a>
-    <a href="#contacts">Contacts</a>
+
+<body class="page-ecolaw">
+
+  <!-- Hamburger -->
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="sideMenu" aria-expanded="false">☰</button>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div style="width:48px;"></div>
+      <div class="brand">Re-Haifa Hub</div>
+
+      <div class="header-actions">
+        <div class="action-pill" aria-label="Buttons and language">
+          <a class="hdr-btn" href="/english_version/anketa_en.html" title="Join form/contact">Join</a>
+          <a class="hdr-btn" href="https://www.facebook.com/profile.php?id=61575821814765" title="Facebook page">Facebook</a>
+
+          <a class="lang-btn" href="/index.html" aria-label="Russian">RU</a>
+          <a class="lang-btn active" href="/english_version/index_en.html" aria-label="English">EN</a>
+          <a class="lang-btn" href="/hebrew_version/index_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="sideMenu" aria-expanded="false">☰</button>
+
+  <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+
+  <nav id="sideMenu" class="side-menu" aria-label="Navigation">
+    <a href="/english_version/index_en.html">Home</a>
+    <a href="/english_version/about_us_en.html">Our Team</a>
+    <a href="/eco-analytics_EN/eco-analytics_EN">Eco-Analytics</a>
+    <a href="/eco-law-en.html">Israeli Eco Laws</a>
+    <a href="/english_version/en_programma.html">Circular Economy Transition Program</a>
+    <a href="/english_version/textbookWMen.html">Waste Management School</a>
+    <a href="/oecd_reports/oecd_reports_en.html">OECD Reports</a>
   </nav>
-</header>
 
-<main>
-  <h2 class="section">Our Team</h2>
+  <main class="site-main">
+    <div class="container">
 
-  <div class="grid">
-
-    <!-- Bela -->
-    <article class="card">
-      <img class="photo" src="../bela.jpg" alt="Bela Nikitina">
-      <h3 class="name">Bela Nikitina</h3>
-      <div class="role">Environmental Sociologist, PhD</div>
-      <div class="text">
-        <p><strong>Expertise:</strong> Sustainable development, municipal solid waste management, eco-economic planning, public administration, environmental management, circular-economy education.</p>
-        <p><strong>Background:</strong> 20+ years in sustainability and waste management. Author of monographs and articles; led civic expert groups assessing environmental risks of infrastructure projects; taught environmental management and natural-resource economics.</p>
-        <p><strong>Public/Institutional work:</strong> 15 years on the Public Expert Council at the Samara Ministry of Finance; contributed to regional WM programs and green budgeting; collaborated with authorities and industry.</p>
-      </div>
-    </article>
-
-    <!-- Anna Ziv -->
-    <article class="card">
-      <img class="photo" src="../anna.jpg" alt="Anna Ziv">
-      <h3 class="name">Anna Ziv</h3>
-      <div class="role">Environmental Educator, Community Organizer</div>
-      <div class="text">
-        <p><strong>Expertise:</strong> Environmental education, sustainable consumption, public events, community building, cross-sector partnerships, volunteer management.</p>
-        <p><strong>Background:</strong> Founder and coordinator of the GreenMove initiative; organizer and host of workshops and source-separation campaigns; active communicator on environmental topics.</p>
-        <p><strong>Organizations:</strong> Collaborations with municipal and educational institutions, NGOs, and community groups.</p>
-      </div>
-    </article>
-
-
-    <!-- Alexandra Tseitlina -->
-    <article class="card">
-      <img class="photo" src="../alex.jpg" alt="Alexandra Tseitlina">
-      <h3 class="name">Alexandra Tseitlina</h3>
-      <div class="role">Bioecologist, Environmental Educator</div>
-      <div class="text">
-        <p><strong>Expertise:</strong> Bioecology, inclusive conservation design, citizen monitoring, environmental analytics & data viz, sustainable development.</p>
-        <p><strong>Background:</strong> 15+ years in nature conservation; project coordinator at WWF and Kolarctic CBC; initiatives on biodiversity, algae research, and sustainable tourism; NGO reporting & communications expert.</p>
-        <p><strong>Organizations:</strong> Worked with environmental authorities, protected areas, museums, NGOs.</p>
-      </div>
-    </article>
-
-    <!-- Ekaterina Biryukova -->
-    <article class="card">
-      <img class="photo" src="../ekat.jpg" alt="Ekaterina Biryukova">
-      <h3 class="name">Ekaterina Biryukova</h3>
-      <div class="role">Eco-Educator, Communications & Culture</div>
-      <div class="text">
-        <p><strong>Expertise:</strong> Environmental education, sustainable consumption, cultural initiatives, restoration, eco-media.</p>
-        <p><strong>Background:</strong> Co-founder of “Separate Collection — Ramenskoye”; author of the
-          <a href="https://horlovo.ru/news/voskresensk/item/2285-proekt-muzej-istorii-musora-mozhet-realizovatsya-v-tsibino" target="_blank" rel="noopener">“Museum of Waste History”</a> project; award-winning regional initiative (temporarily suspended due to the war).</p>
-        <p><strong>Organizations:</strong> Worked with municipalities, schools, libraries, NGOs; develops eco-education and media outreach.</p>
-      </div>
-    </article>
-
-    <!-- Tatyana Frumina -->
-    <article class="card">
-      <img class="photo" src="../tatyana.jpg" alt="Tatyana Frumina">
-      <h3 class="name">Tatyana Frumina</h3>
-      <div class="role">Social Activist & Volunteer</div>
-      <div class="text">
-        <p><strong>Russia:</strong> Advocated for accessible transport & infrastructure; coordinated with municipal authorities; built a 1,000+ member community.</p>
-        <p><strong>Israel:</strong> Graduated from a social-activism course in Haifa; participated in environmental roundtables; organized a Swap Market; promotes a culture of sustainability.</p>
-      </div>
-    </article>
-
+    
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <div class="grid gap-10 sm:grid-cols-1 md:grid-cols-2">
+        <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
+          <img src="bela.jpg" alt="Bela Nikitina" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+          <h3 class="text-xl font-semibold text-center">
+            Bela Nikitina<br>
+            <span class="text-sm font-normal">Sociologist–Environmental Specialist, PhD</span>
+          </h3>
+          <div class="text-gray-700 text-sm mt-4 space-y-3">
+            <p><strong>Areas of specialization:</strong> Sustainable development, waste management, environmental–economic planning, public and municipal administration, environmental management, education in the circular economy.</p>
+            <p><strong>Previous professional experience in the project field:</strong> Over 20 years of experience in sustainable development and waste management in Russia. Author of monographs and publications on the circular economy and environmental management. Led public expert groups assessing the environmental safety of infrastructure projects. Taught environmental management and natural resource economics to students and professionals.</p>
+            <p><strong>Experience working with regional authorities, institutions, or organizations:</strong> For 15 years, a member of the public expert council under the Ministry of Finance of the Samara Region. Participated in developing regional waste management programs and budgeting for environmental protection; collaborated with authorities and industrial enterprises on environmental reviews and the implementation of sustainable solutions.</p>
+          </div>
+        </div>
+      <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
+    <img src="anna.jpg" alt="Anna Ziv" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+    <h3 class="text-xl font-semibold text-center">Anna Ziv</h3>
+    <div class="text-gray-700 text-sm mt-4 space-y-3">
+      <p><strong>Areas of specialization:</strong> Environmental education, sustainable consumption, organizing and running environmental events, development of urban communities, cross-sector collaboration, and volunteer project management.</p>
+      <p><strong>Professional experience:</strong> Founder and coordinator of the GreenMove initiative promoting an eco-friendly lifestyle. Organizer and host of workshops, separate waste collection drives, and educational events. Actively uses social media to promote environmental topics.</p>
+      <p><strong>Experience working with organizations:</strong> Collaborated with municipal institutions and educational organizations. Worked with non-profits (NGOs) and communities on programs for environmental education and public engagement.</p>
+    </div>
   </div>
 
-  <section id="contacts" class="contacts">
-    <a href="mailto:rehaifahub@gmail.com">rehaifahub@gmail.com</a>
-    <a href="https://t.me/rehaifahub" target="_blank" rel="noopener">Telegram</a>
-    <a href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Facebook</a>
-  </section>
-</main>
+  <!-- Alexandra Tseitlina -->
+  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
+    <img src="alex.jpg" alt="Alexandra Tseitlina" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+    <h3 class="text-xl font-semibold text-center">Alexandra Tseitlina</h3>
+    <div class="text-gray-700 text-sm mt-4 space-y-3">
+      <p><strong>Areas of specialization:</strong> Bioecology, environmental education, sustainable development, inclusive conservation project design, civic monitoring, environmental analytics and data visualization.</p>
+      <p><strong>Professional experience:</strong> Over 15 years in nature conservation. Project coordinator for WWF, Kolarctic CBC; developer of initiatives on biodiversity, algae, and sustainable tourism. Expert in reporting and NGO communications.</p>
+      <p><strong>Experience working with organizations:</strong> Collaborated with Rosprirodnadzor (Federal Service for Supervision of Natural Resources), the Ministry of Natural Resources of the Murmansk Region, nature reserves, museums, and NGOs.</p>
+    </div>
+  </div>
 
-<footer>&copy; RE Haifa Hub, 2025 — Ecology, exchange, and community in Haifa</footer>
+  <!-- Ekaterina Biryukova -->
+  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
+    <img src="ekat.jpg" alt="Ekaterina Biryukova" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+    <h3 class="text-xl font-semibold text-center">Ekaterina Biryukova</h3>
+    <div class="text-gray-700 text-sm mt-4 space-y-3">
+      <p><strong>Areas of specialization:</strong> Environmental education, sustainable consumption, cultural initiatives, restoration, environmental communications and media.</p>
+      <p><strong>Professional experience:</strong> Co-founder of the project “Separate Collection — Ramenskoye,” author of the <a href="https://horlovo.ru/news/voskresensk/item/2285-proekt-muzej-istorii-musora-mozhet-realizovatsya-v-tsibino" class="text-blue-600 underline hover:text-blue-800">“Museum of Trash”</a> project, laureate of a Moscow Region award. The project has been suspended due to the war.</p>
+      <p><strong>Experience working with organizations:</strong> Collaborated with municipal administrations, schools, libraries, and NGOs. Develops environmental education and media on social networks.</p>
+    </div>
+  </div>
+
+  <!-- Tatyana Frumina -->
+  <div class="max-w-md mx-auto p-4 bg-white shadow rounded">
+    <img src="tatyana.jpg" alt="Tatyana Frumina" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+    <h3 class="text-xl font-semibold text-center">Tatyana Frumina<br><span class="text-sm font-normal">Social activist, volunteer</span></h3>
+    <div class="text-gray-700 text-sm mt-4 space-y-3">
+      <p><strong>Experience in Russia:</strong> Worked to improve accessibility of transport and infrastructure, liaised with municipal authorities, organized a local community of 1,000+ participants.</p>
+      <p><strong>Experience in Israel:</strong> Completed a social activism course in Haifa, participated in environmental round tables, organized a Swap Market, and promotes a culture of sustainability.</p>
+    </div>
+  </div>
+    </div>
+    </div>
+    
+    <section id="contacts">
+      <h2>Contacts</h2>
+      <div class="contacts" id="contacts">
+        <a href="mailto:rehaifahub@gmail.com">rehaifahub@gmail.com</a>
+        <a href="https://t.me/rehaifahub" target="_blank">Telegram</a>
+        <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Find us on Facebook</a>
+      </div>
+    </section>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; RE Haifa Hub, 2025 &mdash; Ecology, exchange, and community in Haifa
+  </footer>
+
+  <script>
+    const menu = document.getElementById("sideMenu");
+    const btn = document.getElementById("menuBtn");
+    const backdrop = document.getElementById("menuBackdrop");
+
+    function openMenu(){
+      menu.style.width = "250px";
+      backdrop.classList.add("open");
+      btn.setAttribute("aria-expanded","true");
+    }
+
+    function closeMenu(){
+      menu.style.width = "0";
+      backdrop.classList.remove("open");
+      btn.setAttribute("aria-expanded","false");
+    }
+
+    function toggleMenu(){
+      if (menu.style.width === "250px") closeMenu();
+      else openMenu();
+    }
+
+    btn.addEventListener("click", toggleMenu);
+    backdrop.addEventListener("click", closeMenu);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  </script>
 </body>
 </html>
