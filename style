@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ключевые законы и стратегические документы Израиля по отходам и циркулярной экономике, простые объяснения и ссылки на официальные источники." />
-  <title>Эко-законодательство Израиля — RE-HAIFA HUB</title>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,7 +10,9 @@
       line-height: 1.6;
       font-size: 16px;
     }
-
+    strong {
+        font-weight: 700;
+    }
     a{ color:#2e7d32; }
     a:hover{ opacity:0.9; }
 
