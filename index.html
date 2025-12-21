@@ -655,39 +655,41 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>RE Haifa Hub</h1>
-    <p>Городской центр обмена ресурсами, экопросвещения и устойчивого развития в Хайфе</p>
 
-    <a class="btn fb-link"
-      href="https://www.facebook.com/profile.php?id=61575821814765"
-      target="_blank" rel="noopener">
-      Мы на Facebook
-    </a>
-    <a class="btn join-link"
-      href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html"
-      target="_blank" rel="noopener">
-      Присоединиться к нам
-    </a>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div style="width:48px;"></div><!-- пустой “держатель”, чтобы центрирование бренда было ровным -->
+      <div class="brand">Re-Haifa Hub</div>
+
+      <div class="header-actions">
+        <div class="action-pill" aria-label="Кнопки и язык">
+          <!-- ВАЖНО: сюда поставь свой реальный линк на вступление -->
+          <a class="hdr-btn" href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" title="Поставь сюда ссылку на форму/контакт">Присоединиться</a>
+
+          <!-- ВАЖНО: сюда поставь свой реальный линк на Facebook -->
+          <a class="hdr-btn" href="https://www.facebook.com/profile.php?id=61575821814765" title="Поставь сюда ссылку на страницу Facebook">Facebook</a>
+
+          <a class="lang-btn active" href="/index.html" aria-label="Русский">RU</a>
+          <a class="lang-btn" href="/english_version/index_en.html" aria-label="English">EN</a>
+          <a class="lang-btn" href="/hebrew_version/index_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
+        </div>
+      </div>
+    </div>
   </header>
+  <button class="menu-btn" id="menuBtn" aria-label="Открыть меню" aria-controls="sideMenu" aria-expanded="false">☰</button>
 
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <!-- Backdrop -->
+  <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
 
-  <div class="language-switcher">
-    <button onclick="location.href='index.html'" class="lang-btn active" title="Русская версия">RU</button>
-    <button onclick="location.href='english_version/index_en.html'" class="lang-btn" title="English version">EN</button>
-    <button onclick="location.href='hebrew_version/index_he.html'" class="lang-btn" title="Hebrew version">HE</button>
-  </div>
-
-
-  <nav id="sideMenu" class="side-menu">
-    <a href="index.html">Главная</a>
-       <a href="about_us.html">Наша команда</a>
-    <a href="ecoanalytics_RU/index.html">Эко-аналитика</a>
-    <a href="eco-law-ru.html">Эко законы Израиля</a>
-    <a href="programma">Программа перехода к циркулярной экономике</a>
-    <a href="textbookWM.html">Школа управления отходами</a>
-    <a href="oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
+  <!-- Side menu -->
+  <nav id="sideMenu" class="side-menu" aria-label="Навигация">
+    <a href="/index.html">Главная</a>
+    <a href="/about_us.html">Наша команда</a>
+    <a href="/ecoanalytics_RU/index.html">Эко-аналитика</a>
+    <a href="/eco-law-ru.html">Эко законы Израиля</a>
+    <a href="/programma.html">Проект программы перехода к циркулярной экономике</a>
+    <a href="/textbookWM.html">Школа управления отходами</a>
+    <a href="/oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
   </nav>
 
 
