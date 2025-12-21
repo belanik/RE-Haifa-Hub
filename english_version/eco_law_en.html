@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Key Israeli laws and strategic documents on waste and the circular economy, plain-language explanations, and links to official sources." />
+  <title>Israel’s Environmental Legislation — RE-HAIFA HUB</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body.page-ecolaw{
+      margin: 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      background: #f7fafc;
+      color: #223;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a{ color:#2e7d32; }
+    a:hover{ opacity:0.9; }
+
+    /* ===== HAMBURGER ===== */
+    .menu-btn{
+      position: fixed;
+      top: 12px;
+      left: 15px;
+      font-size: 1.8em;
+      cursor: pointer;
+      border: 2px solid #0a192f;
+      background: rgba(255,255,255,0.92);
+      color: #0a192f;
+      border-radius: 10px;
+      padding: 0.12em 0.45em;
+      z-index: 1501;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.20);
+    }
+    .menu-btn:hover{
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+    }
+
+    /* ===== BACKDROP (click to close menu) ===== */
+    .menu-backdrop{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.28);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .18s ease;
+      z-index: 1190;
+    }
+    .menu-backdrop.open{
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ===== SIDE MENU ===== */
+    .side-menu{
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1200;
+      top: 0;
+      left: 0;
+      background-color: rgba(67,160,71,0.95);
+      overflow-x: hidden;
+      transition: 0.25s;
+      padding-top: 3rem;
+    }
+    .side-menu a{
+      display: block;
+      padding: 0.85em 1.2em;
+      text-decoration: none;
+      font-size: 1.15em;
+      color: #fff;
+      transition: background 0.2s;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 700;
+    }
+    .side-menu a:hover{
+      background: rgba(255,255,255,0.18);
+    }
+
+    /* ===== NEW HEADER WITH longline.png ===== */
+    .site-header{
+      position: relative;
+      background-image: url("/assets/longline.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: clamp(110px, 13vw, 170px);
+      border-bottom: 6px solid rgba(67,160,71,.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+    }
+
+    .header-inner{
+      width: 100%;
+      max-width: 1080px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand{
+      flex: 1;
+      text-align: center;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      font-size: clamp(24px, 3vw, 40px);
+      text-shadow: 0 2px 14px rgba(0,0,0,0.45);
+      padding: 6px 10px;
+      user-select: none;
+    }
+
+    .header-actions{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .action-pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.78);
+      border: 2px solid #0a192f;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      backdrop-filter: blur(2px);
+    }
+
+    .hdr-btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border: 2px solid #0a192f;
+      background: #fff;
+      color: #0a192f;
+      text-decoration: none;
+      border-radius: 999px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      white-space: nowrap;
+      transition: transform .08s ease, filter .12s ease;
+    }
+    .hdr-btn:hover{ text-decoration: underline; transform: translateY(-1px); }
+
+    .lang-btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-weight: 900;
+      text-decoration: none;
+      background: #fff;
+      border: 2px solid #0a192f;
+      color: #0a192f;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1;
+    }
+    .lang-btn:hover{ background: #f3f3f3; }
+    .lang-btn.active{
+      background: #0a192f;
+      color: #fff;
+    }
+
+    /* ===== MAIN BLOCK ===== */
+    .site-main{
+      max-width: 1080px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(67,160,71,0.25);
+      padding: 2rem 2.2rem;
+    }
+    .container{ max-width: none; }
+
+    .page-title{
+      color: #223;
+      text-align: left;
+      margin: 0 0 6px 0;
+      font-size: 1.7rem;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+    .page-lead{
+      margin: 0 0 8px 0;
+      color: #223;
+      font-size: 1.05rem;
+      font-weight: 600;
+      opacity: 0.92;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .page-note{
+      margin: 0 0 18px 0;
+      color: #556;
+      font-size: 0.95rem;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    .block{
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(67,160,71,0.18);
+      padding: 1.25rem 1.4rem;
+      margin-top: 1rem;
+      border: 1px solid #e6efe6;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .block h2{
+      margin: 0.1rem 0 0.9rem 0;
+      color: #2e7d32;
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .pill{
+      display: inline-block;
+      font-size: .78rem;
+      background: rgba(67,160,71,0.12);
+      color: #1f3a2a;
+      padding: .22rem .6rem;
+      border-radius: 999px;
+      margin: .15rem .35rem .15rem 0;
+      text-decoration: none;
+      border: 1px solid rgba(67,160,71,0.25);
+    }
+    .pill:hover{ background: rgba(67,160,71,0.16); }
+
+    table{ width:100%; border-collapse:collapse; font-size:.97rem; }
+    th, td{ padding:.6rem .5rem; border-bottom:1px solid #eef3f9; vertical-align:top; }
+    th{
+      background: #f0f6f0;
+      text-align:left;
+      color:#1f3a2a;
+      font-weight: 800;
+    }
+
+    .note{
+      font-size: .95rem;
+      color:#556;
+      margin-top: 0.9rem;
+    }
+
+    .card{
+      border: 1px solid #e6efe6;
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      margin: .6rem 0 1rem;
+      background: #fff;
+    }
+    .card h3{
+      margin: .2rem 0 .4rem;
+      color: #123;
+      font-size: 1.05rem;
+      font-weight: 900;
+    }
+    .badge{
+      display:inline-block;
+      font-size:.78rem;
+      color:#1f6a32;
+      background:#e7f8ee;
+      padding:.15rem .5rem;
+      border-radius:999px;
+      margin-left:.33rem;
+      border: 1px solid rgba(31,106,50,0.18);
+    }
+    .list{ margin:.2rem 0 .2rem 1.1rem; }
+
+    .footer{
+      margin: 1.6rem 0 0.5rem;
+      color:#556;
+      font-size:.92rem;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    .sr{position:absolute;left:-9999px}
+
+    @media (max-width: 900px){
+      .site-main{ padding: 1.4rem 1.1rem; }
+      .header-inner{ gap: 8px; }
+    }
+    @media (max-width: 680px){
+      th:nth-child(3), td:nth-child(3){ display:none; }
+      .brand{ text-align: right; } /* avoid conflict with hamburger on the left */
+      .header-actions{ justify-content: center; }
+      .action-pill{ gap: 6px; }
+      .hdr-btn{ padding: 7px 10px; font-size: 12.5px; }
+      .lang-btn{ width: 34px; height: 34px; }
+    }
+  </style>
+</head>
+
+<body class="page-ecolaw">
+
+  <!-- Hamburger -->
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="sideMenu" aria-expanded="false">☰</button>
+
+  <!-- Backdrop -->
+  <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+
+  <!-- Side menu -->
+  <nav id="sideMenu" class="side-menu" aria-label="Navigation">
+    <a href="index.html">Home</a>
+    <a href="about_us.html">Our Team</a>
+    <a href="экоанатилика%20на%20сайт/ecoanalytics-ru.html">Eco-Analytics</a>
+    <a href="eco-law-ru.html">Israel Eco-Laws</a>
+    <a href="programma">Draft Program for Transition to a Circular Economy</a>
+    <a href="textbookWM.html">Waste Management School</a>
+    <a href="oecd_reports/oecd_reports.html">OECD Reports</a>
+  </nav>
+
+  <!-- NEW HEADER -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div style="width:48px;"></div><!-- spacer so brand stays perfectly centered -->
+      <div class="brand">Re-Haifa Hub</div>
+
+      <div class="header-actions">
+        <div class="action-pill" aria-label="Buttons and language">
+          <!-- IMPORTANT: put your real “join” link here -->
+          <a class="hdr-btn" href="#" title="Put your form/contact link here">Join us</a>
+
+          <!-- IMPORTANT: put your real Facebook link here -->
+          <a class="hdr-btn" href="#" title="Put your Facebook page link here">Facebook</a>
+
+          <a class="lang-btn" href="eco-law-ru.html" aria-label="Русский">RU</a>
+          <a class="lang-btn active" href="eco-law-en.html" aria-label="English">EN</a>
+          <a class="lang-btn" href="eco-law-he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+
+      <!-- Page top -->
+      <h1 class="page-title">Israel’s Environmental Legislation</h1>
+      <p class="page-lead">A curated list of key laws and strategic documents on waste and the circular economy — with short explanations and links to official sources.</p>
+      <p class="page-note">Focus: source separation, bottle deposit, EPR (extended producer responsibility), e-waste, tires, landfill levy, food waste, and the national strategy to 2030/2050.</p>
+
+      <!-- Table of contents -->
+      <nav class="block" aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div>
+          <a class="pill" href="#law-1">1. Cleanliness Maintenance Law (1984)</a>
+          <a class="pill" href="#law-2">2–3. Source separation: law and regulations (1993/1998)</a>
+          <a class="pill" href="#law-4">4–5. Bottle deposit and expansion (1999/2021)</a>
+          <a class="pill" href="#law-6">6. Packaging Law (2011, EPR)</a>
+          <a class="pill" href="#law-7">7. Electronics & batteries (2012)</a>
+          <a class="pill" href="#law-8">8. Plastic carrier bags (2016/2017)</a>
+          <a class="pill" href="#law-9">9. Landfill levy (since 2007)</a>
+          <a class="pill" href="#law-10">10. Tires (2007)</a>
+          <a class="pill" href="#law-11">11. National Waste Strategy 2030 / CE-2050</a>
+          <a class="pill" href="#law-12">12. Surplus food donations (2024)</a>
+          <a class="pill" href="#law-13">13. Single-use ban in government bodies (2022→)</a>
+          <a class="pill" href="#law-14">14. National plan on food loss & waste</a>
+        </div>
+      </nav>
+
+      <!-- Table -->
+      <section class="block" aria-labelledby="laws-table">
+        <h2 id="laws-table">Table: key laws and documents (links to official sources)</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Title / year</th>
+              <th>Official link</th>
+              <th>In brief</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><strong>חוק שמירת הניקיון, 1984</strong> — Cleanliness Maintenance Law</td>
+              <td><a href="https://www.nevo.co.il/law_html/law00/5166.htm" target="_blank" rel="noopener">NEVO</a> · <a href="https://www.gov.il/BlobFolder/guide/landfilling_in_israel/ar/waste_maintenance_of_cleanliness_law_1984.pdf" target="_blank" rel="noopener">Gov.il (PDF)</a></td>
+              <td>Core “cleanliness” law: anti-littering, municipal powers, fines.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><strong>חוק איסוף ופינוי פסולת למחזור, 1993</strong> — Source separation (framework law)</td>
+              <td>See the regulations and the current Ministry of Environmental Protection pages</td>
+              <td>Duties of local authorities to establish systems for separate collection.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><strong>תקנות איסוף ופינוי פסולת למיחזור, 1998</strong> — Regulations under the 1993 law</td>
+              <td><a href="https://www.nevo.co.il/law_html/law00/5167.htm" target="_blank" rel="noopener">NEVO (Cleanliness Fund, regs.)</a></td>
+              <td>Standards/timelines/responsibilities for separate collection and recycling.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><strong>חוק הפיקדון על מכלי משקה, 1999</strong> — Bottle deposit</td>
+              <td><a href="https://www.nevo.co.il/law_html/law00/4579.htm" target="_blank" rel="noopener">NEVO</a> · <a href="https://www.gov.il/he/pages/lp_bottle_deposit_expansion" target="_blank" rel="noopener">Gov.il (overview)</a></td>
+              <td>Deposit paid at purchase and refunded upon returning marked containers.</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><strong>הרחבת חוק הפיקדון, 2021</strong> — Expansion to containers &gt;1.5 L</td>
+              <td><a href="https://www.gov.il/he/departments/faq/bottle_deposit_expansion_faq" target="_blank" rel="noopener">Gov.il (FAQ)</a></td>
+              <td>Since 01.12.2021, deposit also applies to large bottles.</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><strong>חוק להסדרת הטיפול באריזות, 2011</strong> — Packaging (EPR)</td>
+              <td><a href="https://www.nevo.co.il/law_html/law00/75777.htm" target="_blank" rel="noopener">NEVO</a> · <a href="https://www.gov.il/he/pages/packaging_waste_law_2011" target="_blank" rel="noopener">Gov.il</a></td>
+              <td>EPR for packaging: fees, targets, reporting, PROs (e.g., Tamir).</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><strong>חוק לטיפול סביבתי בציוד חשמלי ואלקטרוני וסוללות, 2012</strong> — E-waste (WEEE)</td>
+              <td><a href="https://fs.knesset.gov.il/18/law/18_lsr_301464.pdf" target="_blank" rel="noopener">Knesset (PDF)</a> · <a href="https://www.gov.il/he/pages/electronic_waste_law_2012" target="_blank" rel="noopener">Gov.il</a></td>
+              <td>Collection/recycling of electronics and batteries; ban on landfilling e-waste.</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><strong>חוק לצמצום השימוש בשקיות נשיאה חד-פעמיות, 2016/2017</strong> — Plastic carrier bags</td>
+              <td><a href="https://m.knesset.gov.il/activity/legislation/laws/pages/LawPrimary.aspx?lawitemid=2002362" target="_blank" rel="noopener">Knesset</a> · <a href="https://www.gov.il/he/pages/plastic_bag_law_2016" target="_blank" rel="noopener">Gov.il</a></td>
+              <td>Paid bags in large retail chains to reduce single-use consumption.</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td><strong>היטל הטמנה (since 2007)</strong> — Landfill levy (amendment to the 1984 law)</td>
+              <td><a href="https://www.gov.il/BlobFolder/legalinfo/maintenance_of_cleanliness_law_1984/ar/waste_maintenance_of_cleanliness_law_amendment9_2007.pdf" target="_blank" rel="noopener">Gov.il (PDF)</a> · <a href="https://www.gov.il/he/pages/landfilling_in_israel?chapterIndex=4" target="_blank" rel="noopener">Gov.il</a></td>
+              <td>Levy per ton landfilled; revenue goes to the Cleanliness Fund.</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td><strong>חוק לסילוק ולמחזור צמיגים, 2007</strong> — Tires</td>
+              <td><a href="https://www.gov.il/he/pages/tire_disposal_and_recycling_law_2007" target="_blank" rel="noopener">Gov.il</a></td>
+              <td>Producer/importer obligations for tire take-back and recycling.</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td><strong>אסטרטגיית פסולת 2030; כלכלה מעגלית 2050</strong> — National strategy (2021–2030)</td>
+              <td><a href="https://www.gov.il/he/departments/topics/circular_economy" target="_blank" rel="noopener">Gov.il (CE)</a></td>
+              <td>Targets to reduce landfilling and advance CE; a reference for cities.</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td><strong>חוק עידוד תרומות מזון (תיקון), 2024</strong> — Surplus food donations</td>
+              <td><a href="https://m.knesset.gov.il/EN/News/PressReleases/Pages/press261124q.aspx" target="_blank" rel="noopener">Knesset (EN)</a> · <a href="https://main.knesset.gov.il/Activity/Legislation/Laws/pages/lawbill.aspx?lawitemid=2198381" target="_blank" rel="noopener">Bill → Law</a> · <a href="https://fs.knesset.gov.il/25/law/25_lsr_5220054.pdf" target="_blank" rel="noopener">Official text (PDF)</a></td>
+              <td>Public bodies (≥500 servings/workday) must donate surplus food via NGOs.</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td><strong>Government decision (2022→)</strong> — Single-use ban in ministries/IDF</td>
+              <td><a href="https://www.gov.il/he/departments/news/plastic_free_government" target="_blank" rel="noopener">Gov.il</a></td>
+              <td>Transition to reusables; support for schools/kindergartens (dishwashers).</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td><strong>התוכנית הלאומית לצמצום אובדן ובזבוז מזון</strong> — National plan on food loss & waste</td>
+              <td><a href="https://www.gov.il/BlobFolder/reports/food-loss-reduction/en/waste_food-loss-and-waste.pdf" target="_blank" rel="noopener">Gov.il (PDF)</a></td>
+              <td>Long-term reduction of food loss & waste; linked to the donation law.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="note">All links are to official portals: NEVO (legal database), Gov.il (Ministry of Environmental Protection / Government), and the Knesset (laws and press releases).</p>
+      </section>
+
+      <!-- Cards -->
+      <section class="block">
+        <h2>Plain-language notes and what matters in practice</h2>
+
+        <article id="law-1" class="card">
+          <h3>1) Cleanliness Maintenance Law (1984) <span class="badge">core</span></h3>
+          <p><strong>What it is:</strong> a “constitution of cleanliness”: anti-littering rules, municipal duties, fines; the Cleanliness Fund operates under it.</p>
+          <ul class="list">
+            <li><strong>Haifa:</strong> file complaints about illegal dumps/construction waste referencing this law; the city is obligated to respond.</li>
+            <li><strong>Funding:</strong> the landfill levy (see below) goes into the Fund — a strong argument for investing in sorting/recycling.</li>
+          </ul>
+          <p><a href="https://www.nevo.co.il/law_html/law00/5166.htm" target="_blank" rel="noopener">Text on NEVO</a></p>
+        </article>
+
+        <article id="law-2" class="card">
+          <h3>2–3) Source separation: the law (1993) and regulations (1998)</h3>
+          <p><strong>What it is:</strong> local authorities must provide separate collection; regulations set standards/timelines/responsibilities.</p>
+          <ul class="list">
+            <li><strong>In practice:</strong> if containers are overflowing or streams are not collected — you can cite the regulations and demand a fix.</li>
+          </ul>
+          <p><a href="https://www.nevo.co.il/law_html/law00/5167.htm" target="_blank" rel="noopener">Related regulations / Cleanliness Fund</a></p>
+        </article>
+
+        <article id="law-4" class="card">
+          <h3>4–5) Bottle deposit (1999) and expansion (2021)</h3>
+          <p><strong>What it is:</strong> a deposit is paid when you buy a drink and refunded when you return the empty container. Since 01.12.2021 it also covers large bottles.</p>
+          <ul class="list">
+            <li><strong>In practice:</strong> shops must accept marked containers and refund the deposit (limits per day/quantity apply).</li>
+            <li><strong>For residents/NGOs:</strong> back complaints about refusal to accept containers with the <a href="https://www.gov.il/he/departments/faq/bottle_deposit_expansion_faq" target="_blank" rel="noopener">Ministry FAQ</a>.</li>
+          </ul>
+          <p><a href="https://www.nevo.co.il/law_html/law00/4579.htm" target="_blank" rel="noopener">Text on NEVO</a></p>
+        </article>
+
+        <article id="law-6" class="card">
+          <h3>6) Packaging (2011, EPR)</h3>
+          <p><strong>What it is:</strong> extended producer responsibility (EPR) for packaging: fees, targets, reporting; PROs/operators (e.g., Tamir).</p>
+          <ul class="list">
+            <li><strong>In practice:</strong> “orange containers” for mixed packaging; producers/importers must finance collection and recycling.</li>
+          </ul>
+          <p><a href="https://www.nevo.co.il/law_html/law00/75777.htm" target="_blank" rel="noopener">NEVO</a> · <a href="https://www.gov.il/he/pages/packaging_waste_law_2011" target="_blank" rel="noopener">Gov.il</a></p>
+        </article>
+
+        <article id="law-7" class="card">
+          <h3>7) Electronics & batteries (2012, WEEE)</h3>
+          <p><strong>What it is:</strong> collection/recycling of electrical and electronic equipment and batteries, a ban on landfilling e-waste, and “1-for-1” take-back when buying new equipment.</p>
+          <ul class="list">
+            <li><strong>In practice:</strong> retailers must take back the old device when selling a new one; municipalities provide drop-off points.</li>
+          </ul>
+          <p><a href="https://fs.knesset.gov.il/18/law/18_lsr_301464.pdf" target="_blank" rel="noopener">Knesset (PDF)</a> · <a href="https://www.gov.il/he/pages/electronic_waste_law_2012" target="_blank" rel="noopener">Gov.il</a></p>
+        </article>
+
+        <article id="law-8" class="card">
+          <h3>8) Plastic carrier bags (2016/2017)</h3>
+          <p><strong>What it is:</strong> paid bags in large retail chains to reduce single-use consumption.</p>
+          <ul class="list">
+            <li><strong>In practice:</strong> use reusable bags; the fee revenue is channeled (via a government mechanism) to environmental purposes.</li>
+          </ul>
+          <p><a href="https://m.knesset.gov.il/activity/legislation/laws/pages/LawPrimary.aspx?lawitemid=2002362" target="_blank" rel="noopener">Knesset</a> · <a href="https://www.gov.il/he/pages/plastic_bag_law_2016" target="_blank" rel="noopener">Gov.il</a></p>
+        </article>
+
+        <article id="law-9" class="card">
+          <h3>9) Landfill levy (since 2007)</h3>
+          <p><strong>What it is:</strong> the landfill levy makes landfilling expensive and economically unattractive.</p>
+          <ul class="list">
+            <li><strong>In practice:</strong> a strong argument for investing in sorting/recycling instead of “cheap” landfills.</li>
+          </ul>
+          <p><a href="https://www.gov.il/BlobFolder/legalinfo/maintenance_of_cleanliness_law_1984/ar/waste_maintenance_of_cleanliness_law_amendment9_2007.pdf" target="_blank" rel="noopener">Gov.il (PDF)</a></p>
+        </article>
+
+        <article id="law-10" class="card">
+          <h3>10) Tires (2007)</h3>
+          <p><strong>What it is:</strong> producer/importer obligations for tire collection and recycling; compliance reporting.</p>
+          <ul class="list">
+            <li><strong>In practice:</strong> tire shops must transfer tires into the system; illegal dumping is subject to sanctions.</li>
+          </ul>
+          <p><a href="https://www.gov.il/he/pages/tire_disposal_and_recycling_law_2007" target="_blank" rel="noopener">Gov.il</a></p>
+        </article>
+
+        <article id="law-11" class="card">
+          <h3>11) National Waste Strategy 2030 / Circular Economy 2050</h3>
+          <p><strong>What it is:</strong> shifting away from landfilling toward sorting/recycling and CE models; guidance for regions and cities.</p>
+          <ul class="list">
+            <li><strong>In practice:</strong> compare Haifa’s plans with the strategy targets; ask for published progress and open data.</li>
+          </ul>
+          <p><a href="https://www.gov.il/he/departments/topics/circular_economy" target="_blank" rel="noopener">Gov.il: Circular Economy</a></p>
+        </article>
+
+        <article id="law-12" class="card">
+          <h3>12) Surplus food donations (amendment, 2024)</h3>
+          <p><strong>What it is:</strong> public bodies serving <em>≥ 500 servings/workday</em> must partner with an NGO and donate surplus food.</p>
+          <ul class="list">
+            <li><strong>Haifa:</strong> hospitals, municipal kitchens, universities, some IDF units — likely relevant; NGOs must comply with food safety and reporting requirements.</li>
+            <li><strong>In practice:</strong> initiate MoUs between institutions and local food banks; monitor implementation (using official texts).</li>
+          </ul>
+          <p><a href="https://m.knesset.gov.il/EN/News/PressReleases/Pages/press261124q.aspx" target="_blank" rel="noopener">Knesset (adoption)</a> · <a href="https://fs.knesset.gov.il/25/law/25_lsr_5220054.pdf" target="_blank" rel="noopener">Official text (PDF)</a></p>
+        </article>
+
+        <article id="law-13" class="card">
+          <h3>13) Single-use ban in government bodies (2022→)</h3>
+          <p><strong>What it is:</strong> a government-wide move away from single-use tableware in ministries/agencies (partly also in the IDF); support for schools/kindergartens includes dishwashers.</p>
+          <ul class="list">
+            <li><strong>In practice:</strong> ready-made arguments and procurement examples for switching municipal institutions to reusables and equipment.</li>
+          </ul>
+          <p><a href="https://www.gov.il/he/departments/news/plastic_free_government" target="_blank" rel="noopener">Gov.il: Plastic-free Government</a></p>
+        </article>
+
+        <article id="law-14" class="card">
+          <h3>14) National plan on food loss & waste</h3>
+          <p><strong>What it is:</strong> a long-term plan to reduce food loss and waste; logically linked to the 2030 strategy and the donation law.</p>
+          <ul class="list">
+            <li><strong>In practice:</strong> you can attract funding for Haifa “food rescue” projects by linking them to national targets.</li>
+          </ul>
+          <p><a href="https://www.gov.il/BlobFolder/reports/food-loss-reduction/en/waste_food-loss-and-waste.pdf" target="_blank" rel="noopener">Gov.il (PDF)</a></p>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <p>Last checked/updated: <strong>01.10.2025</strong>. Report an error or suggest an addition: <a href="mailto:belanik@gmail.com">belanik@gmail.com</a>.</p>
+      </footer>
+
+    </div>
+  </main>
+
+  <script>
+    const menu = document.getElementById("sideMenu");
+    const btn = document.getElementById("menuBtn");
+    const backdrop = document.getElementById("menuBackdrop");
+
+    function openMenu(){
+      menu.style.width = "250px";
+      backdrop.classList.add("open");
+      btn.setAttribute("aria-expanded","true");
+    }
+
+    function closeMenu(){
+      menu.style.width = "0";
+      backdrop.classList.remove("open");
+      btn.setAttribute("aria-expanded","false");
+    }
+
+    function toggleMenu(){
+      if (menu.style.width === "250px") closeMenu();
+      else openMenu();
+    }
+
+    btn.addEventListener("click", toggleMenu);
+    backdrop.addEventListener("click", closeMenu);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  </script>
+</body>
+</html>
