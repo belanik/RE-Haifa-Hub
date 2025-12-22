@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -290,7 +290,9 @@
 
   <!-- Backdrop -->
   <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
-  <!-- Side menu -->
+
+
+  <!-- Side menu (page is in a folder => links to root via ../) -->
   <nav id="sideMenu" class="side-menu" aria-label="Навигация">
     <a href="/index.html">Главная</a>
     <a href="/about_us.html">Наша команда</a>
@@ -300,19 +302,17 @@
     <a href="/textbookWM.html">Школа управления отходами</a>
     <a href="/oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
   </nav>
-  
+
+  <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <div style="width:48px;"></div><!-- пустой “держатель”, чтобы центрирование бренда было ровным -->
+      <div style="width:48px;"></div>
       <div class="brand">Re-Haifa Hub</div>
 
       <div class="header-actions">
-        <div class="action-pill" aria-label="Кнопки и язык">
-          <!-- ВАЖНО: сюда поставь свой реальный линк на вступление -->
-          <a class="hdr-btn" href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" title="Поставь сюда ссылку на форму/контакт">Присоединиться</a>
-
-          <!-- ВАЖНО: сюда поставь свой реальный линк на Facebook -->
-          <a class="hdr-btn" href="https://www.facebook.com/profile.php?id=61575821814765" title="Поставь сюда ссылку на страницу Facebook">Facebook</a>
+        <div class="action-pill" aria-label="Buttons and language">
+          <a class="hdr-btn" href="/english_version/anketa_en.html" title="Join form/contact">Присоединиться</a>
+          <a class="hdr-btn" href="https://www.facebook.com/profile.php?id=61575821814765" title="Facebook page">Facebook</a>
 
           <a class="lang-btn active" href="/programma.html" aria-label="Русский">RU</a>
           <a class="lang-btn" href="/english_version/en_program.html" aria-label="English">EN</a>
@@ -323,63 +323,86 @@
   </header>
 
   <main class="site-main">
-    <section class="card">
-      <h2 class="page-title">Национальная программа по обращению с отходами</h2>
-    <p class="lead">
-      Пакет документов стратегии перехода к циркулярной системе обращения с муниципальными отходами в Израиле до 2035 года.
-      Все документы доступны для просмотра и скачивания в PDF.
-    </p>
+    <div class="container">
 
-    <ul class="doc-list">
-      <li>
-        <a class="doc-link" href="strategy_main.pdf" target="_blank" rel="noopener">
-          <span class="doc-title">Национальная стратегия перехода к циркулярной системе обращения с муниципальными отходами в Израиле до 2035 года (Основной текст)</span>
-          <span class="badge">PDF</span>
-        </a>
-      </li>
-      <li>
-        <a class="doc-link" href="analytical_appendix.pdf" target="_blank" rel="noopener">
-          <span class="doc-title">Аналитическое приложение: Международный и национальный контекст</span>
-          <span class="badge">PDF</span>
-        </a>
-      </li>
-      <li>
-        <a class="doc-link" href="tables_kpi.pdf" target="_blank" rel="noopener">
-          <span class="doc-title">Таблицы 1 и 2. Сводные целевые значения по ключевым KPI</span>
-          <span class="badge">PDF</span>
-        </a>
-      </li>
-      <li>
-        <a class="doc-link" href="tech_app_1_kpi.pdf" target="_blank" rel="noopener">
-          <span class="doc-title">Техническое приложение 1: Детальное описание ключевых показателей эффективности (KPI)</span>
-          <span class="badge">PDF</span>
-        </a>
-      </li>
-      <li>
-        <a class="doc-link" href="tech_app_2_digital.pdf" target="_blank" rel="noopener">
-          <span class="doc-title">Техническое приложение 2: Национальная цифровая платформа и система мониторинга</span>
-          <span class="badge">PDF</span>
-        </a>
-      </li>
-      <li>
-        <a class="doc-link" href="tech_app_3_governance.pdf" target="_blank" rel="noopener">
-          <span class="doc-title">Техническое приложение 3: Институциональная архитектура и набросок Кодекса об отходах</span>
-          <span class="badge">PDF</span>
-        </a>
-      </li>
-      <li>
-        <a class="doc-link" href="strategy_summary.pdf" target="_blank" rel="noopener">
-          <span class="doc-title">Краткое резюме стратегии (Executive Summary)</span>
-          <span class="badge">PDF</span>
-        </a>
-      </li>
-    </ul>
+      <a href="index.html" class="hdr-btn" style="margin-bottom:14px;">&larr; 
+        Назад на главную</a>
 
+      <h1 class="page-title">Национальная программа по обращению с отходами</h1>
+      <p class="page-lead">      Пакет документов стратегии перехода к циркулярной системе обращения с муниципальными отходами в Израиле до 2035 года.
+Все документы доступны для просмотра и скачивания в PDF.</p>
+
+      <section class="block">
+        <h2>Key Documents and Appendices</h2>
+
+        <div class="card">
+          <h3>
+            <a href="strategy_main.pdf" target="_blank" rel="noopener">
+             Национальная стратегия перехода к циркулярной системе обращения с муниципальными отходами в Израиле до 2035 года (Основной текст)
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+
+        <div class="card">
+          <h3>
+            <a href="analytical_appendix.pdf" target="_blank" rel="noopener">
+             Аналитическое приложение: Международный и национальный контекст
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+
+        <div class="card">
+          <h3>
+            <a href="tables_kpi.pdf" target="_blank" rel="noopener">
+              Таблицы 1 и 2. Сводные целевые значения по ключевым KPI
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+
+        <div class="card">
+          <h3>
+            <a href="tech_app_1_kpi.pdf" target="_blank" rel="noopener">
+             Техническое приложение 1: Детальное описание ключевых показателей эффективности (KPI)
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+
+        <div class="card">
+          <h3>
+            <a href="tech_app_2_digital.pdf" target="_blank" rel="noopener">
+              Техническое приложение 2: Национальная цифровая платформа и система мониторинга
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+
+        <div class="card">
+          <h3>
+            <a href="tech_app_3_governance.pdf" target="_blank" rel="noopener">
+              Техническое приложение 3: Институциональная архитектура и набросок Кодекса об отходах
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+
+        <div class="card">
+          <h3>
+            <a href="strategy_summary.pdf" target="_blank" rel="noopener">
+              Краткое резюме стратегии (Executive Summary)
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+      </section>
 
     </div>
   </main>
 
-   <script>
+  <script>
     const menu = document.getElementById("sideMenu");
     const btn = document.getElementById("menuBtn");
     const backdrop = document.getElementById("menuBackdrop");
@@ -411,4 +434,6 @@
 </body>
 </html>
 
+
+ 
     
