@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>תוכנית לאומית לניהול פסולת — חבילת מסמכים</title>
+  <title>National Strategy for Municipal Waste Management: Document Package</title>
   <link rel="icon" href="../green.jpg" />
 
   <style>
@@ -21,7 +21,7 @@
     a{ color:#2e7d32; }
     a:hover{ opacity:0.9; }
 
-    /* ===== ГАМБУРГЕР ===== */
+    /* ===== HAMBURGER ===== */
     .menu-btn{
       position: fixed;
       top: 12px;
@@ -41,7 +41,7 @@
       box-shadow: 0 4px 14px rgba(0,0,0,0.22);
     }
 
-    /* ===== BACKDROP (чтобы закрывать меню кликом) ===== */
+    /* ===== BACKDROP (click to close menu) ===== */
     .menu-backdrop{
       position: fixed;
       inset: 0;
@@ -83,7 +83,7 @@
       background: rgba(255,255,255,0.18);
     }
 
-    /* ===== НОВАЯ ШАПКА С КАРТИНКОЙ longline.png ===== */
+    /* ===== HEADER WITH longline.png ===== */
     .site-header{
       position: relative;
       background-image: url("/assets/longline.png");
@@ -179,7 +179,7 @@
       color: #fff;
     }
 
-    /* ===== ОСНОВНОЙ БЛОК ===== */
+    /* ===== MAIN ===== */
     .site-main{
       max-width: 1080px;
       margin: 2rem auto;
@@ -242,28 +242,13 @@
     }
     .pill:hover{ background: rgba(67,160,71,0.16); }
 
-    table{ width:100%; border-collapse:collapse; font-size:.97rem; }
-    th, td{ padding:.6rem .5rem; border-bottom:1px solid #eef3f9; vertical-align:top; }
-    th{
-      background: #f0f6f0;
-      text-align:left;
-      color:#1f3a2a;
-      font-weight: 800;
-    }
-
-    .note{
-      font-size: .95rem;
-      color:#556;
-      margin-top: 0.9rem;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
-
     .card{
       border: 1px solid #e6efe6;
       border-radius: 12px;
       padding: 1rem 1rem;
       margin: .6rem 0 1rem;
       background: #fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
     .card h3{
       margin: .2rem 0 .4rem;
@@ -281,14 +266,6 @@
       margin-left:.33rem;
       border: 1px solid rgba(31,106,50,0.18);
     }
-    .list{ margin:.2rem 0 .2rem 1.1rem; }
-
-    .footer{
-      margin: 1.6rem 0 0.5rem;
-      color:#556;
-      font-size:.92rem;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
 
     .sr{position:absolute;left:-9999px}
 
@@ -297,8 +274,7 @@
       .header-inner{ gap: 8px; }
     }
     @media (max-width: 680px){
-      th:nth-child(3), td:nth-child(3){ display:none; }
-      .brand{ text-align: right; } /* чтобы не конфликтовать с гамбургером слева */
+      .brand{ text-align: right; }
       .header-actions{ justify-content: center; }
       .action-pill{ gap: 6px; }
       .hdr-btn{ padding: 7px 10px; font-size: 12.5px; }
@@ -307,106 +283,113 @@
   </style>
 </head>
 
-<body class="page-program page-ecolaw">
+<body class="page-ecolaw">
 
-  <!-- Гамбургер -->
-  <button class="menu-btn" id="menuBtn" aria-label="פתח תפריט" aria-controls="sideMenu" aria-expanded="false">☰</button>
-
-  <!-- Backdrop -->
-  <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
-
-  <!-- Side menu (страница в папке => ссылки на корень через ../) -->
-  <nav id="sideMenu" class="side-menu" aria-label="ניווט">
-    <a href="../index.html">דף הבית</a>
-    <a href="../about_us.html">הצוות שלנו</a>
-    <a href="../экоанатилика%20на%20сайт/ecoanalytics-ru.html">אנליטיקה סביבתית</a>
-    <a href="../eco-law-ru.html">חוקי סביבה בישראל</a>
-    <a href="../programma">טיוטת תוכנית מעבר לכלכלה מעגלית</a>
-    <a href="../textbookWM.html">בית ספר לניהול פסולת</a>
-    <a href="../oecd_reports/oecd_reports.html">דוחות ה-OECD</a>
-  </nav>
-
-  <!-- НОВАЯ ШАПКА -->
+  <!-- Hamburger -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <div style="width:48px;"></div><!-- пустой “держатель”, чтобы центрирование бренда было ровным -->
+      <div style="width:48px;"></div>
       <div class="brand">Re-Haifa Hub</div>
 
       <div class="header-actions">
         <div class="action-pill" aria-label="כפתורים ושפה">
-          <!-- ВАЖНО: сюда поставь свой реальный линк на вступление -->
-          <a class="hdr-btn" href="#" title="הכניסי כאן קישור לטופס/יצירת קשר">להצטרף</a>
+          <a class="hdr-btn" href="/hebrew_version/anketa_he.html" title="טופס הצטרפות/יצירת קשר">הצטרפות</a>
+          <a class="hdr-btn" href="https://www.facebook.com/profile.php?id=61575821814765" title="עמוד הפייסבוק">פייסבוק</a>
 
-          <!-- ВАЖНО: сюда поставь свой реальный линк на Facebook -->
-          <a class="hdr-btn" href="#" title="הכניסי כאן קישור לדף הפייסבוק">פייסבוק</a>
-
-          <a class="lang-btn" href="programma.html" aria-label="Русский">RU</a>
-          <a class="lang-btn" href="programma-en.html" aria-label="English">EN</a>
-          <a class="lang-btn active" href="programma-he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
+          <a class="lang-btn" href="/index.html" aria-label="Русский">RU</a>
+          <a class="lang-btn" href="/english_version/index_en.html" aria-label="English">EN</a>
+          <a class="lang-btn active" href="/hebrew_version/index_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
         </div>
       </div>
     </div>
   </header>
+  <button class="menu-btn" id="menuBtn" aria-label="פתיחת תפריט" aria-controls="sideMenu" aria-expanded="false">☰</button>
+
+  <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+
+  <nav id="sideMenu" class="side-menu" aria-label="ניווט">
+    <a href="/hebrew_version/index_he.html">דף הבית</a>
+    <a href="/hebrew_version/about_us_he.html">הצוות שלנו</a>
+    <a href="/eco-analitics_HEB/ecoanalytics-heb.html">אקו-אנליטיקה</a>
+    <a href="/hebrew_version/eco_law_he.html">חוקי איכות הסביבה בישראל</a>
+    <a href="/hebrew_version/he_program.html">תוכנית המעבר לכלכלה מעגלית</a>
+    <a href="/hebrew_version/textbookWMhe.html">בית הספר לניהול פסולת</a>
+    <a href="/oecd_reports/oecd_reports_he.html">דוחות OECD</a>
+  </nav>
 
   <main class="site-main">
     <div class="container">
 
-    <h1 class="page-title">תוכנית לאומית לניהול פסולת</h1>
-    <p class="page-lead">
-      חבילת מסמכים של אסטרטגיית המעבר למערכת מעגלית לניהול פסולת עירונית בישראל עד שנת 2035.
-      כל המסמכים זמינים לצפייה ולהורדה ב-PDF.
-    </p>
+      <h1 class="page-title">תוכנית לאומית לניהול פסולת</h1>
+      <p class="page-lead">      חבילת מסמכים של אסטרטגיית המעבר למערכת מעגלית לניהול פסולת עירונית בישראל עד שנת 2035.
+      כל המסמכים זמינים לצפייה ולהורדה ב-PDF.</p>
 
-    <h2 class="section-title">מסמכים מרכזיים ונספחים</h2>
+      <section class="block">
+        <h2>מסמכים מרכזיים ונספחים</h2>
 
-    <ul class="docs">
-      <li>
-        <a class="doc-link" href="strategy_main.pdf" target="_blank" rel="noopener">
-          האסטרטגיה הלאומית למעבר למערכת מעגלית לניהול פסולת עירונית בישראל עד 2035 (טקסט מלא)
-          <span class="file-type">PDF</span>
-        </a>
-      </li>
-      <li>
-        <a class="doc-link" href="analytical_appendix.pdf" target="_blank" rel="noopener">
-          נספח אנליטי: ההקשר הבינלאומי והלאומי
-          <span class="file-type">PDF</span>
-        </a>
-      </li>
-      <li>
-        <a class="doc-link" href="tables_kpi.pdf" target="_blank" rel="noopener">
-          טבלאות 1 ו-2. ערכי יעד מסכמים למדדי KPI מרכזיים
-          <span class="file-type">PDF</span>
-        </a>
-      </li>
-      <li>
-        <a class="doc-link" href="tech_app_1_kpi.pdf" target="_blank" rel="noopener">
-          נספח טכני 1: תיאור מפורט של מדדי ביצוע מרכזיים (KPI)
-          <span class="file-type">PDF</span>
-        </a>
-      </li>
-      <li>
-        <a class="doc-link" href="tech_app_2_digital.pdf" target="_blank" rel="noopener">
-          נספח טכני 2: פלטפורמה דיגיטלית לאומית ומערכת ניטור
-          <span class="file-type">PDF</span>
-        </a>
-      </li>
-      <li>
-        <a class="doc-link" href="tech_app_3_governance.pdf" target="_blank" rel="noopener">
-          נספח טכני 3: ארכיטקטורה מוסדית וטיוטת קוד הפסולת
-          <span class="file-type">PDF</span>
-        </a>
-      </li>
-      <li>
-        <a class="doc-link" href="strategy_summary.pdf" target="_blank" rel="noopener">
-          תקציר אסטרטגיה (Executive Summary)
-          <span class="file-type">PDF</span>
-        </a>
-      </li>
-    </ul>
+        <div class="card">
+          <h3>
+            <a href="en_strategy_main.pdf" target="_blank" rel="noopener">
+              האסטרטגיה הלאומית למעבר למערכת מעגלית לניהול פסולת עירונית בישראל עד 2035 (טקסט מלא)
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
 
-    <p class="note">
-      אם קובצי PDF מסוימים לא נפתחים (404) — בדקי שהקבצים נמצאים באותו מיקום כמו דף זה, וששמות הקבצים זהים 1:1.
-    </p>
+        <div class="card">
+          <h3>
+            <a href="en_analytical_appendix.pdf" target="_blank" rel="noopener">
+              נספח אנליטי: ההקשר הבינלאומי והלאומי
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+
+        <div class="card">
+          <h3>
+            <a href="en_tables_kpi.pdf" target="_blank" rel="noopener">
+               טבלאות 1 ו-2. ערכי יעד מסכמים למדדי KPI מרכזיים
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+
+        <div class="card">
+          <h3>
+            <a href="en_tech_app_1_kpi.pdf" target="_blank" rel="noopener">
+              נספח טכני 1: תיאור מפורט של מדדי ביצוע מרכזיים (KPI)
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+
+        <div class="card">
+          <h3>
+            <a href="en_tech_app_2.pdf" target="_blank" rel="noopener">
+             נספח טכני 2: פלטפורמה דיגיטלית לאומית ומערכת ניטור
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+
+        <div class="card">
+          <h3>
+            <a href="en_tech_app_3.pdf" target="_blank" rel="noopener">
+              נספח טכני 3: ארכיטקטורה מוסדית וטיוטת קוד הפסולת
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+
+        <div class="card">
+          <h3>
+            <a href="en_strategy_summary.pdf" target="_blank" rel="noopener">
+              תקציר אסטרטגיה (Executive Summary)
+            </a>
+            <span class="badge">PDF</span>
+          </h3>
+        </div>
+      </section>
 
     </div>
   </main>
@@ -442,3 +425,4 @@
   </script>
 </body>
 </html>
+
