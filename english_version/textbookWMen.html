@@ -868,7 +868,35 @@
 
     </div>
   </main>
+  <script>
+    const menu = document.getElementById("sideMenu");
+    const btn = document.getElementById("menuBtn");
+    const backdrop = document.getElementById("menuBackdrop");
 
+    function openMenu(){
+      menu.style.width = "250px";
+      backdrop.classList.add("open");
+      btn.setAttribute("aria-expanded","true");
+    }
+
+    function closeMenu(){
+      menu.style.width = "0";
+      backdrop.classList.remove("open");
+      btn.setAttribute("aria-expanded","false");
+    }
+
+    function toggleMenu(){
+      if (menu.style.width === "250px") closeMenu();
+      else openMenu();
+    }
+
+    btn.addEventListener("click", toggleMenu);
+    backdrop.addEventListener("click", closeMenu);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  </script>
   <script>
     const menu = document.getElementById("sideMenu");
     const btn = document.getElementById("menuBtn");
@@ -972,9 +1000,11 @@ Email: ${formData.email}
         document.getElementById('requestForm').style.display = 'block';
       }, 3000);
     }
+    
   </script>
 </body>
 </html>
+
 
 
 
