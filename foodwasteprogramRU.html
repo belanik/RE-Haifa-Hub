@@ -421,28 +421,49 @@
     </section>
   </main>
 
-  <footer>
-    © RE-HAIFA HUB
-  </footer>
+
+
+
+
+
+
+  <footer class="footer">
+        <p>Последняя проверка/обновление: <strong>01.10.2025</strong>. Сообщите нам об ошибке или предложите дополнение: <a href="mailto:belanik@gmail.com">belanik@gmail.com</a>.</p>
+      </footer>
+
+    </div>
+  </main>
 
   <script>
-    const btn = document.getElementById('menuBtn');
-    const menu = document.getElementById('sideMenu');
+    const menu = document.getElementById("sideMenu");
+    const btn = document.getElementById("menuBtn");
+    const backdrop = document.getElementById("menuBackdrop");
 
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('open');
-      menu.classList.toggle('open');
-    });
+    function openMenu(){
+      menu.style.width = "250px";
+      backdrop.classList.add("open");
+      btn.setAttribute("aria-expanded","true");
+    }
 
-    document.addEventListener('click', (e) => {
-      const isClickInside = menu.contains(e.target) || btn.contains(e.target);
-      if(!isClickInside){
-        btn.classList.remove('open');
-        menu.classList.remove('open');
-      }
+    function closeMenu(){
+      menu.style.width = "0";
+      backdrop.classList.remove("open");
+      btn.setAttribute("aria-expanded","false");
+    }
+
+    function toggleMenu(){
+      if (menu.style.width === "250px") closeMenu();
+      else openMenu();
+    }
+
+    btn.addEventListener("click", toggleMenu);
+    backdrop.addEventListener("click", closeMenu);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
     });
   </script>
-
 </body>
 </html>
+
 
