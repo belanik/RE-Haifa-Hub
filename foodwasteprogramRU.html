@@ -1,1 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RE-Haifa Hub </title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="green.jpg" />
+  <meta name="description" content="RE Haifa Hub — проекты устойчивого развития, обмена ресурсами и экологии в Хайфе.">
+  <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+    a{ color:#2e7d32; }
+    a:hover{ opacity:0.9; }
+
+    /* ===== ГАМБУРГЕР ===== */
+    .menu-btn{
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 9999;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .menu-btn span,
+    .menu-btn span:before,
+    .menu-btn span:after{
+      display:block;
+      background:#1b5e20;
+      height: 3px;
+      width: 22px;
+      border-radius: 3px;
+      position: relative;
+      transition: .25s;
+      content:"";
+    }
+    .menu-btn span:before{ position:absolute; top:-7px; left:0; }
+    .menu-btn span:after{ position:absolute; top:7px; left:0; }
+
+    .menu-btn.open span{ background: transparent; }
+    .menu-btn.open span:before{ transform: rotate(45deg); top:0; }
+    .menu-btn.open span:after{ transform: rotate(-45deg); top:0; }
+
+    /* ===== БОКОВОЕ МЕНЮ ===== */
+    .side-menu{
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      height: 100%;
+      background: rgba(255,255,255,0.97);
+      box-shadow: -2px 0 20px rgba(0,0,0,0.18);
+      padding: 72px 18px 18px;
+      transition: right .28s ease;
+      z-index: 9998;
+      overflow-y: auto;
+    }
+    .side-menu.open{ right: 0; }
+
+    .side-menu a{
+      display:block;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      border-radius: 12px;
+      background: #e8f5e9;
+      color: #1b5e20;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .side-menu a:hover{
+      background: #c8e6c9;
+    }
+
+    /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #f3f7f4;
+      color:#1f2937;
+      padding-top: 0;
+    }
+    header{
+      background: linear-gradient(180deg, #1b5e20, #2e7d32);
+      color: white;
+      padding: 44px 16px 22px;
+      text-align:center;
+      position: relative;
+    }
+    header h1{
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      margin-bottom: 6px;
+    }
+    header p{
+      opacity: .95;
+      font-size: 14px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .hdr-actions{
+      margin-top: 14px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .hdr-btn{
+      background: rgba(255,255,255,0.92);
+      color:#1b5e20 !important;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration:none;
+      font-size: 13px;
+    }
+    .lang-btn{
+      border: 2px solid rgba(255,255,255,0.95);
+      background: transparent;
+      color: white !important;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration:none;
+      font-size: 12px;
+    }
+    .lang-btn.active{
+      background: rgba(255,255,255,0.92);
+      color:#1b5e20 !important;
+      border-color: rgba(255,255,255,0.92);
+    }
+
+    main{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 20px 14px 44px;
+    }
+
+    .news-section,
+    .initiatives,
+    #contacts{
+      background: white;
+      border-radius: 18px;
+      padding: 18px 18px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      margin-top: 16px;
+    }
+    .news-section h2,
+    .initiatives h2,
+    #contacts h2{
+      font-size: 20px;
+      font-weight: 900;
+      color:#1b5e20;
+      margin-bottom: 10px;
+    }
+    .news-item{
+      margin: 10px 0;
+      line-height: 1.45;
+    }
+    .news-item strong{
+      color:#0f3d13;
+    }
+
+    .initiative-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .card{
+      background: #f6fbf6;
+      border-radius: 16px;
+      padding: 14px 14px;
+      border: 1px solid #d7ecd8;
+    }
+    .card h3{
+      color:#1b5e20;
+      font-weight: 900;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .card p{ font-size: 14px; line-height:1.35; }
+
+    .contacts{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px 14px;
+      margin-top: 8px;
+    }
+    .contacts a{
+      background:#e8f5e9;
+      padding: 8px 12px;
+      border-radius: 999px;
+      text-decoration:none;
+      font-weight: 700;
+      color:#1b5e20;
+    }
+    .facebook-link{
+      background:#e3f2fd !important;
+      color:#0d47a1 !important;
+    }
+
+    footer{
+      text-align:center;
+      padding: 18px 10px 26px;
+      color:#6b7280;
+      font-size: 12px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="menu-btn" id="menuBtn" aria-label="Открыть меню">
+    <span></span>
+  </div>
+
+  <nav id="sideMenu" class="side-menu" aria-label="Навигация">
+    <a href="/index.html">Главная</a>
+<a href="/foodwasteprogram/index.html"
+   style="color:#ffd200; font-size:1.12em; font-weight:700;">
+  NEW! FOOD WASTE PROGRAM
+</a>
+    <a href="/ecoanalytics_RU/index.html">Эко-аналитика</a>
+    <a href="/eco-law-ru.html">Эко законы Израиля</a>
+    <a href="/programma.html">Проект программы перехода к циркулярной экономике</a>
+    <a href="/textbookWM.html">Школа управления отходами</a>
+    <a href="/oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
+    <a href="/about_us.html">Наша команда</a>
+    </nav>
+
+  <header>
+    <h1>RE-HAIFA HUB</h1>
+    <p>Проекты устойчивого развития, обмена ресурсами и экологии в Хайфе</p>
+
+    <div class="hdr-actions">
+      <a class="hdr-btn" href="mailto:rehaifahub@gmail.com">Email</a>
+      <a class="hdr-btn" href="https://t.me/rehaifahub" target="_blank">Telegram</a>
+      <a class="hdr-btn" href="https://www.facebook.com...ok">Facebook</a>
+
+      <a class="lang-btn active" href="/foodwasteprogram/index.html">RU</a>
+      <a class="lang-btn" href="/foodwasteprogram/index_he.html">HE</a>
+      <a class="lang-btn" href="/foodwasteprogram/index_en.html">EN</a>
+    </div>
+  </header>
+
+<main>
+
+    <section class="news-section">
+      <h2>Национальная программа сокращения пищевых отходов в Израиле (2026–2035)</h2>
+
+      <p class="news-item">
+        <strong>С сентября 2025 года</strong> в Израиле принята национальная программа сокращения пищевых отходов на период <strong>2026–2035</strong>.
+      </p>
+
+      <p class="news-item">
+        К сожалению, на официальном сайте на данный момент доступна только версия программы на иврите, а также презентационные материалы в сокращённом виде:
+        <a href="https://www.gov.il/BlobFolder/reports/food-loss-reduction/he/waste_food-loss-and-waste.pdf" target="_blank" rel="noopener noreferrer"><strong>Официальная программа (иврит, PDF)</strong></a>
+        и
+        <a href="https://www.gov.il/BlobFolder/reports/food-loss-reduction/he/waste_food-loss-and-waste-presentation.pdf" target="_blank" rel="noopener noreferrer"><strong>Презентация программы (иврит, PDF)</strong></a>.
+      </p>
+
+      <p class="news-item">
+        Также есть англоязычный анонс на сайте Института Самюэля Неймана (там работают разработчики программы):
+        <a href="https://www.neaman.org.il/en/the-national-plan-to-reduce-food-loss-and-waste/" target="_blank" rel="noopener noreferrer"><strong>The National Plan to Reduce Food Loss and Waste (EN)</strong></a>.
+      </p>
+
+      <p class="news-item">
+        На русский язык официального перевода мы не нашли, поэтому публикуем нашу сокращённую русскоязычную версию:
+        <a href="Программа%20сокращения%20пищевых%20отходов%202026-2035.pdf" target="_blank" rel="noopener noreferrer"><strong>«Программа сокращения пищевых отходов 2026–2035» (PDF, RU)</strong></a>,
+        а также презентацию:
+        <a href="Презентация%20программы%20сокращения%20отходов%202026-2035.pdf" target="_blank" rel="noopener noreferrer"><strong>«Презентация программы сокращения отходов 2026–2035» (PDF, RU)</strong></a>.
+      </p>
+
+      <p class="news-item">
+        Для понимания темы важна статья авторов программы, которые изучали структуру пищевых отходов в Хайфе (английский язык):
+        <a href="https://doi.org/10.1016/j.wasman.2018.03.031" target="_blank" rel="noopener noreferrer"><strong>A new method of measuring household food waste</strong></a>.
+        Также доступен её краткий пересказ на русском:
+        <a href="Краткий%20обзор%20статьи%20A%20new%20method%20of%20measuring%20household%20food%20waste%20на%20русском%20языке.html" target="_blank" rel="noopener noreferrer"><strong>Краткий обзор статьи «A new method of measuring household food waste» (RU)</strong></a>.
+      </p>
+    </section>
+
+    <section id="contacts">
+      <h2>Контакты</h2>
+      <div class="contacts">
+        <a href="mailto:rehaifahub@gmail.com">rehaifahub@gmail.com</a>
+        <a href="https://t.me/rehaifahub" target="_blank">Telegram</a>
+        <a class="facebook-link" href="https://www.facebook.com/...1575821814765" target="_blank" rel="noopener">Мы на Facebook</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © RE-HAIFA HUB
+  </footer>
+
+  <script>
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('sideMenu');
+
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('open');
+      menu.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      const isClickInside = menu.contains(e.target) || btn.contains(e.target);
+      if(!isClickInside){
+        btn.classList.remove('open');
+        menu.classList.remove('open');
+      }
+    });
+  </script>
+
+</body>
+</html>
 
