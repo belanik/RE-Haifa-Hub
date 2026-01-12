@@ -187,6 +187,26 @@
       border-radius: 12px;
       box-shadow: 0 4px 16px rgba(67,160,71,0.25);
       padding: 2rem 2.2rem;
+
+
+
+      
+
+    /* ===== чтобы "рамка" аккуратно уезжала и не перекрывалась меню (как на других страницах) ===== */
+    .site-main{
+      transition: transform .25s ease;
+    }
+    @media (min-width: 980px){
+      body.menu-open .site-main{
+        transform: translateX(260px); /* 250px меню + небольшой зазор */
+      }
+    }
+
+
+
+
+
+      
     }
     .container{ max-width: none; }
 
@@ -360,91 +380,134 @@
 
 
 
+<main class="site-main">
 
-<main>
+  <h1 class="page-title">Национальная программа сокращения пищевых отходов в Израиле (2026–2035)</h1>
+  <p class="page-lead">
+    С сентября 2025 года в Израиле принята национальная программа сокращения пищевых отходов на период 2026–2035.
+  </p>
+  <p class="page-note">
+    Ниже — ссылки на официальные материалы (иврит), англоязычный анонс, а также наши русскоязычные PDF-файлы и материалы по исследовательской базе.
+  </p>
 
-    <section class="news-section">
-      <h2>Национальная программа сокращения пищевых отходов в Израиле (2026–2035)</h2>
+  <section class="block">
+    <h2>Официальные материалы (иврит)</h2>
 
-      <p class="news-item">
-        <strong>С сентября 2025 года</strong> в Израиле принята национальная программа сокращения пищевых отходов на период <strong>2026–2035</strong>.
-      </p>
+    <div class="card">
+      <h3>Официальная программа <span class="badge">PDF</span></h3>
+      <a href="https://www.gov.il/BlobFolder/reports/food-loss-reduction/he/waste_food-loss-and-waste.pdf" target="_blank" rel="noopener noreferrer">
+        Открыть официальный документ (иврит)
+      </a>
+    </div>
 
-      <p class="news-item">
-        К сожалению, на официальном сайте на данный момент доступна только версия программы на иврите, а также презентационные материалы в сокращённом виде:
-        <a href="https://www.gov.il/BlobFolder/reports/food-loss-reduction/he/waste_food-loss-and-waste.pdf" target="_blank" rel="noopener noreferrer"><strong>Официальная программа (иврит, PDF)</strong></a>
-        и
-        <a href="https://www.gov.il/BlobFolder/reports/food-loss-reduction/he/waste_food-loss-and-waste-presentation.pdf" target="_blank" rel="noopener noreferrer"><strong>Презентация программы (иврит, PDF)</strong></a>.
-      </p>
+    <div class="card">
+      <h3>Презентация программы (кратко) <span class="badge">PDF</span></h3>
+      <a href="https://www.gov.il/BlobFolder/reports/food-loss-reduction/he/waste_food-loss-and-waste-presentation.pdf" target="_blank" rel="noopener noreferrer">
+        Открыть презентацию (иврит)
+      </a>
+    </div>
+  </section>
 
-      <p class="news-item">
-        Также есть англоязычный анонс на сайте Института Самюэля Неймана (там работают разработчики программы):
-        <a href="https://www.neaman.org.il/en/the-national-plan-to-reduce-food-loss-and-waste/" target="_blank" rel="noopener noreferrer"><strong>The National Plan to Reduce Food Loss and Waste (EN)</strong></a>.
-      </p>
+  <section class="block">
+    <h2>Анонс разработчиков (английский)</h2>
 
-      <p class="news-item">
-        На русский язык официального перевода мы не нашли, поэтому публикуем нашу сокращённую русскоязычную версию:
-        <a href="Программа%20сокращения%20пищевых%20отходов%202026-2035.pdf" target="_blank" rel="noopener noreferrer"><strong>«Программа сокращения пищевых отходов 2026–2035» (PDF, RU)</strong></a>,
-        а также презентацию:
-        <a href="Презентация%20программы%20сокращения%20отходов%202026-2035.pdf" target="_blank" rel="noopener noreferrer"><strong>«Презентация программы сокращения отходов 2026–2035» (PDF, RU)</strong></a>.
-      </p>
+    <div class="card">
+      <h3>Samuel Neaman Institute — announcement <span class="badge">EN</span></h3>
+      <a href="https://www.neaman.org.il/en/the-national-plan-to-reduce-food-loss-and-waste/" target="_blank" rel="noopener noreferrer">
+        The National Plan to Reduce Food Loss and Waste (EN)
+      </a>
+    </div>
+  </section>
 
-      <p class="news-item">
-        Для понимания темы важна статья авторов программы, которые изучали структуру пищевых отходов в Хайфе (английский язык):
-        <a href="https://doi.org/10.1016/j.wasman.2018.03.031" target="_blank" rel="noopener noreferrer"><strong>A new method of measuring household food waste</strong></a>.
-        Также доступен её краткий пересказ на русском:
-        <a href="Краткий%20обзор%20статьи%20A%20new%20method%20of%20measuring%20household%20food%20waste%20на%20русском%20языке.html" target="_blank" rel="noopener noreferrer"><strong>Краткий обзор статьи «A new method of measuring household food waste» (RU)</strong></a>.
-      </p>
-    </section>
+  <section class="block">
+    <h2>Наша русскоязычная версия (в этой папке)</h2>
 
-    <section id="contacts">
-      <h2>Контакты</h2>
-      <div class="contacts">
-        <a href="mailto:rehaifahub@gmail.com">rehaifahub@gmail.com</a>
-        <a href="https://t.me/rehaifahub" target="_blank">Telegram</a>
-        <a class="facebook-link" href="https://www.facebook.com/...1575821814765" target="_blank" rel="noopener">Мы на Facebook</a>
-      </div>
-    </section>
-  </main>
+    <div class="card">
+      <h3>Сокращённый перевод программы <span class="badge">PDF</span></h3>
+      <a href="Программа%20сокращения%20пищевых%20отходов%202026-2035.pdf" target="_blank" rel="noopener noreferrer">
+        «Программа сокращения пищевых отходов 2026–2035» (PDF, RU)
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Презентация (рус.) <span class="badge">PDF</span></h3>
+      <a href="Презентация%20программы%20сокращения%20отходов%202026-2035.pdf" target="_blank" rel="noopener noreferrer">
+        «Презентация программы сокращения отходов 2026–2035» (PDF, RU)
+      </a>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Исследовательская база</h2>
+
+    <div class="card">
+      <h3>A new method of measuring household food waste <span class="badge">EN</span></h3>
+      <a href="https://doi.org/10.1016/j.wasman.2018.03.031" target="_blank" rel="noopener noreferrer">
+        Открыть статью (английский)
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Краткий обзор статьи (рус.) <span class="badge">RU</span></h3>
+      <a href="Краткий%20обзор%20статьи%20A%20new%20method%20of%20measuring%20household%20food%20waste%20на%20русском%20языке.html" target="_blank" rel="noopener noreferrer">
+        Открыть краткий обзор (русский)
+      </a>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Контакты</h2>
+    <p class="note">
+      <a href="mailto:rehaifahub@gmail.com" class="pill">rehaifahub@gmail.com</a>
+      <a href="https://t.me/rehaifahub" target="_blank" class="pill" rel="noopener noreferrer">Telegram</a>
+      <a href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" class="pill" rel="noopener noreferrer">Мы на Facebook</a>
+    </p>
+  </section>
+
+  <div class="footer">
+    Последняя проверка/обновление: 12.01.2026. Сообщите об ошибке или предложите дополнение: <a href="mailto:belanik@gmail.com">belanik@gmail.com</a>.
+  </div>
+
+</main>
 
 
 
 
 
 
+<footer class="footer"></footer>
 
-  <footer class="footer">
-   
-  <script>
-    const menu = document.getElementById("sideMenu");
-    const btn = document.getElementById("menuBtn");
-    const backdrop = document.getElementById("menuBackdrop");
+<script>
+  const menu = document.getElementById("sideMenu");
+  const btn = document.getElementById("menuBtn");
+  const backdrop = document.getElementById("menuBackdrop");
 
-    function openMenu(){
-      menu.style.width = "250px";
-      backdrop.classList.add("open");
-      btn.setAttribute("aria-expanded","true");
-    }
+  function openMenu(){
+    menu.style.width = "250px";
+    backdrop.classList.add("open");
+    btn.setAttribute("aria-expanded","true");
+    document.body.classList.add("menu-open");
+  }
 
-    function closeMenu(){
-      menu.style.width = "0";
-      backdrop.classList.remove("open");
-      btn.setAttribute("aria-expanded","false");
-    }
+  function closeMenu(){
+    menu.style.width = "0";
+    backdrop.classList.remove("open");
+    btn.setAttribute("aria-expanded","false");
+    document.body.classList.remove("menu-open");
+  }
 
-    function toggleMenu(){
-      if (menu.style.width === "250px") closeMenu();
-      else openMenu();
-    }
+  function toggleMenu(){
+    if (menu.style.width === "250px") closeMenu();
+    else openMenu();
+  }
 
-    btn.addEventListener("click", toggleMenu);
-    backdrop.addEventListener("click", closeMenu);
+  btn.addEventListener("click", toggleMenu);
+  backdrop.addEventListener("click", closeMenu);
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-  </script>
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+</script>
+
 </body>
 </html>
-
-
