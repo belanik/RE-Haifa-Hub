@@ -674,28 +674,36 @@
 </main>
 
 <script>
-  // ===== SIDE MENU =====
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ===== SIDE MENU (safe) =====
   const menu = document.getElementById("sideMenu");
   const btn = document.getElementById("menuBtn");
   const backdrop = document.getElementById("menuBackdrop");
 
   function openMenu(){
+    if (!menu || !btn || !backdrop) return;
     menu.style.width = "250px";
     backdrop.classList.add("open");
     btn.setAttribute("aria-expanded","true");
     document.body.classList.add("menu-open");
   }
+
   function closeMenu(){
+    if (!menu || !btn || !backdrop) return;
     menu.style.width = "0";
     backdrop.classList.remove("open");
     btn.setAttribute("aria-expanded","false");
     document.body.classList.remove("menu-open");
   }
-  btn.addEventListener("click", () => {
-    if (menu.style.width === "250px") closeMenu();
-    else openMenu();
-  });
-  backdrop.addEventListener("click", closeMenu);
+
+  if (btn && backdrop && menu) {
+    btn.addEventListener("click", () => {
+      if (menu.style.width === "250px") closeMenu();
+      else openMenu();
+    });
+    backdrop.addEventListener("click", closeMenu);
+  }
 
   // ===== ACCORDION =====
   const accordionHeaders = document.querySelectorAll('.accordion-header');
@@ -705,6 +713,7 @@
       const content = this.nextElementSibling;
       const isActive = this.classList.contains('active');
 
+      // close all
       accordionHeaders.forEach(h => {
         h.classList.remove('active');
         h.setAttribute('aria-expanded','false');
@@ -714,7 +723,8 @@
         }
       });
 
-      if (!isActive) {
+      // open current
+      if (!isActive && content) {
         this.classList.add('active');
         this.setAttribute('aria-expanded','true');
         content.classList.add('active');
@@ -723,68 +733,75 @@
     });
   });
 
-  // ===== MODAL =====
-  function openModal() {
+  // ===== MODAL (make functions глобальными для onclick) =====
+  window.openModal = function () {
     const modal = document.getElementById('requestModal');
+    if (!modal) return;
     modal.classList.add('open');
     modal.setAttribute('aria-hidden','false');
   }
 
-  function closeModal() {
+  window.closeModal = function () {
     const modal = document.getElementById('requestModal');
+    if (!modal) return;
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden','true');
-    document.getElementById('requestForm').reset();
-    document.getElementById('successMessage').style.display = 'none';
-    document.getElementById('requestForm').style.display = 'block';
+
+    const form = document.getElementById('requestForm');
+    const ok = document.getElementById('successMessage');
+    if (form) { form.reset(); form.style.display = 'block'; }
+    if (ok) ok.style.display = 'none';
   }
 
-  document.getElementById('requestModal').addEventListener('click', (e) => {
-    if (e.target.id === 'requestModal') closeModal();
-  });
+  const modalEl = document.getElementById('requestModal');
+  if (modalEl) {
+    modalEl.addEventListener('click', (e) => {
+      if (e.target.id === 'requestModal') window.closeModal();
+    });
+  }
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closeMenu();
-      closeModal();
+      window.closeModal();
     }
   });
 
-  function submitForm(event) {
+  window.submitForm = function (event) {
     event.preventDefault();
 
-    const formData = {
-      firstName: document.getElementById('firstName').value,
-      lastName: document.getElementById('lastName').value,
-      country: document.getElementById('country').value,
-      phone: document.getElementById('phone').value,
-      workplace: document.getElementById('workplace').value,
-      email: document.getElementById('email').value
-    };
-
+    const get = (id) => document.getElementById(id)?.value || '';
     const emailBody = `
 בקשה לטקסט המלא של הספר "מדריך לניהול פסולת עירונית בישראל"
 
-שם פרטי: ${formData.firstName}
-שם משפחה: ${formData.lastName}
-מדינת מגורים: ${formData.country}
-מספר טלפון: ${formData.phone}
-מקום עבודה: ${formData.workplace}
-אימייל: ${formData.email}
+שם פרטי: ${get('firstName')}
+שם משפחה: ${get('lastName')}
+מדינת מגורים: ${get('country')}
+מספר טלפון: ${get('phone')}
+מקום עבודה: ${get('workplace')}
+אימייל: ${get('email')}
     `.trim();
 
     const mailtoLink = `mailto:belanik@gmail.com?subject=${encodeURIComponent('בקשה לטקסט המלא של הספר')}&body=${encodeURIComponent(emailBody)}`;
-
     window.location.href = mailtoLink;
 
-    document.getElementById('requestForm').style.display = 'none';
-    document.getElementById('successMessage').style.display = 'block';
+    const form = document.getElementById('requestForm');
+    const ok = document.getElementById('successMessage');
+    if (form) form.style.display = 'none';
+    if (ok) ok.style.display = 'block';
 
-    setTimeout(() => {
-      closeModal();
-    }, 3000);
+    setTimeout(() => window.closeModal(), 3000);
   }
+
+});
+
+/* ===== ACCORDION (required) ===== */
+.accordion-content{ display: none; }
+.accordion-content.active{ display: block; }
+
+  
 </script>
+
 
 </body>
 </html>
