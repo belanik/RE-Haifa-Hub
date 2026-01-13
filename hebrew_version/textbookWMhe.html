@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="חוקי מפתח בישראל ומסמכי מדיניות בנושא פסולת וכלכלה מעגלית, עם הסברים קצרים וקישורים למקורות רשמיים." />
-  <title>חקיקה סביבתית בישראל — RE-HAIFA HUB</title>
+  <title>תוכנית לאומית לניהול פסולת — חבילת מסמכים</title>
+  <link rel="icon" href="../green.jpg" />
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,7 +21,7 @@
     a{ color:#2e7d32; }
     a:hover{ opacity:0.9; }
 
-    /* ===== HAMBURGER ===== */
+    /* ===== ГАМБУРГЕР ===== */
     .menu-btn{
       position: fixed;
       top: 12px;
@@ -41,7 +41,7 @@
       box-shadow: 0 4px 14px rgba(0,0,0,0.22);
     }
 
-    /* ===== BACKDROP (click to close menu) ===== */
+    /* ===== BACKDROP (чтобы закрывать меню кликом) ===== */
     .menu-backdrop{
       position: fixed;
       inset: 0;
@@ -83,7 +83,7 @@
       background: rgba(255,255,255,0.18);
     }
 
-    /* ===== HEADER WITH longline.png ===== */
+    /* ===== НОВАЯ ШАПКА С КАРТИНКОЙ longline.png ===== */
     .site-header{
       position: relative;
       background-image: url("/assets/longline.png");
@@ -179,7 +179,7 @@
       color: #fff;
     }
 
-    /* ===== MAIN ===== */
+    /* ===== ОСНОВНОЙ БЛОК ===== */
     .site-main{
       max-width: 1080px;
       margin: 2rem auto;
@@ -255,6 +255,7 @@
       font-size: .95rem;
       color:#556;
       margin-top: 0.9rem;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
     .card{
@@ -297,7 +298,7 @@
     }
     @media (max-width: 680px){
       th:nth-child(3), td:nth-child(3){ display:none; }
-      .brand{ text-align: right; } /* avoid conflict with hamburger on the left */
+      .brand{ text-align: right; } /* чтобы не конфликтовать с гамбургером слева */
       .header-actions{ justify-content: center; }
       .action-pill{ gap: 6px; }
       .hdr-btn{ padding: 7px 10px; font-size: 12.5px; }
@@ -306,502 +307,138 @@
   </style>
 </head>
 
-<body class="page-ecolaw">
+<body class="page-program page-ecolaw">
 
-  <!-- Hamburger -->
+  <!-- Гамбургер -->
   <button class="menu-btn" id="menuBtn" aria-label="פתח תפריט" aria-controls="sideMenu" aria-expanded="false">☰</button>
 
   <!-- Backdrop -->
   <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
 
+  <!-- Side menu (страница в папке => ссылки на корень через ../) -->
   <nav id="sideMenu" class="side-menu" aria-label="ניווט">
-    <a href="/hebrew_version/index_he.html">דף הבית</a>
-<a href="/foodwasteprogramen+he.html" style="color:#ffd200; font-size:1.12em; font-weight:700;">
- חדש! תוכנית בזבוז מזון
-</a>
-   
-    <a href="/eco-analitics_HEB/ecoanalytics-heb.html">אקו-אנליטיקה</a>
-    <a href="/hebrew_version/eco_law_he.html">חוקי איכות הסביבה בישראל</a>
-    <a href="/hebrew_version/he_program.html">תוכנית המעבר לכלכלה מעגלית</a>
-    <a href="/hebrew_version/textbookWMhe.html">בית הספר לניהול פסולת</a>
-    <a href="/oecd_reports/oecd_reports_he.html">דוחות OECD</a>
-    <a href="/hebrew_version/about_us_he.html">הצוות שלנו</a>
+    <a href="../index.html">דף הבית</a>
+    <a href="../about_us.html">הצוות שלנו</a>
+    <a href="../экоанатилика%20на%20сайт/ecoanalytics-ru.html">אנליטיקה סביבתית</a>
+    <a href="../eco-law-ru.html">חוקי סביבה בישראל</a>
+    <a href="../programma">טיוטת תוכנית מעבר לכלכלה מעגלית</a>
+    <a href="../textbookWM.html">בית ספר לניהול פסולת</a>
+    <a href="../oecd_reports/oecd_reports.html">דוחות ה-OECD</a>
   </nav>
 
-
-  <!-- HEADER -->
+  <!-- НОВАЯ ШАПКА -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <div style="width:48px;"></div><!-- spacer so the brand stays perfectly centered -->
+      <div style="width:48px;"></div><!-- пустой “держатель”, чтобы центрирование бренда было ровным -->
       <div class="brand">Re-Haifa Hub</div>
 
       <div class="header-actions">
         <div class="action-pill" aria-label="כפתורים ושפה">
-          <!-- IMPORTANT: put your real join link here -->
+          <!-- ВАЖНО: сюда поставь свой реальный линк на вступление -->
           <a class="hdr-btn" href="#" title="הכניסי כאן קישור לטופס/יצירת קשר">להצטרף</a>
 
-          <!-- IMPORTANT: put your real Facebook page link here -->
+          <!-- ВАЖНО: сюда поставь свой реальный линк на Facebook -->
           <a class="hdr-btn" href="#" title="הכניסי כאן קישור לדף הפייסבוק">פייסבוק</a>
 
-          <a class="lang-btn" href="/eco-law-ru.html" aria-label="Русский">RU</a>
-          <a class="lang-btn" href="/english_version/eco_law_en.html" aria-label="English">EN</a>
-          <a class="lang-btn active" href="/hebrew_version/eco_law_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
+          <a class="lang-btn" href="programma.html" aria-label="Русский">RU</a>
+          <a class="lang-btn" href="programma-en.html" aria-label="English">EN</a>
+          <a class="lang-btn active" href="programma-he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
         </div>
       </div>
     </div>
-    </header>
+  </header>
 
-<main class="site-main">
-  <div class="container" dir="rtl" style="text-align:right;">
+  <main class="site-main">
+    <div class="container">
 
-    <h1 class="page-title">
-      מדריך לניהול פסולת עירונית בישראל:<br>
-      ספר לפעילים ופעילות
-    </h1>
-    <div class="author">מחברת: בלה ניקיטינה</div>
+    <h1 class="page-title">תוכנית לאומית לניהול פסולת</h1>
+    <p class="page-lead">
+      חבילת מסמכים של אסטרטגיית המעבר למערכת מעגלית לניהול פסולת עירונית בישראל עד שנת 2035.
+      כל המסמכים זמינים לצפייה ולהורדה ב-PDF.
+    </p>
 
-    <div class="intro-section">
-      <h2>הקדמה</h2>
-      <p><strong>למי שנמאס מהזבל בישראל: למה לקרוא את הספר הזה</strong></p>
-      <p>מניקיונות "עושים בידיים" לפירוק המערכת: למה הזבל בחצר שלך, בפארק ובנחל זו אותה בעיה, ואיך להפסיק להיות "שרברב חינם" ולהפוך למעצב אזרחי שיטתי של מערכת הפסולת.</p>
+    <h2 class="section-title">מסמכים מרכזיים ונספחים</h2>
+
+    <ul class="docs">
+      <li>
+        <a class="doc-link" href="strategy_main.pdf" target="_blank" rel="noopener">
+          האסטרטגיה הלאומית למעבר למערכת מעגלית לניהול פסולת עירונית בישראל עד 2035 (טקסט מלא)
+          <span class="file-type">PDF</span>
+        </a>
+      </li>
+      <li>
+        <a class="doc-link" href="analytical_appendix.pdf" target="_blank" rel="noopener">
+          נספח אנליטי: ההקשר הבינלאומי והלאומי
+          <span class="file-type">PDF</span>
+        </a>
+      </li>
+      <li>
+        <a class="doc-link" href="tables_kpi.pdf" target="_blank" rel="noopener">
+          טבלאות 1 ו-2. ערכי יעד מסכמים למדדי KPI מרכזיים
+          <span class="file-type">PDF</span>
+        </a>
+      </li>
+      <li>
+        <a class="doc-link" href="tech_app_1_kpi.pdf" target="_blank" rel="noopener">
+          נספח טכני 1: תיאור מפורט של מדדי ביצוע מרכזיים (KPI)
+          <span class="file-type">PDF</span>
+        </a>
+      </li>
+      <li>
+        <a class="doc-link" href="tech_app_2_digital.pdf" target="_blank" rel="noopener">
+          נספח טכני 2: פלטפורמה דיגיטלית לאומית ומערכת ניטור
+          <span class="file-type">PDF</span>
+        </a>
+      </li>
+      <li>
+        <a class="doc-link" href="tech_app_3_governance.pdf" target="_blank" rel="noopener">
+          נספח טכני 3: ארכיטקטורה מוסדית וטיוטת קוד הפסולת
+          <span class="file-type">PDF</span>
+        </a>
+      </li>
+      <li>
+        <a class="doc-link" href="strategy_summary.pdf" target="_blank" rel="noopener">
+          תקציר אסטרטגיה (Executive Summary)
+          <span class="file-type">PDF</span>
+        </a>
+      </li>
+    </ul>
+
+    <p class="note">
+      אם קובצי PDF מסוימים לא נפתחים (404) — בדקי שהקבצים נמצאים באותו מיקום כמו דף זה, וששמות הקבצים זהים 1:1.
+    </p>
+
     </div>
+  </main>
 
-    <div class="section-title">חלק א׳. איפה הזבל מתחיל</div>
+  <script>
+    const menu = document.getElementById("sideMenu");
+    const btn = document.getElementById("menuBtn");
+    const backdrop = document.getElementById("menuBackdrop");
 
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 1. מה זה פסולת: הגדרות, חוק ומציאות</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          מה החוק קורא "פסולת", אילו סוגים קיימים (ביתית, עירונית, בניין, מסוכנת), איפה עובר הגבול בין "חפץ" ל"זבל", ואיך כל זה מתנתק מהמציאות החיה של תושבי העיר.
-        </div>
-      </div>
-    </div>
+    function openMenu(){
+      menu.style.width = "250px";
+      backdrop.classList.add("open");
+      btn.setAttribute("aria-expanded","true");
+    }
 
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 2. מי מנהל את הפסולת בישראל? (ולמה זה לא רק "בוס אחד גדול")</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          משרד להגנת הסביבה, רשויות מקומיות, מפעילים אזוריים, תמיר, מערכת הפיקדון, בתי משפט ומבקר המדינה: מי אחראי רשמית על מה, ומי באמת מקבל החלטות בשטח.
-        </div>
-      </div>
-    </div>
+    function closeMenu(){
+      menu.style.width = "0";
+      backdrop.classList.remove("open");
+      btn.setAttribute("aria-expanded","false");
+    }
 
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 3. ליד הפח ובחצר: איך החלטות התושבים משיקות את זרמי הפסולת</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          הסצנה ליד המכולות, פחים צבעוניים, הרעיון ש"פח זה לא פילוסוף", תפקיד ההרגלים וה"החלטה של שנייה של אדם עייף", ונקודת האחריות המשותפת הראשונה בין החצר לעיר.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 4. כמה עולה הזבל: מאזן מסה, חוזים ו-PAYT</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          מאזן מסה פשוט (100 ק"ג/נפש, עיר של 100,000), כמה עולים איסוף, הובלה וקבורה, איך זה מוסתר בתוך הארנונה, למה צריך PAYT ("שלם לפי מה שזורק"), ומה זה משנה בפועל.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 5. מהדלי למזבלה: המסלול של הזבל שלנו</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          מסלול מוכלל "דירה ← חצר ← משאית אשפה ← תחנת מעבר ← מזבלה/מיון", נקודות טיפוסיות שבהן כסף וחומרים הולכים לאיבוד, ומשימה מעשית: מיפוי המסלול מהחצר שלך והכנת 5-7 שאלות לעירייה.
-        </div>
-      </div>
-    </div>
-
-    <div class="section-title">חלק ב׳. לוגיסטיקה וגיאוגרפיה</div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 6. מסלולים בערים א׳, ב׳ וג׳: איך אזרחים יכולים לעבוד עם לוגיסטיקה</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          שלוש ערים טיפוסיות (מרכזית, פריפריאלית, סביבה בנויה מעורבת), איך המסלולים שלהן מאורגנים, איפה המערכת נשברת, ואיך פעילים יכולים לעבוד עם מפות מסלולים, תדירות איסוף וחוזים כדי לשנות את המציאות בשטח.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 7. הגיאוגרפיה של הפסולת בישראל: מזבלות, תחנות מעבר, מתקני מיון</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          מפה ארצית של מזבלות, תחנות מעבר ומתחמי מיון, מי גר ליד תשתית כבדה, ואיך העומסים הסביבתיים מתחלקים בין מרכז לפריפריה.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 8. הצפון (חיפה והמטרופולין): לאן הזבל באמת הולך</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          מקרה בוחן של אזור ספציפי: מסלולים מחיפה ואזור הקריות, אילו מזבלות ומתקני מיון משמשים, ומה זה אומר לתושבים ולפעילים המקומיים.
-        </div>
-      </div>
-    </div>
-
-    <div class="section-title">חלק ג׳. מה בדיוק זורם שם: שברים ודברים</div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 9. אורגני ואקלים: פסולת מזון, אדמה ומתאן</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          למה פסולת אורגנית מהווה עד 40% מהזרם וחלק גדול מפליטות המתאן, איך זה מתחבר לאקלים ולפוריות האדמה, ואילו אפשרויות קיימות: קומפוסטציה, עיכול אנאירובי, "פחים חומים" ופתרונות מקומיים ברמת השכונה.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 10. אריזות והמאפיינים הסביבתיים שלהן: מה כדאי לשים בפח המיחזור</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          אריזות טיפוסיות בסופרמרקט ישראלי, חומרים "ירוק/צהוב/אדום", אילו באמת ממוחזרים ואילו כמעט תמיד מגיעים למזבלות או לשריפה, ואיך לא לאבד את השפיות מול המדף.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 11. פלסטיק ופסולת אריזות אחרת: יכולת מיחזור, מיקרופלסטיק וגבולות המיחזור</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          "תקרות" טכניות וכלכליות של מיחזור, מאיפה מגיע המיקרופלסטיק בים ובאדמה, ומה מפעלי המיון הטובים ביותר יכולים ולא יכולים לעשות באופן ריאליסטי.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 12. "פסולת אתית": בגדים, צעצועים, רהיטים ודברים אחרים שקשה לזרוק</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          למה ספות, צעצועים ובגדים מסתיימים ליד המכולות, איך אקולוגיה, זיכרון וצדק חברתי משתלבים כאן, ואיך אפשר להפוך את הזרם הזה למשאב לחילופים ולקפה תיקונים.
-        </div>
-      </div>
-    </div>
-
-    <div class="section-title">חלק ד׳. חוק, כסף ואריזות כמדיניות</div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 13. חוק שמירה על הניקיון וניקיון עירוני כ"חוזה חברתי"</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          סעיפים מרכזיים בחוק שמירה על הניקיון, סמכויות רשויות ופקחים, "נקודות עיוורות" (כלבים, חתולים, מגרשי משחקים), והניקיון כאינדיקטור לשאלה האם התושבים מרגישים שמישהו דואג להם ולשכונה שלהם.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 14. מי משלם על הזבל: ארנונה, קבלנים ומלכודת "המזבלה הזולה"</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          איך כסף זורם מהתושבים לקבלנים: ארנונה, דמי שער במזבלות, סובסידיות למיון ומיחזור, למה "קבורה זולה" נוחה לרשויות ומה ההשלכות ארוכות הטווח של זה.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 15. חוזים, KPI ותפקיד הקבלנים: למה המערכת מזיזה טונות במקום להפחית את הזרם</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          מכרזי איסוף, KPI טיפוסיים הקשורים ל"רחובות נקיים" וטונות במקום הפחתת פסולת, תמריצים מעוותים, ואיך זה מתבטא לתושבים דרך פחים גולשים ומסלולי משאיות מיותרים.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 16. אריזות כמדיניות: EPR, תמיר, פיקדון והקרב על מקום על המדף</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          אחריות מורחבת של יצרן בגרסה הישראלית, תפקיד תמיר, בקבוקי פיקדון, אינטרסים של יצרנים וקמעונאים, ואיך "מדיניות אריזות" בסופו של דבר מופיעה במצב הפחים בחצר האחורית.
-        </div>
-      </div>
-    </div>
-
-    <div class="section-title">חלק ה׳. מקרים, רפורמות וה"חזית הירוקה"</div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 17. הצפון (חיפה והמטרופולין): לאן הזבל באמת הולך ואילו הזדמנויות קיימות</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          מבט מפורט על האזור: מסלולים מחיפה והקריות, אילו מזבלות ומפעלי מיון משמשים, איפה הנקודות החזקות והחלשות של המערכת, ואילו חלונות הזדמנויות נפתחים לפעילים מקומיים.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 18. איך לשמור על רפורמות מלהפוך ל"חזית ירוקה": מי צובע מה ולמה</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          איפה רפורמות במערכת הפסולת של ישראל כבר מתבצעות אבל מסתכנות להישאר קוסמטיות בלבד, איך להבחין בין שינוי אמיתי ליחסי ציבור, ואילו שאלות לשאול רשויות ומשרדים כדי לעבור מעבר לחזית.
-        </div>
-      </div>
-    </div>
-
-    <div class="section-title">חלק ו׳. קהילה והתחלה מהירה</div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 19. קהילה בפעולה: בדיקה לקהילה, שבוע חצר נקייה, קפה תיקונים וחילופים</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          איך לאסוף גרעין עבודה מינימלי של שכנים, להריץ "שבוע חצר נקייה", להתחיל חילופים ופורמטים של תיקון בצורה שלא שורפת אנשים ולא הופכת את היוזמה ל"שירות חינם" לכולם.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" type="button" aria-expanded="false">
-        <span>▼</span>
-        <span>פרק 20. תוכנית אקספרס לכי הכי חסרי סבלנות: מה לעשות בשבוע אחד כדי לראות את המערכת ולהתחיל לשנות אותה</span>
-      </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="accordion-body">
-          תוכנית מרוכזת: אילו צעדים אפשר לעשות בשבעה ימים ברמת הדירה, החצר והתכתבות עם העירייה כדי להרגיש את כל המערכת ולראות תוצאות ראשונות, גם אם יש לך מעט מאוד זמן ואנרגיה.
-        </div>
-      </div>
-    </div>
-
-    <div class="conclusion-section">
-      <h2>סיכום</h2>
-      <p>
-        הסיכום פונה לקורא כ"מעצב אזרחי" עתידי של מערכת הפסולת. הוא מסכם את הנקודות העיקריות, מדגיש שלוש רמות התערבות מרכזיות — החצר, הרשות המקומית והמדיניות הלאומית — ומציע הדרכה כיצד להשתמש בכלים מהמדריך: רשימות בדיקה, תבניות מכתבים, רעיונות ל"שבוע חצר נקייה", חילופים, קפה תיקונים ועבודה עם נתונים. זו הזמנה לא רק להצטרף לעוד ניקיון חד-פעמי, אלא לנוע לקראת שינויים מחושבים וארוכי טווח בשכונה ובעיר שלך.
-      </p>
-    </div>
-
-    <div class="request-section">
-      <h3>הטקסט המלא של הספר ניתן לקבל לפי בקשה</h3>
-      <button class="request-button" type="button" onclick="openModal()">
-        אני רוצה לקבל את הטקסט המלא של הספר
-      </button>
-    </div>
-
-    <!-- Modal window -->
-    <div id="requestModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()" aria-label="סגור">×</span>
-        <h2>בקשה לטקסט המלא של הספר</h2>
-        <form id="requestForm" onsubmit="submitForm(event)">
-          <div class="form-group">
-            <label for="firstName">שם פרטי *</label>
-            <input type="text" id="firstName" name="firstName" required>
-          </div>
-          <div class="form-group">
-            <label for="lastName">שם משפחה *</label>
-            <input type="text" id="lastName" name="lastName" required>
-          </div>
-          <div class="form-group">
-            <label for="country">מדינת מגורים *</label>
-            <input type="text" id="country" name="country" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">מספר טלפון *</label>
-            <input type="tel" id="phone" name="phone" required>
-          </div>
-          <div class="form-group">
-            <label for="workplace">מקום עבודה *</label>
-            <input type="text" id="workplace" name="workplace" required>
-          </div>
-          <div class="form-group">
-            <label for="email">אימייל *</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <button type="submit" class="submit-button">שלח בקשה</button>
-        </form>
-        <div id="successMessage" class="success-message">
-          תודה! הבקשה שלך הוכנה בתוכנת הדואר שלך. ניצור איתך קשר בהקדם האפשרי.
-        </div>
-      </div>
-    </div>
-
-  </div>
-</main>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-
-  // ===== SIDE MENU (safe) =====
-  const menu = document.getElementById("sideMenu");
-  const btn = document.getElementById("menuBtn");
-  const backdrop = document.getElementById("menuBackdrop");
-
-  function openMenu(){
-    if (!menu || !btn || !backdrop) return;
-    menu.style.width = "250px";
-    backdrop.classList.add("open");
-    btn.setAttribute("aria-expanded","true");
-    document.body.classList.add("menu-open");
-  }
-
-  function closeMenu(){
-    if (!menu || !btn || !backdrop) return;
-    menu.style.width = "0";
-    backdrop.classList.remove("open");
-    btn.setAttribute("aria-expanded","false");
-    document.body.classList.remove("menu-open");
-  }
-
-  if (btn && backdrop && menu) {
-    btn.addEventListener("click", () => {
+    function toggleMenu(){
       if (menu.style.width === "250px") closeMenu();
       else openMenu();
-    });
-    backdrop.addEventListener("click", closeMenu);
-  }
-
-  // ===== ACCORDION =====
-  const accordionHeaders = document.querySelectorAll('.accordion-header');
-
-  accordionHeaders.forEach(header => {
-    header.addEventListener('click', function() {
-      const content = this.nextElementSibling;
-      const isActive = this.classList.contains('active');
-
-      // close all
-      accordionHeaders.forEach(h => {
-        h.classList.remove('active');
-        h.setAttribute('aria-expanded','false');
-        if (h.nextElementSibling) {
-          h.nextElementSibling.classList.remove('active');
-          h.nextElementSibling.setAttribute('aria-hidden','true');
-        }
-      });
-
-      // open current
-      if (!isActive && content) {
-        this.classList.add('active');
-        this.setAttribute('aria-expanded','true');
-        content.classList.add('active');
-        content.setAttribute('aria-hidden','false');
-      }
-    });
-  });
-
-  // ===== MODAL (make functions глобальными для onclick) =====
-  window.openModal = function () {
-    const modal = document.getElementById('requestModal');
-    if (!modal) return;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-  }
-
-  window.closeModal = function () {
-    const modal = document.getElementById('requestModal');
-    if (!modal) return;
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-
-    const form = document.getElementById('requestForm');
-    const ok = document.getElementById('successMessage');
-    if (form) { form.reset(); form.style.display = 'block'; }
-    if (ok) ok.style.display = 'none';
-  }
-
-  const modalEl = document.getElementById('requestModal');
-  if (modalEl) {
-    modalEl.addEventListener('click', (e) => {
-      if (e.target.id === 'requestModal') window.closeModal();
-    });
-  }
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeMenu();
-      window.closeModal();
     }
-  });
 
-  window.submitForm = function (event) {
-    event.preventDefault();
+    btn.addEventListener("click", toggleMenu);
+    backdrop.addEventListener("click", closeMenu);
 
-    const get = (id) => document.getElementById(id)?.value || '';
-    const emailBody = `
-בקשה לטקסט המלא של הספר "מדריך לניהול פסולת עירונית בישראל"
-
-שם פרטי: ${get('firstName')}
-שם משפחה: ${get('lastName')}
-מדינת מגורים: ${get('country')}
-מספר טלפון: ${get('phone')}
-מקום עבודה: ${get('workplace')}
-אימייל: ${get('email')}
-    `.trim();
-
-    const mailtoLink = `mailto:belanik@gmail.com?subject=${encodeURIComponent('בקשה לטקסט המלא של הספר')}&body=${encodeURIComponent(emailBody)}`;
-    window.location.href = mailtoLink;
-
-    const form = document.getElementById('requestForm');
-    const ok = document.getElementById('successMessage');
-    if (form) form.style.display = 'none';
-    if (ok) ok.style.display = 'block';
-
-    setTimeout(() => window.closeModal(), 3000);
-  }
-
-});
-
-/* ===== ACCORDION (required) ===== */
-.accordion-content{ display: none; }
-.accordion-content.active{ display: block; }
-
-  
-</script>
-
-
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  </script>
 </body>
 </html>
