@@ -99,7 +99,6 @@
       justify-content: space-between;
       gap: 12px;
     }
-
     .brand{
       flex: 1;
       text-align: center;
@@ -181,6 +180,7 @@
       color:#1f3a2a;
       font-weight: 800;
     }
+    
     body {
       margin: 0;
       font-family: Georgia, "Times New Roman", Times, serif;
@@ -216,6 +216,7 @@
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
+
     /* ----------------------------------------------------- */
     /* ОСНОВНОЙ LAYOUT */
     /* ----------------------------------------------------- */
@@ -242,7 +243,7 @@
 
 
     /* Main content (always centered) */
-    main {
+        main {
       max-width: 800px;
       margin: 2rem auto;
       background: #fff;
@@ -394,7 +395,8 @@
       transition: 0.3s;
     }
     .news-photos img:hover { opacity: 0.85; }
-
+    
+    /* Fullscreen modal */
     /* Fullscreen modal */
     .modal {
       display: none;
@@ -439,6 +441,7 @@
       font-size: 0.96em;
       margin: 2.5em 0 1em 0;
     }
+    
     /* ====== Main container ====== */
     .site-main{
       max-width: 980px;
@@ -514,79 +517,6 @@
       color:#6a7686;
       font-size:.95rem;
       padding: 1.2rem 0 2rem 0;
-    }
-
-    /* ====== Hamburger button ====== */
-    .menu-btn{
-      position: fixed;
-      top: 14px;
-      left: 14px;
-      z-index: 1200;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      border: 2px solid var(--ink);
-      background: #fff;
-      color: var(--ink);
-      cursor: pointer;
-      font-size: 22px;
-      line-height: 1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    }
-
-    /* ====== Side menu ====== */
-    .side-menu{
-      position: fixed;
-      top:0; left:0;
-      height:100%;
-      width: 280px;
-      background:#ffffff;
-      z-index: 1300;
-      padding: 18px 14px;
-      box-shadow: 18px 0 40px rgba(0,0,0,0.18);
-      transform: translateX(-110%);
-      transition: transform .18s ease;
-      overflow:auto;
-    }
-    .side-menu.open{ transform: translateX(0); }
-
-    .side-menu a{
-      display:block;
-      padding: 12px 12px;
-      margin: 6px 0;
-      border-radius: 10px;
-      text-decoration:none;
-      color:#123;
-      font-weight:700;
-      background:#f7fafc;
-      border: 1px solid #eef2f7;
-    }
-    .side-menu a:hover{ background:#eef6ff; }
-    .side-menu a.active{
-      border-color: #cfe7cf;
-      background:#eaf6ea;
-    }
-
-    .menu-backdrop{
-      position: fixed;
-      inset:0;
-      background: rgba(0,0,0,0.35);
-      z-index: 1250;
-      opacity: 0;
-      pointer-events:none;
-      transition: opacity .18s ease;
-    }
-    .menu-backdrop.open{
-      opacity:1;
-      pointer-events:auto;
-    }
-
-    .sr{
-      position:absolute;
-      left:-9999px;
     }
 
     @media (max-width: 720px){
