@@ -15,28 +15,27 @@
   }
 
   function openMenu(){
-    menu.classList.add("open");
+    menu.style.width = "250px";
     backdrop.classList.add("open");
     btn.setAttribute("aria-expanded","true");
   }
 
   function closeMenu(){
-    menu.classList.remove("open");
+    menu.style.width = "0";
     backdrop.classList.remove("open");
     btn.setAttribute("aria-expanded","false");
   }
-
-  btn.addEventListener("click", () => {
-    menu.classList.contains("open") ? closeMenu() : openMenu();
-  });
-
+  function toggleMenu(){
+      if (menu.style.width === "250px") closeMenu();
+      else openMenu();
+    }
+  btn.addEventListener("click", toggleMenu);
   backdrop.addEventListener("click", closeMenu);
+
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
 
-  menu.addEventListener("click", (e) => {
-    if (e.target.closest("a")) closeMenu();
-  });
+
 })();
