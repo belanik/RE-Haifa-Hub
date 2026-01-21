@@ -99,7 +99,6 @@
       justify-content: space-between;
       gap: 12px;
     }
-
     .brand{
       flex: 1;
       text-align: center;
@@ -181,6 +180,7 @@
       color:#1f3a2a;
       font-weight: 800;
     }
+    
     body {
       margin: 0;
       font-family: Georgia, "Times New Roman", Times, serif;
@@ -216,6 +216,7 @@
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
+
     /* ----------------------------------------------------- */
     /* ОСНОВНОЙ LAYOUT */
     /* ----------------------------------------------------- */
@@ -242,7 +243,7 @@
 
 
     /* Main content (always centered) */
-    main {
+        main {
       max-width: 800px;
       margin: 2rem auto;
       background: #fff;
@@ -394,7 +395,8 @@
       transition: 0.3s;
     }
     .news-photos img:hover { opacity: 0.85; }
-
+    
+    /* Fullscreen modal */
     /* Fullscreen modal */
     .modal {
       display: none;
@@ -439,6 +441,7 @@
       font-size: 0.96em;
       margin: 2.5em 0 1em 0;
     }
+    
     /* ====== Main container ====== */
     .site-main{
       max-width: 980px;
@@ -500,98 +503,13 @@
       border-radius: 999px;
       white-space: nowrap;
     }
-    header {
-      background: rgba(67,160,71,0.85) url('haifa_nof.jpg') center center/cover no-repeat;
-      color: #fff;
-      padding: 2.5rem 0 2.5rem 0;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
+
     /* ====== Footer ====== */
     .site-footer{
       text-align:center;
       color:#6a7686;
       font-size:.95rem;
       padding: 1.2rem 0 2rem 0;
-    }
-
-    /* ====== Hamburger button ====== */
-    .menu-btn{
-      position: fixed;
-      top: 14px;
-      left: 14px;
-      z-index: 1200;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      border: 2px solid var(--ink);
-      background: #fff;
-      color: var(--ink);
-      cursor: pointer;
-      font-size: 22px;
-      line-height: 1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    }
-
-    /* ====== Side menu ====== */
-    .side-menu{
-      position: fixed;
-      top:0; left:0;
-      height:100%;
-      width: 280px;
-      background:#ffffff;
-      z-index: 1300;
-      padding: 18px 14px;
-      box-shadow: 18px 0 40px rgba(0,0,0,0.18);
-      transform: translateX(-110%);
-      transition: transform .18s ease;
-      overflow:auto;
-    }
-    .side-menu.open{ transform: translateX(0); }
-
-    .side-menu a{
-      display:block;
-      padding: 12px 12px;
-      margin: 6px 0;
-      border-radius: 10px;
-      text-decoration:none;
-      color:#123;
-      font-weight:700;
-      background:#f7fafc;
-      border: 1px solid #eef2f7;
-    }
-    .side-menu a:hover{ background:#eef6ff; }
-    .side-menu a.active{
-      border-color: #cfe7cf;
-      background:#eaf6ea;
-    }
-
-    .menu-backdrop{
-      position: fixed;
-      inset:0;
-      background: rgba(0,0,0,0.35);
-      z-index: 1250;
-      opacity: 0;
-      pointer-events:none;
-      transition: opacity .18s ease;
-    }
-    .menu-backdrop.open{
-      opacity:1;
-      pointer-events:auto;
-    }
-
-    .sr{
-      position:absolute;
-      left:-9999px;
-    }
-
-    @media (max-width: 720px){
-      .site-header h1{ font-size: 1.95rem; }
-      .doc-link{ padding: 12px 12px; }
     }
   </style>
 </head>
@@ -617,7 +535,7 @@
       </div>
     </div>
   </header>
-  <button class="menu-btn" id="menuBtn" aria-label="פתיחת תפריט" aria-controls="sideMenu" aria-expanded="false">☰</button>
+  <button class="menu-btn" id="menuBtn" aria-label="Открыть меню" aria-controls="sideMenu" aria-expanded="false">☰</button>
 
   <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
 
@@ -698,43 +616,38 @@
     © RE-HAIFA HUB, 2025
   </footer>
 
-  <script>
-    (function(){
-      const btn = document.getElementById('menuBtn');
-      const menu = document.getElementById('sideMenu');
-      const backdrop = document.getElementById('menuBackdrop');
+ <script>
+    const menu = document.getElementById("sideMenu");
+    const btn = document.getElementById("menuBtn");
+    const backdrop = document.getElementById("menuBackdrop");
 
-      function openMenu(){
-        menu.classList.add('open');
-        backdrop.classList.add('open');
-        btn.setAttribute('aria-expanded','true');
-      }
-      function closeMenu(){
-        menu.classList.remove('open');
-        backdrop.classList.remove('open');
-        btn.setAttribute('aria-expanded','false');
-      }
+    function openMenu(){
+      menu.style.width = "250px";
+      backdrop.classList.add("open");
+      btn.setAttribute("aria-expanded","true");
+    }
 
-      btn.addEventListener('click', () => {
-        const isOpen = menu.classList.contains('open');
-        isOpen ? closeMenu() : openMenu();
-      });
+    function closeMenu(){
+      menu.style.width = "0";
+      backdrop.classList.remove("open");
+      btn.setAttribute("aria-expanded","false");
+    }
 
-      backdrop.addEventListener('click', closeMenu);
+    function toggleMenu(){
+      if (menu.style.width === "250px") closeMenu();
+      else openMenu();
+    }
 
-      document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape') closeMenu();
-      });
+    btn.addEventListener("click", toggleMenu);
+    backdrop.addEventListener("click", closeMenu);
 
-      // закрывать меню после клика по ссылке
-      menu.addEventListener('click', (e) => {
-        const a = e.target.closest('a');
-        if(a) closeMenu();
-      });
-    })();
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
   </script>
 </body>
 </html>
+
 
 
 
