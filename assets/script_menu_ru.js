@@ -1,32 +1,42 @@
 (async function () {
-   const res = await fetch('/assets/menu_ru.html', { cache: 'no-cache' });
-    slot.innerHTML = await res.text();
-    const menu = document.getElementById("sideMenu");
-    const btn = document.getElementById("menuBtn");
-    const backdrop = document.getElementById("menuBackdrop");
-    const slot = document.getElementById('menu-slot');
+  const slot = document.getElementById('menu-slot');
+  if (!slot) return;
 
-    function openMenu(){
-      menu.style.width = "250px";
-      backdrop.classList.add("open");
-      btn.setAttribute("aria-expanded","true");
-    }
+  const res = await fetch('menu_ru.html', { cache: 'no-cache' });
+  slot.innerHTML = await res.text();
 
-    function closeMenu(){
-      menu.style.width = "0";
-      backdrop.classList.remove("open");
-      btn.setAttribute("aria-expanded","false");
-    }
+  const menu = document.getElementById("sideMenu");
+  const btn = document.getElementById("menuBtn");
+  const backdrop = document.getElementById("menuBackdrop");
 
-    function toggleMenu(){
-      if (menu.style.width === "250px") closeMenu();
-      else openMenu();
-    }
+  if (!menu || !btn || !backdrop) {
+    console.error("Menu elements not found. Check IDs in menu_ru.html");
+    return;
+  }
 
-    btn.addEventListener("click", toggleMenu);
-    backdrop.addEventListener("click", closeMenu);
+  function openMenu(){
+    menu.classList.add("open");
+    backdrop.classList.add("open");
+    btn.setAttribute("aria-expanded","true");
+  }
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
+  function closeMenu(){
+    menu.classList.remove("open");
+    backdrop.classList.remove("open");
+    btn.setAttribute("aria-expanded","false");
+  }
+
+  btn.addEventListener("click", () => {
+    menu.classList.contains("open") ? closeMenu() : openMenu();
+  });
+
+  backdrop.addEventListener("click", closeMenu);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  menu.addEventListener("click", (e) => {
+    if (e.target.closest("a")) closeMenu();
+  });
 })();
