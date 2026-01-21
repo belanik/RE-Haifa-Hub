@@ -3,305 +3,93 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>National Strategy for Municipal Waste Management: Document Package</title>
+  <title>Eco-analytics — RE-HAIFA HUB</title>
+
+  <!-- favicon in the repository root -->
   <link rel="icon" href="../green.jpg" />
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body.page-ecolaw{
-      margin: 0;
-      font-family: Georgia, "Times New Roman", Times, serif;
-      background: #f7fafc;
-      color: #223;
-      line-height: 1.6;
-      font-size: 16px;
-    }
-
-    a{ color:#2e7d32; }
-    a:hover{ opacity:0.9; }
-
-    /* ===== HAMBURGER ===== */
-    .menu-btn{
-      position: fixed;
-      top: 12px;
-      left: 15px;
-      font-size: 1.8em;
-      cursor: pointer;
-      border: 2px solid #0a192f;
-      background: rgba(255,255,255,0.92);
-      color: #0a192f;
-      border-radius: 10px;
-      padding: 0.12em 0.45em;
-      z-index: 1501;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.20);
-    }
-    .menu-btn:hover{
-      background: #ffffff;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.22);
-    }
-
-    /* ===== BACKDROP ===== */
-    .menu-backdrop{
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.28);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .18s ease;
-      z-index: 1190;
-    }
-    .menu-backdrop.open{
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* ===== SIDE MENU ===== */
-    .side-menu{
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1200;
-      top: 0;
-      left: 0;
-      background-color: rgba(67,160,71,0.95);
-      overflow-x: hidden;
-      transition: 0.25s;
-      padding-top: 3rem;
-    }
-    .side-menu a{
-      display: block;
-      padding: 0.85em 1.2em;
-      text-decoration: none;
-      font-size: 1.15em;
-      color: #fff;
-      transition: background 0.2s;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-weight: 700;
-    }
-    .side-menu a:hover{
-      background: rgba(255,255,255,0.18);
-    }
-
-    /* ===== HEADER WITH longline.png ===== */
-    .site-header{
-      position: relative;
-      background-image: url("/assets/longline.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      height: clamp(110px, 13vw, 170px);
-      border-bottom: 6px solid rgba(67,160,71,.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 16px;
-    }
-
-    .header-inner{
-      width: 100%;
-      max-width: 1080px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .brand{
-      flex: 1;
-      text-align: center;
-      color: #fff;
-      font-weight: 900;
-      letter-spacing: 0.6px;
-      font-size: clamp(24px, 3vw, 40px);
-      text-shadow: 0 2px 14px rgba(0,0,0,0.45);
-      padding: 6px 10px;
-      user-select: none;
-    }
-
-    .header-actions{
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .action-pill{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 8px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.78);
-      border: 2px solid #0a192f;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-      backdrop-filter: blur(2px);
-    }
-
-    .hdr-btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 12px;
-      border: 2px solid #0a192f;
-      background: #fff;
-      color: #0a192f;
-      text-decoration: none;
-      border-radius: 999px;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-weight: 800;
-      font-size: 13px;
-      white-space: nowrap;
-      transition: transform .08s ease, filter .12s ease;
-    }
-    .hdr-btn:hover{ text-decoration: underline; transform: translateY(-1px); }
-
-    .lang-btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      font-weight: 900;
-      text-decoration: none;
-      background: #fff;
-      border: 2px solid #0a192f;
-      color: #0a192f;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-size: 13px;
-      line-height: 1;
-    }
-    .lang-btn:hover{ background: #f3f3f3; }
-    .lang-btn.active{
-      background: #0a192f;
-      color: #fff;
-    }
-
-    /* ===== MAIN ===== */
-    .site-main{
-      max-width: 1080px;
-      margin: 2rem auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(67,160,71,0.25);
-      padding: 2rem 2.2rem;
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/styles.css">
+  
+        
 </head>
 
-<body class="page-ecolaw">
+<body>
 
-  <!-- Hamburger + backdrop + side menu -->
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="sideMenu" aria-expanded="false">☰</button>
-  <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
-
-  <nav id="sideMenu" class="side-menu" aria-label="Navigation">
-    <a href="/english_version/index_en.html">Home</a>
-
-    <a href="/foodwasteprogramen+he.html" style="color:#ffd200; font-size:1.12em; font-weight:800;">
-      NEW! FOOD WASTE PROGRAM
-    </a>
-
-    <a href="/english_version/eco_law_en.html">Israeli Eco Laws</a>
-    <a href="/english_version/textbookWMen.html">Waste Management School</a>
-    <a href="/eco-analitics_EN/ecoanalytics_EN.html">Eco-Analytics</a>
-    <a href="/english_version/en_program.html">Circular Economy Transition Program (Project)</a>
-    <a href="/oecd_reports/oecd_reports_en.html">OECD Reports</a>
-    <a href="/english_version/about_us_en.html">Our Team</a>
-  </nav>
-
-  <header class="site-header" role="banner">
+    <header class="site-header" role="banner">
     <div class="header-inner">
-      <div style="width:48px;"></div>
+      <div style="width:48px;"></div><!-- empty “placeholder” so the brand centers evenly -->
       <div class="brand">Re-Haifa Hub</div>
 
       <div class="header-actions">
         <div class="action-pill" aria-label="Buttons and language">
-          <a class="hdr-btn" href="/english_version/anketa_en.html" title="Join form/contact">Join</a>
-          <a class="hdr-btn" href="https://www.facebook.com/profile.php?id=61575821814765" title="Facebook page">Facebook</a>
+          <!-- IMPORTANT: put your real link to the signup/contact here -->
+          <a class="hdr-btn" href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" title="Put your link to the form/contact here">Join</a>
 
-          <a class="lang-btn" href="/ecoanalytics_RU/index.html" aria-label="Русский">RU</a>
-          <a class="lang-btn active" href="/eco-analitics_EN/ecoanalytics_EN.html" aria-label="English">EN</a>
+          <!-- IMPORTANT: put your real link to Facebook here -->
+          <a class="hdr-btn" href="https://www.facebook.com/profile.php?id=61575821814765" title="Put your link to the Facebook page here">Facebook</a>
+
+          <a class="lang-btn active" href="/ecoanalytics_RU/index.html" aria-label="Russian">RU</a>
+          <a class="lang-btn" href="/eco-analitics_EN/ecoanalytics_EN.html" aria-label="English">EN</a>
           <a class="lang-btn" href="/eco-analitics_HEB/ecoanalytics-heb.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
         </div>
       </div>
     </div>
   </header>
+<div id="menu-slot"></div>
 
+  <!-- Content -->
   <main class="site-main">
     <section class="card">
-      <h2 class="page-title">Eco Analytics: reports and research on waste and the circular economy in Israel</h2>
-      <p class="lead">Resources for activists and practitioners: overview studies, institutional analyses, and thematic analytical briefs</p>
+      <h2 class="page-title">Eco-analytics: reports and studies on waste and the circular economy in Israel</h2>
+      <p class="lead">Materials for activists and practitioners: overview studies, institutional analyses, and thematic analytical briefs.</p>
 
-
-
-        <main class="site-main">
-    <section class="card">
-           <ul class="doc-list">
-
+      <ul class="doc-list">
         <li>
           <a class="doc-link" href="Statistical_report_2000_2025.pdf" target="_blank" rel="noopener">
             <span class="doc-title">Statistical overview of municipal waste management in Israel (2000–2025)</span>
-        		<span class="badge">PDF</span>
-          </a>
-        </li>
-
-
-             
-        <li>
-          <a class="doc-link" href="TAMIR_Report_EN.docx" target="_blank" rel="noopener">
-            <span class="doc-title">The TAMIR Association (The Israeli Recycling Corporation) – The Central Player in Israel’s Municipal Waste Management System</span>
-            <span class="badge">DOCX</span>
+            <span class="badge">PDF</span>
           </a>
         </li>
 
         <li>
-          <a class="doc-link" href="Glass_Flows_Israel_Report_Bela_Nikitina_2025_EN.docx" target="_blank" rel="noopener">
-            <span class="doc-title">Lifecycle of Glass and Glass Products in Israel: Analytical Note</span>
-            <span class="badge">DOCX</span>
+          <a class="doc-link" href="The_Israeli_Recycling_Corporation_TAMIR.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">The TAMIR association — a key player in Israel’s waste management system</span>
+            <span class="badge">PDF</span>
           </a>
         </li>
 
         <li>
-          <a class="doc-link" href="Reuse and Social Adaptation of New Immigrants in Israel - The Experience of Nahariya.docx" target="_blank" rel="noopener">
-            <span class="doc-title">Reuse of Goods and Social Adaptation of New Immigrants in Israel: The Experience of Nahariya (Israel)</span>
-            <span class="badge">DOCX</span>
+          <a class="doc-link" href="Glass_Flows_Israel_Report_Bela_Nikitina_2025.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Life cycle of glass and glass products in Israel: an analytical brief</span>
+            <span class="badge">PDF</span>
           </a>
         </li>
 
         <li>
-          <a class="doc-link" href="Circularity of the Furniture Sector in Israel (2014–2024).docx" target="_blank" rel="noopener">
-            <span class="doc-title">Furniture Consumption and Recycling – A Comparative Study on the Implementation of Circular Economy Principles in Israel (2014–2024)</span>
-            <span class="badge">DOCX</span>
+          <a class="doc-link" href="Sharing_in_Nahariya.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Reuse and adaptation of new immigrants: the Nahariya experience</span>
+            <span class="badge">PDF</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="doc-link" href="Recycling_of_furniture.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Circularity of Israel’s furniture sector (2014–2024): consumption and recycling</span>
+            <span class="badge">PDF</span>
           </a>
         </li>
 
      <li>
-          <a class="doc-link" href="Israel_waste_management_legislation_report_EN.docx" target="_blank" rel="noopener">
-            <span class="doc-title">Israel’s Legislation on Municipal Waste Management (2000–2025)</span>
-            <span class="badge">DOCX</span>
+          <a class="doc-link" href="Israel_waste_management_legislation_report.pdf" target="_blank" rel="noopener">
+            <span class="doc-title">Israel’s legislation on municipal waste management (2000–2025)</span>
+            <span class="badge">PDF</span>
           </a>
         </li>
       
-  
+      
       
       
       </ul>
-    </section>
-  </main>
-
-
-
-
-
-
-
-
-
-
-      
     </section>
   </main>
 
@@ -309,51 +97,6 @@
     © RE-HAIFA HUB, 2025
   </footer>
 
-  <!-- Minimal stable menu script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const menu = document.getElementById('sideMenu');
-      const btn = document.getElementById('menuBtn');
-      const backdrop = document.getElementById('menuBackdrop');
-      const OPEN_W = '260px';
-
-      const openMenu = () => {
-        menu.style.width = OPEN_W;
-        backdrop.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-      };
-
-      const closeMenu = () => {
-        menu.style.width = '0';
-        backdrop.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      };
-
-      btn.addEventListener('click', () => {
-        const isOpen = menu.style.width === OPEN_W;
-        isOpen ? closeMenu() : openMenu();
-      });
-
-      backdrop.addEventListener('click', closeMenu);
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMenu();
-      });
-    });
-  </script>
-
+<script src="/assets/script_menu_ru.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
