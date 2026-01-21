@@ -618,43 +618,38 @@
     © RE-HAIFA HUB, 2025
   </footer>
 
-  <script>
-    (function(){
-      const btn = document.getElementById('menuBtn');
-      const menu = document.getElementById('sideMenu');
-      const backdrop = document.getElementById('menuBackdrop');
+ <script>
+    const menu = document.getElementById("sideMenu");
+    const btn = document.getElementById("menuBtn");
+    const backdrop = document.getElementById("menuBackdrop");
 
-      function openMenu(){
-        menu.classList.add('open');
-        backdrop.classList.add('open');
-        btn.setAttribute('aria-expanded','true');
-      }
-      function closeMenu(){
-        menu.classList.remove('open');
-        backdrop.classList.remove('open');
-        btn.setAttribute('aria-expanded','false');
-      }
+    function openMenu(){
+      menu.style.width = "250px";
+      backdrop.classList.add("open");
+      btn.setAttribute("aria-expanded","true");
+    }
 
-      btn.addEventListener('click', () => {
-        const isOpen = menu.classList.contains('open');
-        isOpen ? closeMenu() : openMenu();
-      });
+    function closeMenu(){
+      menu.style.width = "0";
+      backdrop.classList.remove("open");
+      btn.setAttribute("aria-expanded","false");
+    }
 
-      backdrop.addEventListener('click', closeMenu);
+    function toggleMenu(){
+      if (menu.style.width === "250px") closeMenu();
+      else openMenu();
+    }
 
-      document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape') closeMenu();
-      });
+    btn.addEventListener("click", toggleMenu);
+    backdrop.addEventListener("click", closeMenu);
 
-      // закрывать меню после клика по ссылке
-      menu.addEventListener('click', (e) => {
-        const a = e.target.closest('a');
-        if(a) closeMenu();
-      });
-    })();
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
   </script>
 </body>
 </html>
+
 
 
 
