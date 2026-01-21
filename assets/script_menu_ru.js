@@ -2,7 +2,7 @@
   const slot = document.getElementById('menu-slot');
   if (!slot) return;
 
-  const res = await fetch('menu_ru.html', { cache: 'no-cache' });
+  const res = await fetch('/assets/menu_ru.html', { cache: 'no-cache' });
   slot.innerHTML = await res.text();
 
   const menu = document.getElementById("sideMenu");
