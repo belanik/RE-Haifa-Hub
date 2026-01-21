@@ -437,10 +437,17 @@
       padding: 0 1rem;
     }
     .card{
-      background: var(--paper);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.4rem 1.4rem;
+      border: 1px solid #e6efe6;
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      margin: .6rem 0 1rem;
+      background: #fff;
+    }
+    .card h3{
+      margin: .2rem 0 .4rem;
+      color: #123;
+      font-size: 1.05rem;
+      font-weight: 900;
     }
     .page-title{
       color: #223;
