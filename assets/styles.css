@@ -436,9 +436,12 @@
     
     /* ====== Main container ====== */
     .site-main{
-      max-width: 980px;
-      margin: 1.6rem auto 2.4rem auto;
-      padding: 0 1rem;
+      max-width: 1080px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(67,160,71,0.25);
+      padding: 2rem 2.2rem;
     }
     .card{
         
