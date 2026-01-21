@@ -9,7 +9,7 @@
       left: 15px;
       font-size: 1.8em;
       cursor: pointer;
-      border: 2px solid #0a192f;
+      border: 2px solid #0a192f;f
       background: rgba(255,255,255,0.92);
       color: #0a192f;
       border-radius: 10px;
@@ -509,4 +509,19 @@
       font-weight: 600;
       opacity: 0.92;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .block{
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(67,160,71,0.18);
+      padding: 1.25rem 1.4rem;
+      margin-top: 1rem;
+      border: 1px solid #e6efe6;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .block h2{
+      margin: 0.1rem 0 0.9rem 0;
+      color: #2e7d32;
+      font-size: 1.15rem;
+      font-weight: 800;
     }
