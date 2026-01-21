@@ -21,7 +21,11 @@
       background: #ffffff;
       box-shadow: 0 4px 14px rgba(0,0,0,0.22);
     }
-
+    .note{
+      font-size: .95rem;
+      color:#556;
+      margin-top: 0.9rem;
+    }
     /* ===== BACKDROP (чтобы закрывать меню кликом) ===== */
     .menu-backdrop{
       position: fixed;
@@ -445,7 +449,12 @@
         
 
     }
-
+    .card h3{
+      margin: .2rem 0 .4rem;
+      color: #123;
+      font-size: 1.05rem;
+      font-weight: 900;
+    }
     .page-title{
       color: #223;
       text-align: left;
