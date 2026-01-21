@@ -443,9 +443,12 @@
       padding: 1.4rem 1.4rem;
     }
     .page-title{
-      margin:0 0 .4rem 0;
-      font-size: 1.55rem;
-      color:#123;
+      color: #223;
+      text-align: left;
+      margin: 0 0 6px 0;
+      font-size: 1.7rem;
+      line-height: 1.25;
+      font-weight: 800;
     }
     .lead{
       margin:0 0 1.1rem 0;
