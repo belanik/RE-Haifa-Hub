@@ -1,9 +1,10 @@
- <script>
-    const res = await fetch('/assets/menu_ru.html', { cache: 'no-cache' });
+(async function () {
+   const res = await fetch('/assets/menu_ru.html', { cache: 'no-cache' });
     slot.innerHTML = await res.text();
     const menu = document.getElementById("sideMenu");
     const btn = document.getElementById("menuBtn");
     const backdrop = document.getElementById("menuBackdrop");
+    const slot = document.getElementById('menu-slot');
 
     function openMenu(){
       menu.style.width = "250px";
@@ -28,4 +29,4 @@
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMenu();
     });
-  </script>
+})();
