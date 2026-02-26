@@ -553,3 +553,21 @@
       font-size: 1.15rem;
       font-weight: 800;
     }
+
+
+!important
+.contacts a {
+  display: inline-block !important;
+  background: #2e7d32 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  padding: 8px 20px !important;
+  border-radius: 25px !important;
+  font-size: 0.85em !important;
+  font-weight: 700 !important;
+  margin: 4px !important;
+  transition: background 0.2s !important;
+}
+.contacts a:hover {
+  background: #388e3c !important;
+}
