@@ -8,51 +8,49 @@
   <link rel="icon" href="green.jpg" />
   <meta name="description" content="RE Haifa - движение горожан за устойчивое развитие и экологичный образ жизни в Хайфе.">
   <link rel="stylesheet" href="assets/styles.css">
-  <style>
+ 
 
-    /* ===== ГОРИЗОНТАЛЬНОЕ МЕНЮ — 2 РЯДА НА ДЕСКТОПЕ ===== */
-    .top-nav {
-      background: rgba(67,160,71,0.95);
-      display: flex;
-      flex-wrap: wrap;             /* перенос = 2 ряда */
-      justify-content: center;
-      gap: 3px;
-      padding: 5px 12px;
-      z-index: 100;
-      position: relative;
-    }
-    .top-nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 0.82em;
-      font-weight: 700;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      white-space: nowrap;
-      transition: background 0.2s;
-    }
-    .top-nav a:hover {
-      background: rgba(255,255,255,0.2);
-      opacity: 1;
-    }
 
-    
+<style>
+  .top-nav {
+    background: #1b5e20;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 10px;
+    z-index: 100;
+    position: relative;
+  }
+  .top-nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.78em;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    white-space: nowrap;
+    background: #2e7d32;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: background 0.2s;
+  }
+  .top-nav a:hover {
+    background: #388e3c;
+  }
+  @media (max-width: 700px) {
+    .top-nav { justify-content: flex-start; padding: 3px 5px; gap: 2px; }
+    .top-nav a { font-size: 0.68em; padding: 3px 8px; }
+  }
+</style>
 
-    /* ===== МОБИЛЬНАЯ ВЕРСИЯ — компактнее и уже ===== */
-    @media (max-width: 700px) {
-      .top-nav {
-        justify-content: flex-start;
-        padding: 3px 5px;
-        gap: 2px;
-      }
-      .top-nav a {
-        font-size: 0.70em;
-        padding: 4px 6px;
-        border-radius: 4px;
-      }
-    }
-  </style>
+
+
+  
+
+
+
+  
 </head>
 <body>
 
