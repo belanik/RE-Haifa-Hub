@@ -42,6 +42,42 @@
     .top-nav { justify-content: flex-start; padding: 3px 5px; gap: 2px; }
     .top-nav a { font-size: 0.68em; padding: 3px 8px; }
   }
+
+  /* добавьте сюда: */
+  .event-button {
+    background: #2e7d32;
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.78em;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: background 0.2s;
+    display: inline-block;
+    margin: 3px;
+  }
+  .event-button:hover { background: #388e3c; }
+
+  .partners-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .partners-list li {
+    background: #2e7d32;
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.78em;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+
+  
 </style>
 
 
@@ -174,22 +210,6 @@
     <section class="section-block" id="past-events">
       <h2>Прошедшие мероприятия</h2>
 
-
-/* Кнопки мероприятий */
-.event-button {
-  background: #2e7d32;
-  color: #fff;
-  text-decoration: none;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.78em;
-  font-weight: 700;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  border: 1px solid rgba(255,255,255,0.25);
-  transition: background 0.2s;
-  display: inline-block;
-  margin: 3px;
-}
 .event-button:hover { background: #388e3c; }
 
       <div class="event-buttons">
@@ -199,33 +219,7 @@
         <a class="event-button" href="past_events/accessories_exchange.html" title="Обмен бижутерией">Обмен бижутерией</a>
         <a class="event-button" href="past_events/swap_party.html" title="Презентация — Эко-обмен одеждой">Эко-обмен одеждой</a>
       </div>
-    </section>
-
-      
-/* Партнёры — в стиле меню */
-.partners-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.partners-list li {
-  background: #2e7d32;
-  color: #fff;
-  padding: 4px 14px;
-  border-radius: 20px;
-  font-size: 0.78em;
-  font-weight: 700;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-
-
-
-
-
-
-
+    </section>     
     
     <section class="section-block" id="partners">
       <h2>Наши взаимодействия с органами власти и партнёрами</h2>
