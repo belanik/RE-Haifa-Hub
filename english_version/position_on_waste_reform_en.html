@@ -1,0 +1,236 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Position on Waste Reform — RE Haifa</title>
+  <link rel="icon" href="/green.jpg" />
+  <link rel="stylesheet" href="/assets/styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap');
+
+    .reform-hero {
+      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #388e3c 100%);
+      color: #fff;
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .reform-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .reform-hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: 900;
+      margin: 0 0 0.5rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .reform-hero .subtitle {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1.05rem;
+      opacity: 0.88;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      font-weight: 400;
+    }
+    .reform-hero .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      padding: 4px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-family: 'Source Sans 3', sans-serif;
+      position: relative;
+    }
+
+    .docs-container {
+      max-width: 720px;
+      margin: 2rem auto;
+      padding: 0 1.2rem;
+    }
+
+    .docs-intro {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1.05rem;
+      color: #3a4a3a;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+      padding: 1.2rem 1.5rem;
+      background: rgba(67,160,71,0.07);
+      border-radius: 10px;
+      border-left: 4px solid #43a047;
+    }
+
+    .doc-card {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.3rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 12px rgba(67,160,71,0.13);
+      border: 1px solid #e0ede0;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .doc-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(67,160,71,0.22);
+      border-color: #43a047;
+    }
+    .doc-icon {
+      flex: 0 0 48px;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #1565c0, #1976d2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: #fff;
+      font-weight: 900;
+      font-family: 'Source Sans 3', sans-serif;
+      box-shadow: 0 2px 8px rgba(21,101,192,0.3);
+    }
+    .doc-info { flex: 1; }
+    .doc-part {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #43a047;
+      margin-bottom: 0.2rem;
+    }
+    .doc-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #1a2e1a;
+      line-height: 1.3;
+    }
+    .doc-desc {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      color: #667;
+      margin-top: 0.2rem;
+    }
+    .doc-arrow {
+      flex: 0 0 auto;
+      color: #43a047;
+      font-size: 1.3rem;
+      opacity: 0.5;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .doc-card:hover .doc-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+    .doc-card.highlight {
+      background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e9 100%);
+      border-color: #43a047;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.8;
+      transition: opacity 0.15s;
+    }
+    .back-link:hover { opacity: 1; }
+
+    .back-wrap {
+      max-width: 720px;
+      margin: 1.5rem auto 0;
+      padding: 0 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="back-wrap">
+    <a class="back-link" href="/english_version/index_en.html">← Back to main page</a>
+  </div>
+
+  <div class="reform-hero">
+    <div class="tag">Policy Document · 2025–2035</div>
+    <h1>Position on Waste Reform</h1>
+    <p class="subtitle">RE Haifa's comprehensive proposal for Israel's national food waste reduction program</p>
+  </div>
+
+  <div class="docs-container">
+
+    <p class="docs-intro">
+      This document outlines RE Haifa's position on the national food waste reduction reform in Israel for 2026–2035. It includes a core policy proposal, financial model, and supporting materials. Download the sections below.
+    </p>
+
+    <a class="doc-card highlight" href="/english_version/Executive_Summary.docx" download>
+      <div class="doc-icon">W</div>
+      <div class="doc-info">
+        <div class="doc-part">Overview</div>
+        <div class="doc-title">Executive Summary</div>
+        <div class="doc-desc">Key conclusions and recommendations — start here</div>
+      </div>
+      <div class="doc-arrow">→</div>
+    </a>
+
+    <a class="doc-card" href="/english_version/Part_I_Core_Proposal.docx" download>
+      <div class="doc-icon">W</div>
+      <div class="doc-info">
+        <div class="doc-part">Part I</div>
+        <div class="doc-title">Core Proposal</div>
+        <div class="doc-desc">Main policy framework and proposed reform measures</div>
+      </div>
+      <div class="doc-arrow">→</div>
+    </a>
+
+    <a class="doc-card" href="/english_version/Part_II_Financial_Model.docx" download>
+      <div class="doc-icon">W</div>
+      <div class="doc-info">
+        <div class="doc-part">Part II</div>
+        <div class="doc-title">Financial Model</div>
+        <div class="doc-desc">Budget projections, cost-benefit analysis, and funding sources</div>
+      </div>
+      <div class="doc-arrow">→</div>
+    </a>
+
+    <a class="doc-card" href="/english_version/Attachment.docx" download>
+      <div class="doc-icon">W</div>
+      <div class="doc-info">
+        <div class="doc-part">Appendix</div>
+        <div class="doc-title">Attachment</div>
+        <div class="doc-desc">Supporting data, references, and additional materials</div>
+      </div>
+      <div class="doc-arrow">→</div>
+    </a>
+
+  </div>
+
+  <footer>
+    &copy; RE Haifa Hub, 2025 — Ecology, Exchange, and Community in Haifa
+  </footer>
+
+</body>
+</html>
