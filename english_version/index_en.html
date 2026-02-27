@@ -1,15 +1,47 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RE Haifa Hub</title>
+  <title>RE Haifa</title>
 
   <link rel="icon" href="/green.jpg" />
-  <meta name="description" content="RE Haifa Hub — sustainable development, resource exchange, and ecology projects in Haifa.">
+  <meta name="description" content="RE Haifa — sustainable development, resource exchange, and ecology projects in Haifa.">
 
   <link rel="stylesheet" href="/assets/styles.css">
+
+  <style>
+    .top-nav {
+      background: #1b5e20;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      padding: 6px 10px;
+      z-index: 100;
+      position: relative;
+    }
+    .top-nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.78em;
+      font-weight: 700;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      white-space: nowrap;
+      background: #2e7d32;
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: background 0.2s;
+    }
+    .top-nav a:hover {
+      background: #388e3c;
+    }
+    @media (max-width: 700px) {
+      .top-nav { justify-content: flex-start; padding: 3px 5px; gap: 2px; }
+      .top-nav a { font-size: 0.68em; padding: 3px 8px; }
+    }
+  </style>
 
 </head>
 
@@ -18,13 +50,12 @@
   <header class="site-header" role="banner">
     <div class="header-inner">
       <div style="width:48px;"></div>
-      <div class="brand">Re-Haifa Hub</div>
+      <div class="brand">Re-Haifa</div>
       <div class="header-actions">
         <div class="action-pill" aria-label="Buttons and language">
           <a class="hdr-btn" href="/english_version/anketa_en.html" title="Join form">Join</a>
           <a class="hdr-btn" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener" title="Facebook page">Facebook</a>
           <a class="lang-btn" href="/index.html" aria-label="Russian">RU</a>
-          <a class="lang-btn active" href="/english_version/index_en.html" aria-label="English">EN</a>
           <a class="lang-btn" href="/hebrew_version/index_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
         </div>
       </div>
@@ -54,7 +85,7 @@
       </p>
 
       <p class="news-item">
-        <strong class="announcement-tag">26.12.2025 New Year Eco-Festival</strong> The ReHaifa Hub New Year Eco-Festival, in partnership with the Martef 23 community center and the Hadar community, was warm and truly large-scale: around 100 people joined us.
+        <strong class="announcement-tag">26.12.2025 New Year Eco-Festival</strong> The ReHaifa New Year Eco-Festival, in partnership with the Martef 23 community center and the Hadar community, was warm and truly large-scale: around 100 people joined us.
       </p>
 
       <p class="news-item">
@@ -86,7 +117,7 @@
       </p>
 
       <p class="news-item">
-        <strong>September 29, 2025.</strong> The Re-Haifa Hub project caught media attention, and we were invited to Kan-Reka radio. You can listen to Bela Nikitina's interview here (Good Morning, Israel — broadcast from September 29, 2025, starting at minute 22)
+        <strong>September 29, 2025.</strong> The Re-Haifa project caught media attention, and we were invited to Kan-Reka radio. You can listen to Bela Nikitina's interview here (Good Morning, Israel — broadcast from September 29, 2025, starting at minute 22)
         (<a href="https://www.kan.org.il/content/kan/kan-reka/p-9869/" target="_blank" rel="noopener noreferrer">
           <span style="color:#0057ff;font-weight:700;">HERE</span>
         </a>)
@@ -107,8 +138,8 @@
       </p>
 
       <div class="news-photos">
-        <a href="#img1"><img src="/victory1.jpg" alt="RE Haifa Hub victory photo 1"></a>
-        <a href="#img2"><img src="/victory2.jpg" alt="RE Haifa Hub victory photo 2"></a>
+        <a href="#img1"><img src="/victory1.jpg" alt="RE Haifa victory photo 1"></a>
+        <a href="#img2"><img src="/victory2.jpg" alt="RE Haifa victory photo 2"></a>
       </div>
 
       <div id="img1" class="modal">
@@ -161,7 +192,7 @@
   </main>
 
   <footer>
-    &copy; RE Haifa Hub, 2025 — Ecology, Exchange, and Community in Haifa
+    &copy; RE Haifa, 2025 — Ecology, Exchange, and Community in Haifa
   </footer>
 
   <script src="/assets/script_menu_en.js" defer></script>
