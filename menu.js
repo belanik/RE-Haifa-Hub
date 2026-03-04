@@ -61,18 +61,10 @@
 
  document.head.appendChild(style);
 
-  // Определяем глубину страницы, чтобы правильно построить путь к корню
-  function getRootPath() {
-    const depth = window.location.pathname.split("/").filter(Boolean).length - 1;
-    return depth > 0 ? "../".repeat(depth) : "./";
-  }
-
-  const root = getRootPath();
-
   const nav = document.createElement("nav");
   nav.className = "top-nav";
   nav.setAttribute("aria-label", "Навигация");
-  nav.innerHTML = `
+nav.innerHTML = `
   <a href="/foodwasteprogramRU.html" style="color:#ffd200;">Позиция по реформе отходов</a>
   <a href="/foodwasteprogramRU.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
   <a href="/ecoanalytics_RU/index.html">Эко-аналитика</a>
@@ -83,7 +75,7 @@
   <a href="/about_us.html">Наша команда</a>
   <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">Мы на Facebook</a>
   <a href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" target="_blank" style="color:#ffd200; font-weight:900;">Присоединиться к нам ➜</a>
-  `;
+` ;
 
 
 
