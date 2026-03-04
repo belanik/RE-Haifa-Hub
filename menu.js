@@ -1,6 +1,6 @@
 // menu.js — универсальное меню RE-Haifa
 // Подключите этот файл на каждой странице:
-// <script src="/menu.js"></script>  (или с нужным относительным путём)
+// <script src="/`"></script>  (или с нужным относительным путём)
 // Замените <div id="menu-slot"></div> на этот скрипт
 
 (function () {
@@ -33,12 +33,31 @@
       background: #388e3c;
     }
 
-    @media (max-width: 700px) {
+@media (max-width: 700px) {
       .top-nav { justify-content: flex-start; padding: 3px 5px; gap: 2px; }
       .top-nav a { font-size: 0.68em; padding: 3px 8px; }
     }
+
+    .site-footer {
+      background: #1b5e20;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 16px 20px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 0.85em;
+      margin-top: 2rem;
+    }
+    .site-footer a {
+      color: #ffd200;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
   `;
-  document.head.appendChild(style);
+
+ document.head.appendChild(style);
 
   // Определяем глубину страницы, чтобы правильно построить путь к корню
   function getRootPath() {
