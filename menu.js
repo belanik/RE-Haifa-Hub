@@ -83,23 +83,7 @@
     <a href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" target="_blank" style="color:#ffd200; font-weight:900;">Присоединиться к нам ➜</a>
   `;
 
-  // Вставляем меню: в div#menu-slot если есть, иначе сразу после <header>
-  const slot = document.getElementById("menu-slot");
-  if (slot) {
-    slot.replaceWith(nav);
-  } else {
-    const header = document.querySelector("header");
-    if (header) header.insertAdjacentElement("afterend", nav);
-    else document.body.prepend(nav);
-  }
-
-
-
-
-
-
-
-  // Вставляем меню: в div#menu-slot если есть, иначе сразу после <header>
+   // Вставляем меню: в div#menu-slot если есть, иначе сразу после <header>
   const slot = document.getElementById("menu-slot");
   if (slot) {
     slot.replaceWith(nav);
