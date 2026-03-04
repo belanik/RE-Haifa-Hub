@@ -388,6 +388,13 @@ footer {
   white-space: nowrap;
 }
 
+
+a.brand {
+  color: inherit;
+  text-decoration: none;
+}
+
+
 .topnav {
   display: flex;
   flex-wrap: wrap;      /* чтобы пункты переносились */
