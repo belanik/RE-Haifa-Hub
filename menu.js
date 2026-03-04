@@ -73,17 +73,21 @@
   nav.className = "top-nav";
   nav.setAttribute("aria-label", "Навигация");
   nav.innerHTML = `
-    <a href="${root}foodwasteprogramRU.html" style="color:#ffd200;">Позиция по реформе отходов</a>
-    <a href="${root}foodwasteprogramRU.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
-    <a href="${root}ecoanalytics_RU/index.html">Эко-аналитика</a>
-    <a href="${root}eco-law-ru.html">Эко законы Израиля</a>
-    <a href="${root}programma.html">Циркулярная экономика</a>
-    <a href="${root}textbookWM.html">Школа управления отходами</a>
-    <a href="${root}oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
-    <a href="${root}about_us.html">Наша команда</a>
-    <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">Мы на Facebook</a>
-    <a href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" target="_blank" style="color:#ffd200; font-weight:900;">Присоединиться к нам ➜</a>
+  <a href="/foodwasteprogramRU.html" style="color:#ffd200;">Позиция по реформе отходов</a>
+  <a href="/foodwasteprogramRU.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
+  <a href="/ecoanalytics_RU/index.html">Эко-аналитика</a>
+  <a href="/eco-law-ru.html">Эко законы Израиля</a>
+  <a href="/programma.html">Циркулярная экономика</a>
+  <a href="/textbookWM.html">Школа управления отходами</a>
+  <a href="/oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
+  <a href="/about_us.html">Наша команда</a>
+  <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">Мы на Facebook</a>
+  <a href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" target="_blank" style="color:#ffd200; font-weight:900;">Присоединиться к нам ➜</a>
   `;
+
+
+
+  
 
    // Вставляем меню: в div#menu-slot если есть, иначе сразу после <header>
   const slot = document.getElementById("menu-slot");
