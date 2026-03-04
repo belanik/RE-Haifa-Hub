@@ -32,6 +32,9 @@
     .top-nav a:hover {
       background: #388e3c;
     }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+    }
     @media (max-width: 700px) {
       .top-nav { justify-content: flex-start; padding: 3px 5px; gap: 2px; }
       .top-nav a { font-size: 0.68em; padding: 3px 8px; }
