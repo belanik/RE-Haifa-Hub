@@ -32,8 +32,7 @@
     .top-nav a:hover {
       background: #388e3c;
     }
-
-@media (max-width: 700px) {
+    @media (max-width: 700px) {
       .top-nav { justify-content: flex-start; padding: 3px 5px; gap: 2px; }
       .top-nav a { font-size: 0.68em; padding: 3px 8px; }
     }
