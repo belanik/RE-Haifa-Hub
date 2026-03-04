@@ -32,15 +32,7 @@
     .top-nav a:hover {
       background: #388e3c;
     }
-    .top-nav .nav-home {
-      background: #1b5e20;
-      font-size: 0.9em;
-      letter-spacing: 0.03em;
-      border: 1px solid rgba(255,255,255,0.4);
-    }
-    .top-nav .nav-home:hover {
-      background: #2e7d32;
-    }
+
     @media (max-width: 700px) {
       .top-nav { justify-content: flex-start; padding: 3px 5px; gap: 2px; }
       .top-nav a { font-size: 0.68em; padding: 3px 8px; }
@@ -60,7 +52,6 @@
   nav.className = "top-nav";
   nav.setAttribute("aria-label", "Навигация");
   nav.innerHTML = `
-    <a class="nav-home" href="${root}index.html">🌿 Re-Haifa</a>
     <a href="${root}foodwasteprogramRU.html" style="color:#ffd200;">Позиция по реформе отходов</a>
     <a href="${root}foodwasteprogramRU.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
     <a href="${root}ecoanalytics_RU/index.html">Эко-аналитика</a>
@@ -83,3 +74,11 @@
     else document.body.prepend(nav);
   }
 })();
+
+
+
+
+
+
+
+
