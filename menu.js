@@ -92,7 +92,44 @@
     if (header) header.insertAdjacentElement("afterend", nav);
     else document.body.prepend(nav);
   }
+
+
+
+
+
+
+
+  // Вставляем меню: в div#menu-slot если есть, иначе сразу после <header>
+  const slot = document.getElementById("menu-slot");
+  if (slot) {
+    slot.replaceWith(nav);
+  } else {
+    const header = document.querySelector("header");
+    if (header) header.insertAdjacentElement("afterend", nav);
+    else document.body.prepend(nav);
+  }
+
+  // Вставляем футер: заменяем существующий <footer> или добавляем в конец <body>
+  const footer = document.createElement("footer");
+  footer.className = "site-footer";
+  footer.innerHTML = `
+    &copy; RE Haifa, 2025 &mdash; Экология, обмен и сообщество в Хайфе &nbsp;|&nbsp;
+    <a href="mailto:rehaifahub@gmail.com">rehaifahub@gmail.com</a> &nbsp;|&nbsp;
+    <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">Facebook</a> &nbsp;|&nbsp;
+    <a href="https://t.me/rehaifahub" target="_blank">Telegram</a>
+  `;
+
+  // Заменяем существующий footer если есть, иначе добавляем в конец body
+  window.addEventListener("DOMContentLoaded", () => {
+    const existingFooter = document.querySelector("footer");
+    if (existingFooter) {
+      existingFooter.replaceWith(footer);
+    } else {
+      document.body.appendChild(footer);
+    }
+  });
 })();
+
 
 
 
