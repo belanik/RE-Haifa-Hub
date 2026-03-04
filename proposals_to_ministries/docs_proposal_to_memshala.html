@@ -1,117 +1,91 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RE-Haifa </title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="RE Haifa — проекты устойчивого развития, обмена ресурсами и экологии в Хайфе." />
+  <title>Наша команда — RE Haifa</title>
 
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="green.jpg" />
-  <meta name="description" content="RE Haifa - движение горожан за устойчивое развитие и экологичный образ жизни в Хайфе.">
-  <link rel="stylesheet" href="assets/styles.css">
- 
+  <link rel="stylesheet" href="/assets/styles.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      background: #f7fafc;
+      color: #223;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a { color: #2e7d32; }
+    a:hover { opacity: 0.9; }
+
+    /* Ссылка-бренд */
+    a.brand {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Основной контент */
+    .site-main {
+      max-width: 1080px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(67,160,71,0.25);
+      padding: 2rem 2.2rem;
+    }
+
+    .contacts a {
+      display: inline-block;
+      background: rgba(67,160,71,0.85);
+      color: #fff !important;
+      border-radius: 8px;
+      padding: 0.7em 1.2em;
+      margin: 0.4em 0.3em;
+      text-decoration: none;
+      font-size: 1.05em;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+      transition: background 0.2s;
+    }
+    .contacts a:hover { background: rgba(67,160,71,1); }
+
+    #contacts h2 {
+      margin: 1.5rem 0 0.7rem;
+      color: #2e7d32;
+      font-size: 1.3rem;
+    }
 
 
-<style>
-  .top-nav {
-    background: #1b5e20;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px;
-    padding: 6px 10px;
-    z-index: 100;
-    position: relative;
-  }
-  .top-nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.78em;
-    font-weight: 700;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    white-space: nowrap;
-    background: #2e7d32;
-    border: 1px solid rgba(255,255,255,0.25);
-    transition: background 0.2s;
-  }
-  .top-nav a:hover {
-    background: #388e3c;
-  }
-  @media (max-width: 700px) {
-    .top-nav { justify-content: flex-start; padding: 3px 5px; gap: 2px; }
-    .top-nav a { font-size: 0.68em; padding: 3px 8px; }
-  }
-
-  /* добавьте сюда: */
-  .event-button {
-    background: #2e7d32;
-    color: #fff;
-    text-decoration: none;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.78em;
-    font-weight: 700;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    border: 1px solid rgba(255,255,255,0.25);
-    transition: background 0.2s;
-    display: inline-block;
-    margin: 3px;
-  }
-
-  .partners-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .partners-list li {
-    background: #2e7d32;
-    color: #fff;
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-size: 0.78em;
-    font-weight: 700;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  }
-
-  
-</style>
-
-  
+    @media (max-width: 900px) {
+      .site-main { padding: 1.4rem 1.1rem; }
+    }
+  </style>
 </head>
+
 <body>
 
+  <!-- ШАПКА -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <div style="width:48px;"></div>
-    
-      <a class="brand" href="index.html">Re-Haifa</a>
- 
+      <a class="brand" href="/index.html">Re-Haifa</a>
       <div class="header-actions">
         <div class="action-pill" aria-label="Кнопки и язык">
-
-
-          <a class="lang-btn" href="english_version/index_en.html" aria-label="English">EN</a>
-          <a class="lang-btn" href="hebrew_version/index_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
+          <a class="lang-btn" href="/english_version/about_us_en.html" aria-label="English">EN</a>
+          <a class="lang-btn" href="/hebrew_version/about_us_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
         </div>
       </div>
     </div>
   </header>
 
-  <nav class="top-nav" aria-label="Навигация">
-   <a href="foodwasteprogramRU.html" style="color:#ffd200;">Позиция по реформе отходов</a>
-    <a href="foodwasteprogramRU.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
-    <a href="ecoanalytics_RU/index.html">Эко-аналитика</a>
-    <a href="eco-law-ru.html">Эко законы Израиля</a>
-    <a href="programma.html">Циркулярная экономика</a>
-    <a href="textbookWM.html">Школа управления отходами</a>
-    <a href="oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
-    <a href="about_us.html">Наша команда</a>
-    <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">Мы на Facebook</a>
-    <a href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" target="_blank" style="color:#ffd200; font-weight:900;">Присоединиться к нам ➜</a>
-  </nav>
+  <!-- МЕНЮ (подгружается из menu.js) -->
+  <script src="/menu.js"></script>
 
 <section class="docs-section">
   <h2> Предложения общественного движения RE-Haifa в связи с реформой обращения с муниципальными отходами </h2>
