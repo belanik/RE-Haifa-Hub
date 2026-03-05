@@ -62,17 +62,19 @@
   nav.setAttribute("aria-label", "Navigation");
   nav.innerHTML = `
     <a href="/english_version/position_on_waste_reform_en.html" style="color:#ffd200;">Position on Waste Reform</a>
-    <a href="/english_version/position_on_waste_reform_en.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
+    <a href="/english_version/foodwasteprogramen_en.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
     <a href="/eco-analitics_EN/ecoanalytics_EN.html">Eco-Analytics</a>
     <a href="/english_version/eco_law_en.html">Eco Laws of Israel</a>
     <a href="/english_version/en_program.html">Circular Economy</a>
     <a href="/english_version/textbookWMen.html">Waste Management School</a>
-    <a href="/oecd_reports/oecd_reports.html">OECD Reports</a>
+    <a href="/oecd_reports/oecd_reports_en.html">OECD Reports</a>
     <a href="/english_version/about_us_en.html">Our Team</a>
     <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">Facebook</a>
     <a href="/english_version/anketa_en.html" target="_blank" style="color:#ffd200; font-weight:900;">Join Us ➜</a>
   `;
 
+
+  
   // Insert menu after <header>
   const slot = document.getElementById("menu-slot");
   if (slot) {
