@@ -3,89 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RE Haifa</title>
+  <title>Eco-Analytics — RE Haifa</title>
   <link rel="icon" href="/green.jpg" />
-  <meta name="description" content="RE Haifa — sustainable development, resource exchange, and ecology projects in Haifa.">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="RE Haifa — reports and studies on waste and the circular economy in Israel.">
   <link rel="stylesheet" href="/assets/styles.css">
-</head>  
-  
+  <style>
+    .docs-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 1.5rem;
+    }
+    .doc-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #2e7d32;
+      color: #fff !important;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: background 0.2s;
+      gap: 12px;
+    }
+    .doc-btn:hover { background: #1b5e20; }
+    .doc-btn .doc-label { flex: 1; }
+    .doc-btn .doc-tag {
+      flex: 0 0 auto;
+      background: rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
 <body>
 
-<header class="site-header" role="banner">
-  <div class="header-inner">
-    <div style="width:48px;"></div>
-    <a class="brand" href="/english_version/index_en.html">Re-Haifa</a>
-    <div class="header-actions">
-      <div class="action-pill" aria-label="Language">
-        <a class="lang-btn" href="/index.html" aria-label="Русский">RU</a>
-        <a class="lang-btn" href="/hebrew_version/index_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div style="width:48px;"></div>
+      <a class="brand" href="/english_version/index_en.html">Re-Haifa</a>
+      <div class="header-actions">
+        <div class="action-pill" aria-label="Language">
+          <a class="lang-btn" href="/index.html" aria-label="Русский">RU</a>
+          <a class="lang-btn" href="/hebrew_version/index_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
+  <script src="/english_version/menu_en.js"></script>
 
-
-<script src="/english_version/menu_en.js"></script>
-
-  <!-- Content -->
   <main class="site-main">
-    <section class="card">
-      <h2 class="page-title">Eco-analytics: reports and studies on waste and the circular economy in Israel</h2>
-      <p class="lead">Materials for activists and practitioners: overview studies, institutional analyses, and thematic analytical briefs.</p>
 
-      <ul class="doc-list">
-        <li>
-          <a class="doc-link" href="Statistical_report_2000_2025.pdf" target="_blank" rel="noopener">
-            <span class="doc-title">Statistical overview of municipal waste management in Israel (2000–2025)</span>
-            <span class="badge">PDF</span>
-          </a>
-        </li>
+    <h1 class="page-title">Eco-Analytics: Reports and Studies on Waste and the Circular Economy in Israel</h1>
+    <p class="page-lead">Materials for activists and practitioners: overview studies, institutional analyses, and thematic analytical briefs.</p>
 
-        <li>
-          <a class="doc-link" href="The_Israeli_Recycling_Corporation_TAMIR.pdf" target="_blank" rel="noopener">
-            <span class="doc-title">The TAMIR association — a key player in Israel’s waste management system</span>
-            <span class="badge">PDF</span>
-          </a>
-        </li>
+    <div class="docs-grid">
 
-        <li>
-          <a class="doc-link" href="Glass_Flows_Israel_Report_Bela_Nikitina_2025.pdf" target="_blank" rel="noopener">
-            <span class="doc-title">Life cycle of glass and glass products in Israel: an analytical brief</span>
-            <span class="badge">PDF</span>
-          </a>
-        </li>
+      <a class="doc-btn" href="/eco-analitics_EN/Statistical_report_2000_2025.pdf" target="_blank" rel="noopener">
+        <span class="doc-label">Statistical Overview of Municipal Waste Management in Israel (2000–2025)</span>
+        <span class="doc-tag">PDF</span>
+      </a>
 
-        <li>
-          <a class="doc-link" href="Sharing_in_Nahariya.pdf" target="_blank" rel="noopener">
-            <span class="doc-title">Reuse and adaptation of new immigrants: the Nahariya experience</span>
-            <span class="badge">PDF</span>
-          </a>
-        </li>
+      <a class="doc-btn" href="/eco-analitics_EN/TAMIR_Report_EN.pdf" target="_blank" rel="noopener">
+        <span class="doc-label">The TAMIR Association — a Key Player in Israel's Waste Management System</span>
+        <span class="doc-tag">PDF</span>
+      </a>
 
-        <li>
-          <a class="doc-link" href="Recycling_of_furniture.pdf" target="_blank" rel="noopener">
-            <span class="doc-title">Circularity of Israel’s furniture sector (2014–2024): consumption and recycling</span>
-            <span class="badge">PDF</span>
-          </a>
-        </li>
+      <a class="doc-btn" href="/eco-analitics_EN/Glass_Flows_Israel_Report_Bela_Nikitina_2025_EN.pdf" target="_blank" rel="noopener">
+        <span class="doc-label">Life Cycle of Glass and Glass Products in Israel: an Analytical Brief</span>
+        <span class="doc-tag">PDF</span>
+      </a>
 
-     <li>
-          <a class="doc-link" href="Israel_waste_management_legislation_report.pdf" target="_blank" rel="noopener">
-            <span class="doc-title">Israel’s legislation on municipal waste management (2000–2025)</span>
-            <span class="badge">PDF</span>
-          </a>
-        </li>
-     
-      </ul>
-    </section>
+      <a class="doc-btn" href="/eco-analitics_EN/Reuse and Social Adaptation of New Immigrants in Israel - The Experience of Nahariya.pdf" target="_blank" rel="noopener">
+        <span class="doc-label">Reuse and Adaptation of New Immigrants: the Nahariya Experience</span>
+        <span class="doc-tag">PDF</span>
+      </a>
+
+      <a class="doc-btn" href="/eco-analitics_EN/Circularity of the Furniture Sector in Israel (2014–2024).pdf" target="_blank" rel="noopener">
+        <span class="doc-label">Circularity of Israel's Furniture Sector (2014–2024): Consumption and Recycling</span>
+        <span class="doc-tag">PDF</span>
+      </a>
+
+      <a class="doc-btn" href="/eco-analitics_EN/Israel_waste_management_legislation_report_EN.pdf" target="_blank" rel="noopener">
+        <span class="doc-label">Israel's Legislation on Municipal Waste Management (2000–2025)</span>
+        <span class="doc-tag">PDF</span>
+      </a>
+
+    </div>
   </main>
 
-
-
-<script src="/assets/script_menu_ru.js" defer></script>
 </body>
 </html>
-
-
-
