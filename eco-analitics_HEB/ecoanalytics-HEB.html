@@ -3,13 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RE Haifa</title>
+  <title>אקו-אנליטיקס — RE Haifa</title>
   <link rel="icon" href="/green.jpg" />
-  <meta name="description" content="RE Haifa — פרויקטים של קיימות, שיתוף משאבים ואקולוגיה בחיפה.">
+  <meta name="description" content="RE Haifa — דוחות ומחקרים על פסולת וכלכלה מעגלית בישראל.">
   <link rel="stylesheet" href="/assets/styles.css">
+  <style>
+    .docs-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 1.5rem;
+    }
+    .doc-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #2e7d32;
+      color: #fff !important;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: background 0.2s;
+      gap: 12px;
+      text-align: right;
+    }
+    .doc-btn:hover { background: #1b5e20; }
+    .doc-btn .doc-label { flex: 1; }
+    .doc-btn .doc-tag {
+      flex: 0 0 auto;
+      background: rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+  </style>
 </head>
 <body>
-	
+
   <header class="site-header" role="banner">
     <div class="header-inner">
       <div style="width:48px;"></div>
@@ -24,74 +58,45 @@
   </header>
   <script src="/hebrew_version/menu_he.js"></script>
 
-  <!-- Контент -->
   <main class="site-main">
-    <section class="card">
-      <h2 class="page-title">אקו אנליטיקס: דוחות ומחקרים על פסולת ועל כלכלה מעגלית בישראל</h2>
-      <p class="lead">משאבים לפעילים ולאנשי מקצוע: מחקרי סקירה, ניתוחים מוסדיים ותזכירים אנליטיים תמטיים.</p>
 
-      <ul class="doc-list">
-        <li>
-          <a class="doc-link" href="/ecoanalytics_RU/   " target="_blank" rel="noopener">
-            <span class="doc-title"> סקירה סטטיסטית של ניהול הפסולת העירונית בישראל (2000–2025).docx </span>
-			<span class="badge">PDF</span>
+    <h1 class="page-title" style="text-align:right;">אקו-אנליטיקס: דוחות ומחקרים על פסולת וכלכלה מעגלית בישראל</h1>
+    <p class="page-lead" style="text-align:right;">משאבים לפעילים ולאנשי מקצוע: מחקרי סקירה, ניתוחים מוסדיים ותזכירים אנליטיים תמטיים.</p>
 
-          </a>
-        </li>
+    <div class="docs-grid">
 
-        <li>
-          <a class="doc-link" href="TAMIR_Report_HE.docx" target="_blank" rel="noopener">
-            <span class="doc-title">תאגיד המיחזור תמיר - שחקן מרכזי במערכת ניהול הפסולת העירונית בישראל</span>
-            <span class="badge">DOCX</span>
-          </a>
-        </li>
+      <a class="doc-btn" href="/eco-analitics_HEB/Statistical_report_2000_2025.pdf" target="_blank" rel="noopener">
+        <span class="doc-label">סקירה סטטיסטית של ניהול הפסולת העירונית בישראל (2000–2025)</span>
+        <span class="doc-tag">PDF</span>
+      </a>
 
-        <li>
-          <a class="doc-link" href="Glass_Flows_Israel_Report_Bela_Nikitina_2025_HE.docx" target="_blank" rel="noopener">
-            <span class="doc-title">מחזור החיים של זכוכית ומוצרי זכוכית בישראל: תזכיר אנליטי </span>
-            <span class="badge">DOCX</span>
-          </a>
-        </li>
+      <a class="doc-btn" href="/eco-analitics_HEB/TAMIR_Report_HE.docx" target="_blank" rel="noopener">
+        <span class="doc-label">תאגיד המיחזור תמיר — שחקן מרכזי במערכת ניהול הפסולת העירונית בישראל</span>
+        <span class="doc-tag">DOCX</span>
+      </a>
 
-        <li>
-          <a class="doc-link" href="Reuse and Social Adaptation of New Immigrants in Israel (Nahariya)_Heb.docx" target="_blank" rel="noopener">
-            <span class="doc-title">   כלכלת שיתוף של עולים דוברי רוסית: הפחתת פסולת והתאמה חברתי
-</span>
-			 <span class="badge">DOCX</span>
-          </a>
-        </li>
+      <a class="doc-btn" href="/eco-analitics_HEB/Glass_Flows_Israel_Report_Bela_Nikitina_2025_HE.docx" target="_blank" rel="noopener">
+        <span class="doc-label">מחזור החיים של זכוכית ומוצרי זכוכית בישראל: תזכיר אנליטי</span>
+        <span class="doc-tag">DOCX</span>
+      </a>
 
-        <li>
-          <a class="doc-link" href="Circularity of the Furniture Sector in Israel (2014–2024)_HEB.docx" target="_blank" rel="noopener">
-            <span class="doc-title"> צריכת רהיטים ומיחזור: מחקר השוואתי של יישום כלכלה מעגלית בישראל (2014–2024) </span>
-            <span class="badge">DOCX</span>
-          </a>
-        </li>
+      <a class="doc-btn" href="/eco-analitics_HEB/Reuse and Social Adaptation of New Immigrants in Israel (Nahariya)_Heb.docx" target="_blank" rel="noopener">
+        <span class="doc-label">כלכלת שיתוף של עולים דוברי רוסית: הפחתת פסולת והתאמה חברתית</span>
+        <span class="doc-tag">DOCX</span>
+      </a>
 
-     <li>
-          <a class="doc-link" href="Israel_waste_management_legislation_report_HEB.docx" target="_blank" rel="noopener">
-            <span class="doc-title"> סקירה סטטיסטית של ניהול פסולת עירונית בישראל (2000–2025) </span>
-            <span class="badge">DOCX</span>
-          </a>
-        </li>
-      
-      
-      </ul>
-    </section>
+      <a class="doc-btn" href="/eco-analitics_HEB/Circularity of the Furniture Sector in Israel (2014–2024)_HEB.docx" target="_blank" rel="noopener">
+        <span class="doc-label">צריכת רהיטים ומיחזור: מחקר השוואתי של יישום כלכלה מעגלית בישראל (2014–2024)</span>
+        <span class="doc-tag">DOCX</span>
+      </a>
+
+      <a class="doc-btn" href="/eco-analitics_HEB/Israel_waste_management_legislation_report_HEB.docx" target="_blank" rel="noopener">
+        <span class="doc-label">חקיקת ישראל בנושא ניהול פסולת עירונית (2000–2025)</span>
+        <span class="doc-tag">DOCX</span>
+      </a>
+
+    </div>
   </main>
-
-
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
