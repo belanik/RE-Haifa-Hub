@@ -96,7 +96,7 @@
     &copy; RE Haifa, 2025 &mdash; אקולוגיה, שיתוף וקהילה בחיפה &nbsp;|&nbsp;
     <a href="mailto:rehaifa.info@gmail.com">rehaifa.info@gmail.com</a> &nbsp;|&nbsp;
     <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">פייסבוק</a> &nbsp;|&nbsp;
-    <a href="https://t.me/rehaifahub" target="_blank">טלגרם</a>
+    <a href="https://t.me/rehaifa" target="_blank">טלגרם</a>
   `;
 
   window.addEventListener("DOMContentLoaded", () => {
