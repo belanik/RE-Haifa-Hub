@@ -72,7 +72,8 @@
     <a href="/hebrew_version/eco_law_he.html">חוקי סביבה בישראל</a>
     <a href="/hebrew_version/he_program.html">כלכלה מעגלית</a>
     <a href="/hebrew_version/textbookWMhe.html">בית ספר לניהול פסולת</a>
-    <a href="/oecd_reports/oecd_reports.html">דוחות OECD</a>
+    
+    <a href="/oecd_reports/oecd_reports_he.html">דוחות OECD</a>
     <a href="/hebrew_version/about_us_he.html">הצוות שלנו</a>
     <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">פייסבוק</a>
     <a href="/hebrew_version/anketa_he.html" target="_blank" style="color:#ffd200; font-weight:900;">הצטרף אלינו ➜</a>
@@ -93,7 +94,7 @@
   footer.className = "site-footer";
   footer.innerHTML = `
     &copy; RE Haifa, 2025 &mdash; אקולוגיה, שיתוף וקהילה בחיפה &nbsp;|&nbsp;
-    <a href="mailto:rehaifahub@gmail.com">rehaifahub@gmail.com</a> &nbsp;|&nbsp;
+    <a href="mailto:rehaifa.info@gmail.com">rehaifa.info@gmail.com</a> &nbsp;|&nbsp;
     <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">פייסבוק</a> &nbsp;|&nbsp;
     <a href="https://t.me/rehaifahub" target="_blank">טלגרם</a>
   `;
