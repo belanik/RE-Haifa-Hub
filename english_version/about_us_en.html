@@ -6,8 +6,10 @@
   <title>RE Haifa</title>
   <link rel="icon" href="/green.jpg" />
   <meta name="description" content="RE Haifa — sustainable development, resource exchange, and ecology projects in Haifa.">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/assets/styles.css">
-</head>
+</head>  
+  
 <body>
 
 <header class="site-header" role="banner">
@@ -22,6 +24,7 @@
     </div>
   </div>
 </header>
+
 
 <script src="/english_version/menu_en.js"></script>
 
@@ -97,39 +100,5 @@
     </section>
   </main>
 
-  <footer>
-    &copy; RE Haifa Hub, 2025 — Ecology, Exchange, and Community in Haifa
-  </footer>
-
-
-  <script>
-    const menu = document.getElementById("sideMenu");
-    const btn = document.getElementById("menuBtn");
-    const backdrop = document.getElementById("menuBackdrop");
-
-    function openMenu(){
-      menu.style.width = "250px";
-      backdrop.classList.add("open");
-      btn.setAttribute("aria-expanded","true");
-    }
-
-    function closeMenu(){
-      menu.style.width = "0";
-      backdrop.classList.remove("open");
-      btn.setAttribute("aria-expanded","false");
-    }
-
-    function toggleMenu(){
-      if (menu.style.width === "250px") closeMenu();
-      else openMenu();
-    }
-
-    btn.addEventListener("click", toggleMenu);
-    backdrop.addEventListener("click", closeMenu);
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-  </script>
 </body>
 </html>
