@@ -62,7 +62,10 @@
   nav.setAttribute("aria-label", "Navigation");
   nav.innerHTML = `
     <a href="/english_version/position_on_waste_reform_en.html" style="color:#ffd200;">Position on Waste Reform</a>
-    <a href="/english_version/foodwasteprogramen_en.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
+
+    <a href="/foodwasteprogram_en.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
+
+
     <a href="/eco-analitics_EN/ecoanalytics_EN.html">Eco-Analytics</a>
     <a href="/english_version/eco_law_en.html">Eco Laws of Israel</a>
     <a href="/english_version/en_program.html">Circular Economy</a>
