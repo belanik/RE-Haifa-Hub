@@ -3,38 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Программа сокращения пищевых отходов в Израиле - основные документы" />
-  <title>Food waste program</title>
+  <meta name="description" content="RE Haifa — проекты устойчивого развития, обмена ресурсами и экологии в Хайфе." />
+  <title>Наша команда — RE Haifa</title>
 
-    <link rel="icon" href="../green.jpg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="green.jpg" />
+  <link rel="stylesheet" href="/assets/styles.css">
 
-    <link rel="stylesheet" href="/assets/styles.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      background: #f7fafc;
+      color: #223;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a { color: #2e7d32; }
+    a:hover { opacity: 0.9; }
+
+    /* Ссылка-бренд */
+    a.brand {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Основной контент */
+    .site-main {
+      max-width: 1080px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(67,160,71,0.25);
+      padding: 2rem 2.2rem;
+    }
+
+    .contacts a {
+      display: inline-block;
+      background: rgba(67,160,71,0.85);
+      color: #fff !important;
+      border-radius: 8px;
+      padding: 0.7em 1.2em;
+      margin: 0.4em 0.3em;
+      text-decoration: none;
+      font-size: 1.05em;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(67,160,71,0.25);
+      transition: background 0.2s;
+    }
+    .contacts a:hover { background: rgba(67,160,71,1); }
+
+    #contacts h2 {
+      margin: 1.5rem 0 0.7rem;
+      color: #2e7d32;
+      font-size: 1.3rem;
+    }
+
+
+    @media (max-width: 900px) {
+      .site-main { padding: 1.4rem 1.1rem; }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Гамбургер -->
-<header class="site-header" role="banner">
+  <!-- ШАПКА -->
+  <header class="site-header" role="banner">
     <div class="header-inner">
-      <div style="width:48px;"></div><!-- пустой “держатель”, чтобы центрирование бренда было ровным -->
-      <div class="brand">Re-Haifa Hub</div>
-
+      <div style="width:48px;"></div>
+      <a class="brand" href="/index.html">Re-Haifa</a>
       <div class="header-actions">
         <div class="action-pill" aria-label="Кнопки и язык">
-          <!-- ВАЖНО: сюда поставь свой реальный линк на вступление -->
-          <a class="hdr-btn" href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" title="Поставь сюда ссылку на форму/контакт">Join</a>
-
-          <!-- ВАЖНО: сюда поставь свой реальный линк на Facebook -->
-          <a class="hdr-btn" href="https://www.facebook.com/profile.php?id=61575821814765" title="Поставь сюда ссылку на страницу Facebook">Facebook</a>
-
-          <a class="lang-btn" href="/foodwasteprogramRU.html" aria-label="Русский">RU</a>
-          <a class="lang-btn active" href="/foodwasteprogramen+he.html" aria-label="English">EN</a>
-          <a class="lang-btn" href="/hebrew_version/foodwasteprogram_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
+          <a class="lang-btn" href="/english_version/about_us_en.html" aria-label="English">EN</a>
+          <a class="lang-btn" href="/hebrew_version/about_us_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
         </div>
       </div>
     </div>
   </header>
-  <div id="menu-slot"></div>
+
+  <!-- МЕНЮ (подгружается из menu.js) -->
+  <script src="/menu.js"></script>
 
 
 
@@ -49,7 +100,7 @@ Below are links to official materials (Hebrew), an English-language announcement
 </p>
 
   <section class="block">
-    <h2>The official text of the program and the Summary Presentation, posted on the Ministry of Environment's website in Hebrew (иврит)</h2>
+    <h2>The official text of the program and the Summary Presentation, posted on the Ministry of Environment's website in Hebrew </h2>
 
     <div class="card">
       <h3>The official text of the program <span class="badge">PDF</span></h3>
@@ -83,37 +134,13 @@ Below are links to official materials (Hebrew), an English-language announcement
     <div class="card">
       <h3>A new method of measuring household food waste <span class="badge">EN</span></h3>
       <a href="https://doi.org/10.1016/j.wasman.2018.03.031" target="_blank" rel="noopener noreferrer">
-        Открыть статью (английский)
+        Open an article (EN)
       </a>
     </div>
 
-
   </section>
-
-  <section class="block">
-    <h2>Contacts: </h2>
-    <p class="note">
-      <a href="mailto:rehaifahub@gmail.com" class="pill">rehaifahub@gmail.com</a>
-      <a href="https://t.me/rehaifahub" target="_blank" class="pill" rel="noopener noreferrer">Telegram</a>
-      <a href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" class="pill" rel="noopener noreferrer">Мы на Facebook</a>
-    </p>
-  </section>
-
-  <div class="footer">
-    Last updated: 12.01.2026. Inform us about all kind of technical problems: <a href="mailto:belanik@gmail.com">belanik@gmail.com</a>.
-  </div>
 
 </main>
-
-
-
-
-
-
-<footer class="footer"></footer>
-
-<script src="/assets/script_menu_en.js" defer></script>
-
 
 </body>
 </html>
