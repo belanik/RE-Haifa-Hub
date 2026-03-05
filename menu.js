@@ -98,7 +98,7 @@ nav.innerHTML = `
   footer.className = "site-footer";
   footer.innerHTML = `
     &copy; RE Haifa, 2025 &mdash; Экология, обмен и сообщество в Хайфе &nbsp;|&nbsp;
-    <a href="mailto:rehaifahub@gmail.com">rehaifahub@gmail.com</a> &nbsp;|&nbsp;
+    <a href="mailto:rehaifa.info@gmail.com">rehaifa.info@gmail.com</a> &nbsp;|&nbsp;
     <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">Facebook</a> &nbsp;|&nbsp;
     <a href="https://t.me/rehaifahub" target="_blank">Telegram</a>
   `;
