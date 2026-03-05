@@ -68,8 +68,7 @@
     <a href="/hebrew_version/foodwasteprogram_he.html" style="color:#ffd200;">תוכנית בזבוז מזון</a>
 
     <a href="/eco-analitics_HEB/ecoanalytics-heb.html">אנליטיקה סביבתית</a>
-    
-
+   
     <a href="/hebrew_version/eco_law_he.html">חוקי סביבה בישראל</a>
     <a href="/hebrew_version/he_program.html">כלכלה מעגלית</a>
     <a href="/hebrew_version/textbookWMhe.html">בית ספר לניהול פסולת</a>
