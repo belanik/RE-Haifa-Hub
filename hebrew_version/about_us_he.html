@@ -1,30 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RE Haifa</title>
+  <title>דוחות OECD — RE Haifa</title>
   <link rel="icon" href="/green.jpg" />
-  <meta name="description" content="RE Haifa — sustainable development, resource exchange, and ecology projects in Haifa.">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="RE Haifa — סקירות ביצועים סביבתיים של OECD.">
   <link rel="stylesheet" href="/assets/styles.css">
+  <style>
+    .docs-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 1.5rem;
+    }
+    .doc-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #2e7d32;
+      color: #fff !important;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: background 0.2s;
+      gap: 12px;
+      text-align: right;
+    }
+    .doc-btn:hover { background: #1b5e20; }
+    .doc-btn .doc-label { flex: 1; }
+    .doc-btn .doc-tag {
+      flex: 0 0 auto;
+      background: rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+  </style>
 </head>
 <body>
 
-<header class="site-header" role="banner">
-  <div class="header-inner">
-    <div style="width:48px;"></div>
-    <a class="brand" href="/english_version/index_en.html">Re-Haifa</a>
-    <div class="header-actions">
-      <div class="action-pill" aria-label="Language">
-        <a class="lang-btn" href="/index.html" aria-label="Русский">RU</a>
-        <a class="lang-btn" href="/hebrew_version/index_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div style="width:48px;"></div>
+      <a class="brand" href="/hebrew_version/index_he.html">Re-Haifa</a>
+      <div class="header-actions">
+        <div class="action-pill" aria-label="שפה">
+          <a class="lang-btn" href="/oecd_reports/oecd_reports_ru.html" aria-label="Русский">RU</a>
+          <a class="lang-btn" href="/oecd_reports/oecd_reports.html" aria-label="English">EN</a>
+        </div>
       </div>
     </div>
-  </div>
-</header>
-
-<script src="/english_version/menu_en.js"></script>
+  </header>
+  <script src="/hebrew_version/menu_he.js"></script>
 
   <main class="site-main">
     <div class="container">
