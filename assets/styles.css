@@ -102,6 +102,7 @@
       text-shadow: 0 2px 14px rgba(0,0,0,0.45);
       padding: 6px 10px;
       user-select: none;
+      text-decoration: none;
     }
 
     .header-actions{
