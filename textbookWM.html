@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Школа управления отходами — RE Haifa</title>
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Georgia, serif; background: #f7fafc; color: #223; line-height: 1.6; font-size: 16px; }
@@ -71,26 +70,19 @@
     <a href="#">Наша команда</a>
     <a href="#" style="color:#ffd200;font-weight:900;">Присоединиться к нам ➜</a>
   </nav>
-
-
-
-
-
-
-
-  
   <main>
+    <a href="#" class="hdr-btn" style="display:inline-block;margin:0 0 1rem;">&larr; Назад на главную</a>
     <h1 style="color:#1b5e20;font-size:1.8rem;font-weight:900;margin:1rem 0 0.3rem;">Школа управления отходами</h1>
     <p style="color:#556;font-size:1rem;margin-bottom:1rem;font-family:system-ui,sans-serif;">Учебные материалы, визуальные схемы и видео для активистов и всех, кто хочет разобраться в системе обращения с отходами в Израиле.</p>
     <nav class="school-nav">
       <a href="#textbook">📖 Учебник</a>
       <a href="#visuals">🗺 Схемы и визуальные материалы</a>
       <a href="#videos">🎬 Видео и лекции</a>
-  </nav>
+      <a href="#">⚖️ Эко-законодательство</a>
+    </nav>
 
     <div class="school-block" id="textbook">
-      <h2>📖 «Гражданский учебник по управлению отходами: как справится с муниципальным мусором в Израиле»</h2>      <h2>📖 «Гражданский учебник по управлению отходами: как справится с муниципальным мусором в Израиле»</h2>
-      <h3>📖 «Гражданский учебник по управлению отходами: как справится с муниципальным мусором в Израиле»</h3>
+      <h2>📖 «Израиль без мусора: гражданский учебник по управлению отходами»</h2>
       <div class="textbook-intro">Автор: Бэла Никитина. Нажмите на раздел, чтобы прочитать краткое содержание.</div>
 
       <div class="accordion-item">
@@ -225,9 +217,20 @@
     </div>
   </main>
 
+  <footer>&copy; RE Haifa, 2025 — Экология, обмен и сообщество в Хайфе</footer>
 
+  <script>
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const isOpen = btn.classList.contains('open');
+        document.querySelectorAll('.accordion-btn').forEach(b => {
+          b.classList.remove('open');
+          b.nextElementSibling.classList.remove('open');
+        });
+        if (!isOpen) { btn.classList.add('open'); content.classList.add('open'); }
+      });
+    });
+  </script>
 </body>
 </html>
-
-
-
