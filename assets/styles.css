@@ -549,3 +549,35 @@
       font-size: 1.15rem;
       font-weight: 800;
     }
+
+/* ── Навигационное меню (top-nav) ── */
+.top-nav {
+  background: #1b5e20;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 10px;
+  z-index: 100;
+  position: relative;
+}
+.top-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.78em;
+  font-weight: 700;
+  font-family: system-ui, sans-serif;
+  white-space: nowrap;
+  background: #2e7d32;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: background 0.2s;
+}
+.top-nav a:hover {
+  background: #388e3c;
+}
+@media (max-width: 700px) {
+  .top-nav { justify-content: flex-start; padding: 3px 5px; gap: 2px; }
+  .top-nav a { font-size: 0.68em; padding: 3px 8px; }
+}
