@@ -180,6 +180,97 @@
       </div>
     </div>
 
+
+<!-- БЛОК: ПОЛУЧИТЬ ПОЛНЫЙ УЧЕБНИК -->
+<div style="background:linear-gradient(135deg,#1b5e20,#2e7d32); border-radius:14px; padding:1.8rem 2rem; margin-bottom:2rem; text-align:center; color:#fff;">
+  <div style="font-size:1.5rem; margin-bottom:0.5rem;">📚</div>
+  <h3 style="font-size:1.2rem; font-weight:900; margin-bottom:0.6rem;">Хотите получить полный вариант учебника?</h3>
+  <p style="opacity:0.9; font-size:0.97rem; margin-bottom:1.2rem; font-family:system-ui,sans-serif;">
+    Заполните короткую анкету — и мы пришлём вам полный текст на почту.
+  </p>
+  <button onclick="document.getElementById('textbook-form').style.display='block'; this.style.display='none';"
+    style="background:#ffd200; color:#1b5e20; border:none; padding:12px 28px; border-radius:20px; font-size:1rem; font-weight:900; cursor:pointer; font-family:system-ui,sans-serif;">
+    Получить учебник ➜
+  </button>
+
+  <div id="textbook-form" style="display:none; margin-top:1.5rem; background:rgba(255,255,255,0.1); border-radius:10px; padding:1.4rem; text-align:left;">
+    <p style="font-size:0.9rem; opacity:0.85; margin-bottom:1rem; font-family:system-ui,sans-serif;">Все поля обязательны</p>
+
+    <div style="margin-bottom:1rem;">
+      <label style="display:block; font-size:0.88rem; font-weight:700; margin-bottom:4px; font-family:system-ui,sans-serif;">Ваше имя</label>
+      <input type="text" id="tb-name" placeholder="Имя и фамилия"
+        style="width:100%; padding:10px 12px; border-radius:8px; border:none; font-size:0.95rem; font-family:system-ui,sans-serif;">
+    </div>
+
+    <div style="margin-bottom:1rem;">
+      <label style="display:block; font-size:0.88rem; font-weight:700; margin-bottom:4px; font-family:system-ui,sans-serif;">Чем вы занимаетесь?</label>
+      <select id="tb-role"
+        style="width:100%; padding:10px 12px; border-radius:8px; border:none; font-size:0.95rem; font-family:system-ui,sans-serif; color:#223;">
+        <option value="">— выберите —</option>
+        <option>Гражданский активист / волонтёр</option>
+        <option>Работник муниципалитета</option>
+        <option>Педагог / преподаватель</option>
+        <option>Журналист / блогер</option>
+        <option>Студент / исследователь</option>
+        <option>Представитель НКО</option>
+        <option>Просто интересующийся</option>
+        <option>Другое</option>
+      </select>
+    </div>
+
+    <div style="margin-bottom:1rem;">
+      <label style="display:block; font-size:0.88rem; font-weight:700; margin-bottom:4px; font-family:system-ui,sans-serif;">Почему вас это интересует?</label>
+      <textarea id="tb-why" rows="3" placeholder="Несколько слов о вашем интересе к теме..."
+        style="width:100%; padding:10px 12px; border-radius:8px; border:none; font-size:0.95rem; font-family:system-ui,sans-serif; resize:vertical;"></textarea>
+    </div>
+
+    <div style="margin-bottom:1.2rem;">
+      <label style="display:block; font-size:0.88rem; font-weight:700; margin-bottom:4px; font-family:system-ui,sans-serif;">Ваш email</label>
+      <input type="email" id="tb-email" placeholder="example@mail.com"
+        style="width:100%; padding:10px 12px; border-radius:8px; border:none; font-size:0.95rem; font-family:system-ui,sans-serif;">
+    </div>
+
+    <button onclick="sendTextbookForm()"
+      style="background:#ffd200; color:#1b5e20; border:none; padding:12px 28px; border-radius:20px; font-size:1rem; font-weight:900; cursor:pointer; font-family:system-ui,sans-serif; width:100%;">
+      Отправить и получить учебник ➜
+    </button>
+
+    <div id="tb-success" style="display:none; margin-top:1rem; background:rgba(255,255,255,0.15); border-radius:8px; padding:1rem; text-align:center; font-family:system-ui,sans-serif;">
+      ✅ Спасибо! Мы получили вашу заявку и пришлём учебник на указанный email в течение 24 часов.
+    </div>
+  </div>
+</div>
+
+<script>
+function sendTextbookForm() {
+  const name  = document.getElementById('tb-name').value.trim();
+  const role  = document.getElementById('tb-role').value;
+  const why   = document.getElementById('tb-why').value.trim();
+  const email = document.getElementById('tb-email').value.trim();
+
+  if (!name || !role || !why || !email) {
+    alert('Пожалуйста, заполните все поля.');
+    return;
+  }
+  if (!email.includes('@')) {
+    alert('Пожалуйста, введите корректный email.');
+    return;
+  }
+
+  // Отправка на ваш email через mailto (простой вариант)
+  const subject = encodeURIComponent('Запрос учебника — RE Haifa');
+  const body = encodeURIComponent(
+    'Имя: ' + name + '\n' +
+    'Кто: ' + role + '\n' +
+    'Почему интересует: ' + why + '\n' +
+    'Email: ' + email
+  );
+  window.location.href = 'mailto:belanik@gmail.com , rehaifa.info@gmail.com ?subject=' + subject + '&body=' + body;
+
+  document.getElementById('tb-success').style.display = 'block';
+}
+</script>
+    
     <div class="school-block" id="visuals">
       <h2>🗺 Схемы и визуальные материалы</h2>
       <div class="visual-grid">
@@ -236,4 +327,5 @@
   </script>
 </body>
 </html>
+
 
