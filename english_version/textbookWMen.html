@@ -1,489 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RE Haifa</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Waste Management School — RE Haifa</title>
   <link rel="icon" href="/green.jpg" />
-  <meta name="description" content="RE Haifa — sustainable development, resource exchange, and ecology projects in Haifa.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/assets/styles.css">
-</head>  
-  
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <style>
+    .school-nav {
+      display: flex; flex-wrap: wrap; gap: 10px; margin: 1.5rem 0 2rem;
+    }
+    .school-nav a {
+      background: #2e7d32; color: #fff; text-decoration: none;
+      padding: 10px 20px; border-radius: 20px; font-size: 0.9em;
+      font-weight: 700; font-family: system-ui, sans-serif;
+      border: 1px solid rgba(255,255,255,0.25); transition: background 0.2s;
+    }
+    .school-nav a:hover { background: #1b5e20; }
+
+    .school-block {
+      border-radius: 14px; box-shadow: 0 2px 12px rgba(67,160,71,0.15);
+      border: 1px solid #e0ede0; padding: 1.5rem 1.8rem; margin-bottom: 2rem;
+    }
+    .school-block h2 {
+      color: #2e7d32; font-size: 1.25rem; font-weight: 800;
+      margin-bottom: 1rem; padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(67,160,71,0.2);
+    }
+
+    .textbook-intro {
+      background: rgba(67,160,71,0.07); border-left: 4px solid #43a047;
+      border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1.2rem;
+      font-size: 0.97rem; color: #334;
+    }
+
+    .accordion-item { border: 1px solid #e0ede0; border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
+    .accordion-btn {
+      width: 100%; background: rgba(67,160,71,0.07); border: none;
+      text-align: left; padding: 0.9rem 1.2rem; font-size: 0.97rem;
+      font-weight: 700; font-family: Georgia, serif; color: #1a2e1a;
+      cursor: pointer; display: flex; justify-content: space-between;
+      align-items: center; gap: 12px; transition: background 0.2s;
+    }
+    .accordion-btn:hover, .accordion-btn.open { background: rgba(67,160,71,0.15); }
+    .accordion-btn .num { color: #2e7d32; font-size: 0.85rem; font-weight: 900; flex-shrink: 0; font-family: system-ui, sans-serif; }
+    .accordion-btn .arrow { transition: transform 0.25s; color: #2e7d32; flex-shrink: 0; }
+    .accordion-btn.open .arrow { transform: rotate(180deg); }
+    .accordion-content {
+      display: none; padding: 1rem 1.2rem 1.2rem; font-size: 0.95rem;
+      line-height: 1.75; color: #334; background: #fafdf9;
+      border-top: 1px solid #e0ede0;
+    }
+    .accordion-content.open { display: block; }
+    .accordion-content h4 { color: #2e7d32; font-size: 0.95rem; font-weight: 700; margin: 1rem 0 0.4rem; font-family: system-ui, sans-serif; }
+    .accordion-content ul { padding-left: 1.2rem; margin: 0.4rem 0; }
+    .accordion-content ul li { margin-bottom: 0.3rem; }
+    .accordion-content img { width: 100%; border-radius: 8px; margin-top: 1rem; }
+
+    .acc-summary {
+      background: rgba(67,160,71,0.08); border-radius: 8px;
+      padding: 0.8rem 1rem; margin-top: 1rem; font-size: 0.9rem;
+    }
+    .acc-summary strong { color: #2e7d32; display: block; margin-bottom: 0.4rem; font-family: system-ui, sans-serif; }
+
+    .get-book {
+      background: linear-gradient(135deg, #1b5e20, #2e7d32);
+      border-radius: 14px; padding: 1.8rem 2rem;
+      margin-bottom: 2rem; text-align: center; color: #fff;
+    }
+    .get-book h3 { font-size: 1.2rem; font-weight: 900; margin-bottom: 0.6rem; }
+    .get-book p { opacity: 0.9; font-size: 0.97rem; margin-bottom: 1.2rem; font-family: system-ui, sans-serif; }
+    .btn-yellow {
+      background: #ffd200; color: #1b5e20; border: none;
+      padding: 12px 28px; border-radius: 20px; font-size: 1rem;
+      font-weight: 900; cursor: pointer; font-family: system-ui, sans-serif;
+    }
+    .get-book-form {
+      display: none; margin-top: 1.5rem;
+      background: rgba(255,255,255,0.1); border-radius: 10px;
+      padding: 1.4rem; text-align: left;
+    }
+    .get-book-form label { display: block; font-size: 0.88rem; font-weight: 700; margin-bottom: 4px; font-family: system-ui, sans-serif; }
+    .get-book-form input,
+    .get-book-form select,
+    .get-book-form textarea {
+      width: 100%; padding: 10px 12px; border-radius: 8px;
+      border: none; font-size: 0.95rem; font-family: system-ui, sans-serif;
+      margin-bottom: 1rem; color: #223;
+    }
+    .get-book-form textarea { resize: vertical; }
+    .form-success {
+      display: none; margin-top: 1rem; background: rgba(255,255,255,0.15);
+      border-radius: 8px; padding: 1rem; text-align: center;
+      font-family: system-ui, sans-serif;
+    }
+
+    .visual-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 12px; margin-top: 1rem; }
+    .visual-card {
+      background: rgba(67,160,71,0.07); border: 1px solid #d0e8d0;
+      border-radius: 10px; padding: 1rem; text-decoration: none;
+      color: #1a2e1a; font-weight: 600; font-size: 0.9rem;
+      font-family: system-ui, sans-serif; display: flex;
+      align-items: center; gap: 10px; transition: background 0.2s;
+    }
+    .visual-card:hover { background: rgba(67,160,71,0.15); }
+
+    .video-item { display: flex; align-items: flex-start; gap: 14px; padding: 0.9rem 0; border-bottom: 1px dashed rgba(67,160,71,0.25); }
+    .video-item:last-child { border-bottom: none; }
+    .video-thumb {
+      width: 48px; height: 48px; background: #2e7d32; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0; color: #fff;
+    }
+    .video-info a { font-weight: 700; font-size: 0.97rem; color: #1a2e1a; text-decoration: none; font-family: system-ui, sans-serif; }
+    .video-info a:hover { color: #2e7d32; }
+    .video-tag {
+      display: inline-block; background: rgba(67,160,71,0.1); color: #2e7d32;
+      font-size: 0.72rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 999px; margin-top: 4px; font-family: system-ui, sans-serif;
+    }
+  </style>
+</head>
+
 <body>
 
-<header class="site-header" role="banner">
-  <div class="header-inner">
-    <div style="width:48px;"></div>
-    <a class="brand" href="/english_version/index_en.html">Re-Haifa</a>
-    <div class="header-actions">
-      <div class="action-pill" aria-label="Language">
-        <a class="lang-btn" href="/index.html" aria-label="Русский">RU</a>
-        <a class="lang-btn" href="/hebrew_version/index_he.html" lang="he" dir="rtl" aria-label="עברית">HE</a>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div style="width:48px;"></div>
+      <div class="brand">Re-Haifa</div>
+      <div class="header-actions">
+        <div class="action-pill">
+          <a class="hdr-btn" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Facebook</a>
+          <a class="lang-btn" href="/textbookWM.html">RU</a>
+          <a class="lang-btn" href="/hebrew_version/textbookWM_he.html" lang="he" dir="rtl">HE</a>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
+  <div id="menu-slot"></div>
 
-<script src="/english_version/menu_en.js"></script>
+  <main>
 
-  <main class="site-main">
-    <div class="container">
+    <a href="/english_version/index_en.html" class="hdr-btn" style="display:inline-block; margin:1.2rem 0 0.5rem;">&larr; Back to main page</a>
 
-      <h1 class="book-title">A Guide to Municipal Waste Management in Israel</h1>
-      <div class="book-subtitle">A Book for Activists</div>
-      <div class="author">Author: Bela Nikitina</div>
+    <h1 style="color:#1b5e20; font-size:1.8rem; font-weight:900; margin:1rem 0 0.3rem;">Waste Management School</h1>
+    <p style="color:#556; font-size:1rem; margin-bottom:1rem; font-family:system-ui,sans-serif;">
+      Educational materials, visual diagrams and videos for activists and anyone who wants to understand Israel's waste management system.
+    </p>
 
-      <div class="intro-section">
-        <h2>INTRODUCTION</h2>
-        <p><strong>FOR THOSE WHO ARE TIRED OF WASTE IN ISRAEL: WHY READ THIS BOOK</strong></p>
-        <p>From a neighborhood clean-up to system analysis: why litter in the yard, the park, and the wadi is the same problem — and how to move from being a “free janitor” to becoming a civic designer of real change.</p>
+    <nav class="school-nav">
+      <a href="#textbook">📖 Textbook</a>
+      <a href="#visuals">🗺 Diagrams &amp; Visuals</a>
+      <a href="#videos">🎬 Videos &amp; Lectures</a>
+    
+    </nav>
+
+    <!-- ══ BLOCK 1: TEXTBOOK ══ -->
+    <div class="school-block" id="textbook">
+      <h2>📖 Israel Without Waste: A Citizen's Guide to Waste Management</h2>
+      <div class="textbook-intro">
+        Author: Bela Nikitina <br>
       </div>
 
-      <div class="section-title">PART I. WHERE WASTE BEGINS</div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 1. What Counts as Waste: Definitions, Law, and Reality</span>
-          <span class="accordion-icon">▼</span>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="num">01</span>
+          <span style="flex:1;">Waste as Israel's Mirror: The Consumer Economy and Its Systemic Failures</span>
+          <span class="arrow">▼</span>
         </button>
         <div class="accordion-content">
-          <div class="accordion-body">
-            What legislation defines as waste, key categories (household, municipal, construction, hazardous), where the boundary lies between a “thing” and “trash,” and how formal definitions diverge from everyday urban reality.
-          </div>
+          <img src="/assets/textbook-1.jpg" alt="Chapter 1" />
+          <p>Israel ranks among the countries with the highest per-capita waste volumes in the developed world. The root of the problem is not population size but rapid growth in consumption. Over recent decades, the country has shifted to a "convenience economy" model: excessive packaging, disposable solutions and delivery culture have become the norm.</p>
+          <h4>The Infrastructure Trap and the "Responsibility Tax"</h4>
+          <p>Citizens have neither economic incentives nor the physical means to act sustainably. Responsible residents constantly face barriers: shortage and inconvenient placement of recycling containers, confusing sorting rules, and a complete failure to handle organic waste.</p>
+          <div class="acc-summary"><strong>In this chapter you will learn:</strong>Why rising waste is a consequence of overconsumption, not demographics. How the absence of economic incentives blocks real change. Why waste is the best indicator of a government's readiness to move from slogans to action.</div>
         </div>
       </div>
 
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 2. Who Governs Waste in Israel? (And Why It’s Not One “Main Boss”)</span>
-          <span class="accordion-icon">▼</span>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="num">02</span>
+          <span style="flex:1;">The Geography of Waste: The Hidden Map and "Invisible" Logistics</span>
+          <span class="arrow">▼</span>
         </button>
         <div class="accordion-content">
-          <div class="accordion-body">
-            The Ministry of Environmental Protection, municipalities, regional operators, Tamir, the deposit system, courts, and the State Comptroller: who is responsible — formally and in practice.
-          </div>
+          <img src="/assets/textbook-2.jpg" alt="Chapter 2" />
+          <p>About 80% of Israel's municipal solid waste ends up at massive landfills in the Negev desert. This is not accidental — it is a deliberate policy choice and a form of environmental inequality.</p>
+          <h4>Inside the System: Transfer Stations and the "Night Express"</h4>
+          <p>Transfer stations (such as Dano) and the "Night Express" — a freight train hauling thousands of tonnes of waste from central Israel deep into the desert. Every kilometre travelled means CO₂ emissions, road wear and noise.</p>
+          <div class="acc-summary"><strong>In this chapter you will learn:</strong>The real flow map — where waste from Haifa and Tel Aviv actually goes. Who lives near landfills and transfer stations. Why decentralisation is the only way to stop this endless convoy.</div>
         </div>
       </div>
 
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 3. By the Bin and in the Courtyard: How Everyday Decisions Create Waste Flows</span>
-          <span class="accordion-icon">▼</span>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="num">03</span>
+          <span style="flex:1;">The Economics of the Waste Trap: Who Pays and Who Profits from Landfills?</span>
+          <span class="arrow">▼</span>
         </button>
         <div class="accordion-content">
-          <div class="accordion-body">
-            The moment at the container, “colored bins,” the role of habits and fatigue, and the first point of responsibility at the scale of the building, courtyard, and neighborhood.
-          </div>
+          <img src="/assets/textbook-3.jpg" alt="Chapter 3" />
+          <p>In Israel, the link between how much waste you produce and how much you pay is completely broken. Most contracts are structured so that contractors profit from hauling as many tonnes as possible to the landfill.</p>
+          <h4>The PAYT Model (Pay-As-You-Throw)</h4>
+          <p>Israel has still not introduced a fair "pay for what you throw" system, which is the primary driver of waste reduction worldwide.</p>
+          <div class="acc-summary"><strong>In this chapter you will learn:</strong>The real cost of your waste in shekels from your arnona bill. Why the system resists innovation. How to check whether your municipality spends its waste budget efficiently.</div>
         </div>
       </div>
 
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 4. The Price of Waste: Mass Balance, Contracts, and PAYT</span>
-          <span class="accordion-icon">▼</span>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="num">04</span>
+          <span style="flex:1;">The Clean Fund: A Billion-Shekel "Wallet" and Political Games</span>
+          <span class="arrow">▼</span>
         </button>
         <div class="accordion-content">
-          <div class="accordion-body">
-            A simple mass-balance logic (kg per resident), what collection, transport, and disposal cost, how it is hidden in arnona, and why PAYT (“pay as you throw”) changes incentives.
-          </div>
+          <img src="/assets/textbook-4.jpg" alt="Chapter 4" />
+          <p>More than 3 billion shekels have accumulated in the Clean Fund (Keren le-Shmirat ha-Nikayon), yet the recycling infrastructure was never built. The Ministry of Finance treats these funds as a budget safety cushion rather than an environmental investment.</p>
+          <div class="acc-summary"><strong>In this chapter you will learn:</strong>The real balance of the Fund — what has been collected and what has not been spent. How many plants could have been built with the accumulated funds. How public pressure can force the government to unlock this money.</div>
         </div>
       </div>
 
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 5. From Bucket to Landfill: The Route of Our Waste</span>
-          <span class="accordion-icon">▼</span>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="num">05</span>
+          <span style="flex:1;">The Orange Bin and the Corporate Responsibility Trap (EPR)</span>
+          <span class="arrow">▼</span>
         </button>
         <div class="accordion-content">
-          <div class="accordion-body">
-            The typical route “apartment → courtyard → truck → transfer station → landfill/sorting,” common loss points for money and materials, and a practical exercise: map your neighborhood’s route and prepare questions for the municipality.
-          </div>
+          <img src="/assets/textbook-5.jpg" alt="Chapter 5" />
+          <p>TAMIR Corporation is not a government body — it is an association of manufacturers themselves. The orange bin is for packaging only, not plastic in general. Tetra Pak cartons (a complex multi-layer material almost impossible to recycle in Israel) are required to go there simply because a levy has been paid on them.</p>
+          <div class="acc-summary"><strong>In this chapter you will learn:</strong>The truth about the orange bin. The economics of EPR — why producers pay less than they should. How to tell real recycling reports from marketing brochures.</div>
         </div>
       </div>
 
-      <div class="section-title">PART II. LOGISTICS AND GEOGRAPHY</div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 6. Routes of Cities A, B, and C: How Citizens Work with Logistics</span>
-          <span class="accordion-icon">▼</span>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="num">06</span>
+          <span style="flex:1;">The Deposit Law (Pikadon): Money from Waste and Social Justice</span>
+          <span class="arrow">▼</span>
         </button>
         <div class="accordion-content">
-          <div class="accordion-body">
-            Three typical urban models and how routes are organized, where the system breaks, and how civic groups can work with route frequency, contracts, and service quality.
-          </div>
+          <img src="/assets/textbook-6.jpg" alt="Chapter 6" />
+          <p>"Pikadon" is the only mechanism in Israel where you are paid for environmental responsibility. Extending the law to large bottles was sabotaged for decades by beverage industry lobbying.</p>
+          <h4>"Pikadonists": The Invisible Recycling Army</h4>
+          <p>Bottle collection has become an informal sector of the economy. Why supermarket return machines constantly "break down" and how businesses undermine the law.</p>
+          <div class="acc-summary"><strong>In this chapter you will learn:</strong>The political history of the law. Where the agorot go when people don't return bottles (they stay with corporations as profit). How to make your nearest supermarket comply with the law.</div>
         </div>
       </div>
 
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 7. Israel’s Waste Geography: Landfills, Transfer, Sorting</span>
-          <span class="accordion-icon">▼</span>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="num">07</span>
+          <span style="flex:1;">Technology and Myths: Sorting Robots, Energy from Waste and the "Fairy Tale" of Bioplastics</span>
+          <span class="arrow">▼</span>
         </button>
         <div class="accordion-content">
-          <div class="accordion-body">
-            A national map of key infrastructure, who lives near heavy facilities, and how environmental burdens are distributed between the center and the periphery.
-          </div>
+          <img src="/assets/textbook-7.jpg" alt="Chapter 7" />
+          <p>Tableware labelled "Compostable" only breaks down under industrial composting conditions — facilities that do not exist at scale in Israel. In an orange bin, "bioplastic" contaminates an entire batch of quality recyclable plastic.</p>
+          <h4>RDF: Fuel from Waste</h4>
+          <p>Your waste can become fuel for cement plants (Nesher). This is better than a landfill, but it is still burning a resource rather than recovering it.</p>
+          <div class="acc-summary"><strong>In this chapter you will learn:</strong>The truth about bioplastics. How the "digital eye" at sorting facilities works — and what it cannot handle. A technology audit for your city.</div>
         </div>
       </div>
 
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 8. The North (Haifa and the Metro Area): Where Waste Actually Goes</span>
-          <span class="accordion-icon">▼</span>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="num">08</span>
+          <span style="flex:1;">Food, Organics and the Future: From the National Programme to the Neighbourhood Composter</span>
+          <span class="arrow">▼</span>
         </button>
         <div class="accordion-content">
-          <div class="accordion-body">
-            A regional case: routes from Haifa and the Krayot, which landfills and sorting facilities are used.
-          </div>
+          <img src="/assets/textbook-8.jpg" alt="Chapter 8" />
+          <p>Nearly half of your rubbish bin is organic waste. Israel has committed to reducing food waste by 50% by 2030.</p>
+          <h4>Composting Technologies</h4>
+          <ul>
+            <li><strong>Vermicomposting:</strong> worms turn kitchen scraps into fertiliser right on your balcony</li>
+            <li><strong>Bokashi:</strong> Japanese fermentation technology that works even with meat and dairy products</li>
+            <li><strong>Compost-Drum:</strong> an Israeli invention — a rotating drum for rapid composting adapted to a hot climate</li>
+          </ul>
+          <div class="acc-summary"><strong>In this chapter you will learn:</strong>The scale of the problem — organics as the key to solving half the waste crisis. The 2030 national programme and how to monitor its implementation. How to organise neighbourhood composting.</div>
         </div>
       </div>
 
-      <div class="section-title">PART III. WHAT’S IN THE FLOW: FRACTIONS AND THINGS</div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 9. Organics and Climate: Food Waste, Soil, Methane</span>
-          <span class="accordion-icon">▼</span>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="num">09</span>
+          <span style="flex:1;">Civic Eco-Innovation: Turning the "Waste Crisis" into a Community Resource</span>
+          <span class="arrow">▼</span>
         </button>
         <div class="accordion-content">
-          <div class="accordion-body">
-            Why organics can be a major share of the stream and a key methane source, links to climate and soil fertility, and options: composting, anaerobic digestion, and local “brown bin” models.
-          </div>
+          <img src="/assets/textbook-9.jpg" alt="Chapter 9" />
+          <p>The real revolution in resource management is happening right now — in courtyards, community centres and technology hubs.</p>
+          <h4>Repair Workshops and "Libraries of Things"</h4>
+          <p>Repair Cafes where volunteers help fix electronics. Libraries of tools, toys and party decorations — why does every resident of an apartment block need their own drill?</p>
+          <h4>Digital Activism</h4>
+          <p>Community maps of drop-off points for rare fractions (batteries, textiles, electronics) that work better than the official ministry websites.</p>
+          <div class="acc-summary"><strong>In this chapter you will learn:</strong>How to move from "complainer" to "designer". Models for neighbourhood sharing. How a school can become an environmental hub for an entire neighbourhood.</div>
         </div>
       </div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 10. Packaging and Environmental Characteristics: What to Put in the Basket</span>
-          <span class="accordion-icon">▼</span>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-body">
-            Packaging types in Israeli supermarkets, what is realistically recyclable, what mostly ends up landfilled or incinerated, and how to navigate choices without going crazy at the shelf.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 11. Plastics and Other Packaging Waste: Recyclability, Microplastics, Limits</span>
-          <span class="accordion-icon">▼</span>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-body">
-            Where technical and economic ceilings appear, how microplastics enter marine and terrestrial environments, and what even the best sorting systems cannot do.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 12. “Ethical Waste”: Clothes, Toys, Furniture, and Things We Hate to Throw Away</span>
-          <span class="accordion-icon">▼</span>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-body">
-            Why usable items end up by containers, how ecology intersects with memory and social justice, and how these flows can become resources for swaps and Repair Café formats.
-          </div>
-        </div>
-      </div>
-
-      <div class="section-title">PART IV. LAW, MONEY, AND PACKAGING AS POLITICS</div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 13. The Cleanliness Law and Urban Cleanliness as a “Social Contract”</span>
-          <span class="accordion-icon">▼</span>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-body">
-            Core legal principles, municipal authority and enforcement, “blind spots,” and cleanliness as a marker of whether residents feel cared for.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 14. Who Pays for Waste: Arnona, Contractors, and the “Cheap Landfill” Trap</span>
-          <span class="accordion-icon">▼</span>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-body">
-            How money flows from residents to contractors and facilities, why cheap disposal stays dominant, and what it does to the system.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 15. Contracts, KPIs, and Contractors: Why the System Moves Tons Instead of Reducing Flows</span>
-          <span class="accordion-icon">▼</span>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-body">
-            Typical tenders and KPIs oriented to “cleanliness” and tonnage, not prevention; incentive distortions visible as overflowing bins and pointless trips.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 16. Packaging as Politics: EPR, Tamir, Deposits, and the Shelf Battle</span>
-          <span class="accordion-icon">▼</span>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-body">
-            Extended Producer Responsibility in Israel, the Tamir operator, deposit returns, producer and retail interests, and how “packaging politics” shows up in courtyard bins.
-          </div>
-        </div>
-      </div>
-
-      <div class="section-title">PART V. CASES, REFORMS, AND “GREEN FACADES”</div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 17. The North (Haifa and the Metro Area): Where Waste Goes and Where Opportunities Are</span>
-          <span class="accordion-icon">▼</span>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-body">
-            A deeper regional view: strengths and weak points, and opportunity windows for local civic initiatives.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 18. How to Prevent Reforms from Becoming a “Green Facade”</span>
-          <span class="accordion-icon">▼</span>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-body">
-            Where reforms are real versus PR, how to spot the difference, and which questions to ask municipalities and ministries.
-          </div>
-        </div>
-      </div>
-
-      <div class="section-title">PART VI. COMMUNITY AND A FAST START</div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 19. Community in Action: A Courtyard Week, Repair Café, and Swaps</span>
-          <span class="accordion-icon">▼</span>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-body">
-            How to build a minimal working core of neighbors, run formats without burnout, and avoid turning civic work into endless “free service.”
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion">
-        <button class="accordion-header">
-          <span>Chapter 20. Express Program: What to Do in One Week to See the System and Start Changing It</span>
-          <span class="accordion-icon">▼</span>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-body">
-            A condensed 7-day plan at the level of the household, courtyard, and municipal communication — to understand the whole system and take first practical steps.
-          </div>
-        </div>
-      </div>
-
-      <div class="conclusion-section">
-        <h2>CONCLUSION</h2>
-        <p>The conclusion addresses the reader as a future civic designer of the waste system. It summarizes the main points, highlights three intervention levels — courtyard, municipal, and national — and suggests how to use the book’s tools: checklists, outreach templates, a “courtyard week,” swaps, Repair Café formats, and data work.</p>
-      </div>
-
-      <div class="request-section">
-        <h3>The full text of the book is available upon request</h3>
-        <button class="request-button" onclick="openModal()">Please send me the full text of the book</button>
-      </div>
-
-      <div id="requestModal" class="modal">
-        <div class="modal-content">
-          <span class="close" onclick="closeModal()">×</span>
-          <h2>Request the full text of the book</h2>
-          <form id="requestForm" onsubmit="submitForm(event)">
-            <div class="form-group">
-              <label for="firstName">First name *</label>
-              <input type="text" id="firstName" name="firstName" required />
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last name *</label>
-              <input type="text" id="lastName" name="lastName" required />
-            </div>
-            <div class="form-group">
-              <label for="country">Country of residence *</label>
-              <input type="text" id="country" name="country" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone number *</label>
-              <input type="tel" id="phone" name="phone" required />
-            </div>
-            <div class="form-group">
-              <label for="workplace">Workplace *</label>
-              <input type="text" id="workplace" name="workplace" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-
-            <button type="submit" class="submit-button">Send request</button>
-          </form>
-
-          <div id="successMessage" class="success-message">
-            Thank you! Your request has been sent. We will contact you soon.
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- ══ GET THE FULL TEXTBOOK ══ -->
+    <div class="get-book">
+      <div style="font-size:1.5rem; margin-bottom:0.5rem;">📚</div>
+      <h3>Want to receive the full textbook?</h3>
+      <p>Fill in a short form — and we will send you the complete text by email.</p>
+      <button class="btn-yellow" onclick="document.getElementById('textbook-form').style.display='block'; this.style.display='none';">
+        Get the textbook ➜
+      </button>
+      <div class="get-book-form" id="textbook-form">
+        <p style="font-size:0.9rem; opacity:0.85; margin-bottom:1rem; font-family:system-ui,sans-serif;">All fields are required</p>
+        <label>Your name</label>
+        <input type="text" id="tb-name" placeholder="First and last name" />
+        <label>What do you do?</label>
+        <select id="tb-role">
+          <option value="">— please select —</option>
+          <option>Civic activist / volunteer</option>
+          <option>Municipal employee</option>
+          <option>Teacher / educator</option>
+          <option>Journalist / blogger</option>
+          <option>Student / researcher</option>
+          <option>NGO representative</option>
+          <option>Just curious</option>
+          <option>Other</option>
+        </select>
+        <label>Why does this topic interest you?</label>
+        <textarea id="tb-why" rows="3" placeholder="A few words about your interest in the subject..."></textarea>
+        <label>Your email</label>
+        <input type="email" id="tb-email" placeholder="example@mail.com" />
+        <button class="btn-yellow" onclick="sendTextbookForm()" style="width:100%; margin-top:0.3rem;">
+          Submit and get the textbook ➜
+        </button>
+        <div class="form-success" id="tb-success">
+          ✅ Thank you! We have received your request and will send the textbook to the email you provided within 24 hours.
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ BLOCK 2: DIAGRAMS & VISUALS ══ -->
+    <div class="school-block" id="visuals">
+      <h2>🗺 Diagrams &amp; Visual Materials</h2>
+      <div class="visual-grid">
+        <a class="visual-card" href="#"><span style="font-size:1.5rem;">🗺</span> Waste Flow Maps</a>
+        <a class="visual-card" href="#"><span style="font-size:1.5rem;">🚛</span> Logistics Diagrams</a>
+        <a class="visual-card" href="#"><span style="font-size:1.5rem;">📊</span> TAMIR Infographic</a>
+        <a class="visual-card" href="#"><span style="font-size:1.5rem;">♻️</span> Deposit System Infographic</a>
+        <a class="visual-card" href="#"><span style="font-size:1.5rem;">🌿</span> Organics Infographic</a>
+        <a class="visual-card" href="#"><span style="font-size:1.5rem;">💰</span> Clean Fund</a>
+        <a class="visual-card" href="#"><span style="font-size:1.5rem;">📋</span> Comparative Tables</a>
+      </div>
+    </div>
+
+    <!-- ══ BLOCK 3: VIDEOS ══ -->
+    <div class="school-block" id="videos">
+      <h2>🎬 Videos &amp; Lectures</h2>
+      <div class="video-item">
+        <div class="video-thumb">▶</div>
+        <div class="video-info">
+          <a href="https://www.kan.org.il/content/kan/kan-reka/p-9869/" target="_blank" rel="noopener">Radio interview on Kan Reka — Bela Nikitina on the Re-Haifa project (29.09.2025, from minute 22)</a>
+          <div><span class="video-tag">Radio</span></div>
+        </div>
+      </div>
+      <div class="video-item">
+        <div class="video-thumb">▶</div>
+        <div class="video-info">
+          <a href="#">Lecture: How Israel's Municipal Waste System Works</a>
+          <div><span class="video-tag">Lecture</span></div>
+        </div>
+      </div>
+      <div class="video-item">
+        <div class="video-thumb">▶</div>
+        <div class="video-info">
+          <a href="#">Selection: Circular Economy — Global Experience</a>
+          <div><span class="video-tag">Selection</span></div>
+        </div>
+      </div>
+    </div>
+
   </main>
+
+  <footer>
+    &copy; RE Haifa, 2025 — Ecology, exchange and community in Haifa
+  </footer>
+
+  <script src="/assets/script_menu_en.js" defer></script>
   <script>
-    const menu = document.getElementById("sideMenu");
-    const btn = document.getElementById("menuBtn");
-    const backdrop = document.getElementById("menuBackdrop");
-
-    function openMenu(){
-      menu.style.width = "250px";
-      backdrop.classList.add("open");
-      btn.setAttribute("aria-expanded","true");
-    }
-
-    function closeMenu(){
-      menu.style.width = "0";
-      backdrop.classList.remove("open");
-      btn.setAttribute("aria-expanded","false");
-    }
-
-    function toggleMenu(){
-      if (menu.style.width === "250px") closeMenu();
-      else openMenu();
-    }
-
-    btn.addEventListener("click", toggleMenu);
-    backdrop.addEventListener("click", closeMenu);
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-  </script>
-  <script>
-    const menu = document.getElementById("sideMenu");
-    const btn = document.getElementById("menuBtn");
-    const backdrop = document.getElementById("menuBackdrop");
-
-    function openMenu(){
-      menu.style.width = "250px";
-      backdrop.classList.add("open");
-      btn.setAttribute("aria-expanded","true");
-    }
-
-    function closeMenu(){
-      menu.style.width = "0";
-      backdrop.classList.remove("open");
-      btn.setAttribute("aria-expanded","false");
-    }
-
-    function toggleMenu(){
-      if (menu.style.width === "250px") closeMenu();
-      else openMenu();
-    }
-
-    btn.addEventListener("click", toggleMenu);
-    backdrop.addEventListener("click", closeMenu);
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-    accordionHeaders.forEach(header => {
-      header.addEventListener('click', function() {
-        const content = this.nextElementSibling;
-        const isActive = this.classList.contains('active');
-
-        accordionHeaders.forEach(h => {
-          h.classList.remove('active');
-          h.nextElementSibling.classList.remove('active');
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const isOpen = btn.classList.contains('open');
+        document.querySelectorAll('.accordion-btn').forEach(b => {
+          b.classList.remove('open');
+          b.nextElementSibling.classList.remove('open');
         });
-
-        if (!isActive) {
-          this.classList.add('active');
-          content.classList.add('active');
-        }
+        if (!isOpen) { btn.classList.add('open'); content.classList.add('open'); }
       });
     });
 
-    function openModal() {
-      document.getElementById('requestModal').style.display = 'block';
-      document.getElementById('requestForm').style.display = 'block';
-      document.getElementById('successMessage').style.display = 'none';
+    function sendTextbookForm() {
+      const name  = document.getElementById('tb-name').value.trim();
+      const role  = document.getElementById('tb-role').value;
+      const why   = document.getElementById('tb-why').value.trim();
+      const email = document.getElementById('tb-email').value.trim();
+      if (!name || !role || !why || !email) { alert('Please fill in all fields.'); return; }
+      if (!email.includes('@')) { alert('Please enter a valid email address.'); return; }
+      const subject = encodeURIComponent('Textbook request — RE Haifa');
+      const body = encodeURIComponent(
+        'Name: ' + name + '\nOccupation: ' + role + '\nWhy interested: ' + why + '\nEmail: ' + email
+      );
+      window.location.href = 'mailto:rehaifa@gmail.com,belanik@mail.com?subject=' + subject + '&body=' + body;
+      document.getElementById('tb-success').style.display = 'block';
     }
-
-    function closeModal() {
-      document.getElementById('requestModal').style.display = 'none';
-      document.getElementById('requestForm').reset();
-      document.getElementById('successMessage').style.display = 'none';
-      document.getElementById('requestForm').style.display = 'block';
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById('requestModal');
-      if (event.target === modal) {
-        closeModal();
-      }
-    }
-
-    function submitForm(event) {
-      event.preventDefault();
-
-      const formData = {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        country: document.getElementById('country').value,
-        phone: document.getElementById('phone').value,
-        workplace: document.getElementById('workplace').value,
-        email: document.getElementById('email').value
-      };
-
-      const emailBody = `
-Request for the full text of the book "A Guide to Municipal Waste Management in Israel"
-
-First name: ${formData.firstName}
-Last name: ${formData.lastName}
-Country of residence: ${formData.country}
-Phone number: ${formData.phone}
-Workplace: ${formData.workplace}
-Email: ${formData.email}
-      `.trim();
-
-      const mailtoLink =
-        \`mailto:belanik@gmail.com?subject=\${encodeURIComponent('Request for the full text of the book')}&body=\${encodeURIComponent(emailBody)}\`;
-
-      window.location.href = mailtoLink;
-
-      document.getElementById('requestForm').style.display = 'none';
-      document.getElementById('successMessage').style.display = 'block';
-
-      setTimeout(() => {
-        closeModal();
-        document.getElementById('requestForm').style.display = 'block';
-      }, 3000);
-    }
-    
   </script>
+
 </body>
 </html>
-
-
-
-
-
-
-
