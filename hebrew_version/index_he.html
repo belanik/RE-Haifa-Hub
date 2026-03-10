@@ -29,19 +29,114 @@
     <section class="news-section">
       <h2>חדשות התנועה שלנו</h2>
 
-      <p class="news-item">
-        <strong>11.01.2026</strong> סמינר לפעילים ומתנדבים של תנועת רה-חיפה לאישור תוכנית הפעילות לשנת 2026. מתוכנן לדון בפעילויות לקידום תוכנית צמצום בזבוז מזון בישראל (2026-2035), בתפיסת המעבר של ישראל לכלכלה מעגלית, בפרקטיקות לפיתוח שיתוף שכנים, סדנאות מיחזור ותחומים רלוונטיים נוספים.
-      </p>
+<!-- HEBREW NEWS BLOCK -->
 
-      <p class="news-item">
-        <strong class="announcement-tag">הכרזה!</strong> מרכז האקו Re-Haifa יחד עם מתנ"ס מטרף 23 וקהילת אדר מארגנים פסטיבל אקו לשנה החדשה: פרי-מרקט, סדנאות, חידון ומכירה פומבית. כל האירועים בחינם, אך תרומות יתקבלו בברכה!
-      </p>
+<style>
+  .news-item {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
 
-      <p class="news-item">
-        <strong>4 בדצמבר 2025 – יום חמישי בשעה 17:00!</strong> פגישת המתנדבים הראשונה של קהילת Re-Haifa – הזמנה לכל מי שרוצה להצטרף לקהילה האקולוגית של חיפה ולעזור לקדם יוזמות להפחתת פסולת.
-        (<a href="https://www.facebook.com/share/p/1F2hFfJkiH/" target="_blank" rel="noopener noreferrer"><span style="color:#0057ff;font-weight:700;">כאן</span></a>)
-      </p>
+  .news-preview {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 
+  .news-preview.expanded {
+    display: block;
+    overflow: visible;
+  }
+
+  .see-more-link {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #2c5e4f;
+  }
+</style>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>28.02.2026</strong> — מרחב <strong>החלפת החפצים האקולוגי לנשים</strong> הפועל באופן קבוע קיים שוב אקו-סוואפ בשכונת <strong>נווה שאנן</strong> בחיפה. המובילה והמארגנת הקבועה של היוזמה, <strong>סווטה רוזנפלד</strong>, מקיימת אירועים כאלה באופן סדיר לקראת חגים ובהזדמנויות חברתיות שונות, תוך שמירה עקבית על המשמעות הסביבתית והערך הציבורי של המיזם.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>23.02.2026</strong> — במהלך חודש פברואר, במסגרת פעילות ההסברה של <strong>RE-HAIFA</strong>, התקיימה סדרה של <strong>4 הרצאות</strong> בנושא מערכת ניהול הפסולת. ההרצאות נערכו בימי שני, החל מ-<strong>02.02.2026</strong>, ועסקו בהיבטים הסביבתיים, הכלכליים והמוסדיים המרכזיים של התחום. ניתן לעיין בחומרי הקורס במדור <strong>„בית הספר לניהול סביבתי”</strong> באתר.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>20–21.02.2026</strong> — צוות <strong>Re-Haifa</strong> השתתף בסמינר דו-יומי בנושא אקטיביזם סביבתי, שהתקיים במרכז השדה של <strong>KKL-JNF בציפורי</strong>. הסמינר כלל הרצאות, עבודה קבוצתית, דיונים בבעיות הסביבתיות של העיר, כלים להשתתפות אזרחית, תקשורת ציבורית ופיתוח יוזמות חדשות. אחד ההישגים החשובים ביותר של הסמינר היה יצירת קשרים חדשים, הבנות ושיתופי פעולה ראשונים לקידום פרויקטים סביבתיים עתידיים. בנוסף, במהלך הסמינר נוצרה באופן ספונטני “עבודת מעבדה” מעניינת וממחישה בנושא ניהול פסולת, עם דגש על פסולת אורגנית ופסולת מזון — לנושא הזה נקדיש פוסט נפרד.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>15.02.2026</strong> — בפברואר 2026 הגישה <strong>RE-HAIFA</strong> את הצעותיה בנושא הרפורמה במשק הפסולת, במסגרת הפנייה לציבור שיזמה הוועדה הבין-משרדית בהשתתפות משרד האוצר והמשרד להגנת הסביבה. החומרים וההצעות שלנו בנושא מוצגים במדור הרלוונטי באתר.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>30.01.2026</strong> — <strong>Re-Haifa</strong> הצטרפה לפיקניק לכבוד חג <strong>ט״ו בשבט</strong>, שאורגן על ידי הארגון הסביבתי <strong>מגמה ירוקה</strong>. זו הייתה הזדמנות טובה להיפגש עם עמיתים בעלי ניסיון משמעותי בקידום יוזמות סביבתיות, להחליף רעיונות ולהסכים על המשך תמיכה הדדית.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>11.01.2026</strong> — הפעילים והמתנדבים של <strong>Re-Haifa</strong> קיימו סמינר עבודה לאישור תוכנית הפעולה לשנת 2026. במרכז הדיון עמדו פעילויות לקידום התוכנית הלאומית לצמצום בזבוז מזון בישראל <strong>(2026–2035)</strong>, פיתוח יוזמות שיתוף שכונתיות, סדנאות אפסייקלינג וכיוונים מרכזיים נוספים בסדר היום הסביבתי.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>08.01.2026</strong> — צוות <strong>Re-Haifa</strong> סייע בארגון ובהפעלת סדנת יצירת בובות בשם <strong>“Pocket Theatre”</strong>. את המפגש הנחתה יוליה איבנטר, מנהלת סטודיו תיאטרון ממוסקבה. עבורנו, האירוע היה חשוב במיוחד משום שהוא חיבר בין יצירה לבין גישה אקולוגית: הבובות נוצרו מחומרים זמינים — גרביים, כפפות, כפתורים, חרוזים ואפילו אריזות. המפגש התקיים במרחב של שותפינו הוותיקים — <strong>מרתף 23 / המרכז לצדק חברתי</strong>.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>26.12.2025</strong> — פסטיבל השנה החדשה האקולוגי של <strong>Re-Haifa</strong>, שאורגן בשותפות עם <strong>מרתף 23</strong> וקהילת <strong>הדר</strong>, התקיים באווירה חמה, צבעונית ורחבת היקף, עם כ-<strong>100 משתתפים</strong>. במהלך היום נערכו <strong>5 סדנאות</strong> למבוגרים ולילדים, <strong>SWAP-PARTY</strong>, חידון אקולוגי עם פרסים ומכירה פומבית מסכמת. הפסטיבל היה דוגמה חיה לכך שאפשר ליצור חגיגה ללא קניות מיותרות — באמצעות החלפה, שימוש חוזר ויצירה משותפת.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>04.12.2025</strong> — פגישת המתנדבים הראשונה של קהילת <strong>Re-Haifa</strong> התקיימה ביום חמישי בשעה 17:00 — הזמנה פתוחה לכל מי שרוצה להצטרף לקהילה האקולוגית של חיפה ולעזור לקדם יוזמות להפחתת פסולת.
+    (<a href="https://www.facebook.com/share/p/1F2hFfJkiH/" target="_blank" rel="noopener noreferrer"><span style="color:#0057ff;font-weight:700;">כאן</span></a>)
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<script>
+  function toggleNews(link) {
+    const preview = link.previousElementSibling;
+    preview.classList.toggle('expanded');
+
+    if (preview.classList.contains('expanded')) {
+      link.textContent = 'Hide';
+    } else {
+      link.textContent = 'See more...';
+    }
+  }
+</script>
+
+      
       <p class="news-item">
         <strong>21 בנובמבר 2025.</strong> יוזמה חדשה – פתחנו מכירה פומבית לגיוס כספים לשכירת מקום עבור Re-Haifa.
         (<a href="https://t.me/rehaifahubauction/10/" target="_blank" rel="noopener noreferrer"><span style="color:#0057ff;font-weight:700;">כאן</span></a>)
