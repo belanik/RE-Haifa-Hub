@@ -149,9 +149,6 @@
     <a href="/about_us.html">Наша команда</a>
     <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">Facebook</a>
     <a href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" target="_blank" style="color:#ffd200; font-weight:900;">Присоединиться к нам ➜</a>
-    ${ruBtn}
-    ${enBtn}
-    ${heBtn}
   `;
 
   // Вставляем меню
