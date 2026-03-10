@@ -61,9 +61,39 @@
   }
 </style>
 
+<!-- ENGLISH NEWS BLOCK -->
+
+<style>
+  .news-item {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .news-preview {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .news-preview.expanded {
+    display: block;
+    overflow: visible;
+  }
+
+  .see-more-link {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #2c5e4f;
+  }
+</style>
+
 <p class="news-item">
   <span class="news-preview">
-    <strong>28.02.2026</strong> — the ongoing <strong>Women’s ECO Exchange Space</strong> once again held an eco-swap in the <strong>Neve Sha’anan</strong> neighborhood of Haifa. The initiative’s постоянный leader and organizer, <strong>Sveta Rozenfeld</strong>, regularly holds such events ahead of holidays and on various social occasions, while consistently maintaining their environmental meaning and public value.
+    <strong>28.02.2026</strong> — the ongoing <strong>Women’s ECO Exchange Space</strong> once again held an eco-swap in the <strong>Neve Sha’anan</strong> neighborhood of Haifa. The initiative’s long-standing leader and organizer, <strong>Sveta Rozenfeld</strong>, regularly holds such events ahead of holidays and on various social occasions, while consistently maintaining their environmental meaning and public value.
   </span>
   <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
 </p>
@@ -117,6 +147,14 @@
   <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
 </p>
 
+<p class="news-item">
+  <span class="news-preview">
+    <strong>04.12.2025</strong> — the first volunteer meeting of the <strong>Re-Haifa</strong> community took place on Thursday at 5:00 PM. The gathering was an open invitation to everyone who wanted to join Haifa’s ecological community and help advance initiatives aimed at waste reduction.
+    (<a href="https://www.facebook.com/share/p/1F2hFfJkiH/" target="_blank" rel="noopener noreferrer"><span style="color:#0057ff;font-weight:700;">here</span></a>)
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
 <script>
   function toggleNews(link) {
     const preview = link.previousElementSibling;
@@ -129,7 +167,6 @@
     }
   }
 </script>
-
       <p class="news-item">
         From <strong>October 18 to November 18, 2025</strong> we held Haifa's first Repair Month in honor of International Repair Day — a pilot marathon that was featured on the international Open Repair Alliance map.
         (<a href="https://openrepair.org/international-repair-day/" target="_blank" rel="noopener noreferrer">
