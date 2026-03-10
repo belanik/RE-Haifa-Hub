@@ -65,7 +65,7 @@
   nav.className = "top-nav";
   nav.setAttribute("aria-label", "Навигация");
 nav.innerHTML = `
-
+  <a href="/index.html">НОВОСТИ</a>
   <a href="/proposals_to_ministries/docs_proposal_to_memshala.html" style="color:#ffd200;">Позиция по реформе отходов</a>
   
   <a href="/foodwasteprogramRU.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
