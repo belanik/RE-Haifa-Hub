@@ -1,72 +1,9 @@
-// menu.js — универсальное меню RE-Haifa с поддержкой языков
+// menu.js — универсальное меню RE-Haifa
+// Подключите этот файл на каждой странице:
+// <script src="/`"></script>  (или с нужным относительным путём)
+// Замените <div id="menu-slot"></div> на этот скрипт
+
 (function () {
-
-  // ===== ТАБЛИЦА СООТВЕТСТВИЙ ЯЗЫКОВЫХ ВЕРСИЙ =====
-  const langMap = {
-
-    // КОРНЕВЫЕ СТРАНИЦЫ (русские)
-    '/index.html':                          { en: '/english_version/index_en.html',                   he: '/hebrew_version/index_he.html' },
-    '/eco-law-ru.html':                     { en: '/english_version/eco_law_en.html',                 he: '/hebrew_version/eco_law_he.html' },
-    '/about_us.html':                       { en: '/english_version/about_us_en.html',                he: '/hebrew_version/about_us_he.html' },
-    '/programma.html':                      { en: '/english_version/en_program.html',                 he: '/hebrew_version/he_program.html' },
-    '/textbookWM.html':                     { en: '/english_version/textbookWMen.html',               he: '/hebrew_version/textbookWM_he.html' },
-    '/foodwasteprogramRU.html':             { en: '/english_version/en_program.html',                 he: '/hebrew_version/foodwasteprogram_he.html' },
-    '/re-haifa-hub-project.html':           { en: '/english_version/re-haifa-hub-project_en.html',    he: '/hebrew_version/re-haifa-project_he.html' },
-    '/proposals_to_ministries/docs_proposal_to_memshala.html': { en: '/english_version/position_on_waste_reform_en.html', he: '/hebrew_version/Position_on_waste_reform_HE.html' },
-
-    // ДОКЛАДЫ ОЭСР
-    '/oecd_reports/oecd_reports.html':      { en: '/oecd_reports/oecd_reports_en.html',               he: '/oecd_reports/oecd_reports_he.html' },
-    '/oecd_reports/oecd_reports_en.html':   { ru: '/oecd_reports/oecd_reports.html',                  he: '/oecd_reports/oecd_reports_he.html' },
-    '/oecd_reports/oecd_reports_he.html':   { ru: '/oecd_reports/oecd_reports.html',                  en: '/oecd_reports/oecd_reports_en.html' },
-
-    // ЭКО-АНАЛИТИКА
-    '/ecoanalytics_RU/index.html':          { en: '/eco-analitics_EN/index.html',                     he: '/eco-analitics_HEB/index.html' },
-    '/eco-analitics_EN/index.html':         { ru: '/ecoanalytics_RU/index.html',                      he: '/eco-analitics_HEB/index.html' },
-    '/eco-analitics_HEB/index.html':        { ru: '/ecoanalytics_RU/index.html',                      en: '/eco-analitics_EN/index.html' },
-
-    // АНГЛИЙСКИЕ СТРАНИЦЫ
-    '/english_version/index_en.html':                    { ru: '/index.html',                          he: '/hebrew_version/index_he.html' },
-    '/english_version/eco_law_en.html':                  { ru: '/eco-law-ru.html',                     he: '/hebrew_version/eco_law_he.html' },
-    '/english_version/about_us_en.html':                 { ru: '/about_us.html',                       he: '/hebrew_version/about_us_he.html' },
-    '/english_version/en_program.html':                  { ru: '/programma.html',                      he: '/hebrew_version/he_program.html' },
-    '/english_version/textbookWMen.html':                { ru: '/textbookWM.html',                     he: '/hebrew_version/textbookWM_he.html' },
-    '/english_version/re-haifa-hub-project_en.html':     { ru: '/re-haifa-hub-project.html',           he: '/hebrew_version/re-haifa-project_he.html' },
-    '/english_version/position_on_waste_reform_en.html': { ru: '/proposals_to_ministries/docs_proposal_to_memshala.html', he: '/hebrew_version/Position_on_waste_reform_HE.html' },
-
-    // ИВРИТСКИЕ СТРАНИЦЫ
-    '/hebrew_version/index_he.html':                     { ru: '/index.html',                          en: '/english_version/index_en.html' },
-    '/hebrew_version/eco_law_he.html':                   { ru: '/eco-law-ru.html',                     en: '/english_version/eco_law_en.html' },
-    '/hebrew_version/about_us_he.html':                  { ru: '/about_us.html',                       en: '/english_version/about_us_en.html' },
-    '/hebrew_version/he_program.html':                   { ru: '/programma.html',                      en: '/english_version/en_program.html' },
-    '/hebrew_version/textbookWM_he.html':                { ru: '/textbookWM.html',                     en: '/english_version/textbookWMen.html' },
-    '/hebrew_version/foodwasteprogram_he.html':          { ru: '/foodwasteprogramRU.html',              en: '/english_version/en_program.html' },
-    '/hebrew_version/re-haifa-project_he.html':          { ru: '/re-haifa-hub-project.html',           en: '/english_version/re-haifa-hub-project_en.html' },
-    '/hebrew_version/Position_on_waste_reform_HE.html':  { ru: '/proposals_to_ministries/docs_proposal_to_memshala.html', en: '/english_version/position_on_waste_reform_en.html' },
-  };
-
-  // Определяем текущий язык страницы
-  const path = window.location.pathname;
-  const isEN = path.includes('/english_version/') || path.includes('/eco-analitics_EN/');
-  const isHE = path.includes('/hebrew_version/') || path.includes('/eco-analitics_HEB/');
-  const isRU = !isEN && !isHE;
-
-  function getLangUrl(targetLang) {
-    const entry = langMap[path];
-    if (entry && entry[targetLang]) return entry[targetLang];
-    return null;
-  }
-
-  const urlRU = getLangUrl('ru');
-  const urlEN = getLangUrl('en');
-  const urlHE = getLangUrl('he');
-
-  // Ссылка на НОВОСТИ зависит от языка
-  const newsUrl   = isEN ? '/english_version/index_en.html'
-                  : isHE ? '/hebrew_version/index_he.html'
-                  : '/index.html';
-  const newsLabel = isEN ? 'NEWS' : isHE ? 'חדשות' : 'НОВОСТИ';
-
-  // ===== СТИЛИ =====
   const style = document.createElement("style");
   style.textContent = `
     .top-nav {
@@ -92,24 +29,17 @@
       border: 1px solid rgba(255,255,255,0.25);
       transition: background 0.2s;
     }
-    .top-nav a:hover { background: #388e3c; }
-    .top-nav a.lang-active {
-      background: #ffd200;
-      color: #1b5e20;
-      border-color: #ffd200;
-    }
-    .top-nav a.lang-disabled {
-      opacity: 0.4;
-      cursor: default;
-      pointer-events: none;
+    .top-nav a:hover {
+      background: #388e3c;
     }
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
     }
     @media (max-width: 700px) {
       .top-nav { justify-content: flex-start; padding: 3px 5px; gap: 2px; }
       .top-nav a { font-size: 0.68em; padding: 3px 8px; }
     }
+
     .site-footer {
       background: #1b5e20;
       color: rgba(255,255,255,0.85);
@@ -124,52 +54,36 @@
       text-decoration: none;
       font-weight: 700;
     }
-    .site-footer a:hover { text-decoration: underline; }
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
   `;
-  document.head.appendChild(style);
 
-  // ===== КНОПКИ ЯЗЫКОВ =====
-  const ruBtn = isRU
-    ? `<a class="lang-active">RU</a>`
-    : urlRU
-      ? `<a href="${urlRU}">RU</a>`
-      : `<a class="lang-disabled">RU</a>`;
+ document.head.appendChild(style);
 
-  const enBtn = isEN
-    ? `<a class="lang-active">EN</a>`
-    : urlEN
-      ? `<a href="${urlEN}">EN</a>`
-      : `<a class="lang-disabled">EN</a>`;
-
-  const heBtn = isHE
-    ? `<a class="lang-active" lang="he">HE</a>`
-    : urlHE
-      ? `<a href="${urlHE}" lang="he">HE</a>`
-      : `<a class="lang-disabled" lang="he">HE</a>`;
-
-  // ===== МЕНЮ =====
   const nav = document.createElement("nav");
   nav.className = "top-nav";
   nav.setAttribute("aria-label", "Навигация");
+nav.innerHTML = `
 
-  nav.innerHTML = `
-    <a href="${newsUrl}">${newsLabel}</a>
-    <a href="/proposals_to_ministries/docs_proposal_to_memshala.html" style="color:#ffd200;">Позиция по реформе отходов</a>
-    <a href="/foodwasteprogramRU.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
-    <a href="/ecoanalytics_RU/index.html">Эко-аналитика</a>
-    <a href="/eco-law-ru.html">Эко законы Израиля</a>
-    <a href="/programma.html">Циркулярная экономика</a>
-    <a href="/textbookWM.html">Школа управления отходами</a>
-    <a href="/oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
-    <a href="/about_us.html">Наша команда</a>
-    <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">Facebook</a>
-    <a href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" target="_blank" style="color:#ffd200; font-weight:900;">Присоединиться к нам ➜</a>
-    ${ruBtn}
-    ${enBtn}
-    ${heBtn}
-  `;
+  <a href="/proposals_to_ministries/docs_proposal_to_memshala.html" style="color:#ffd200;">Позиция по реформе отходов</a>
+  
+  <a href="/foodwasteprogramRU.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
+  <a href="/ecoanalytics_RU/index.html">Эко-аналитика</a>
+  <a href="/eco-law-ru.html">Эко законы Израиля</a>
+  <a href="/programma.html">Циркулярная экономика</a>
+  <a href="/textbookWM.html">Школа управления отходами</a>
+  <a href="/oecd_reports/oecd_reports.html">Доклады ОЭСР</a>
+  <a href="/about_us.html">Наша команда</a>
+  <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">Мы на Facebook</a>
+  <a href="https://belanik.github.io/RE-Haifa-Hub/anketa-ru.html" target="_blank" style="color:#ffd200; font-weight:900;">Присоединиться к нам ➜</a>
+` ;
 
-  // Вставляем меню
+
+
+  
+
+   // Вставляем меню: в div#menu-slot если есть, иначе сразу после <header>
   const slot = document.getElementById("menu-slot");
   if (slot) {
     slot.replaceWith(nav);
@@ -179,12 +93,7 @@
     else document.body.prepend(nav);
   }
 
-  // ===== УБИРАЕМ СТАРЫЕ КНОПКИ EN/HE ИЗ ХЕДЕРА =====
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.remove());
-  });
-
-  // ===== ФУТЕР =====
+  // Вставляем футер: заменяем существующий <footer> или добавляем в конец <body>
   const footer = document.createElement("footer");
   footer.className = "site-footer";
   footer.innerHTML = `
@@ -194,6 +103,7 @@
     <a href="https://t.me/rehaifahub" target="_blank">Telegram</a>
   `;
 
+  // Заменяем существующий footer если есть, иначе добавляем в конец body
   window.addEventListener("DOMContentLoaded", () => {
     const existingFooter = document.querySelector("footer");
     if (existingFooter) {
@@ -202,5 +112,12 @@
       document.body.appendChild(footer);
     }
   });
-
 })();
+
+
+
+
+
+
+
+
