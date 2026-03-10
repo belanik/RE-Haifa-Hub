@@ -63,6 +63,7 @@
   nav.className = "top-nav";
   nav.setAttribute("aria-label", "ניווט");
   nav.innerHTML = `
+    <a href="/index_he.html">חדשות</a>
     <a href="/hebrew_version/Position_on_waste_reform_HE.html" style="color:#ffd200;">עמדה בנושא רפורמת הפסולת</a>
 
     <a href="/hebrew_version/foodwasteprogram_he.html" style="color:#ffd200;">תוכנית בזבוז מזון</a>
