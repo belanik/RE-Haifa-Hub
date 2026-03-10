@@ -92,6 +92,102 @@
 
     <section class="news-section">
       <h2>Новости нашего движения</h2>
+
+      ```html
+<!-- СТИЛИ ДЛЯ НОВОСТЕЙ -->
+<style>
+  .news-item {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .news-preview {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;   /* показывать 2 строки */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .news-preview.expanded {
+    display: block;
+    overflow: visible;
+  }
+
+  .see-more-link {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #2c5e4f;
+  }
+</style>
+
+<!-- НОВОСТИ -->
+<p class="news-item">
+  <span class="news-preview">
+    <strong>08.01.2026</strong> — команда <strong>Re-Haifa</strong> помогла в организации и проведении мастер-класса по созданию кукол <strong>«Театр из кармана»</strong>. Занятие провела Юлия Ивантер, руководитель московской театральной студии. Для нас это событие особенно важно тем, что творчество здесь соединяется с экологичным подходом: куклы создаются из подручных материалов — носков, перчаток, пуговиц, бусин и даже упаковки. Встреча прошла в пространстве наших давних партнеров — <strong>Матнаса Martef 23 / Центра социальной справедливости</strong>.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>30.01.2026</strong> — <strong>Re-Haifa</strong> присоединилась к пикнику в честь праздника <strong>Ту би-Шват</strong>, организованному экологической организацией <strong>«Мегама Йерука»</strong>. Это была хорошая возможность пообщаться с коллегами, имеющими солидный опыт продвижения экологических инициатив, обменяться идеями и договориться о взаимной поддержке в дальнейшем.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>23.02.2026</strong> — в феврале в рамках просветительской деятельности <strong>RE-HAIFA</strong> состоялся цикл из <strong>4 лекций</strong> по системе обращения с отходами. Лекции проходили по понедельникам, начиная со <strong>2 февраля</strong>, и были посвящены ключевым экологическим, экономическим и институциональным аспектам этой сферы. С материалами курса можно познакомиться в разделе <strong>«Школа экологического менеджмента»</strong> на сайте.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>20–21.02.2026</strong> — команда <strong>Re-Haifa</strong> приняла участие в двухдневном выездном семинаре по эко-активизму, который прошел на базе полевого центра <strong>KKL-JNF в Ципори</strong>. Семинар объединил лекции, групповую работу, обсуждение экологических проблем города, инструменты гражданского участия, темы коммуникации и проектирования новых инициатив. Одним из самых важных результатов стали новые контакты, договоренности и первые союзы для развития будущих экологических проектов. Отдельно отметим, что в ходе семинара спонтанно возникла и очень показательная «лабораторная работа» по обращению с отходами с акцентом на органические и пищевые отходы — этой теме мы посвятим отдельный пост.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>15.02.2026</strong> — в феврале 2026 года <strong>RE-HAIFA</strong> направила свои предложения по реформе сектора обращения с отходами в ответ на общественное обращение межведомственной группы при Министерстве финансов и Министерстве охраны окружающей среды. Наши материалы и предложения по этой теме отражены в соответствующей рубрике на сайте.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<p class="news-item">
+  <span class="news-preview">
+    <strong>28.02.2026</strong> — постоянно действующий <strong>«ЭКО-обменник вещей для женщин»</strong> вновь провел эко-своп в хайфском районе <strong>Неве-Шаанан</strong>. Бессменный лидер и организатор инициативы <strong>Света Розенфельд</strong> регулярно проводит такие мероприятия перед праздниками и по разным социальным поводам, неизменно сохраняя их экологический смысл и общественную значимость.
+  </span>
+  <a href="javascript:void(0);" class="see-more-link" onclick="toggleNews(this)">See more...</a>
+</p>
+
+<!-- СКРИПТ ДЛЯ РАСКРЫТИЯ -->
+<script>
+  function toggleNews(link) {
+    const preview = link.previousElementSibling;
+    preview.classList.toggle('expanded');
+
+    if (preview.classList.contains('expanded')) {
+      link.textContent = 'Hide';
+    } else {
+      link.textContent = 'See more...';
+    }
+  }
+</script>
+```
+
+Если захотите, я следующим сообщением могу сделать еще и вариант, где вместо `See more...` будет по-русски: `Подробнее...` / `Скрыть`.
+
+      
+      
+      
+      
+      
       <p class="news-item">
         <strong> 11.01.2026 </strong> - семинар активистов и волонтеров Ре-Хайфа по утверждению плана работы на 2026 г., в том числе мероприятий по продвижению Государственной программы сокращения пищевых отходов в Израиле (2026-2035), развитию соседских шеринговых практик, мастерских по апсайклингу и других актуальных направлений.
         </a>
