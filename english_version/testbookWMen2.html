@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Waste Management School — RE Haifa</title>
+  <link rel="icon" href="/green.jpg" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <style>
+    .school-nav { display:flex; flex-wrap:wrap; gap:6px; margin:1rem 0 1.5rem; }
+    .school-nav a { background:#2e7d32; color:#fff; text-decoration:none; padding:7px 16px; border-radius:20px; font-size:0.85em; font-weight:700; font-family:system-ui,sans-serif; border:1px solid rgba(255,255,255,0.25); transition:background 0.2s; }
+    .school-nav a:hover { background:#1b5e20; }
+
+    .school-block { border-radius:12px; box-shadow:0 2px 10px rgba(67,160,71,0.12); border:1px solid #e0ede0; padding:1.2rem 1.5rem; margin-bottom:1.5rem; }
+    .school-block h2 { color:#2e7d32; font-size:1.1rem; font-weight:800; margin-bottom:0.8rem; padding-bottom:0.4rem; border-bottom:2px solid rgba(67,160,71,0.2); }
+
+    .textbook-intro { background:rgba(67,160,71,0.07); border-left:4px solid #43a047; border-radius:8px; padding:0.7rem 1rem; margin-bottom:1rem; font-size:0.93rem; color:#334; }
+
+    .book-layout {
+      display:grid;
+      grid-template-columns:minmax(150px, 240px) 1fr;
+      gap:1.4rem;
+      align-items:start;
+      margin-bottom:1.4rem;
+    }
+
+    .book-cover img {
+      width:100%;
+      border-radius:10px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.18);
+      border:1px solid #e0ede0;
+    }
+
+    .book-info h2 {
+      color:#1b5e20;
+      font-size:1.45rem;
+      font-weight:900;
+      margin:0 0 0.25rem;
+      padding:0;
+      border:none;
+      line-height:1.2;
+    }
+
+    .book-info h3 {
+      color:#456;
+      font-size:1rem;
+      font-weight:700;
+      margin:0 0 0.45rem;
+      font-family:system-ui,sans-serif;
+    }
+
+    .book-meta {
+      color:#667;
+      font-size:0.9rem;
+      margin-bottom:1rem;
+      font-family:system-ui,sans-serif;
+    }
+
+    .book-info p {
+      color:#334;
+      font-size:0.94rem;
+      line-height:1.65;
+      margin:0 0 0.75rem;
+    }
+
+    .book-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.6rem;
+      margin-top:1rem;
+    }
+
+    .btn-main,
+    .btn-secondary {
+      display:inline-block;
+      text-decoration:none;
+      border-radius:999px;
+      padding:10px 18px;
+      font-weight:800;
+      font-family:system-ui,sans-serif;
+      font-size:0.9rem;
+    }
+
+    .btn-main {
+      background:#2e7d32;
+      color:white;
+    }
+
+    .btn-main:hover {
+      background:#1b5e20;
+    }
+
+    .btn-secondary {
+      background:rgba(67,160,71,0.09);
+      color:#1b5e20;
+      border:1px solid #cde6cd;
+    }
+
+    .btn-secondary:hover {
+      background:rgba(67,160,71,0.16);
+    }
+
+    .structure-intro {
+      margin-top:1.2rem;
+      padding-top:1rem;
+      border-top:1px solid #e0ede0;
+    }
+
+    .accordion-item { border:1px solid #e0ede0; border-radius:8px; margin-bottom:5px; overflow:hidden; }
+    .accordion-btn { width:100%; background:rgba(67,160,71,0.06); border:none; text-align:left; padding:0.7rem 1rem; font-size:0.92rem; font-weight:700; font-family:Georgia,serif; color:#1a2e1a; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:10px; transition:background 0.2s; }
+    .accordion-btn:hover, .accordion-btn.open { background:rgba(67,160,71,0.13); }
+    .accordion-btn .num { color:#2e7d32; font-size:0.8rem; font-weight:900; flex-shrink:0; font-family:system-ui,sans-serif; }
+    .accordion-btn .arrow { transition:transform 0.25s; color:#2e7d32; flex-shrink:0; font-size:0.8rem; }
+    .accordion-btn.open .arrow { transform:rotate(180deg); }
+    .accordion-content { display:none; padding:0.8rem 1rem 1rem; font-size:0.92rem; line-height:1.7; color:#334; background:#fafdf9; border-top:1px solid #e0ede0; }
+    .accordion-content.open { display:block; }
+    .accordion-content h4 { color:#2e7d32; font-size:0.88rem; font-weight:700; margin:0.8rem 0 0.3rem; font-family:system-ui,sans-serif; }
+    .accordion-content ul { padding-left:1.1rem; margin:0.3rem 0; }
+    .accordion-content ul li { margin-bottom:0.25rem; }
+    .acc-summary { background:rgba(67,160,71,0.08); border-radius:7px; padding:0.6rem 0.9rem; margin-top:0.8rem; font-size:0.87rem; }
+    .acc-summary strong { color:#2e7d32; display:block; margin-bottom:0.3rem; font-family:system-ui,sans-serif; }
+
+    .get-book { background:linear-gradient(135deg,#1b5e20,#2e7d32); border-radius:12px; padding:1.4rem 1.6rem; margin-bottom:1.5rem; text-align:center; color:#fff; }
+    .get-book h3 { font-size:1.05rem; font-weight:900; margin-bottom:0.4rem; }
+    .get-book p { opacity:0.9; font-size:0.92rem; margin-bottom:1rem; font-family:system-ui,sans-serif; }
+    .btn-yellow { background:#ffd200; color:#1b5e20; border:none; padding:10px 24px; border-radius:20px; font-size:0.95rem; font-weight:900; cursor:pointer; font-family:system-ui,sans-serif; }
+
+    .video-item { display:flex; align-items:flex-start; gap:12px; padding:0.7rem 0; border-bottom:1px dashed rgba(67,160,71,0.25); }
+    .video-item:last-child { border-bottom:none; }
+    .video-thumb { width:40px; height:40px; background:#2e7d32; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; color:#fff; }
+    .video-info a { font-weight:700; font-size:0.92rem; color:#1a2e1a; text-decoration:none; font-family:system-ui,sans-serif; }
+    .video-info a:hover { color:#2e7d32; }
+    .video-tag { display:inline-block; background:rgba(67,160,71,0.1); color:#2e7d32; font-size:0.7rem; font-weight:700; padding:1px 7px; border-radius:999px; margin-top:3px; font-family:system-ui,sans-serif; }
+
+    @media (max-width: 680px) {
+      .book-layout {
+        grid-template-columns:1fr;
+      }
+
+      .book-cover {
+        max-width:240px;
+        margin:0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div style="width:48px;"></div>
+      <a class="brand" href="/english_version/index_en.html">Re-Haifa</a>
+      <div class="header-actions">
+        <div class="action-pill">
+          <a class="lang-btn" href="/textbookWM.html">RU</a>
+          <a class="lang-btn" href="/hebrew_version/textbookWM_he.html" lang="he" dir="rtl">HE</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script src="/english_version/menu_en.js"></script>
+
+  <main class="site-main">
+
+    <h1 style="color:#1b5e20;font-size:1.6rem;font-weight:900;margin:0.8rem 0 0.25rem;">Waste Management School</h1>
+    <p style="color:#556;font-size:0.95rem;margin-bottom:0.8rem;font-family:system-ui,sans-serif;">
+      Educational materials, civic tools and videos for activists and anyone who wants to understand Israel's waste management system.
+    </p>
+
+    <nav class="school-nav">
+      <a href="#textbook">📖 Textbook</a>
+      <a href="#structure">📚 Handbook Structure</a>
+      <a href="#videos">🎬 Videos &amp; Lectures</a>
+    </nav>
+
+    <div class="school-block" id="textbook">
+
+      <div class="book-layout">
+        <div class="book-cover">
+          <img src="../assets/municipal-waste-cover.png" alt="Municipal Waste Management in Israel book cover">
+        </div>
+
+        <div class="book-info">
+          <h2>Municipal Waste Management in Israel</h2>
+          <h3>From Cleanup to System Design</h3>
+          <p class="book-meta">A Civic Handbook · Bela Nikitina / Re-Haifa Lab, 2026</p>
+
+          <p>
+            This civic handbook explains how municipal waste systems in Israel actually work —
+            and how they can be changed rather than merely cleaned up.
+          </p>
+
+          <p>
+            Its central argument is that better waste management begins before waste is created:
+            through local circularity hubs, repair, reuse, food-sharing, composting, bulky-item
+            transport, public data and municipal accountability.
+          </p>
+
+          <p>
+            Using examples from Israel, with particular attention to Haifa and its agglomeration,
+            the book connects everyday waste problems with the hidden systems behind them:
+            contracts, tariffs, infrastructure, data, governance and reform.
+          </p>
+
+          <div class="book-actions">
+            <a class="btn-main" href="municipal-waste-management-in-israel.pdf" target="_blank" rel="noopener">
+              Read / Download PDF
+            </a>
+            <a class="btn-secondary" href="#structure">
+              View handbook structure
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="structure-intro" id="structure">
+        <h2>Handbook Structure</h2>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">I</span>
+            <span style="flex:1;">Why the Policy Is Changing</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              The legal framework, the map of actors, and the infrastructure crisis that make waste policy
+              in Israel a live political issue rather than a technical background service. The part begins with
+              the legal definition of waste and municipal responsibility, then moves to the institutional actor
+              map and to the urgent question of landfill capacity, WtE, infrastructure lock-in, and why civic
+              engagement matters right now — literally, not rhetorically.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">II</span>
+            <span style="flex:1;">How Waste Moves Through the City</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              The physical route of waste from the kitchen, the yard and the bin site through trucks,
+              transfer stations, sorting facilities, RDF, landfills and energy recovery. This part makes visible
+              the “invisible middle” of the system and shows how collection routes, housing types, transfer
+              infrastructure and geography shape both service quality and environmental burden — including
+              who lives next to landfills, not by choice.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">III</span>
+            <span style="flex:1;">What Actually Happens to Recyclables</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              The evidence scale as a tool for separating documented facts from optimistic declarations.
+              Six material streams are examined in detail — from paper and cardboard, where a relatively
+              complete downstream chain exists, to flexible, multilayer and small packaging, which often
+              enters the system already structurally difficult or impossible to recycle.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">IV</span>
+            <span style="flex:1;">Packaging Policy and Extended Producer Responsibility</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              How TAMIR was designed, why it fell short, and what the Israeli case reveals about the limits
+              of packaging-focused Extended Producer Responsibility. This part examines the deposit system,
+              the failure to integrate parallel collection streams, the 2026 reform, the MoEP memorandum
+              of November 2025, and the European PPWR as a possible but not automatically transferable model.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">V</span>
+            <span style="flex:1;">Money, Contracts, and Incentives</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              The financial architecture behind municipal waste services: gate fees, landfill levies, hidden
+              subsidies, the “pay-twice” paradox, and the gap between who is legally responsible and who
+              actually pays. This part explains why contracts often reward tonnes collected rather than
+              residual waste reduced — and how KPIs, PAYT principles, data requirements and contract design
+              could shift incentives from managing volume to reducing it.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">VI</span>
+            <span style="flex:1;">Waste Prevention and Local Circularity Infrastructure</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Why waste prevention cannot be reduced to individual behaviour or occasional volunteer
+              initiatives. Organics, food, clothing, furniture, toys and household items are treated here
+              not simply as “waste streams,” but as materials that can be intercepted before they enter
+              the waste system. The central idea is the neighbourhood circularity hub: a missing municipal
+              layer between household life and formal waste collection, where repair, reuse, exchange,
+              food-sharing, composting, bulky-item logistics, education and impact measurement are brought
+              together into one working system.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">VII</span>
+            <span style="flex:1;">Law, Oversight, and Civic Action</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              The practical civic toolkit: what residents, NGOs and local groups have the right to ask,
+              how to audit a waste stream without being experts, and how to turn observations into arguments.
+              The book ends with a one-week action framework for working with municipalities, schools and NGOs,
+              and for taking part in the reform process not as “free janitors,” but as informed civic actors
+              capable of engaging with data, contracts and policy choices.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="get-book">
+      <div style="font-size:1.3rem;margin-bottom:0.4rem;">📚</div>
+      <h3>Read the full handbook</h3>
+      <p>
+        The complete PDF is available for reading and download. You can use it for civic learning,
+        NGO work, municipal dialogue, study groups and environmental education.
+      </p>
+      <a class="btn-yellow" href="municipal-waste-management-in-israel.pdf" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;">
+        Download the handbook ➜
+      </a>
+    </div>
+
+    <div class="school-block" id="videos">
+      <h2>🎬 Videos &amp; Lectures</h2>
+
+      <div class="video-item">
+        <div class="video-thumb">▶</div>
+        <div class="video-info">
+          <a href="https://www.kan.org.il/content/kan/kan-reka/p-9869/" target="_blank" rel="noopener">
+            Radio interview on Kan Reka — Bela Nikitina on the Re-Haifa project (29.09.2025, from minute 22)
+          </a>
+          <div><span class="video-tag">Radio</span></div>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-thumb">▶</div>
+        <div class="video-info">
+          <a href="#">Lecture: How Israel's Municipal Waste System Works</a>
+          <div><span class="video-tag">Lecture</span></div>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-thumb">▶</div>
+        <div class="video-info">
+          <a href="#">Selection: Circular Economy — Global Experience</a>
+          <div><span class="video-tag">Selection</span></div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const isOpen = btn.classList.contains('open');
+
+        document.querySelectorAll('.accordion-btn').forEach(b => {
+          b.classList.remove('open');
+          b.nextElementSibling.classList.remove('open');
+        });
+
+        if (!isOpen) {
+          btn.classList.add('open');
+          content.classList.add('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
