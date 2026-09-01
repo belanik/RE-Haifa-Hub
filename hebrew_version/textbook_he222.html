@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>בית ספר לניהול פסולת — RE Haifa</title>
+  <link rel="icon" href="/green.jpg" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <style>
+    .school-nav { display:flex; flex-wrap:wrap; gap:6px; margin:1rem 0 1.5rem; }
+    .school-nav a { background:#2e7d32; color:#fff; text-decoration:none; padding:7px 16px; border-radius:20px; font-size:0.85em; font-weight:700; font-family:system-ui,sans-serif; border:1px solid rgba(255,255,255,0.25); transition:background 0.2s; }
+    .school-nav a:hover { background:#1b5e20; }
+
+    .school-block { border-radius:12px; box-shadow:0 2px 10px rgba(67,160,71,0.12); border:1px solid #e0ede0; padding:1.2rem 1.5rem; margin-bottom:1.5rem; }
+    .school-block h2 { color:#2e7d32; font-size:1.1rem; font-weight:800; margin-bottom:0.8rem; padding-bottom:0.4rem; border-bottom:2px solid rgba(67,160,71,0.2); }
+
+    .textbook-intro { background:rgba(67,160,71,0.07); border-right:4px solid #43a047; border-radius:8px; padding:0.7rem 1rem; margin-bottom:1rem; font-size:0.93rem; color:#334; }
+
+    .book-layout {
+      display:grid;
+      grid-template-columns:minmax(150px, 240px) 1fr;
+      gap:1.4rem;
+      align-items:start;
+      margin-bottom:1.4rem;
+    }
+
+    .book-cover img {
+      width:100%;
+      border-radius:10px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.18);
+      border:1px solid #e0ede0;
+    }
+
+    .book-info h2 {
+      color:#1b5e20;
+      font-size:1.45rem;
+      font-weight:900;
+      margin:0 0 0.25rem;
+      padding:0;
+      border:none;
+      line-height:1.2;
+    }
+
+    .book-info h3 {
+      color:#456;
+      font-size:1rem;
+      font-weight:700;
+      margin:0 0 0.45rem;
+      font-family:system-ui,sans-serif;
+    }
+
+    .book-meta {
+      color:#667;
+      font-size:0.9rem;
+      margin-bottom:1rem;
+      font-family:system-ui,sans-serif;
+    }
+
+    .book-info p {
+      color:#334;
+      font-size:0.94rem;
+      line-height:1.65;
+      margin:0 0 0.75rem;
+    }
+
+    .book-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.6rem;
+      margin-top:1rem;
+    }
+
+    .btn-main,
+    .btn-secondary {
+      display:inline-block;
+      text-decoration:none;
+      border-radius:999px;
+      padding:10px 18px;
+      font-weight:800;
+      font-family:system-ui,sans-serif;
+      font-size:0.9rem;
+    }
+
+    .btn-main {
+      background:#2e7d32;
+      color:white;
+    }
+
+    .btn-main:hover {
+      background:#1b5e20;
+    }
+
+    .btn-secondary {
+      background:rgba(67,160,71,0.09);
+      color:#1b5e20;
+      border:1px solid #cde6cd;
+    }
+
+    .btn-secondary:hover {
+      background:rgba(67,160,71,0.16);
+    }
+
+    .structure-intro {
+      margin-top:1.2rem;
+      padding-top:1rem;
+      border-top:1px solid #e0ede0;
+    }
+
+    .accordion-item { border:1px solid #e0ede0; border-radius:8px; margin-bottom:5px; overflow:hidden; }
+    .accordion-btn { width:100%; background:rgba(67,160,71,0.06); border:none; text-align:right; padding:0.7rem 1rem; font-size:0.92rem; font-weight:700; font-family:Georgia,serif; color:#1a2e1a; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:10px; transition:background 0.2s; }
+    .accordion-btn:hover, .accordion-btn.open { background:rgba(67,160,71,0.13); }
+    .accordion-btn .num { color:#2e7d32; font-size:0.8rem; font-weight:900; flex-shrink:0; font-family:system-ui,sans-serif; }
+    .accordion-btn .arrow { transition:transform 0.25s; color:#2e7d32; flex-shrink:0; font-size:0.8rem; }
+    .accordion-btn.open .arrow { transform:rotate(180deg); }
+    .accordion-content { display:none; padding:0.8rem 1rem 1rem; font-size:0.92rem; line-height:1.7; color:#334; background:#fafdf9; border-top:1px solid #e0ede0; }
+    .accordion-content.open { display:block; }
+    .accordion-content h4 { color:#2e7d32; font-size:0.88rem; font-weight:700; margin:0.8rem 0 0.3rem; font-family:system-ui,sans-serif; }
+    .accordion-content ul { padding-right:1.1rem; margin:0.3rem 0; }
+    .accordion-content ul li { margin-bottom:0.25rem; }
+    .acc-summary { background:rgba(67,160,71,0.08); border-radius:7px; padding:0.6rem 0.9rem; margin-top:0.8rem; font-size:0.87rem; }
+    .acc-summary strong { color:#2e7d32; display:block; margin-bottom:0.3rem; font-family:system-ui,sans-serif; }
+
+    .get-book { background:linear-gradient(135deg,#1b5e20,#2e7d32); border-radius:12px; padding:1.4rem 1.6rem; margin-bottom:1.5rem; text-align:center; color:#fff; }
+    .get-book h3 { font-size:1.05rem; font-weight:900; margin-bottom:0.4rem; }
+    .get-book p { opacity:0.9; font-size:0.92rem; margin-bottom:1rem; font-family:system-ui,sans-serif; }
+    .btn-yellow { background:#ffd200; color:#1b5e20; border:none; padding:10px 24px; border-radius:20px; font-size:0.95rem; font-weight:900; cursor:pointer; font-family:system-ui,sans-serif; }
+
+    .video-item { display:flex; align-items:flex-start; gap:12px; padding:0.7rem 0; border-bottom:1px dashed rgba(67,160,71,0.25); }
+    .video-item:last-child { border-bottom:none; }
+    .video-thumb { width:40px; height:40px; background:#2e7d32; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; color:#fff; }
+    .video-info a { font-weight:700; font-size:0.92rem; color:#1a2e1a; text-decoration:none; font-family:system-ui,sans-serif; }
+    .video-info a:hover { color:#2e7d32; }
+    .video-tag { display:inline-block; background:rgba(67,160,71,0.1); color:#2e7d32; font-size:0.7rem; font-weight:700; padding:1px 7px; border-radius:999px; margin-top:3px; font-family:system-ui,sans-serif; }
+
+    @media (max-width: 680px) {
+      .book-layout {
+        grid-template-columns:1fr;
+      }
+
+      .book-cover {
+        max-width:240px;
+        margin:0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div style="width:48px;"></div>
+      <div class="brand">Re-Haifa</div>
+      <div class="header-actions">
+        <div class="action-pill">
+          <a class="hdr-btn" href="https://www.facebook.com/profile.php?id=61575821814765" target="_blank" rel="noopener">Facebook</a>
+          <a class="lang-btn" href="/textbookWM.html">RU</a>
+          <a class="lang-btn" href="/english_version/textbookWMen.html">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="menu-slot"></div>
+
+  <main class="site-main">
+
+    <h1 style="color:#1b5e20;font-size:1.6rem;font-weight:900;margin:0.8rem 0 0.25rem;">בית ספר לניהול פסולת</h1>
+    <p style="color:#556;font-size:0.95rem;margin-bottom:0.8rem;font-family:system-ui,sans-serif;">
+      חומרי לימוד, כלים אזרחיים וסרטונים לפעילים ולכל מי שרוצה להבין את מערכת ניהול הפסולת בישראל.
+    </p>
+
+    <div class="school-block" id="textbook">
+
+      <div class="book-layout">
+        <div class="book-cover">
+          <img src="../assets/municipal-waste-cover.png" alt="כריכת הספר ניהול פסולת עירונית בישראל">
+        </div>
+
+        <div class="book-info">
+          <h2>ניהול פסולת עירונית בישראל</h2>
+          <h3>מניקיון לתכנון מערכתי</h3>
+          <p class="book-meta">חוברת אזרחית · בלה ניקיטינה / Re-Haifa Lab, 2026</p>
+
+          <p>
+            חוברת אזרחית זו מסבירה כיצד מערכות ניהול הפסולת העירוניות בישראל פועלות בפועל —
+            וכיצד ניתן לשנות אותן, ולא רק לנקות אחריהן.
+          </p>
+
+          <p>
+            הטענה המרכזית שלה היא שניהול פסולת טוב יותר מתחיל עוד לפני היווצרות הפסולת: דרך
+            מרכזי מחזוריות מקומיים, תיקון, שימוש חוזר, שיתוף מזון, קומפוסט, הובלת פריטים גדולים,
+            נתונים פתוחים ואחריותיות עירונית.
+          </p>
+
+          <p>
+            באמצעות דוגמאות מישראל, בדגש מיוחד על חיפה והאגד העירוני שלה, הספר מקשר בין בעיות
+            הפסולת היומיומיות לבין המערכות הנסתרות שמאחוריהן: חוזים, תעריפים, תשתיות, נתונים,
+            ממשל ורפורמה.
+          </p>
+
+          <div class="book-actions">
+            <a class="btn-main" href="municipal-waste-management-in-israel.pdf" target="_blank" rel="noopener">
+              קריאה / הורדת PDF
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="structure-intro" id="structure">
+        <h2>מבנה החוברת</h2>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">I</span>
+            <span style="flex:1;">מדוע המדיניות משתנה</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              המסגרת המשפטית, מפת הגורמים המעורבים, ומשבר התשתיות שהופכים את מדיניות הפסולת
+              בישראל לסוגיה פוליטית חיה ולא לשירות רקע טכני. החלק נפתח בהגדרה המשפטית של פסולת
+              ואחריות עירונית, ועובר למפת הגורמים המוסדיים ולשאלה הדחופה של קיבולת מטמנות, המרת
+              פסולת לאנרגיה, נעילת תשתיות, ומדוע מעורבות אזרחית חשובה ממש עכשיו — פשוטו כמשמעו,
+              לא רק כרטוריקה.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">II</span>
+            <span style="flex:1;">כיצד הפסולת נעה בעיר</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              המסלול הפיזי של הפסולת מהמטבח, החצר ועמדת הפח, דרך משאיות, תחנות מעבר, מתקני מיון,
+              RDF, מטמנות והשבת אנרגיה. חלק זה חושף את ה"אמצע הבלתי נראה" של המערכת ומראה כיצד
+              מסלולי איסוף, סוגי מגורים, תשתיות מעבר וגאוגרפיה מעצבים גם את איכות השירות וגם את
+              הנטל הסביבתי — כולל מי גר ליד מטמנות שלא מבחירה.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">III</span>
+            <span style="flex:1;">מה קורה בפועל לחומרים הממוחזרים</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              סולם הראיות ככלי להפרדת עובדות מתועדות מהצהרות אופטימיות. שישה זרמי חומר נבחנים
+              לעומק — מנייר וקרטון, שבהם קיימת שרשרת המשך יחסית שלמה, ועד אריזות גמישות,
+              רב-שכבתיות וקטנות, שלעיתים קרובות נכנסות למערכת כשהן כבר קשות או בלתי אפשריות
+              למחזור מבחינה מבנית.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">IV</span>
+            <span style="flex:1;">מדיניות אריזות ואחריות יצרן מורחבת</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              כיצד תוכננה תמיר, מדוע לא עמדה בציפיות, ומה המקרה הישראלי מלמד על מגבלות אחריות
+              יצרן מורחבת המתמקדת באריזות. חלק זה בוחן את מערכת הפיקדון, הכישלון באיחוד זרמי
+              איסוף מקבילים, רפורמת 2026, התזכיר של המשרד להגנת הסביבה מנובמבר 2025, ואת ה-PPWR
+              האירופי כמודל אפשרי אך לא ניתן להעתקה אוטומטית.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">V</span>
+            <span style="flex:1;">כסף, חוזים ותמריצים</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              הארכיטקטורה הפיננסית שמאחורי שירותי הפסולת העירוניים: דמי כניסה למתקן, היטלי
+              הטמנה, סבסוד סמוי, הפרדוקס של "תשלום כפול", והפער בין מי שאחראי מבחינה משפטית לבין
+              מי שבפועל משלם. חלק זה מסביר מדוע חוזים לעיתים קרובות מתגמלים טונות שנאספו ולא
+              פסולת שיורית שצומצמה — וכיצד מדדי ביצוע (KPI), עקרונות תשלום-לפי-זריקה (PAYT),
+              דרישות נתונים ועיצוב חוזים יכולים להזיז את התמריצים מניהול נפח לצמצומו.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">VI</span>
+            <span style="flex:1;">מניעת פסולת ותשתית מחזוריות מקומית</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              מדוע אי אפשר לצמצם את מניעת הפסולת להתנהגות אישית או ליוזמות התנדבותיות מזדמנות.
+              חומר אורגני, מזון, בגדים, רהיטים, צעצועים ופריטי משק בית נדונים כאן לא רק כ"זרמי
+              פסולת", אלא כחומרים שניתן ליירט לפני שהם נכנסים למערכת הפסולת. הרעיון המרכזי הוא
+              מרכז מחזוריות שכונתי: שכבה עירונית חסרה בין חיי משק הבית לבין איסוף הפסולת
+              הפורמלי, שבה תיקון, שימוש חוזר, החלפה, שיתוף מזון, קומפוסט, לוגיסטיקת פריטים
+              גדולים, חינוך ומדידת השפעה מתאחדים למערכת עבודה אחת.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span class="num">VII</span>
+            <span style="flex:1;">חוק, פיקוח ופעולה אזרחית</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              לאחר שהספר עקב אחר האופן שבו פסולת מוגדרת, ממומנת, ממוינת, מיוצאת ומוטמנת, נותרת
+              שאלה אחת: מי בכלל יכול לשנות זאת? חלק זה טוען שבעיית הפסולת בישראל אינה בראש
+              ובראשונה מחסור ברצון טוב, אלא פער באחריות — אף גורם בודד, משרד ממשלתי או מפלגה
+              פוליטית אינם נושאים כיום באחריות ברורה למעבר מסילוק למניעה. החלק ממפה מה כל אחד
+              יכול לתרום בפועל — תושב, קבוצה שכונתית, עמותה, רשות מקומית, מוסדות לאומיים — וחשוב
+              לא פחות, את מה שכל אחד מהם אינו יכול להחליף אצל האחרים. הספר מסתיים לא בקריאה
+              להתנדב יותר, אלא בשאלה שכל קורא יכול לקחת אל העיר שלו: איזו פונקציה הכרחית חסרה
+              כרגע — ומי יכול בפועל לקחת אותה על עצמו?
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="school-block" id="videos">
+      <h2>🎬 סרטונים והרצאות</h2>
+
+      <div class="video-item">
+        <div class="video-thumb">▶</div>
+        <div class="video-info">
+          <a href="https://www.kan.org.il/content/kan/kan-reka/p-9869/" target="_blank" rel="noopener">
+            ראיון רדיו בכאן רק"ע — בלה ניקיטינה על פרויקט Re-Haifa (29.9.2025, מהדקה ה-22)
+          </a>
+          <div><span class="video-tag">רדיו</span></div>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-thumb">▶</div>
+        <div class="video-info">
+          <a href="https://youtu.be/uXKWVu3I7lk">הרצאה: כיצד פועלת מערכת סילוק הפסולת המוצקה בישראל</a>
+          <div><span class="video-tag">הרצאה</span></div>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-thumb">▶</div>
+        <div class="video-info">
+          <a href="#">מבחר: כלכלה מעגלית — ניסיון עולמי</a>
+          <div><span class="video-tag">מבחר</span></div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; RE Haifa, 2025 — אקולוגיה, שיתוף וקהילה בחיפה
+  </footer>
+
+  <script src="/assets/script_menu_he.js" defer></script>
+  <script>
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const isOpen = btn.classList.contains('open');
+
+        document.querySelectorAll('.accordion-btn').forEach(b => {
+          b.classList.remove('open');
+          b.nextElementSibling.classList.remove('open');
+        });
+
+        if (!isOpen) {
+          btn.classList.add('open');
+          content.classList.add('open');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
