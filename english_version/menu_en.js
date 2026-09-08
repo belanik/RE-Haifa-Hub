@@ -61,7 +61,10 @@
   nav.className = "top-nav";
   nav.setAttribute("aria-label", "Navigation");
   nav.innerHTML = `
-    <a href="/index_en.html">News</a>
+   
+
+    <a href="/english_version/index_en.html">News</a>
+    
   
     <a href="/english_version/position_on_waste_reform_en.html" style="color:#ffd200;">Position on Waste Reform</a>
 
