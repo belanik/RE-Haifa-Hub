@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Где починить в Хайфе</title>
+<meta name="description" content="Справочник мастеров по ремонту в Хайфе и Крайот: по районам, с отзывами соседей. Re-Haifa Lab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ground: #EDF1EE;
+  --surface: #FFFFFF;
+  --ink: #1C2B27;
+  --muted: #56675F;
+  --line: #CBD5D0;
+  --carmel: #2F6B4A;
+  --bay: #1D5C78;
+  --tape: #F0C33C;
+  --tape-ink: #2A2206;
+  --wa: #1F8F4E;
+  --danger: #A23B2A;
+  --radius-s: 8px;
+  --radius-l: 18px;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #111917; --surface: #1A2421; --ink: #E4ECE8; --muted: #9BADA6; --line: #2E3C38;
+    --carmel: #74B38E; --bay: #72B4D2; --tape: #F0C33C; --tape-ink: #2A2206; --wa: #45C07A; --danger: #E08672;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #111917; --surface: #1A2421; --ink: #E4ECE8; --muted: #9BADA6; --line: #2E3C38;
+  --carmel: #74B38E; --bay: #72B4D2; --tape: #F0C33C; --tape-ink: #2A2206; --wa: #45C07A; --danger: #E08672;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font-family: "Rubik", "Segoe UI", "Arial Hebrew", Arial, sans-serif;
+  font-size: 16px; line-height: 1.5;
+}
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--bay); outline-offset: 2px; }
+a { color: var(--bay); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; }
+
+
+/* шапка */
+header.top {
+  display: flex; align-items: center; gap: 12px; justify-content: space-between;
+  padding: 14px 0; flex-wrap: wrap;
+}
+.brand { font-weight: 800; font-size: 18px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+.brand small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
+.top-actions { display: flex; gap: 8px; align-items: center; }
+.langs { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.langs button { border: 0; background: none; padding: 6px 10px; font-size: 14px; }
+.langs button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+.btn {
+  border: 1px solid var(--line); background: var(--surface); border-radius: 999px;
+  padding: 9px 16px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;
+  text-decoration: none; color: var(--ink); min-height: 42px;
+}
+.btn-primary { background: var(--tape); border-color: var(--tape); color: var(--tape-ink); font-weight: 700; }
+.btn-wa { background: var(--wa); border-color: var(--wa); color: #fff; }
+.btn-quiet { border-color: transparent; background: none; color: var(--muted); padding-inline: 6px; }
+
+/* главная: террасы */
+.hero h1 { font-size: clamp(32px, 7vw, 52px); line-height: 1.02; margin: 18px 0 10px; font-weight: 800; letter-spacing: -0.02em; }
+.hero p { color: var(--muted); max-width: 52ch; margin: 0 0 22px; }
+.terraces { display: flex; flex-direction: column; gap: 6px; margin-bottom: 28px; }
+.tier {
+  --tone: var(--carmel);
+  background: color-mix(in srgb, var(--tone) 13%, var(--surface));
+  border-inline-start: 5px solid var(--tone);
+  border-radius: 0 var(--radius-l) var(--radius-l) 0;
+  padding: 14px 16px 16px;
+  margin-inline-start: calc(var(--step, 0) * 14px);
+}
+[dir="rtl"] .tier { border-radius: var(--radius-l) 0 0 var(--radius-l); }
+.tier h2 { margin: 0; font-size: 19px; font-weight: 700; }
+.tier .level { color: var(--muted); font-size: 14px; margin: 0 0 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  border: 1px solid color-mix(in srgb, var(--tone, var(--ink)) 35%, var(--line));
+  background: var(--surface); border-radius: 999px; padding: 7px 13px; font-size: 15px;
+  min-height: 38px;
+}
+.chip .n { color: var(--muted); font-size: 13px; margin-inline-start: 4px; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.chip[aria-pressed="true"] .n { color: inherit; opacity: .75; }
+.sea { height: 14px; margin-inline-start: calc(4 * 14px); color: var(--bay); }
+.sea svg { width: 100%; height: 14px; display: block; }
+.towns h2 { font-size: 19px; margin: 26px 0 8px; }
+.towns .tier { margin-inline-start: 0; }
+
+/* страница района */
+.back { margin: 10px 0 0; }
+.district-head h1 { font-size: clamp(30px, 6vw, 44px); margin: 8px 0 2px; font-weight: 800; letter-spacing: -0.02em; }
+.district-head p { margin: 0 0 16px; color: var(--muted); }
+.filters { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+.scroll-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.scroll-row .chip { flex: 0 0 auto; }
+.seg { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; width: fit-content; max-width: 100%; }
+.seg button { border: 0; background: var(--surface); padding: 8px 14px; font-size: 14px; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+.count { color: var(--muted); font-size: 14px; margin: 0 0 10px; }
+
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-l);
+  padding: 16px; margin-bottom: 12px;
+}
+.card.pending { border-style: dashed; }
+.card h3 { margin: 0; font-size: 19px; line-height: 1.25; }
+.spec { margin: 2px 0 10px; color: var(--muted); }
+.facts { display: flex; flex-direction: column; gap: 4px; margin: 0 0 10px; font-size: 15px; }
+.fact { display: flex; gap: 8px; align-items: baseline; }
+.fact .k { flex: 0 0 auto; width: 1.3em; text-align: center; }
+.stats { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0 0 10px; font-size: 15px; }
+.stats strong { font-weight: 700; }
+.quote {
+  margin: 0 0 12px; padding: 10px 12px; border-radius: var(--radius-s);
+  background: color-mix(in srgb, var(--ground) 70%, var(--surface));
+  font-size: 15px;
+}
+.quote p { margin: 0 0 4px; }
+.quote footer { color: var(--muted); font-size: 13px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.card-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; margin-top: 10px; font-size: 13px; color: var(--muted); }
+.card-foot button { border: 0; background: none; color: var(--muted); text-decoration: underline; padding: 0; font-size: 13px; }
+.badge { display: inline-block; font-size: 13px; padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, var(--tape) 35%, var(--surface)); color: var(--ink); }
+.empty { text-align: center; padding: 30px 16px; background: var(--surface); border: 1px dashed var(--line); border-radius: var(--radius-l); }
+.empty p { margin: 0 0 12px; }
+
+/* нижняя панель-диалог */
+dialog {
+  border: 0; padding: 0; width: min(560px, 100%); max-height: min(92vh, 900px);
+  background: var(--surface); color: var(--ink); border-radius: var(--radius-l);
+  box-shadow: 0 20px 60px rgba(0,0,0,.28);
+}
+dialog::backdrop { background: rgba(10, 20, 18, .45); }
+@media (max-width: 600px) {
+  dialog { margin: auto 0 0; width: 100%; max-width: 100%; border-radius: var(--radius-l) var(--radius-l) 0 0; max-height: 94vh; padding-bottom: env(safe-area-inset-bottom, 0px); }
+}
+.sheet { display: flex; flex-direction: column; max-height: inherit; }
+.sheet-head { padding: 16px 18px 8px; display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.sheet-head h2 { margin: 0; font-size: 21px; }
+.sheet-head .x { border: 0; background: none; font-size: 26px; line-height: 1; padding: 2px 6px; color: var(--muted); }
+.progress { display: flex; gap: 4px; padding: 0 18px 10px; }
+.progress span { flex: 1; height: 4px; border-radius: 4px; background: var(--line); }
+.progress span.on { background: var(--carmel); }
+.sheet-body { padding: 4px 18px 16px; overflow-y: auto; }
+.sheet-foot { padding: 12px 18px 16px; display: flex; gap: 10px; justify-content: space-between; border-top: 1px solid var(--line); }
+.field { margin-bottom: 16px; }
+.field > label, .field > .lbl { display: block; font-weight: 500; margin-bottom: 6px; }
+.field .hint { color: var(--muted); font-size: 14px; margin: -2px 0 8px; }
+input[type=text], input[type=tel], input[type=number], select, textarea {
+  width: 100%; border: 1px solid var(--line); border-radius: var(--radius-s); padding: 10px 12px;
+  background: var(--surface); min-height: 44px;
+}
+textarea { min-height: 90px; resize: vertical; }
+.opt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.opt {
+  border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius-s);
+  padding: 10px 12px; text-align: start; min-height: 44px;
+}
+.opt[aria-pressed="true"] { border-color: var(--carmel); background: color-mix(in srgb, var(--carmel) 16%, var(--surface)); font-weight: 500; }
+.stars { display: flex; gap: 4px; }
+.stars button { border: 0; background: none; font-size: 30px; line-height: 1; padding: 2px; color: var(--line); }
+.stars button.on { color: var(--tape); }
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+.check input { width: 20px; height: 20px; margin-top: 2px; flex: 0 0 auto; }
+.error { color: var(--danger); font-size: 14px; margin: 6px 0 0; }
+.notice { background: color-mix(in srgb, var(--bay) 12%, var(--surface)); border-radius: var(--radius-s); padding: 12px; margin-bottom: 14px; }
+.area-group { margin-bottom: 10px; }
+.area-group .lbl { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+.login-box { display: flex; flex-direction: column; gap: 10px; }
+.login-box .btn { justify-content: center; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.toast {
+  position: fixed; inset-inline: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  max-width: 480px; margin: 0 auto; background: var(--ink); color: var(--surface);
+  padding: 12px 16px; border-radius: var(--radius-s); opacity: 0; transform: translateY(10px);
+  transition: opacity .2s, transform .2s; pointer-events: none; z-index: 10;
+}
+.toast.show { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
+footer.site { color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 16px; margin-top: 30px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#/" id="brand"></a>
+    <div class="top-actions">
+      <div class="langs" role="group" aria-label="Language">
+        <button data-lang="ru">RU</button><button data-lang="he">עב</button><button data-lang="en">EN</button>
+      </div>
+      <button class="btn" id="loginBtn"></button>
+    </div>
+  </header>
+  <main id="app"></main>
+  <footer class="site" id="siteFooter"></footer>
+</div>
+
+<dialog id="sheet"><div class="sheet" id="sheetInner"></div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* ============================================================
+   НАСТРОЙКИ — заполнить своими значениями из Supabase
+   (Project Settings → API / Data API). Ключ anon/publishable —
+   публичный, его можно держать в коде сайта.
+   ============================================================ */
+const CONFIG = {
+ SUPABASE_URL: 'https://llizkyzqyjmwndebwobr.supabase.co',
+SUPABASE_ANON_KEY: 'sb_publishable_pmPUyTAl0VFuCZEyQD1bxA_FRC6uayU',
+
+  LOGIN_PROVIDERS: ['email'],          // позже можно добавить 'facebook', 'google'
+  RESEARCH_CONSENT_ENABLED: false,     // включить после одобрения этического комитета
+};
+
+/* Оформление кластеров: берётся по slug, сами районы и названия — из базы */
+const CLUSTER_UI = {
+  'carmel':      { step: 0, tone: 'var(--carmel)', lvl: { ru: 'Верхний ярус, гора', he: 'הקומה העליונה, ההר', en: 'Upper tier, on the mountain' } },
+  'slopes':      { step: 1, tone: 'color-mix(in srgb, var(--carmel) 70%, var(--bay))', lvl: { ru: 'Средний ярус', he: 'הקומה האמצעית', en: 'Middle tier' } },
+  'lower-coast': { step: 2, tone: 'color-mix(in srgb, var(--carmel) 35%, var(--bay))', lvl: { ru: 'У моря', he: 'לחוף הים', en: 'By the sea' } },
+  'bay':         { step: 3, tone: 'var(--bay)', lvl: { ru: 'Залив: мастерские и сервисы', he: 'המפרץ: מוסכים ומעבדות', en: 'The bay: workshops and service centres' } },
+  'krayot':      { town: true, tone: 'var(--bay)' },
+  'south':       { town: true, tone: 'var(--carmel)' },
+};
+const LANGS = { ru: 'RU', he: 'HE', en: 'EN', ar: 'AR' };
+
+/* ============================================================
+   Тексты интерфейса
+   ============================================================ */
+const T = {
+  ru: {
+    brand: 'Где починить', brandSub: 'Хайфа и Крайот · Re-Haifa Lab',
+    login: 'Войти', logout: 'Выйти',
+    h1: 'Где починить в Хайфе',
+    lead: 'Мастера, которых советуют соседи. Выберите свой район: увидите и тех, кто работает рядом, и тех, кто приезжает к вам.',
+    towns: 'Города рядом', add: 'Добавить мастера', back: 'Все районы',
+    loading: 'Загружаем…', loadError: 'Не удалось загрузить данные. Проверьте интернет и обновите страницу.',
+    inDistrict: n => `${n} ${plural(n,'мастер','мастера','мастеров')} в этом районе, включая выездных`,
+    allCats: 'Все', modeAll: 'Все', modeBase: 'Мастерская здесь', modeCome: 'Приезжают сюда', langAny: 'Любой язык',
+    workshop: 'Мастерская', comesFrom: d => `Приезжает на дом из района ${d}`, comesTo: n => `Выезд: ${n}`,
+    speaks: 'Говорит', rating: n => `${n} ${plural(n,'отзыв','отзыва','отзывов')}`,
+    fixedPct: p => `починили в ${p}% случаев`,
+    whatsapp: 'WhatsApp', call: 'Позвонить', map: 'На карте', review: 'Оставить отзыв',
+    unverified: 'Добавлен сообществом, ещё не проверен',
+    verified: { phone_checked: 'Проверено звонком', visited: 'Проверено визитом', owner_confirmed: 'Подтверждено мастером' },
+    flag: 'Сообщить об ошибке',
+    empty: 'Здесь пока никого нет по этому фильтру. Знаете хорошего мастера?',
+    emptyAll: 'В этом районе пока никого нет. Добавьте первого мастера, которого знаете.',
+    waText: 'Здравствуйте! Нашёл(ла) вас в справочнике «Где починить в Хайфе». Нужен ремонт: ',
+    footer: 'Справочник собирают жители Хайфы вместе с Re-Haifa Lab. Новые записи проходят проверку перед публикацией.',
+    loginTitle: 'Войдите, чтобы добавить мастера или отзыв',
+    loginWhy: 'Так мы защищаем справочник от спама и фальшивых отзывов. Под отзывом покажем только ваше имя.',
+    email: 'Ваш email', sendLink: 'Прислать ссылку для входа',
+    linkSent: e => `Мы отправили ссылку на ${e}. Откройте письмо на этом же устройстве и нажмите на ссылку. Письмо может попасть в «Спам».`,
+    withFb: 'Войти через Facebook', withGoogle: 'Войти через Google',
+    errEmail: 'Проверьте адрес почты',
+    nameTitle: 'Как вас подписать?', nameHint: 'Это имя увидят под вашими отзывами. Можно только имя, например «Ирина К.»',
+    save: 'Сохранить',
+    addTitle: 'Новый мастер', reviewTitle: 'Отзыв',
+    next: 'Дальше', prev: 'Назад', send: 'Отправить', close: 'Закрыть', done: 'Готово', sending: 'Отправляем…',
+    s1name: 'Имя мастера или название мастерской', s1nameHint: 'Как вы его знаете: «Борис, стиральные машины»',
+    s1phone: 'Телефон', s1phoneHint: 'Если такой номер уже есть в справочнике, ваш отзыв добавится к этому мастеру',
+    s2cats: 'Что он чинит?', s2hint: 'Можно выбрать несколько',
+    s3mode: 'Как он работает?', mStationary: 'Мастерская', mMobile: 'Выезд на дом', mBoth: 'И то и другое',
+    s3base: 'Где мастерская или откуда он выезжает', s3addr: 'Адрес (если есть мастерская)', s3areas: 'Куда он выезжает',
+    s3langs: 'На каких языках с ним можно говорить',
+    s4what: 'Что вы чинили?', s4outcome: 'Чем закончилось',
+    o_fixed: 'Починили', o_partially_fixed: 'Починили частично', o_refused: 'Не взялись', o_advised_replace: 'Посоветовали купить новое', o_end_of_life: 'Починить нельзя', o_in_progress: 'Ещё в ремонте',
+    s4barrier: 'Что помешало?',
+    b_no_spare_parts: 'Нет запчастей', b_too_expensive: 'Слишком дорого', b_no_expertise: 'Не хватило опыта', b_design_not_repairable: 'Вещь сделана неремонтопригодной', b_long_wait: 'Слишком долго ждать', b_other: 'Другое',
+    s4rating: 'Ваша оценка', s4price: 'Сколько стоило, ₪', s4days: 'Сколько дней заняло', s4comment: 'Пара слов для соседей',
+    s4commentPh: 'Например: приехал через 40 минут, починил плату, взял 300 ₪',
+    s4consent: 'Разрешаю использовать мой отзыв без имени в исследовании Хайфского университета о ремонте в городе',
+    errName: 'Напишите имя мастера', errCats: 'Выберите хотя бы одну категорию', errBase: 'Укажите район или адрес мастерской',
+    errBaseMobile: 'Укажите район, откуда мастер выезжает',
+    errAreas: 'Отметьте хотя бы один район выезда', errOutcome: 'Выберите, чем закончился ремонт', errMode: 'Выберите, как работает мастер',
+    thanksTitle: 'Спасибо!',
+    thanksPending: 'Мы проверим и опубликуем в течение пары дней. После трёх одобренных записей ваши новые записи будут появляться сразу.',
+    thanksDup: 'Этот мастер уже был в справочнике, поэтому ваш отзыв добавлен к нему.',
+    sendError: m => `Не получилось отправить: ${m}`,
+    flagTitle: 'Что не так?', flagSend: 'Отправить',
+    f_wrong_info: 'Неверные данные', f_closed: 'Мастер больше не работает', f_duplicate: 'Это дубль', f_owner_objection: 'Я этот мастер и хочу изменить или убрать запись', f_other: 'Другое',
+    flagMsg: 'Подробности (по желанию)', flagContact: 'Как с вами связаться (по желанию)', flagThanks: 'Спасибо, модератор посмотрит',
+    loggedIn: n => `Вы вошли как ${n}`,
+  },
+  he: {
+    brand: 'איפה מתקנים', brandSub: 'חיפה והקריות · Re-Haifa Lab',
+    login: 'כניסה', logout: 'יציאה',
+    h1: 'איפה מתקנים בחיפה',
+    lead: 'בעלי מקצוע שהשכנים ממליצים עליהם. בחרו שכונה ותראו גם את מי שעובד בה וגם את מי שמגיע אליה.',
+    towns: 'ערים סמוכות', add: 'הוספת בעל מקצוע', back: 'כל השכונות',
+    loading: 'טוען…', loadError: 'לא הצלחנו לטעון את הנתונים. בדקו את החיבור לאינטרנט ורעננו את הדף.',
+    inDistrict: n => `בעלי מקצוע בשכונה: ${n}, כולל כאלה שמגיעים עד הבית`,
+    allCats: 'הכול', modeAll: 'הכול', modeBase: 'יש כאן מעבדה', modeCome: 'מגיעים לכאן', langAny: 'כל שפה',
+    workshop: 'מעבדה', comesFrom: d => `מגיע עד הבית, יוצא מ${d}`, comesTo: n => `אזורי שירות: ${n}`,
+    speaks: 'שפות', rating: n => `${n} ביקורות`,
+    fixedPct: p => `תוקן ב־${p}% מהמקרים`,
+    whatsapp: 'וואטסאפ', call: 'חיוג', map: 'במפה', review: 'כתיבת ביקורת',
+    unverified: 'נוסף על ידי הקהילה, טרם אומת',
+    verified: { phone_checked: 'אומת בטלפון', visited: 'אומת בביקור', owner_confirmed: 'אושר על ידי בעל המקצוע' },
+    flag: 'דיווח על טעות',
+    empty: 'עדיין אין כאן אף אחד לפי הסינון הזה. מכירים בעל מקצוע טוב?',
+    emptyAll: 'עדיין אין בעלי מקצוע בשכונה הזו. הוסיפו את הראשון שאתם מכירים.',
+    waText: 'שלום! מצאתי אותך במדריך "איפה מתקנים בחיפה". אני צריך/ה תיקון: ',
+    footer: 'המדריך נבנה על ידי תושבי חיפה יחד עם Re-Haifa Lab. רשומות חדשות נבדקות לפני פרסום.',
+    loginTitle: 'היכנסו כדי להוסיף בעל מקצוע או ביקורת',
+    loginWhy: 'כך אנחנו מגינים על המדריך מספאם ומביקורות מזויפות. מתחת לביקורת יופיע רק השם שלכם.',
+    email: 'האימייל שלכם', sendLink: 'שלחו לי קישור כניסה',
+    linkSent: e => `שלחנו קישור אל ${e}. פתחו את המייל באותו מכשיר ולחצו על הקישור. ייתכן שהמייל יגיע לספאם.`,
+    withFb: 'כניסה עם Facebook', withGoogle: 'כניסה עם Google',
+    errEmail: 'בדקו את כתובת האימייל',
+    nameTitle: 'איך לחתום בשמכם?', nameHint: 'השם הזה יופיע מתחת לביקורות שלכם. אפשר רק שם פרטי, למשל "נועה ל."',
+    save: 'שמירה',
+    addTitle: 'בעל מקצוע חדש', reviewTitle: 'ביקורת',
+    next: 'המשך', prev: 'חזרה', send: 'שליחה', close: 'סגירה', done: 'סיום', sending: 'שולח…',
+    s1name: 'שם בעל המקצוע או שם העסק', s1nameHint: 'איך שאתם מכירים אותו: "בוריס, מכונות כביסה"',
+    s1phone: 'טלפון', s1phoneHint: 'אם המספר כבר קיים במדריך, הביקורת שלכם תתווסף לבעל המקצוע הזה',
+    s2cats: 'מה הוא מתקן?', s2hint: 'אפשר לבחור כמה',
+    s3mode: 'איך הוא עובד?', mStationary: 'מעבדה', mMobile: 'מגיע עד הבית', mBoth: 'גם וגם',
+    s3base: 'איפה המעבדה או מאיפה הוא יוצא', s3addr: 'כתובת (אם יש מעבדה)', s3areas: 'לאן הוא מגיע',
+    s3langs: 'באילו שפות אפשר לדבר איתו',
+    s4what: 'מה תיקנתם?', s4outcome: 'איך זה נגמר',
+    o_fixed: 'תוקן', o_partially_fixed: 'תוקן חלקית', o_refused: 'לא הסכים לתקן', o_advised_replace: 'המליץ לקנות חדש', o_end_of_life: 'אי אפשר לתקן', o_in_progress: 'עדיין בתיקון',
+    s4barrier: 'מה הפריע?',
+    b_no_spare_parts: 'אין חלקי חילוף', b_too_expensive: 'יקר מדי', b_no_expertise: 'חסר ניסיון', b_design_not_repairable: 'המוצר לא בנוי לתיקון', b_long_wait: 'המתנה ארוכה מדי', b_other: 'אחר',
+    s4rating: 'הדירוג שלכם', s4price: 'כמה זה עלה, ₪', s4days: 'כמה ימים זה לקח', s4comment: 'כמה מילים לשכנים',
+    s4commentPh: 'למשל: הגיע תוך 40 דקות, תיקן את הלוח, לקח 300 ₪',
+    s4consent: 'אני מסכים/ה שהביקורת שלי תשמש, ללא שם, במחקר של אוניברסיטת חיפה על תיקונים בעיר',
+    errName: 'כתבו את שם בעל המקצוע', errCats: 'בחרו לפחות קטגוריה אחת', errBase: 'ציינו שכונה או כתובת של המעבדה',
+    errBaseMobile: 'ציינו מאיזו שכונה הוא יוצא',
+    errAreas: 'סמנו לפחות שכונה אחת שאליה הוא מגיע', errOutcome: 'בחרו איך הסתיים התיקון', errMode: 'בחרו איך בעל המקצוע עובד',
+    thanksTitle: 'תודה!',
+    thanksPending: 'נבדוק ונפרסם תוך יומיים בערך. אחרי שלוש רשומות מאושרות, הרשומות החדשות שלכם יופיעו מיד.',
+    thanksDup: 'בעל המקצוע הזה כבר היה במדריך, ולכן הביקורת שלכם נוספה אליו.',
+    sendError: m => `השליחה נכשלה: ${m}`,
+    flagTitle: 'מה לא בסדר?', flagSend: 'שליחה',
+    f_wrong_info: 'פרטים שגויים', f_closed: 'כבר לא עובד', f_duplicate: 'כפילות', f_owner_objection: 'אני בעל המקצוע ורוצה לשנות או להסיר את הרשומה', f_other: 'אחר',
+    flagMsg: 'פרטים (לא חובה)', flagContact: 'איך ליצור איתכם קשר (לא חובה)', flagThanks: 'תודה, מנהל/ת התוכן יבדקו',
+    loggedIn: n => `מחובר/ת בתור ${n}`,
+  },
+  en: {
+    brand: 'Where to repair', brandSub: 'Haifa & Krayot · Re-Haifa Lab',
+    login: 'Sign in', logout: 'Sign out',
+    h1: 'Where to get things fixed in Haifa',
+    lead: 'Repairers your neighbours recommend. Pick your neighbourhood to see who works there and who comes to you.',
+    towns: 'Nearby towns', add: 'Add a repairer', back: 'All neighbourhoods',
+    loading: 'Loading…', loadError: "Couldn't load the data. Check your connection and refresh the page.",
+    inDistrict: n => `${n} repairer${n===1?'':'s'} in this area, including home visits`,
+    allCats: 'All', modeAll: 'All', modeBase: 'Workshop here', modeCome: 'Comes here', langAny: 'Any language',
+    workshop: 'Workshop', comesFrom: d => `Home visits, based in ${d}`, comesTo: n => `Visits: ${n}`,
+    speaks: 'Speaks', rating: n => `${n} review${n===1?'':'s'}`,
+    fixedPct: p => `fixed in ${p}% of cases`,
+    whatsapp: 'WhatsApp', call: 'Call', map: 'On the map', review: 'Write a review',
+    unverified: 'Added by the community, not yet checked',
+    verified: { phone_checked: 'Checked by phone', visited: 'Checked in person', owner_confirmed: 'Confirmed by the repairer' },
+    flag: 'Report a mistake',
+    empty: 'No one here for this filter yet. Know a good repairer?',
+    emptyAll: 'No repairers in this area yet. Add the first one you know.',
+    waText: 'Hi! I found you in the "Where to repair in Haifa" directory. I need a repair: ',
+    footer: 'Built by Haifa residents together with Re-Haifa Lab. New entries are checked before they are published.',
+    loginTitle: 'Sign in to add a repairer or a review',
+    loginWhy: 'This keeps the directory free of spam and fake reviews. Only your name appears under a review.',
+    email: 'Your email', sendLink: 'Email me a sign-in link',
+    linkSent: e => `We sent a link to ${e}. Open the email on this device and tap the link. Check your spam folder too.`,
+    withFb: 'Continue with Facebook', withGoogle: 'Continue with Google',
+    errEmail: 'Check the email address',
+    nameTitle: 'How should we sign your reviews?', nameHint: 'This name appears under your reviews. A first name is enough, e.g. "Noa L."',
+    save: 'Save',
+    addTitle: 'New repairer', reviewTitle: 'Review',
+    next: 'Next', prev: 'Back', send: 'Send', close: 'Close', done: 'Done', sending: 'Sending…',
+    s1name: 'Repairer or workshop name', s1nameHint: 'However you know them: "Boris, washing machines"',
+    s1phone: 'Phone', s1phoneHint: 'If this number is already listed, your review will be added to that repairer',
+    s2cats: 'What do they repair?', s2hint: 'Pick as many as apply',
+    s3mode: 'How do they work?', mStationary: 'Workshop', mMobile: 'Home visits', mBoth: 'Both',
+    s3base: 'Where the workshop is, or where they travel from', s3addr: 'Address (if there is a workshop)', s3areas: 'Where they travel to',
+    s3langs: 'Languages you can talk to them in',
+    s4what: 'What did you get repaired?', s4outcome: 'How did it end',
+    o_fixed: 'Fixed', o_partially_fixed: 'Partly fixed', o_refused: 'Turned it down', o_advised_replace: 'Told me to buy a new one', o_end_of_life: "Can't be fixed", o_in_progress: 'Still being repaired',
+    s4barrier: 'What got in the way?',
+    b_no_spare_parts: 'No spare parts', b_too_expensive: 'Too expensive', b_no_expertise: 'Lacked the know-how', b_design_not_repairable: 'Not designed to be repaired', b_long_wait: 'Wait was too long', b_other: 'Other',
+    s4rating: 'Your rating', s4price: 'Cost, ₪', s4days: 'Days it took', s4comment: 'A few words for your neighbours',
+    s4commentPh: 'e.g. came within 40 minutes, fixed the board, charged 300 ₪',
+    s4consent: 'I agree that my review may be used, without my name, in a University of Haifa study of repair in the city',
+    errName: "Enter the repairer's name", errCats: 'Pick at least one category', errBase: 'Add a neighbourhood or workshop address',
+    errBaseMobile: 'Choose the neighbourhood they travel from',
+    errAreas: 'Mark at least one neighbourhood they visit', errOutcome: 'Choose how the repair ended', errMode: 'Choose how they work',
+    thanksTitle: 'Thank you!',
+    thanksPending: "We'll check it and publish within a couple of days. After three approved entries, your new entries will appear straight away.",
+    thanksDup: 'This repairer was already listed, so your review was added to them.',
+    sendError: m => `Couldn't send: ${m}`,
+    flagTitle: "What's wrong?", flagSend: 'Send',
+    f_wrong_info: 'Wrong details', f_closed: 'No longer working', f_duplicate: 'Duplicate', f_owner_objection: "I'm this repairer and want the entry changed or removed", f_other: 'Other',
+    flagMsg: 'Details (optional)', flagContact: 'How to reach you (optional)', flagThanks: 'Thanks, a moderator will take a look',
+    loggedIn: n => `Signed in as ${n}`,
+  }
+};
+
+function plural(n, one, few, many) {
+  const m10 = n % 10, m100 = n % 100;
+  if (m10 === 1 && m100 !== 11) return one;
+  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
+  return many;
+}
+
+/* ============================================================
+   Подключение и состояние
+   ============================================================ */
+const sb = window.supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY, {
+  auth: { flowType: 'pkce', detectSessionInUrl: true, persistSession: true },
+});
+
+const state = {
+  lang: 'ru',
+  user: null,            // { id, name }
+  filterCat: null, filterMode: 'all', filterLang: null,
+  ref: null,             // { clusters, districts, categories }
+  counts: null,          // { districtSlug: n }
+  districtCache: {},     // slug -> rows
+};
+try { const l = localStorage.getItem('rh-lang'); if (l && T[l]) state.lang = l; } catch (e) {}
+
+const t = (k, ...a) => { const v = T[state.lang][k]; return typeof v === 'function' ? v(...a) : v; };
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $ = sel => document.querySelector(sel);
+const normPhone = p => { let d = String(p || '').replace(/\D/g, ''); if (d.startsWith('972')) d = '0' + d.slice(3); return d; };
+const nm = (row, L) => row['name_' + (L || state.lang)] || row.name_ru;
+const dName = slug => { const d = state.ref && state.ref.districts.find(x => x.slug === slug); return d ? nm(d) : slug; };
+const cName = code => { const c = state.ref && state.ref.categories.find(x => x.code === code); return c ? nm(c) : code; };
+const monthStr = d => d ? String(d).slice(0, 7) : '';
+
+async function loadRef() {
+  if (state.ref) return state.ref;
+  const [cl, ds, ct] = await Promise.all([
+    sb.from('district_clusters').select('id,slug,name_he,name_ru,name_en,sort_order').order('sort_order'),
+    sb.from('districts').select('id,slug,cluster_id,name_he,name_ru,name_en,sort_order').order('sort_order'),
+    sb.from('categories').select('id,code,name_he,name_ru,name_en').order('id'),
+  ]);
+  if (cl.error || ds.error || ct.error) throw (cl.error || ds.error || ct.error);
+  const clusterById = {};
+  cl.data.forEach(c => clusterById[c.id] = c.slug);
+  state.ref = {
+    clusters: cl.data,
+    districts: ds.data.map(d => ({ ...d, cluster: clusterById[d.cluster_id] })),
+    categories: ct.data,
+  };
+  return state.ref;
+}
+
+async function loadCounts(force) {
+  if (state.counts && !force) return state.counts;
+  const { data, error } = await sb.from('district_directory').select('district,id');
+  if (error) throw error;
+  const counts = {};
+  data.forEach(r => { counts[r.district] = (counts[r.district] || 0) + 1; });
+  state.counts = counts;
+  return counts;
+}
+
+async function loadDistrict(slug, force) {
+  if (state.districtCache[slug] && !force) return state.districtCache[slug];
+  const { data, error } = await sb.from('district_directory').select('*').eq('district', slug);
+  if (error) throw error;
+  state.districtCache[slug] = data;
+  return data;
+}
+
+/* ============================================================
+   Вход
+   ============================================================ */
+async function refreshUser(session) {
+  if (!session) { state.user = null; return; }
+  const { data } = await sb.from('user_profiles').select('display_name').eq('id', session.user.id).maybeSingle();
+  state.user = { id: session.user.id, name: data ? data.display_name : '', email: session.user.email };
+}
+const needsName = () => state.user && (!state.user.name || state.user.name === 'Участник');
+
+sb.auth.onAuthStateChange(async (event, session) => {
+  const had = !!state.user;
+  await refreshUser(session);
+  applyLang();
+  if (!had && state.user && event === 'SIGNED_IN') toast(t('loggedIn', state.user.name || state.user.email));
+  if (sheet.open && F) renderSheet();
+});
+
+/* ============================================================
+   Отрисовка страниц
+   ============================================================ */
+function applyLang() {
+  document.documentElement.lang = state.lang;
+  document.documentElement.dir = state.lang === 'he' ? 'rtl' : 'ltr';
+  document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === state.lang));
+  $('#brand').innerHTML = `${esc(t('brand'))}<small>${esc(t('brandSub'))}</small>`;
+  $('#loginBtn').textContent = state.user ? t('logout') : t('login');
+  $('#siteFooter').textContent = t('footer');
+  document.title = t('h1');
+}
+
+async function route() {
+  applyLang();
+  const m = location.hash.match(/^#\/d\/([\w-]+)/);
+  $('#app').innerHTML = `<p class="count" style="margin-top:24px">${esc(t('loading'))}</p>`;
+  try {
+    await loadRef();
+    if (m && state.ref.districts.some(d => d.slug === m[1])) await renderDistrict(m[1]);
+    else await renderHome();
+  } catch (err) {
+    console.error(err);
+    $('#app').innerHTML = `<div class="empty" style="margin-top:24px"><p>${esc(t('loadError'))}</p></div>`;
+  }
+}
+
+function tierHTML(cl, towns) {
+  const ui = CLUSTER_UI[cl.slug] || { step: 0, tone: 'var(--carmel)' };
+  const ds = state.ref.districts.filter(d => d.cluster === cl.slug);
+  const lvl = ui.lvl ? ui.lvl[state.lang] : '';
+  const style = `--tone:${ui.tone};${towns ? '' : `--step:${ui.step || 0}`}`;
+  return `<section class="tier" style="${style}">
+    <h2>${esc(nm(cl))}</h2>
+    ${lvl ? `<p class="level">${esc(lvl)}</p>` : '<div style="height:10px"></div>'}
+    <div class="chips">${ds.map(d => {
+      const n = state.counts[d.slug] || 0;
+      return `<a class="chip" href="#/d/${d.slug}" style="text-decoration:none;color:inherit;display:inline-flex;align-items:center">${esc(nm(d))}<span class="n">${n}</span></a>`;
+    }).join('')}</div>
+  </section>`;
+}
+
+async function renderHome() {
+  await loadCounts();
+  const city = state.ref.clusters.filter(c => !(CLUSTER_UI[c.slug] || {}).town);
+  const towns = state.ref.clusters.filter(c => (CLUSTER_UI[c.slug] || {}).town);
+  $('#app').innerHTML = `
+    <section class="hero">
+      <h1>${esc(t('h1'))}</h1>
+      <p>${esc(t('lead'))}</p>
+      <p style="margin-top:-8px"><button class="btn btn-primary" data-act="add">${esc(t('add'))}</button></p>
+    </section>
+    <div class="terraces">
+      ${city.map(c => tierHTML(c, false)).join('')}
+      <div class="sea" aria-hidden="true"><svg viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M0 7 Q 12.5 1 25 7 T 50 7 T 75 7 T 100 7 T 125 7 T 150 7 T 175 7 T 200 7" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+    </div>
+    ${towns.length ? `<div class="towns"><h2>${esc(t('towns'))}</h2>
+      <div class="terraces">${towns.map(c => tierHTML(c, true)).join('')}</div></div>` : ''}`;
+}
+
+function cardHTML(p) {
+  const facts = [];
+  if (p.service_mode !== 'mobile' && (p.address || p.base_district)) {
+    const where = p.address || dName(p.base_district);
+    facts.push(`<div class="fact"><span class="k" aria-hidden="true">🏬</span><span>${esc(t('workshop'))}: ${esc(where)}</span></div>`);
+  }
+  if (p.service_mode === 'mobile' && p.base_district) {
+    facts.push(`<div class="fact"><span class="k" aria-hidden="true">🚐</span><span>${esc(t('comesFrom', dName(p.base_district)))}</span></div>`);
+  } else if (p.service_mode === 'both' && p.service_areas && p.service_areas.length) {
+    facts.push(`<div class="fact"><span class="k" aria-hidden="true">🚐</span><span>${esc(t('comesTo', p.service_areas.map(dName).join(', ')))}</span></div>`);
+  }
+  if (p.service_languages && p.service_languages.length) {
+    facts.push(`<div class="fact"><span class="k" aria-hidden="true">💬</span><span>${esc(t('speaks'))}: ${p.service_languages.map(l => LANGS[l] || l).join(', ')}</span></div>`);
+  }
+  const stats = p.report_count > 0 ? `<div class="stats">
+      ${p.avg_rating != null ? `<span><strong>★ ${Number(p.avg_rating).toFixed(1)}</strong> ${esc(t('rating', p.report_count))}</span>` : `<span>${esc(t('rating', p.report_count))}</span>`}
+      ${p.fix_rate != null ? `<span>${esc(t('fixedPct', Math.round(Number(p.fix_rate) * 100)))}</span>` : ''}
+    </div>` : '';
+  const r = p.latest_reviews && p.latest_reviews[0];
+  const quote = r ? `<blockquote class="quote"><p>${esc(r.comment)}</p>
+      <footer>${esc(r.display_name)}, ${esc(monthStr(r.repair_month || r.submitted_at))}${r.price_ils != null ? `, ${Number(r.price_ils)} ₪` : ''}</footer></blockquote>` : '';
+  const actions = [];
+  if (p.whatsapp) {
+    const num = String(p.whatsapp).replace(/\D/g, '');
+    actions.push(`<a class="btn btn-wa" href="https://wa.me/${num}?text=${encodeURIComponent(t('waText'))}" target="_blank" rel="noopener">${esc(t('whatsapp'))}</a>`);
+  }
+  if (p.phone) actions.push(`<a class="btn" href="tel:${esc(String(p.phone).replace(/[^\d*+]/g, ''))}">${esc(t('call'))}</a>`);
+  if (p.lat != null && p.lon != null && p.service_mode !== 'mobile') {
+    actions.push(`<a class="btn" href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}" target="_blank" rel="noopener">${esc(t('map'))}</a>`);
+  } else if (p.address && p.service_mode !== 'mobile') {
+    actions.push(`<a class="btn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.address + ', Haifa')}" target="_blank" rel="noopener">${esc(t('map'))}</a>`);
+  }
+  actions.push(`<button class="btn btn-quiet" data-act="review" data-id="${p.id}">${esc(t('review'))}</button>`);
+  const trust = p.verification === 'unverified' ? `<span>${esc(t('unverified'))}</span>`
+    : `<span>✓ ${esc(T[state.lang].verified[p.verification] || '')}</span>`;
+  return `<article class="card">
+    <h3>${esc(p.name_original)}</h3>
+    <p class="spec">${esc((p.categories || []).map(cName).join(', '))}</p>
+    <div class="facts">${facts.join('')}</div>
+    ${stats}${quote}
+    <div class="actions">${actions.join('')}</div>
+    <div class="card-foot">${trust}<button data-act="flag" data-id="${p.id}">${esc(t('flag'))}</button></div>
+  </article>`;
+}
+
+async function renderDistrict(slug) {
+  const d = state.ref.districts.find(x => x.slug === slug);
+  const cl = state.ref.clusters.find(c => c.slug === d.cluster);
+  const all = await loadDistrict(slug);
+  let list = all;
+  if (state.filterCat) list = list.filter(p => (p.categories || []).includes(state.filterCat));
+  if (state.filterMode === 'base') list = list.filter(p => p.relation === 'base');
+  if (state.filterMode === 'come') list = list.filter(p => p.relation === 'service' || p.service_mode === 'both');
+  if (state.filterLang) list = list.filter(p => (p.service_languages || []).includes(state.filterLang));
+  list = [...list].sort((a, b) => (Number(b.avg_rating) || 0) - (Number(a.avg_rating) || 0) || (b.report_count || 0) - (a.report_count || 0));
+
+  const usedCats = state.ref.categories.filter(c => all.some(p => (p.categories || []).includes(c.code)));
+  const catChips = [`<button class="chip" data-cat="" aria-pressed="${!state.filterCat}">${esc(t('allCats'))}</button>`]
+    .concat(usedCats.map(c => `<button class="chip" data-cat="${c.code}" aria-pressed="${state.filterCat === c.code}">${esc(nm(c))}</button>`)).join('');
+  const langChips = [`<button class="chip" data-lng="" aria-pressed="${!state.filterLang}">${esc(t('langAny'))}</button>`]
+    .concat(Object.keys(LANGS).map(l => `<button class="chip" data-lng="${l}" aria-pressed="${state.filterLang === l}">${LANGS[l]}</button>`)).join('');
+
+  $('#app').innerHTML = `
+    <p class="back"><a href="#/">${state.lang === 'he' ? '→' : '←'} ${esc(t('back'))}</a></p>
+    <div class="district-head"><h1>${esc(nm(d))}</h1><p>${esc(cl ? nm(cl) : '')}</p></div>
+    ${all.length ? `<div class="filters">
+      <div class="scroll-row" role="group">${catChips}</div>
+      <div class="seg" role="group">
+        <button data-mode="all" aria-pressed="${state.filterMode === 'all'}">${esc(t('modeAll'))}</button>
+        <button data-mode="base" aria-pressed="${state.filterMode === 'base'}">${esc(t('modeBase'))}</button>
+        <button data-mode="come" aria-pressed="${state.filterMode === 'come'}">${esc(t('modeCome'))}</button>
+      </div>
+      <div class="scroll-row" role="group">${langChips}</div>
+    </div>
+    <p class="count">${esc(t('inDistrict', list.length))}</p>` : ''}
+    ${list.length ? list.map(cardHTML).join('') :
+      `<div class="empty"><p>${esc(all.length ? t('empty') : t('emptyAll'))}</p><button class="btn btn-primary" data-act="add">${esc(t('add'))}</button></div>`}`;
+}
+
+/* ============================================================
+   Форма добавления / отзыва
+   ============================================================ */
+const sheet = $('#sheet');
+let F = null;
+
+function findPlace(id) {
+  for (const rows of Object.values(state.districtCache)) {
+    const p = rows.find(r => r.id === id);
+    if (p) return p;
+  }
+  return null;
+}
+
+function newForm(mode, placeId) {
+  const place = placeId ? findPlace(placeId) : null;
+  F = {
+    mode, placeId: placeId || null, placeName: place ? place.name_original : '', placeCats: place ? (place.categories || []) : [],
+    step: mode === 'review' ? 4 : 1, errors: {}, busy: false, sendError: null, dupResult: false,
+    email: '', linkSentTo: null, profileName: '',
+    name: '', phone: '', cats: [], smode: null, base: '', addr: '', areas: [], langs: [],
+    what: '', outcome: null, barrier: null, rating: 0, price: '', days: '', comment: '', consent: false,
+  };
+}
+
+async function openSheet(mode, placeId) {
+  newForm(mode, placeId);
+  try { await loadRef(); } catch (e) {}
+  renderSheet();
+  if (!sheet.open) sheet.showModal();
+}
+
+function optBtns(list, selected, attr, multi) {
+  return list.map(([val, label]) => {
+    const on = multi ? selected.includes(val) : selected === val;
+    return `<button type="button" class="opt" data-${attr}="${val}" aria-pressed="${on}">${esc(label)}</button>`;
+  }).join('');
+}
+
+function renderSheet() {
+  const inner = $('#sheetInner');
+  const title = F.mode === 'review' ? t('reviewTitle') : t('addTitle');
+  let body = '', foot = '';
+  const steps = F.mode === 'review' ? [4] : [1, 2, 3, 4];
+  const inSteps = state.user && !needsName() && F.step !== 'thanks';
+  const progress = steps.length > 1 && inSteps
+    ? `<div class="progress" aria-hidden="true">${steps.map(s => `<span class="${s <= F.step ? 'on' : ''}"></span>`).join('')}</div>` : '';
+  const err = k => F.errors[k] ? `<p class="error">${esc(F.errors[k])}</p>` : '';
+  const R = state.ref || { districts: [], categories: [], clusters: [] };
+
+  if (!state.user) {
+    const prov = CONFIG.LOGIN_PROVIDERS;
+    body = `<div class="login-box">
+      <p style="margin:0 0 4px;font-weight:500">${esc(t('loginTitle'))}</p>
+      <p style="margin:0 0 10px;color:var(--muted)">${esc(t('loginWhy'))}</p>
+      ${F.linkSentTo ? `<div class="notice">${esc(t('linkSent', F.linkSentTo))}</div>` : ''}
+      ${prov.includes('email') && !F.linkSentTo ? `<div class="field" style="margin-bottom:6px"><label for="fEmail">${esc(t('email'))}</label>
+        <input type="text" id="fEmail" inputmode="email" autocomplete="email" dir="ltr" value="${esc(F.email)}">${err('email')}</div>
+        <button class="btn btn-primary" data-nav="sendLink" ${F.busy ? 'disabled' : ''}>${esc(F.busy ? t('sending') : t('sendLink'))}</button>` : ''}
+      ${prov.includes('facebook') ? `<button class="btn" data-login="facebook">${esc(t('withFb'))}</button>` : ''}
+      ${prov.includes('google') ? `<button class="btn" data-login="google">${esc(t('withGoogle'))}</button>` : ''}
+      ${F.sendError ? `<p class="error">${esc(F.sendError)}</p>` : ''}
+    </div>`;
+  } else if (needsName()) {
+    body = `<div class="field"><label for="fProfileName">${esc(t('nameTitle'))}</label><p class="hint">${esc(t('nameHint'))}</p>
+      <input type="text" id="fProfileName" value="${esc(F.profileName)}">${err('profileName')}</div>
+      ${F.sendError ? `<p class="error">${esc(F.sendError)}</p>` : ''}`;
+    foot = `<span></span><button class="btn btn-primary" data-nav="saveName" ${F.busy ? 'disabled' : ''}>${esc(t('save'))}</button>`;
+  } else if (F.step === 'thanks') {
+    body = `<h3 style="margin:6px 0 8px;font-size:22px">${esc(t('thanksTitle'))}</h3>
+      ${F.dupResult ? `<p>${esc(t('thanksDup'))}</p>` : ''}<p>${esc(t('thanksPending'))}</p>`;
+    foot = `<span></span><button class="btn btn-primary" data-nav="close">${esc(t('done'))}</button>`;
+  } else if (F.step === 1) {
+    body = `
+      <div class="field"><label for="fName">${esc(t('s1name'))}</label><p class="hint">${esc(t('s1nameHint'))}</p>
+        <input type="text" id="fName" value="${esc(F.name)}" autocomplete="off">${err('name')}</div>
+      <div class="field"><label for="fPhone">${esc(t('s1phone'))}</label><p class="hint">${esc(t('s1phoneHint'))}</p>
+        <input type="tel" id="fPhone" value="${esc(F.phone)}" inputmode="tel" dir="ltr"></div>`;
+    foot = `<span></span><button class="btn btn-primary" data-nav="next">${esc(t('next'))}</button>`;
+  } else if (F.step === 2) {
+    body = `<div class="field"><span class="lbl">${esc(t('s2cats'))}</span><p class="hint">${esc(t('s2hint'))}</p>
+      <div class="opt-grid">${optBtns(R.categories.map(c => [c.code, nm(c)]), F.cats, 'cat', true)}</div>${err('cats')}</div>`;
+    foot = `<button class="btn" data-nav="prev">${esc(t('prev'))}</button><button class="btn btn-primary" data-nav="next">${esc(t('next'))}</button>`;
+  } else if (F.step === 3) {
+    const needAddr = F.smode === 'stationary' || F.smode === 'both';
+    const needAreas = F.smode === 'mobile' || F.smode === 'both';
+    const districtOptions = R.clusters.map(cl => `<optgroup label="${esc(nm(cl))}">${
+      R.districts.filter(d => d.cluster === cl.slug).map(d => `<option value="${d.slug}" ${F.base === d.slug ? 'selected' : ''}>${esc(nm(d))}</option>`).join('')}</optgroup>`).join('');
+    body = `
+      <div class="field"><span class="lbl">${esc(t('s3mode'))}</span>
+        <div class="opt-grid">${optBtns([['stationary', t('mStationary')], ['mobile', t('mMobile')], ['both', t('mBoth')]], F.smode, 'smode', false)}</div>${err('smode')}</div>
+      ${F.smode ? `
+      <div class="field"><label for="fBase">${esc(t('s3base'))}</label>
+        <select id="fBase"><option value=""></option>${districtOptions}</select>${err('base')}</div>
+      ${needAddr ? `<div class="field"><label for="fAddr">${esc(t('s3addr'))}</label><input type="text" id="fAddr" value="${esc(F.addr)}"></div>` : ''}
+      ${needAreas ? `<div class="field"><span class="lbl">${esc(t('s3areas'))}</span>
+        ${R.clusters.map(cl => `<div class="area-group"><div class="lbl">${esc(nm(cl))}</div><div class="chips">${
+          R.districts.filter(d => d.cluster === cl.slug).map(d => `<button type="button" class="chip" data-area="${d.slug}" aria-pressed="${F.areas.includes(d.slug)}">${esc(nm(d))}</button>`).join('')
+        }</div></div>`).join('')}${err('areas')}</div>` : ''}
+      <div class="field"><span class="lbl">${esc(t('s3langs'))}</span>
+        <div class="chips">${Object.keys(LANGS).map(l => `<button type="button" class="chip" data-flang="${l}" aria-pressed="${F.langs.includes(l)}">${LANGS[l]}</button>`).join('')}</div></div>
+      ` : ''}`;
+    foot = `<button class="btn" data-nav="prev">${esc(t('prev'))}</button><button class="btn btn-primary" data-nav="next">${esc(t('next'))}</button>`;
+  } else if (F.step === 4) {
+    const catsHere = F.mode === 'review' ? F.placeCats : F.cats;
+    const notFixed = F.outcome && !['fixed', 'in_progress'].includes(F.outcome);
+    body = `
+      ${F.placeName ? `<p style="margin:0 0 14px;font-weight:500">${esc(F.placeName)}</p>` : ''}
+      ${catsHere.length > 1 ? `<div class="field"><span class="lbl">${esc(t('s4what'))}</span>
+        <div class="opt-grid">${optBtns(catsHere.map(c => [c, cName(c)]), F.what, 'what', false)}</div></div>` : ''}
+      <div class="field"><span class="lbl">${esc(t('s4outcome'))}</span>
+        <div class="opt-grid">${optBtns(['fixed','partially_fixed','refused','advised_replace','end_of_life','in_progress'].map(o => [o, t('o_' + o)]), F.outcome, 'outcome', false)}</div>${err('outcome')}</div>
+      ${notFixed ? `<div class="field"><span class="lbl">${esc(t('s4barrier'))}</span>
+        <div class="opt-grid">${optBtns(['no_spare_parts','too_expensive','no_expertise','design_not_repairable','long_wait','other'].map(b => [b, t('b_' + b)]), F.barrier, 'barrier', false)}</div></div>` : ''}
+      <div class="field"><span class="lbl">${esc(t('s4rating'))}</span>
+        <div class="stars">${[1,2,3,4,5].map(n => `<button type="button" data-star="${n}" class="${n <= F.rating ? 'on' : ''}" aria-label="${n}">★</button>`).join('')}</div></div>
+      <div class="two">
+        <div class="field"><label for="fPrice">${esc(t('s4price'))}</label><input type="number" id="fPrice" min="0" inputmode="numeric" value="${esc(F.price)}"></div>
+        <div class="field"><label for="fDays">${esc(t('s4days'))}</label><input type="number" id="fDays" min="0" inputmode="numeric" value="${esc(F.days)}"></div>
+      </div>
+      <div class="field"><label for="fComment">${esc(t('s4comment'))}</label>
+        <textarea id="fComment" placeholder="${esc(t('s4commentPh'))}">${esc(F.comment)}</textarea></div>
+      ${CONFIG.RESEARCH_CONSENT_ENABLED ? `<label class="check"><input type="checkbox" id="fConsent" ${F.consent ? 'checked' : ''}><span>${esc(t('s4consent'))}</span></label>` : ''}
+      ${F.sendError ? `<p class="error">${esc(F.sendError)}</p>` : ''}`;
+    foot = `${F.mode === 'add' ? `<button class="btn" data-nav="prev">${esc(t('prev'))}</button>` : '<span></span>'}
+      <button class="btn btn-primary" data-nav="send" ${F.busy ? 'disabled' : ''}>${esc(F.busy ? t('sending') : t('send'))}</button>`;
+  }
+
+  inner.innerHTML = `
+    <div class="sheet-head"><h2>${esc(title)}</h2><button class="x" data-nav="close" aria-label="${esc(t('close'))}">×</button></div>
+    ${progress}
+    <div class="sheet-body">${body}</div>
+    ${foot ? `<div class="sheet-foot">${foot}</div>` : ''}`;
+}
+
+function readInputs() {
+  const v = id => { const el = document.getElementById(id); return el ? el.value : undefined; };
+  const map = { fEmail: 'email', fProfileName: 'profileName', fName: 'name', fPhone: 'phone', fBase: 'base', fAddr: 'addr', fPrice: 'price', fDays: 'days', fComment: 'comment' };
+  for (const [id, key] of Object.entries(map)) { const x = v(id); if (x !== undefined) F[key] = x; }
+  const c = document.getElementById('fConsent'); if (c) F.consent = c.checked;
+}
+
+function validate() {
+  F.errors = {};
+  if (F.step === 1 && !F.name.trim()) F.errors.name = t('errName');
+  if (F.step === 2 && !F.cats.length) F.errors.cats = t('errCats');
+  if (F.step === 3) {
+    if (!F.smode) F.errors.smode = t('errMode');
+    if ((F.smode === 'stationary' || F.smode === 'both') && !F.base && !F.addr.trim()) F.errors.base = t('errBase');
+    if (F.smode === 'mobile' && !F.base) F.errors.base = t('errBaseMobile');
+    if ((F.smode === 'mobile' || F.smode === 'both') && !F.areas.length) F.errors.areas = t('errAreas');
+  }
+  if (F.step === 4 && !F.outcome) F.errors.outcome = t('errOutcome');
+  return !Object.keys(F.errors).length;
+}
+
+function whatsappFrom(phone) {
+  const n = normPhone(phone);
+  return /^05\d{8}$/.test(n) ? '972' + n.slice(1) : null;   // только мобильные номера
+}
+
+function reviewPayload(placeId) {
+  const catsHere = F.mode === 'review' ? F.placeCats : F.cats;
+  const code = F.what || (catsHere.length === 1 ? catsHere[0] : null);
+  const cat = code ? state.ref.categories.find(c => c.code === code) : null;
+  const today = new Date();
+  return {
+    place_id: placeId,
+    category_id: cat ? cat.id : null,
+    outcome: F.outcome,
+    barrier: F.barrier || 'none',
+    rating: F.rating || null,
+    price_ils: F.price !== '' ? Number(F.price) : null,
+    turnaround_days: F.days !== '' ? Math.round(Number(F.days)) : null,
+    comment: F.comment.trim() || null,
+    comment_language: F.comment.trim() ? state.lang : null,
+    repair_month: `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-01`,
+    research_consent: CONFIG.RESEARCH_CONSENT_ENABLED ? !!F.consent : false,
+  };
+}
+
+async function submit() {
+  F.busy = true; F.sendError = null; renderSheet();
+  try {
+    let placeId = F.placeId;
+    if (F.mode === 'add') {
+      const { data, error } = await sb.rpc('submit_place', {
+        p_name: F.name.trim(),
+        p_service_mode: F.smode,
+        p_category_codes: F.cats,
+        p_base_district: F.base || null,
+        p_service_areas: F.smode === 'stationary' ? [] : F.areas,
+        p_address: F.addr.trim() || null,
+        p_lat: null, p_lon: null,
+        p_phone: F.phone.trim() || null,
+        p_whatsapp: F.phone.trim() ? whatsappFrom(F.phone) : null,
+        p_languages: F.langs,
+        p_actor_type: 'individual',
+      });
+      if (error) throw error;
+      const row = Array.isArray(data) ? data[0] : data;
+      placeId = row.place_id;
+      F.dupResult = !!row.already_existed;
+    }
+    const { error: rErr } = await sb.from('repair_reports').insert(reviewPayload(placeId));
+    if (rErr) throw rErr;
+    state.counts = null; state.districtCache = {};
+    F.busy = false; F.step = 'thanks'; renderSheet();
+  } catch (err) {
+    console.error(err);
+    F.busy = false; F.sendError = t('sendError', err.message || String(err)); renderSheet();
+  }
+}
+
+async function sendMagicLink() {
+  const email = F.email.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { F.errors = { email: t('errEmail') }; renderSheet(); return; }
+  F.busy = true; F.errors = {}; F.sendError = null; renderSheet();
+  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: location.origin + location.pathname } });
+  F.busy = false;
+  if (error) F.sendError = t('sendError', error.message); else F.linkSentTo = email;
+  renderSheet();
+}
+
+async function saveName() {
+  const name = F.profileName.trim();
+  if (!name) { F.errors = { profileName: t('nameHint') }; renderSheet(); return; }
+  F.busy = true; renderSheet();
+  const { error } = await sb.from('user_profiles').update({ display_name: name }).eq('id', state.user.id);
+  F.busy = false;
+  if (error) { F.sendError = t('sendError', error.message); renderSheet(); return; }
+  state.user.name = name; F.errors = {}; F.sendError = null; renderSheet();
+}
+
+sheet.addEventListener('click', async e => {
+  if (e.target === sheet) { sheet.close(); return; }
+  if (!F) return;   // открыто окно жалобы — его обрабатывает отдельный обработчик
+  const b = e.target.closest('button'); if (!b || b.disabled) return;
+  readInputs();
+  const d = b.dataset;
+  if (d.login) {
+    await sb.auth.signInWithOAuth({ provider: d.login, options: { redirectTo: location.origin + location.pathname } });
+    return;
+  }
+  if (d.cat) { F.cats = F.cats.includes(d.cat) ? F.cats.filter(x => x !== d.cat) : [...F.cats, d.cat]; }
+  else if (d.smode) { F.smode = d.smode; }
+  else if (d.area) { F.areas = F.areas.includes(d.area) ? F.areas.filter(x => x !== d.area) : [...F.areas, d.area]; }
+  else if (d.flang) { F.langs = F.langs.includes(d.flang) ? F.langs.filter(x => x !== d.flang) : [...F.langs, d.flang]; }
+  else if (d.what) { F.what = d.what; }
+  else if (d.outcome) { F.outcome = d.outcome; }
+  else if (d.barrier) { F.barrier = d.barrier; }
+  else if (d.star) { F.rating = Number(d.star); }
+  else if (d.nav === 'close') { const done = F.step === 'thanks'; sheet.close(); if (done) route(); return; }
+  else if (d.nav === 'sendLink') { await sendMagicLink(); return; }
+  else if (d.nav === 'saveName') { await saveName(); return; }
+  else if (d.nav === 'prev') { F.errors = {}; F.step = Math.max(1, F.step - 1); }
+  else if (d.nav === 'next') { if (!validate()) { renderSheet(); return; } F.step += 1; }
+  else if (d.nav === 'send') { if (!validate()) { renderSheet(); return; } await submit(); return; }
+  renderSheet();
+});
+sheet.addEventListener('change', e => { if (e.target.id === 'fBase' && F) F.base = e.target.value; });
+
+/* ============================================================
+   Жалоба / сообщение об ошибке (доступно без входа)
+   ============================================================ */
+function openFlag(id) {
+  const p = findPlace(id);
+  const reasons = ['wrong_info', 'closed', 'duplicate', 'owner_objection', 'other'];
+  F = null;
+  $('#sheetInner').innerHTML = `
+    <div class="sheet-head"><h2>${esc(t('flagTitle'))}</h2><button class="x" data-fclose aria-label="${esc(t('close'))}">×</button></div>
+    <div class="sheet-body">
+      <p style="margin:0 0 12px;font-weight:500">${esc(p ? p.name_original : '')}</p>
+      <div class="field" role="radiogroup">${reasons.map((r, i) => `<label class="check" style="margin-bottom:10px">
+        <input type="radio" name="reason" value="${r}" ${i === 0 ? 'checked' : ''}><span>${esc(t('f_' + r))}</span></label>`).join('')}</div>
+      <div class="field"><label for="flagMsg">${esc(t('flagMsg'))}</label><textarea id="flagMsg"></textarea></div>
+      <div class="field"><label for="flagContact">${esc(t('flagContact'))}</label><input type="text" id="flagContact"></div>
+      <p class="error" id="flagErr" hidden></p>
+    </div>
+    <div class="sheet-foot"><span></span><button class="btn btn-primary" data-fsend="${esc(id)}">${esc(t('flagSend'))}</button></div>`;
+  if (!sheet.open) sheet.showModal();
+}
+sheet.addEventListener('click', async e => {
+  if (e.target.closest('[data-fclose]')) { sheet.close(); return; }
+  const btn = e.target.closest('[data-fsend]');
+  if (!btn) return;
+  btn.disabled = true;
+  const reason = (document.querySelector('input[name="reason"]:checked') || {}).value || 'other';
+  const { error } = await sb.from('flags').insert({
+    place_id: btn.dataset.fsend, reason,
+    message: $('#flagMsg').value.trim() || null,
+    contact: $('#flagContact').value.trim() || null,
+  });
+  if (error) { const el = $('#flagErr'); el.hidden = false; el.textContent = t('sendError', error.message); btn.disabled = false; return; }
+  sheet.close(); toast(t('flagThanks'));
+}, true);
+
+/* ============================================================
+   Общие обработчики
+   ============================================================ */
+let toastTimer;
+function toast(msg) {
+  const el = $('#toast'); el.textContent = msg; el.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 2800);
+}
+
+document.addEventListener('click', async e => {
+  if (sheet.contains(e.target)) return;
+  const b = e.target.closest('button'); if (!b) return;
+  const d = b.dataset;
+  if (d.lang) { state.lang = d.lang; try { localStorage.setItem('rh-lang', d.lang); } catch (err) {} route(); if (sheet.open && F) renderSheet(); }
+  else if (b.id === 'loginBtn') {
+    if (state.user) { await sb.auth.signOut(); state.user = null; applyLang(); }
+    else openSheet('add');
+  }
+  else if (d.act === 'add') openSheet('add');
+  else if (d.act === 'review') openSheet('review', d.id);
+  else if (d.act === 'flag') openFlag(d.id);
+  else if (d.cat !== undefined) { state.filterCat = d.cat || null; route(); }
+  else if (d.mode) { state.filterMode = d.mode; route(); }
+  else if (d.lng !== undefined) { state.filterLang = d.lng || null; route(); }
+});
+
+window.addEventListener('hashchange', () => {
+  state.filterCat = null; state.filterMode = 'all'; state.filterLang = null;
+  route(); window.scrollTo(0, 0);
+});
+
+(async () => {
+  const { data } = await sb.auth.getSession();
+  await refreshUser(data.session);
+  route();
+})();
+</script>
+</body>
+</html>
