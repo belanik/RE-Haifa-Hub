@@ -240,7 +240,8 @@ footer.site { color: var(--muted); font-size: 14px; border-top: 1px solid var(--
 const CONFIG = {
   SUPABASE_URL: 'https://llizkyzqyjmwndebwobr.supabase.co',
   SUPABASE_ANON_KEY: 'sb_publishable_pmPUyTAl0VFuCZEyQD1bxA_FRC6uayU',
-  LOGIN_PROVIDERS: ['email'],          // позже можно добавить 'facebook', 'google'
+  LOGIN_PROVIDERS: ['email'],          // способы входа для всех посетителей; позже можно добавить 'facebook', 'google'
+  TEST_PROVIDERS: ['facebook'],        // видны только при открытии сайта с ?test=1 — для проверки до одобрения Meta
   RESEARCH_CONSENT_ENABLED: false,     // включить после одобрения этического комитета
   TERMS_VERSION: '2026-10',            // менять при существенной правке правил: все примут их заново
   PRIVACY_URL: 'privacy.html',
@@ -812,7 +813,8 @@ function renderSheet() {
   const R = state.ref || { districts: [], categories: [], clusters: [] };
 
   if (!state.user) {
-    const prov = CONFIG.LOGIN_PROVIDERS;
+    const testMode = new URLSearchParams(location.search).get('test') === '1';
+    const prov = testMode ? [...CONFIG.LOGIN_PROVIDERS, ...CONFIG.TEST_PROVIDERS] : CONFIG.LOGIN_PROVIDERS;
     body = `<div class="login-box">
       <p style="margin:0 0 4px;font-weight:500">${esc(t('loginTitle'))}</p>
       <p style="margin:0 0 10px;color:var(--muted)">${esc(t('loginWhy'))}</p>
