@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Модерация — Где починить в Хайфе</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ground: #EDF1EE; --surface: #FFFFFF; --ink: #1C2B27; --muted: #56675F; --line: #CBD5D0;
+  --carmel: #2F6B4A; --bay: #1D5C78; --tape: #F0C33C; --tape-ink: #2A2206; --danger: #A23B2A;
+  --radius-s: 8px; --radius-l: 16px;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ground: #111917; --surface: #1A2421; --ink: #E4ECE8; --muted: #9BADA6; --line: #2E3C38;
+    --carmel: #74B38E; --bay: #72B4D2; --danger: #E08672; }
+}
+*, *::before, *::after { box-sizing: inherit; }
+body { margin: 0; background: var(--ground); color: var(--ink); font-family: "Rubik", "Segoe UI", Arial, sans-serif; font-size: 16px; line-height: 1.5; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--bay); outline-offset: 2px; }
+a { color: var(--bay); }
+.wrap { max-width: 820px; margin: 0 auto; padding: 0 16px 60px; }
+header.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+.brand { font-weight: 800; font-size: 18px; }
+.brand small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
+.btn { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 8px 15px; font-weight: 500; min-height: 40px; }
+.btn-primary { background: var(--tape); border-color: var(--tape); color: var(--tape-ink); font-weight: 700; }
+.btn-ok { background: var(--carmel); border-color: var(--carmel); color: #fff; font-weight: 700; }
+.btn-no { color: var(--danger); border-color: color-mix(in srgb, var(--danger) 45%, var(--line)); }
+.btn:disabled { opacity: .5; cursor: default; }
+.tabs { display: flex; gap: 6px; margin: 4px 0 16px; flex-wrap: wrap; }
+.tabs button { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 8px 14px; font-weight: 500; }
+.tabs button[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.tabs .n { display: inline-block; min-width: 22px; padding: 0 6px; margin-inline-start: 6px; border-radius: 999px; background: var(--tape); color: var(--tape-ink); font-size: 13px; text-align: center; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-l); padding: 16px; margin-bottom: 12px; }
+.card h3 { margin: 0 0 2px; font-size: 18px; }
+.meta { color: var(--muted); font-size: 14px; margin: 0 0 10px; }
+dl { display: grid; grid-template-columns: max-content 1fr; gap: 3px 12px; margin: 0 0 12px; font-size: 15px; }
+dt { color: var(--muted); }
+dd { margin: 0; }
+.quote { background: color-mix(in srgb, var(--ground) 70%, var(--surface)); border-radius: var(--radius-s); padding: 10px 12px; margin: 0 0 12px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.note { background: color-mix(in srgb, var(--tape) 25%, var(--surface)); border-radius: var(--radius-s); padding: 6px 10px; font-size: 14px; margin: 0 0 10px; }
+.empty { text-align: center; color: var(--muted); padding: 30px 16px; background: var(--surface); border: 1px dashed var(--line); border-radius: var(--radius-l); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-l); padding: 18px; max-width: 460px; }
+.panel h1 { font-size: 22px; margin: 0 0 6px; }
+input[type=text], select { border: 1px solid var(--line); border-radius: var(--radius-s); padding: 8px 10px; background: var(--surface); min-height: 40px; }
+.panel input { width: 100%; margin: 6px 0 10px; }
+.error { color: var(--danger); font-size: 14px; }
+.toast { position: fixed; inset-inline: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); max-width: 480px; margin: 0 auto;
+  background: var(--ink); color: var(--surface); padding: 12px 16px; border-radius: var(--radius-s); opacity: 0; transition: opacity .2s; pointer-events: none; }
+.toast.show { opacity: 1; }
+.stars { color: #C99A10; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">Модерация<small>Где починить в Хайфе · <a href="./">открыть сайт</a></small></div>
+    <div class="actions" id="topActions"></div>
+  </header>
+  <main id="app"><p class="meta">Загружаем…</p></main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* Те же настройки, что в index.html */
+const CONFIG = {
+  SUPABASE_URL: 'https://llizkyzqyjmwndebwobr.supabase.co',
+  SUPABASE_ANON_KEY: 'sb_publishable_pmPUyTAl0VFuCZEyQD1bxA_FRC6uayU',
+};
+
+const sb = window.supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY, {
+  auth: { flowType: 'pkce', detectSessionInUrl: true, persistSession: true },
+});
+
+const L = {
+  mode: { stationary: 'Мастерская', mobile: 'Выезд на дом', both: 'Мастерская и выезд' },
+  outcome: { fixed: 'Починили', partially_fixed: 'Починили частично', repairable_not_done: 'Можно починить, но не стали',
+    end_of_life: 'Починить нельзя', refused: 'Не взялись', advised_replace: 'Посоветовали купить новое', in_progress: 'Ещё в ремонте' },
+  barrier: { none: '', no_spare_parts: 'Нет запчастей', too_expensive: 'Слишком дорого', no_expertise: 'Не хватило опыта',
+    no_documentation: 'Нет документации', design_not_repairable: 'Неремонтопригодная конструкция', long_wait: 'Слишком долго ждать', other: 'Другое' },
+  reason: { wrong_info: 'Неверные данные', closed: 'Больше не работает', duplicate: 'Дубль',
+    owner_objection: 'Мастер против / просит изменить', inappropriate_review: 'Неуместный отзыв', other: 'Другое' },
+  actor: { independent_shop: 'Независимая мастерская', authorized_service: 'Авторизованный сервис', community: 'Сообщество',
+    individual: 'Частный мастер', retail_with_repair: 'Магазин с ремонтом' },
+};
+
+const state = { user: null, tab: 'places', ref: null, data: null, linkSent: null };
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtDate = d => d ? new Date(d).toLocaleString('ru-RU', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '';
+
+let toastTimer;
+function toast(msg) {
+  const el = $('#toast'); el.textContent = msg; el.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 2500);
+}
+
+/* ============================================================
+   Вход и проверка прав
+   ============================================================ */
+async function checkUser() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) { state.user = null; return; }
+  const { data: mod } = await sb.from('moderators').select('user_id').eq('user_id', session.user.id).maybeSingle();
+  state.user = { id: session.user.id, email: session.user.email, isMod: !!mod };
+}
+
+function renderTop() {
+  $('#topActions').innerHTML = state.user
+    ? `<span class="meta" style="margin:0">${esc(state.user.email)}</span><button class="btn" data-act="logout">Выйти</button>`
+    : '';
+}
+
+function renderLogin(err) {
+  $('#app').innerHTML = `<div class="panel">
+    <h1>Вход для модератора</h1>
+    ${state.linkSent
+      ? `<p>Мы отправили ссылку на ${esc(state.linkSent)}. Откройте письмо на этом устройстве и нажмите на ссылку.</p>`
+      : `<p class="meta">Войдите той же почтой, которую вы добавили в модераторы.</p>
+         <label for="email">Email</label>
+         <input type="text" id="email" inputmode="email" autocomplete="email" dir="ltr">
+         <button class="btn btn-primary" data-act="sendLink">Прислать ссылку для входа</button>`}
+    ${err ? `<p class="error">${esc(err)}</p>` : ''}
+  </div>`;
+}
+
+/* ============================================================
+   Загрузка очереди
+   ============================================================ */
+async function loadRef() {
+  if (state.ref) return;
+  const [ds, ct] = await Promise.all([
+    sb.from('districts').select('id,slug,name_ru,sort_order,municipality_id').order('sort_order'),
+    sb.from('categories').select('id,code,name_ru').order('id'),
+  ]);
+  if (ds.error || ct.error) throw (ds.error || ct.error);
+  state.ref = {
+    districts: ds.data, categories: ct.data,
+    dById: Object.fromEntries(ds.data.map(d => [d.id, d])),
+    cById: Object.fromEntries(ct.data.map(c => [c.id, c])),
+  };
+}
+
+async function loadQueue() {
+  await loadRef();
+  const [pl, rp, fl] = await Promise.all([
+    sb.from('places').select('*').eq('moderation', 'pending').order('created_at'),
+    sb.from('repair_reports').select('*').eq('moderation', 'pending').order('submitted_at'),
+    sb.from('flags').select('*').eq('status', 'open').order('created_at'),
+  ]);
+  if (pl.error || rp.error || fl.error) throw (pl.error || rp.error || fl.error);
+
+  // связанные данные: категории, зоны выезда, названия мастеров, имена авторов
+  const placeIds = [...new Set([...pl.data.map(p => p.id), ...rp.data.map(r => r.place_id), ...fl.data.map(f => f.place_id).filter(Boolean)])];
+  const userIds = [...new Set([...pl.data.map(p => p.added_by), ...rp.data.map(r => r.reviewer_id)].filter(Boolean))];
+  const [pc, sa, names, profiles] = await Promise.all([
+    placeIds.length ? sb.from('place_categories').select('place_id,category_id').in('place_id', placeIds) : { data: [] },
+    placeIds.length ? sb.from('place_service_areas').select('place_id,district_id').in('place_id', placeIds) : { data: [] },
+    placeIds.length ? sb.from('places').select('id,name_original,moderation,phone,contact_public').in('id', placeIds) : { data: [] },
+    userIds.length ? sb.from('user_profiles').select('id,display_name,trust_level,approved_count').in('id', userIds) : { data: [] },
+  ]);
+  for (const r of [pc, sa, names, profiles]) if (r.error) throw r.error;
+
+  const group = (rows, key, val) => rows.reduce((m, r) => ((m[r[key]] ||= []).push(r[val]), m), {});
+  state.data = {
+    places: pl.data, reports: rp.data, flags: fl.data,
+    catsByPlace: group(pc.data, 'place_id', 'category_id'),
+    areasByPlace: group(sa.data, 'place_id', 'district_id'),
+    placeById: Object.fromEntries(names.data.map(p => [p.id, p])),
+    userById: Object.fromEntries(profiles.data.map(u => [u.id, u])),
+  };
+}
+
+/* ============================================================
+   Отрисовка
+   ============================================================ */
+function who(id) {
+  if (!id) return 'команда / импорт';
+  const u = state.data.userById[id];
+  if (!u) return 'участник';
+  return `${u.display_name} (одобрено: ${u.approved_count}${u.trust_level >= 1 ? ', доверенный' : ''})`;
+}
+
+function placeCard(p) {
+  const R = state.ref, D = state.data;
+  const cats = (D.catsByPlace[p.id] || []).map(id => R.cById[id] && R.cById[id].name_ru).filter(Boolean).join(', ');
+  const areas = (D.areasByPlace[p.id] || []).map(id => R.dById[id] && R.dById[id].name_ru).filter(Boolean).join(', ');
+  const opts = R.districts.map(d => `<option value="${d.id}" ${d.id === p.base_district_id ? 'selected' : ''}>${esc(d.name_ru)}</option>`).join('');
+  const pendingReviews = D.reports.filter(r => r.place_id === p.id).length;
+  return `<article class="card" data-place="${p.id}">
+    <h3>${esc(p.name_original)}</h3>
+    <p class="meta">Добавил(а): ${esc(who(p.added_by))} · ${fmtDate(p.created_at)}</p>
+    ${p.internal_notes ? `<p class="note">${esc(p.internal_notes)}</p>` : ''}
+    <dl>
+      <dt>Что чинит</dt><dd>${esc(cats || '—')}</dd>
+      <dt>Формат</dt><dd>${esc(L.mode[p.service_mode] || p.service_mode)} · ${esc(L.actor[p.actor_type] || p.actor_type)}</dd>
+      <dt>Район</dt><dd><select data-field="base_district_id"><option value="">—</option>${opts}</select></dd>
+      ${areas ? `<dt>Выезд</dt><dd>${esc(areas)}</dd>` : ''}
+      ${p.address ? `<dt>Адрес</dt><dd>${esc(p.address)}</dd>` : ''}
+      ${p.phone ? `<dt>Телефон</dt><dd dir="ltr" style="text-align:start">${esc(p.phone)}</dd>` : ''}
+      ${(p.service_languages || []).length ? `<dt>Языки</dt><dd>${esc(p.service_languages.join(', ').toUpperCase())}</dd>` : ''}
+    </dl>
+    ${pendingReviews ? `<p class="meta">К этому мастеру ждёт проверки отзывов: ${pendingReviews} (вкладка «Отзывы»).</p>` : ''}
+    <div class="actions">
+      <button class="btn btn-ok" data-act="approvePlace" data-id="${p.id}">Одобрить</button>
+      <button class="btn btn-no" data-act="rejectPlace" data-id="${p.id}">Отклонить</button>
+    </div>
+  </article>`;
+}
+
+function reportCard(r) {
+  const R = state.ref, D = state.data;
+  const place = D.placeById[r.place_id];
+  const cat = r.category_id && R.cById[r.category_id] ? R.cById[r.category_id].name_ru : '';
+  return `<article class="card">
+    <h3>${esc(place ? place.name_original : 'Мастер')}</h3>
+    <p class="meta">Автор: ${esc(who(r.reviewer_id))} · ${fmtDate(r.submitted_at)}</p>
+    ${place && place.moderation === 'pending' ? `<p class="note">Сам мастер ещё не одобрен (вкладка «Мастера»).</p>` : ''}
+    <dl>
+      ${cat ? `<dt>Что чинили</dt><dd>${esc(cat)}</dd>` : ''}
+      <dt>Итог</dt><dd>${esc(L.outcome[r.outcome] || r.outcome)}${r.barrier && r.barrier !== 'none' ? ` · ${esc(L.barrier[r.barrier])}` : ''}</dd>
+      ${r.rating ? `<dt>Оценка</dt><dd class="stars">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</dd>` : ''}
+      ${r.price_ils != null ? `<dt>Цена</dt><dd>${Number(r.price_ils)} ₪</dd>` : ''}
+      ${r.turnaround_days != null ? `<dt>Срок</dt><dd>${r.turnaround_days} дн.</dd>` : ''}
+    </dl>
+    ${r.comment ? `<p class="quote">${esc(r.comment)}</p>` : ''}
+    <div class="actions">
+      <button class="btn btn-ok" data-act="approveReport" data-id="${r.id}">Одобрить</button>
+      <button class="btn btn-no" data-act="rejectReport" data-id="${r.id}">Отклонить</button>
+    </div>
+  </article>`;
+}
+
+function flagCard(f) {
+  const place = f.place_id ? state.data.placeById[f.place_id] : null;
+  const isOwner = f.reason === 'owner_objection';
+  return `<article class="card">
+    <h3>${esc(L.reason[f.reason] || f.reason)}</h3>
+    <p class="meta">${esc(place ? place.name_original : '')} · ${fmtDate(f.created_at)}</p>
+    ${f.message ? `<p class="quote">${esc(f.message)}</p>` : ''}
+    ${f.contact ? `<p class="meta">Контакт автора: ${esc(f.contact)}</p>` : ''}
+    <div class="actions">
+      ${place && place.phone && place.contact_public ? `<button class="btn" data-act="hidePhone" data-id="${f.place_id}" data-flag="${f.id}">Скрыть телефон</button>` : ''}
+      ${place && place.moderation === 'approved' ? `<button class="btn btn-no" data-act="unpublish" data-id="${f.place_id}" data-flag="${f.id}">Убрать мастера с сайта</button>` : ''}
+      <button class="btn btn-ok" data-act="resolveFlag" data-id="${f.id}">Решено</button>
+      <button class="btn" data-act="dismissFlag" data-id="${f.id}">Без изменений</button>
+    </div>
+    ${isOwner ? `<p class="meta" style="margin-top:8px">Просьбу мастера лучше выполнить быстро: это его персональные данные.</p>` : ''}
+  </article>`;
+}
+
+function renderQueue() {
+  const D = state.data;
+  const tabs = [['places', 'Мастера', D.places.length], ['reports', 'Отзывы', D.reports.length], ['flags', 'Жалобы', D.flags.length]];
+  const list = state.tab === 'places' ? D.places.map(placeCard)
+    : state.tab === 'reports' ? D.reports.map(reportCard)
+    : D.flags.map(flagCard);
+  $('#app').innerHTML = `
+    <div class="tabs" role="group">
+      ${tabs.map(([k, l, n]) => `<button data-tab="${k}" aria-pressed="${state.tab === k}">${l}${n ? `<span class="n">${n}</span>` : ''}</button>`).join('')}
+      <button class="btn" data-act="reload" style="margin-inline-start:auto">Обновить</button>
+    </div>
+    ${list.length ? list.join('') : `<div class="empty">Здесь ничего не ждёт проверки.</div>`}`;
+}
+
+async function main() {
+  await checkUser();
+  renderTop();
+  if (!state.user) { renderLogin(); return; }
+  if (!state.user.isMod) {
+    $('#app').innerHTML = `<div class="empty">У этой почты нет прав модератора. Попросите администратора добавить её в таблицу moderators.</div>`;
+    return;
+  }
+  try { await loadQueue(); renderQueue(); }
+  catch (e) { console.error(e); $('#app').innerHTML = `<div class="empty error">Не удалось загрузить очередь: ${esc(e.message || e)}</div>`; }
+}
+
+/* ============================================================
+   Действия
+   ============================================================ */
+async function act(fn, okMsg) {
+  try {
+    const { error } = await fn();
+    if (error) throw error;
+    toast(okMsg);
+    await loadQueue(); renderQueue();
+  } catch (e) {
+    console.error(e); toast('Ошибка: ' + (e.message || e));
+  }
+}
+
+const stamp = () => ({ moderated_by: state.user.id, moderated_at: new Date().toISOString() });
+
+document.addEventListener('click', async e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const d = b.dataset;
+  if (d.tab) { state.tab = d.tab; renderQueue(); return; }
+  if (!d.act) return;
+  b.disabled = true;
+
+  if (d.act === 'sendLink') {
+    const email = ($('#email').value || '').trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { renderLogin('Проверьте адрес почты'); return; }
+    const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: location.origin + location.pathname, shouldCreateUser: false } });
+    if (error) { renderLogin('Не получилось отправить: ' + error.message); return; }
+    state.linkSent = email; renderLogin(); return;
+  }
+  if (d.act === 'logout') { await sb.auth.signOut(); state.user = null; state.linkSent = null; renderTop(); renderLogin(); return; }
+  if (d.act === 'reload') { await loadQueue(); renderQueue(); toast('Обновлено'); return; }
+
+  if (d.act === 'approvePlace' || d.act === 'rejectPlace') {
+    const card = b.closest('[data-place]');
+    const sel = card && card.querySelector('select[data-field="base_district_id"]');
+    const upd = { moderation: d.act === 'approvePlace' ? 'approved' : 'rejected', ...stamp() };
+    if (sel) {
+      upd.base_district_id = sel.value ? Number(sel.value) : null;
+      const dist = state.ref.districts.find(x => x.id === upd.base_district_id);
+      if (dist) upd.municipality_id = dist.municipality_id;
+    }
+    await act(() => sb.from('places').update(upd).eq('id', d.id),
+      d.act === 'approvePlace' ? 'Мастер опубликован' : 'Мастер отклонён');
+    return;
+  }
+  if (d.act === 'approveReport' || d.act === 'rejectReport') {
+    await act(() => sb.from('repair_reports').update({ moderation: d.act === 'approveReport' ? 'approved' : 'rejected', ...stamp() }).eq('id', d.id),
+      d.act === 'approveReport' ? 'Отзыв опубликован' : 'Отзыв отклонён');
+    return;
+  }
+  if (d.act === 'hidePhone') {
+    await act(() => sb.from('places').update({ contact_public: false }).eq('id', d.id), 'Телефон скрыт');
+    return;
+  }
+  if (d.act === 'unpublish') {
+    if (!confirm('Убрать этого мастера с сайта?')) { b.disabled = false; return; }
+    await act(() => sb.from('places').update({ moderation: 'rejected', ...stamp() }).eq('id', d.id), 'Мастер убран с сайта');
+    return;
+  }
+  if (d.act === 'resolveFlag' || d.act === 'dismissFlag') {
+    await act(() => sb.from('flags').update({ status: d.act === 'resolveFlag' ? 'resolved' : 'dismissed',
+      resolved_by: state.user.id, resolved_at: new Date().toISOString() }).eq('id', d.id),
+      'Жалоба закрыта');
+    return;
+  }
+});
+
+// вызовы Supabase внутри обработчика входа откладываются, иначе клиент может зависнуть
+sb.auth.onAuthStateChange((event) => { if (event === 'SIGNED_IN') setTimeout(main, 0); });
+main();
+</script>
+</body>
+</html>
