@@ -228,6 +228,8 @@ const CONFIG = {
   SUPABASE_ANON_KEY: 'sb_publishable_pmPUyTAl0VFuCZEyQD1bxA_FRC6uayU',
   LOGIN_PROVIDERS: ['email'],          // позже можно добавить 'facebook', 'google'
   RESEARCH_CONSENT_ENABLED: false,     // включить после одобрения этического комитета
+  TERMS_VERSION: '2026-10',            // менять при существенной правке правил: все примут их заново
+  PRIVACY_URL: 'privacy.html',
 };
 
 /* Оформление кластеров: берётся по slug, сами районы и названия — из базы */
@@ -273,11 +275,13 @@ const T = {
     withFb: 'Войти через Facebook', withGoogle: 'Войти через Google',
     errEmail: 'Проверьте адрес почты',
     nameTitle: 'Как вас подписать?', nameHint: 'Это имя увидят под вашими отзывами. Можно только имя, например «Ирина К.»',
+    welcomeTitle: 'Добро пожаловать!', termsCheck: 'Я прочитал(а) и принимаю', termsLink: 'правила справочника и политику конфиденциальности',
+    errTerms: 'Чтобы продолжить, нужно принять правила', privacyLink: 'Правила и конфиденциальность',
     save: 'Сохранить',
     addTitle: 'Новый мастер', reviewTitle: 'Отзыв',
     next: 'Дальше', prev: 'Назад', send: 'Отправить', close: 'Закрыть', done: 'Готово', sending: 'Отправляем…',
     s1name: 'Имя мастера или название мастерской', s1nameHint: 'Как вы его знаете: «Борис, стиральные машины»',
-    s1phone: 'Телефон', s1phoneHint: 'Если такой номер уже есть в справочнике, ваш отзыв добавится к этому мастеру',
+    s1phone: 'Телефон', s1phoneHint: 'Только рабочий номер, который мастер сам даёт клиентам. Если номер уже есть в справочнике, отзыв добавится к этому мастеру. Мастер может попросить убрать запись.',
     s2cats: 'Что он чинит?', s2hint: 'Можно выбрать несколько',
     s3mode: 'Как он работает?', mStationary: 'Мастерская', mMobile: 'Выезд на дом', mBoth: 'И то и другое',
     s3base: 'Где мастерская или откуда он выезжает', s3addr: 'Адрес (если есть мастерская)', s3areas: 'Куда он выезжает',
@@ -329,11 +333,13 @@ const T = {
     withFb: 'כניסה עם Facebook', withGoogle: 'כניסה עם Google',
     errEmail: 'בדקו את כתובת האימייל',
     nameTitle: 'איך לחתום בשמכם?', nameHint: 'השם הזה יופיע מתחת לביקורות שלכם. אפשר רק שם פרטי, למשל "נועה ל."',
+    welcomeTitle: 'ברוכים הבאים!', termsCheck: 'קראתי ואני מסכים/ה ל', termsLink: 'כללי המדריך ולמדיניות הפרטיות',
+    errTerms: 'כדי להמשיך יש לאשר את הכללים', privacyLink: 'כללים ופרטיות',
     save: 'שמירה',
     addTitle: 'בעל מקצוע חדש', reviewTitle: 'ביקורת',
     next: 'המשך', prev: 'חזרה', send: 'שליחה', close: 'סגירה', done: 'סיום', sending: 'שולח…',
     s1name: 'שם בעל המקצוע או שם העסק', s1nameHint: 'איך שאתם מכירים אותו: "בוריס, מכונות כביסה"',
-    s1phone: 'טלפון', s1phoneHint: 'אם המספר כבר קיים במדריך, הביקורת שלכם תתווסף לבעל המקצוע הזה',
+    s1phone: 'טלפון', s1phoneHint: 'רק מספר עבודה שבעל המקצוע עצמו נותן ללקוחות. אם המספר כבר קיים במדריך, הביקורת תתווסף אליו. בעל המקצוע יכול לבקש להסיר את הרשומה.',
     s2cats: 'מה הוא מתקן?', s2hint: 'אפשר לבחור כמה',
     s3mode: 'איך הוא עובד?', mStationary: 'מעבדה', mMobile: 'מגיע עד הבית', mBoth: 'גם וגם',
     s3base: 'איפה המעבדה או מאיפה הוא יוצא', s3addr: 'כתובת (אם יש מעבדה)', s3areas: 'לאן הוא מגיע',
@@ -385,11 +391,13 @@ const T = {
     withFb: 'Continue with Facebook', withGoogle: 'Continue with Google',
     errEmail: 'Check the email address',
     nameTitle: 'How should we sign your reviews?', nameHint: 'This name appears under your reviews. A first name is enough, e.g. "Noa L."',
+    welcomeTitle: 'Welcome!', termsCheck: 'I have read and accept the', termsLink: 'directory rules and privacy policy',
+    errTerms: 'Please accept the rules to continue', privacyLink: 'Rules & privacy',
     save: 'Save',
     addTitle: 'New repairer', reviewTitle: 'Review',
     next: 'Next', prev: 'Back', send: 'Send', close: 'Close', done: 'Done', sending: 'Sending…',
     s1name: 'Repairer or workshop name', s1nameHint: 'However you know them: "Boris, washing machines"',
-    s1phone: 'Phone', s1phoneHint: 'If this number is already listed, your review will be added to that repairer',
+    s1phone: 'Phone', s1phoneHint: 'Only a work number the repairer gives to customers. If it is already listed, your review is added to that repairer. Repairers can ask for their entry to be removed.',
     s2cats: 'What do they repair?', s2hint: 'Pick as many as apply',
     s3mode: 'How do they work?', mStationary: 'Workshop', mMobile: 'Home visits', mBoth: 'Both',
     s3base: 'Where the workshop is, or where they travel from', s3addr: 'Address (if there is a workshop)', s3areas: 'Where they travel to',
@@ -489,10 +497,12 @@ async function loadDistrict(slug, force) {
    ============================================================ */
 async function refreshUser(session) {
   if (!session) { state.user = null; return; }
-  const { data } = await sb.from('user_profiles').select('display_name').eq('id', session.user.id).maybeSingle();
-  state.user = { id: session.user.id, name: data ? data.display_name : '', email: session.user.email };
+  const { data } = await sb.from('user_profiles').select('display_name,terms_version').eq('id', session.user.id).maybeSingle();
+  state.user = { id: session.user.id, name: data ? data.display_name : '', email: session.user.email,
+                 termsOk: !!(data && data.terms_version === CONFIG.TERMS_VERSION) };
 }
-const needsName = () => state.user && (!state.user.name || state.user.name === 'Участник');
+// приветствие нужно, если нет имени или не приняты текущие правила
+const needsName = () => state.user && (!state.user.name || state.user.name === 'Участник' || !state.user.termsOk);
 
 sb.auth.onAuthStateChange(async (event, session) => {
   const had = !!state.user;
@@ -511,7 +521,7 @@ function applyLang() {
   document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === state.lang));
   $('#brand').innerHTML = `${esc(t('brand'))}<small>${esc(t('brandSub'))}</small>`;
   $('#loginBtn').textContent = state.user ? t('logout') : t('login');
-  $('#siteFooter').innerHTML = `${esc(t('footer'))} ${esc(t('osmCredit'))} <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a>.`;
+  $('#siteFooter').innerHTML = `${esc(t('footer'))} ${esc(t('osmCredit'))} <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a>. <a href="${CONFIG.PRIVACY_URL}?lang=${state.lang}">${esc(t('privacyLink'))}</a>`;
   document.title = t('h1');
 }
 
@@ -660,7 +670,7 @@ function newForm(mode, placeId) {
   F = {
     mode, placeId: placeId || null, placeName: place ? place.name_original : '', placeCats: place ? (place.categories || []) : [],
     step: mode === 'review' ? 4 : 1, errors: {}, busy: false, sendError: null, dupResult: false,
-    email: '', linkSentTo: null, profileName: '',
+    email: '', linkSentTo: null, profileName: '', terms: false,
     name: '', phone: '', cats: [], smode: null, base: '', addr: '', areas: [], langs: [],
     what: '', outcome: null, barrier: null, rating: 0, price: '', days: '', comment: '', consent: false,
   };
@@ -705,8 +715,12 @@ function renderSheet() {
       ${F.sendError ? `<p class="error">${esc(F.sendError)}</p>` : ''}
     </div>`;
   } else if (needsName()) {
-    body = `<div class="field"><label for="fProfileName">${esc(t('nameTitle'))}</label><p class="hint">${esc(t('nameHint'))}</p>
-      <input type="text" id="fProfileName" value="${esc(F.profileName)}">${err('profileName')}</div>
+    if (!F.profileName && state.user.name && state.user.name !== 'Участник') F.profileName = state.user.name;
+    body = `<h3 style="margin:0 0 12px;font-size:20px">${esc(t('welcomeTitle'))}</h3>
+      <div class="field"><label for="fProfileName">${esc(t('nameTitle'))}</label><p class="hint">${esc(t('nameHint'))}</p>
+      <input type="text" id="fProfileName" value="${esc(F.profileName)}" maxlength="60">${err('profileName')}</div>
+      <label class="check"><input type="checkbox" id="fTerms" ${F.terms ? 'checked' : ''}><span>${esc(t('termsCheck'))} <a href="${CONFIG.PRIVACY_URL}?lang=${state.lang}" target="_blank" rel="noopener">${esc(t('termsLink'))}</a></span></label>
+      ${err('terms')}
       ${F.sendError ? `<p class="error">${esc(F.sendError)}</p>` : ''}`;
     foot = `<span></span><button class="btn btn-primary" data-nav="saveName" ${F.busy ? 'disabled' : ''}>${esc(t('save'))}</button>`;
   } else if (F.step === 'thanks') {
@@ -781,6 +795,7 @@ function readInputs() {
   const map = { fEmail: 'email', fProfileName: 'profileName', fName: 'name', fPhone: 'phone', fBase: 'base', fAddr: 'addr', fPrice: 'price', fDays: 'days', fComment: 'comment' };
   for (const [id, key] of Object.entries(map)) { const x = v(id); if (x !== undefined) F[key] = x; }
   const c = document.getElementById('fConsent'); if (c) F.consent = c.checked;
+  const tc = document.getElementById('fTerms'); if (tc) F.terms = tc.checked;
 }
 
 function validate() {
@@ -867,12 +882,15 @@ async function sendMagicLink() {
 
 async function saveName() {
   const name = F.profileName.trim();
-  if (!name) { F.errors = { profileName: t('nameHint') }; renderSheet(); return; }
+  F.errors = {};
+  if (!name) F.errors.profileName = t('nameHint');
+  if (!F.terms) F.errors.terms = t('errTerms');
+  if (Object.keys(F.errors).length) { renderSheet(); return; }
   F.busy = true; renderSheet();
-  const { error } = await sb.from('user_profiles').update({ display_name: name }).eq('id', state.user.id);
+  const { error } = await sb.rpc('accept_terms', { p_display_name: name, p_version: CONFIG.TERMS_VERSION });
   F.busy = false;
   if (error) { F.sendError = t('sendError', error.message); renderSheet(); return; }
-  state.user.name = name; F.errors = {}; F.sendError = null; renderSheet();
+  state.user.name = name; state.user.termsOk = true; F.sendError = null; renderSheet();
 }
 
 sheet.addEventListener('click', async e => {
