@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Правила и конфиденциальность — Где починить в Хайфе</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ground: #EDF1EE; --surface: #FFFFFF; --ink: #1C2B27; --muted: #56675F; --line: #CBD5D0; --bay: #1D5C78;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ground: #111917; --surface: #1A2421; --ink: #E4ECE8; --muted: #9BADA6; --line: #2E3C38; --bay: #72B4D2; }
+}
+*, *::before, *::after { box-sizing: inherit; }
+body { margin: 0; background: var(--ground); color: var(--ink); font-family: "Rubik", "Segoe UI", "Arial Hebrew", Arial, sans-serif; font-size: 16px; line-height: 1.6; }
+a { color: var(--bay); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px 60px; }
+header.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+.brand { font-weight: 800; font-size: 18px; text-decoration: none; color: var(--ink); }
+.brand small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
+.langs { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.langs button { border: 0; background: none; padding: 6px 10px; font: inherit; font-size: 14px; cursor: pointer; color: inherit; }
+.langs button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px 22px 8px; }
+h1 { font-size: clamp(26px, 5vw, 36px); line-height: 1.15; margin: 4px 0 6px; font-weight: 800; }
+.updated { color: var(--muted); margin: 0 0 18px; font-size: 14px; }
+h2 { font-size: 19px; margin: 24px 0 6px; }
+p { margin: 0 0 12px; }
+ul { margin: 0 0 12px; padding-inline-start: 22px; }
+li { margin-bottom: 4px; }
+.back { margin: 18px 0 0; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./" id="brand">Где починить<small>Хайфа и Крайот · Re-Haifa Lab</small></a>
+    <div class="langs" role="group" aria-label="Language">
+      <button data-lang="ru">RU</button><button data-lang="he">עב</button><button data-lang="en">EN</button>
+    </div>
+  </header>
+
+  <!-- ===================== РУССКИЙ ===================== -->
+  <article lang="ru" data-l="ru">
+    <h1>Правила справочника и политика конфиденциальности</h1>
+    <p class="updated">Версия от октября 2026 года</p>
+
+    <h2>Кто ведёт справочник</h2>
+    <p>Справочник «Где починить в Хайфе» ведёт Re-Haifa Lab, гражданское экологическое сообщество в Хайфе. По любым вопросам о ваших данных пишите на <a class="mail"></a>.</p>
+
+    <h2>Какие данные мы собираем</h2>
+    <ul>
+      <li><b>При входе:</b> адрес электронной почты. Если вы входите через Google или Facebook, мы получаем от них ваше имя и почту.</li>
+      <li><b>Имя для подписи,</b> которое вы указали при первом входе.</li>
+      <li><b>Ваши записи:</b> мастера, которых вы добавили, и отзывы: что чинили, чем закончилось, цена, срок, оценка, текст и дата.</li>
+      <li><b>Сообщения об ошибках:</b> текст и контакт, если вы его оставили.</li>
+    </ul>
+    <p>Смотреть справочник можно без входа и без каких-либо данных. Вход нужен только для того, чтобы добавлять мастеров и отзывы.</p>
+
+    <h2>Зачем</h2>
+    <p>Чтобы вести справочник, показывать отзывы, защищать его от спама и фальшивых отзывов и отвечать на ваши обращения. Мы не продаём данные и не передаём их для рекламы.</p>
+
+    <h2>Что видно всем, а что нет</h2>
+    <ul>
+      <li><b>Видно всем:</b> имя для подписи, ваши отзывы и данные мастеров.</li>
+      <li><b>Не публикуется никогда:</b> ваша почта и контакт в сообщениях об ошибках. Их видят только модераторы Re-Haifa Lab.</li>
+    </ul>
+
+    <h2>Где хранятся данные</h2>
+    <p>Данные хранятся в облачной базе данных Supabase. Доступ к неопубликованным записям и адресам почты есть только у модераторов. Браузер хранит на вашем устройстве данные входа и выбранный язык. Рекламных трекеров и счётчиков посещений на сайте нет. Шрифты загружаются с Google Fonts, а программная библиотека с сервиса jsDelivr: эти сервисы видят технический адрес вашего устройства, как при посещении любого сайта.</p>
+
+    <h2>Данные о мастерах</h2>
+    <p>Мы публикуем только рабочие контакты, которые мастер сам даёт клиентам. Часть мастерских взята из открытой карты OpenStreetMap. Если вы мастер и хотите исправить или удалить запись о себе, нажмите «Сообщить об ошибке» на своей карточке или напишите на <a class="mail"></a>. Такие просьбы мы выполняем в первую очередь.</p>
+
+    <h2 id="delete">Ваши права и удаление данных</h2>
+    <p>Вы можете узнать, какие данные о вас хранятся, исправить их или удалить свой аккаунт вместе с отзывами. Для этого напишите на <a class="mail"></a> с той почты, с которой входите, или укажите аккаунт Google или Facebook, через который входили. Мы ответим в течение 30 дней.</p>
+
+    <h2>Правила отзывов</h2>
+    <ul>
+      <li>Пишите только о своём собственном опыте.</li>
+      <li>Без оскорблений, угроз, рекламы и личных данных других людей.</li>
+      <li>Об одном мастере можно оставить не больше одного отзыва за 30 дней.</li>
+      <li>Мы проверяем новые записи и можем отклонить или удалить те, что нарушают правила.</li>
+    </ul>
+
+    <h2>Исследования</h2>
+    <p>Сейчас данные справочника для исследований не используются. Если это изменится, мы попросим отдельного согласия, а данные будут использоваться только без имён.</p>
+
+    <h2>Изменения</h2>
+    <p>Если правила существенно изменятся, при следующем входе мы попросим вас принять их заново.</p>
+    <p>Часть данных: © участники OpenStreetMap, лицензия ODbL.</p>
+  </article>
+
+  <!-- ===================== עברית ===================== -->
+  <article lang="he" dir="rtl" data-l="he" hidden>
+    <h1>כללי המדריך ומדיניות הפרטיות</h1>
+    <p class="updated">גרסה מאוקטובר 2026</p>
+
+    <h2>מי מפעיל את המדריך</h2>
+    <p>את המדריך "איפה מתקנים בחיפה" מפעילה Re-Haifa Lab, קהילה סביבתית אזרחית בחיפה. בכל שאלה על המידע שלכם אפשר לכתוב אל <a class="mail"></a>.</p>
+
+    <h2>איזה מידע אנחנו אוספים</h2>
+    <ul>
+      <li><b>בכניסה:</b> כתובת אימייל. אם נכנסים עם Google או Facebook, אנחנו מקבלים מהם את השם ואת כתובת האימייל.</li>
+      <li><b>השם לחתימה</b> שבחרתם בכניסה הראשונה.</li>
+      <li><b>הרשומות שלכם:</b> בעלי מקצוע שהוספתם וביקורות: מה תוקן, איך זה הסתיים, מחיר, משך, דירוג, טקסט ותאריך.</li>
+      <li><b>דיווחים על טעויות:</b> הטקסט ופרטי הקשר, אם השארתם.</li>
+    </ul>
+    <p>אפשר לעיין במדריך בלי להיכנס ובלי למסור שום מידע. הכניסה נדרשת רק כדי להוסיף בעלי מקצוע וביקורות.</p>
+
+    <h2>למה</h2>
+    <p>כדי לנהל את המדריך, להציג ביקורות, להגן עליו מספאם ומביקורות מזויפות ולענות לפניות שלכם. אנחנו לא מוכרים את המידע ולא מעבירים אותו למטרות פרסום.</p>
+
+    <h2>מה גלוי לכולם ומה לא</h2>
+    <ul>
+      <li><b>גלוי לכולם:</b> השם לחתימה, הביקורות שלכם ופרטי בעלי המקצוע.</li>
+      <li><b>לעולם לא מתפרסם:</b> כתובת האימייל שלכם ופרטי הקשר בדיווחים על טעויות. רק מנהלי התוכן של Re-Haifa Lab רואים אותם.</li>
+    </ul>
+
+    <h2>איפה המידע נשמר</h2>
+    <p>המידע נשמר במסד נתונים בענן של Supabase. גישה לרשומות שטרם פורסמו ולכתובות האימייל יש רק למנהלי התוכן. הדפדפן שומר במכשיר שלכם את פרטי הכניסה ואת השפה שבחרתם. אין באתר כלי מעקב פרסומיים או מוני ביקורים. הגופנים נטענים מ-Google Fonts וספריית התוכנה מ-jsDelivr: שירותים אלה רואים את הכתובת הטכנית של המכשיר, כמו בכל ביקור באתר.</p>
+
+    <h2>מידע על בעלי מקצוע</h2>
+    <p>אנחנו מפרסמים רק פרטי קשר עסקיים שבעל המקצוע עצמו נותן ללקוחות. חלק מהעסקים נלקחו מהמפה הפתוחה OpenStreetMap. אם אתם בעלי מקצוע ורוצים לתקן או להסיר רשומה עליכם, לחצו על "דיווח על טעות" בכרטיס שלכם או כתבו אל <a class="mail"></a>. בקשות כאלה מטופלות בעדיפות ראשונה.</p>
+
+    <h2 id="delete-he">הזכויות שלכם ומחיקת מידע</h2>
+    <p>אפשר לבקש לדעת איזה מידע שמור עליכם, לתקן אותו או למחוק את החשבון יחד עם הביקורות. כתבו אל <a class="mail"></a> מהאימייל שאיתו אתם נכנסים, או ציינו את חשבון Google או Facebook שדרכו נכנסתם. נענה תוך 30 יום.</p>
+
+    <h2>כללי הביקורות</h2>
+    <ul>
+      <li>כתבו רק על הניסיון האישי שלכם.</li>
+      <li>בלי עלבונות, איומים, פרסום ופרטים אישיים של אנשים אחרים.</li>
+      <li>על כל בעל מקצוע אפשר לכתוב לכל היותר ביקורת אחת ב-30 יום.</li>
+      <li>אנחנו בודקים רשומות חדשות ועשויים לדחות או למחוק רשומות שמפרות את הכללים.</li>
+    </ul>
+
+    <h2>מחקר</h2>
+    <p>כרגע המידע במדריך לא משמש למחקר. אם זה ישתנה, נבקש הסכמה נפרדת, והמידע ישמש רק ללא שמות.</p>
+
+    <h2>שינויים</h2>
+    <p>אם הכללים ישתנו באופן מהותי, נבקש מכם לאשר אותם מחדש בכניסה הבאה.</p>
+    <p>חלק מהנתונים: © תורמי OpenStreetMap, ברישיון ODbL.</p>
+  </article>
+
+  <!-- ===================== ENGLISH ===================== -->
+  <article lang="en" data-l="en" hidden>
+    <h1>Directory rules and privacy policy</h1>
+    <p class="updated">Version of October 2026</p>
+
+    <h2>Who runs the directory</h2>
+    <p>The "Where to repair in Haifa" directory is run by Re-Haifa Lab, a civic environmental community in Haifa. For any question about your data, write to <a class="mail"></a>.</p>
+
+    <h2>What data we collect</h2>
+    <ul>
+      <li><b>When you sign in:</b> your email address. If you sign in with Google or Facebook, we receive your name and email from them.</li>
+      <li><b>The display name</b> you chose on your first sign-in.</li>
+      <li><b>Your entries:</b> repairers you added and your reviews: what was repaired, how it ended, price, time taken, rating, text and date.</li>
+      <li><b>Mistake reports:</b> the text and contact details, if you left them.</li>
+    </ul>
+    <p>You can browse the directory without signing in or giving any data. Signing in is only needed to add repairers and reviews.</p>
+
+    <h2>Why</h2>
+    <p>To run the directory, show reviews, protect it from spam and fake reviews, and answer your requests. We do not sell data or share it for advertising.</p>
+
+    <h2>What is public and what is not</h2>
+    <ul>
+      <li><b>Public:</b> your display name, your reviews, and repairers' details.</li>
+      <li><b>Never published:</b> your email address and the contact details in mistake reports. Only Re-Haifa Lab moderators can see them.</li>
+    </ul>
+
+    <h2>Where the data is stored</h2>
+    <p>Data is stored in a Supabase cloud database. Only moderators can access unpublished entries and email addresses. Your browser keeps your sign-in session and chosen language on your device. The site has no advertising trackers or visitor counters. Fonts load from Google Fonts and a software library from jsDelivr: these services see your device's technical address, as with any website visit.</p>
+
+    <h2>Data about repairers</h2>
+    <p>We only publish work contact details that repairers give to their customers. Some businesses come from the open map OpenStreetMap. If you are a repairer and want your entry corrected or removed, tap "Report a mistake" on your card or write to <a class="mail"></a>. We handle such requests first.</p>
+
+    <h2 id="delete-en">Your rights and deleting your data</h2>
+    <p>You can ask what data we hold about you, correct it, or delete your account together with your reviews. Write to <a class="mail"></a> from the email you sign in with, or name the Google or Facebook account you used. We will reply within 30 days.</p>
+
+    <h2>Review rules</h2>
+    <ul>
+      <li>Write only about your own experience.</li>
+      <li>No insults, threats, advertising, or other people's personal details.</li>
+      <li>At most one review of the same repairer every 30 days.</li>
+      <li>We check new entries and may reject or remove those that break the rules.</li>
+    </ul>
+
+    <h2>Research</h2>
+    <p>Directory data is not currently used for research. If that changes, we will ask for separate consent, and data will only be used without names.</p>
+
+    <h2>Changes</h2>
+    <p>If the rules change substantially, we will ask you to accept them again at your next sign-in.</p>
+    <p>Some data: © OpenStreetMap contributors, ODbL licence.</p>
+  </article>
+
+  <p class="back"><a href="./" id="backLink">← Вернуться к справочнику</a></p>
+</div>
+
+<script>
+/* Почта для связи по вопросам данных — одна строка для всей страницы */
+const CONTACT_EMAIL = 'rehaifahub@gmail.com
+';
+
+document.querySelectorAll('a.mail').forEach(a => { a.href = 'mailto:' + CONTACT_EMAIL; a.textContent = CONTACT_EMAIL; a.dir = 'ltr'; });
+
+const BRAND = {
+  ru: ['Где починить', 'Хайфа и Крайот · Re-Haifa Lab', '← Вернуться к справочнику', 'Правила и конфиденциальность — Где починить в Хайфе'],
+  he: ['איפה מתקנים', 'חיפה והקריות · Re-Haifa Lab', '→ חזרה למדריך', 'כללים ופרטיות — איפה מתקנים בחיפה'],
+  en: ['Where to repair', 'Haifa & Krayot · Re-Haifa Lab', '← Back to the directory', 'Rules & privacy — Where to repair in Haifa'],
+};
+
+function setLang(l) {
+  if (!BRAND[l]) l = 'ru';
+  document.documentElement.lang = l;
+  document.documentElement.dir = l === 'he' ? 'rtl' : 'ltr';
+  document.querySelectorAll('article[data-l]').forEach(a => a.hidden = a.dataset.l !== l);
+  document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
+  const [b, sub, back, title] = BRAND[l];
+  document.getElementById('brand').innerHTML = `${b}<small>${sub}</small>`;
+  document.getElementById('backLink').textContent = back;
+  document.title = title;
+}
+
+document.querySelectorAll('.langs button').forEach(b => b.addEventListener('click', () => {
+  setLang(b.dataset.lang);
+  try { localStorage.setItem('rh-lang', b.dataset.lang); } catch (e) {}
+}));
+
+let lang = new URLSearchParams(location.search).get('lang');
+if (!lang) { try { lang = localStorage.getItem('rh-lang'); } catch (e) {} }
+setLang(lang || 'ru');
+if (location.hash === '#delete') {
+  const target = document.getElementById(lang === 'he' ? 'delete-he' : lang === 'en' ? 'delete-en' : 'delete');
+  if (target) target.scrollIntoView();
+}
+</script>
+</body>
+</html>
