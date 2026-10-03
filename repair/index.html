@@ -101,6 +101,20 @@ header.top {
 .sea { height: 14px; margin-inline-start: calc(4 * 14px); color: var(--bay); }
 .sea svg { width: 100%; height: 14px; display: block; }
 .towns h2 { font-size: 19px; margin: 26px 0 8px; }
+/* быстрый выбор: вся Хайфа, все Крайот, Нешер, Тират-Кармель */
+.areas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 0 0 22px; }
+@media (max-width: 600px) { .areas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.area-tile {
+  --tone: var(--carmel);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 2px;
+  min-height: 76px; padding: 12px 14px; border-radius: var(--radius-l);
+  background: color-mix(in srgb, var(--tone) 22%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--tone) 45%, var(--line));
+  color: var(--ink); text-decoration: none;
+}
+.area-tile strong { font-size: 17px; line-height: 1.2; }
+.area-tile span { color: var(--muted); font-size: 14px; }
+.area-tile:hover { background: color-mix(in srgb, var(--tone) 32%, var(--surface)); }
 .towns .tier { margin-inline-start: 0; }
 
 /* страница района */
@@ -243,6 +257,19 @@ const CLUSTER_UI = {
 };
 const LANGS = { ru: 'RU', he: 'HE', en: 'EN', ar: 'AR' };
 
+/* Общие списки по нескольким районам */
+const AREAS = {
+  'haifa':  { clusters: ['carmel', 'slopes', 'lower-coast', 'bay'], tone: 'var(--carmel)' },
+  'krayot': { clusters: ['krayot'], tone: 'var(--bay)' },
+};
+/* Плитки быстрого выбора на главной: две общие области и два отдельных города */
+const QUICK = [
+  { area: 'haifa' },
+  { area: 'krayot' },
+  { district: 'nesher',       tone: 'color-mix(in srgb, var(--carmel) 50%, var(--bay))' },
+  { district: 'tirat-carmel', tone: 'color-mix(in srgb, var(--carmel) 50%, var(--bay))' },
+];
+
 /* ============================================================
    Тексты интерфейса
    ============================================================ */
@@ -256,6 +283,10 @@ const T = {
     loading: 'Загружаем…', loadError: 'Не удалось загрузить данные. Проверьте интернет и обновите страницу.',
     inDistrict: n => `${n} ${plural(n,'мастер','мастера','мастеров')} в этом районе, включая выездных`,
     allCats: 'Все', modeAll: 'Все', modeBase: 'Мастерская здесь', modeCome: 'Приезжают сюда', langAny: 'Любой язык',
+    area_haifa: 'Вся Хайфа', area_krayot: 'Все Крайот',
+    areaSub_haifa: 'Все районы Хайфы', areaSub_krayot: 'Кирьят-Ата, Кирьят-Моцкин, Кирьят-Бялик, Кирьят-Ям',
+    modeWorkshop: 'Мастерская', modeMobile: 'Выезд на дом',
+    inArea: n => `${n} ${plural(n,'мастер','мастера','мастеров')}`, quickN: n => `${n} ${plural(n,'мастер','мастера','мастеров')}`,
     workshop: 'Мастерская', comesFrom: d => `Приезжает на дом из района ${d}`, comesTo: n => `Выезд: ${n}`,
     speaks: 'Говорит', rating: n => `${n} ${plural(n,'отзыв','отзыва','отзывов')}`,
     fixedPct: p => `починили в ${p}% случаев`,
@@ -314,6 +345,10 @@ const T = {
     loading: 'טוען…', loadError: 'לא הצלחנו לטעון את הנתונים. בדקו את החיבור לאינטרנט ורעננו את הדף.',
     inDistrict: n => `בעלי מקצוע בשכונה: ${n}, כולל כאלה שמגיעים עד הבית`,
     allCats: 'הכול', modeAll: 'הכול', modeBase: 'יש כאן מעבדה', modeCome: 'מגיעים לכאן', langAny: 'כל שפה',
+    area_haifa: 'כל חיפה', area_krayot: 'כל הקריות',
+    areaSub_haifa: 'כל השכונות של חיפה', areaSub_krayot: 'קריית אתא, קריית מוצקין, קריית ביאליק, קריית ים',
+    modeWorkshop: 'מעבדה', modeMobile: 'מגיע עד הבית',
+    inArea: n => `בעלי מקצוע: ${n}`, quickN: n => `בעלי מקצוע: ${n}`,
     workshop: 'מעבדה', comesFrom: d => `מגיע עד הבית, יוצא מ${d}`, comesTo: n => `אזורי שירות: ${n}`,
     speaks: 'שפות', rating: n => `${n} ביקורות`,
     fixedPct: p => `תוקן ב־${p}% מהמקרים`,
@@ -372,6 +407,10 @@ const T = {
     loading: 'Loading…', loadError: "Couldn't load the data. Check your connection and refresh the page.",
     inDistrict: n => `${n} repairer${n===1?'':'s'} in this area, including home visits`,
     allCats: 'All', modeAll: 'All', modeBase: 'Workshop here', modeCome: 'Comes here', langAny: 'Any language',
+    area_haifa: 'All Haifa', area_krayot: 'All Krayot',
+    areaSub_haifa: 'Every Haifa neighbourhood', areaSub_krayot: 'Kiryat Ata, Kiryat Motzkin, Kiryat Bialik, Kiryat Yam',
+    modeWorkshop: 'Workshop', modeMobile: 'Home visits',
+    inArea: n => `${n} repairer${n===1?'':'s'}`, quickN: n => `${n} repairer${n===1?'':'s'}`,
     workshop: 'Workshop', comesFrom: d => `Home visits, based in ${d}`, comesTo: n => `Visits: ${n}`,
     speaks: 'Speaks', rating: n => `${n} review${n===1?'':'s'}`,
     fixedPct: p => `fixed in ${p}% of cases`,
@@ -480,8 +519,33 @@ async function loadCounts(force) {
   if (error) throw error;
   const counts = {};
   data.forEach(r => { counts[r.district] = (counts[r.district] || 0) + 1; });
+  // уникальные мастера в каждой общей области (выездной мастер считается один раз)
+  for (const [key, a] of Object.entries(AREAS)) {
+    const slugs = new Set(areaDistricts(key));
+    counts['area:' + key] = new Set(data.filter(r => slugs.has(r.district)).map(r => r.id)).size;
+  }
   state.counts = counts;
   return counts;
+}
+
+function areaDistricts(key) {
+  const a = AREAS[key];
+  return state.ref.districts.filter(d => a.clusters.includes(d.cluster)).map(d => d.slug);
+}
+
+async function loadArea(key, force) {
+  const cacheKey = 'area:' + key;
+  if (state.districtCache[cacheKey] && !force) return state.districtCache[cacheKey];
+  const { data, error } = await sb.from('district_directory').select('*').in('district', areaDistricts(key));
+  if (error) throw error;
+  // один мастер может встречаться в нескольких районах — оставляем одну запись
+  const byId = new Map();
+  for (const r of data) {
+    const prev = byId.get(r.id);
+    if (!prev || (r.relation === 'base' && prev.relation !== 'base')) byId.set(r.id, r);
+  }
+  state.districtCache[cacheKey] = [...byId.values()];
+  return state.districtCache[cacheKey];
 }
 
 async function loadDistrict(slug, force) {
@@ -528,10 +592,12 @@ function applyLang() {
 async function route() {
   applyLang();
   const m = location.hash.match(/^#\/d\/([\w-]+)/);
+  const ma = location.hash.match(/^#\/a\/([\w-]+)/);
   $('#app').innerHTML = `<p class="count" style="margin-top:24px">${esc(t('loading'))}</p>`;
   try {
     await loadRef();
     if (m && state.ref.districts.some(d => d.slug === m[1])) await renderDistrict(m[1]);
+    else if (ma && AREAS[ma[1]]) await renderArea(ma[1]);
     else await renderHome();
   } catch (err) {
     console.error(err);
@@ -564,6 +630,16 @@ async function renderHome() {
       <p>${esc(t('lead'))}</p>
       <p style="margin-top:-8px"><button class="btn btn-primary" data-act="add">${esc(t('add'))}</button></p>
     </section>
+    <nav class="areas">${QUICK.map(qk => {
+      if (qk.area) {
+        const n = state.counts['area:' + qk.area] || 0;
+        return `<a class="area-tile" href="#/a/${qk.area}" style="--tone:${AREAS[qk.area].tone}"><strong>${esc(t('area_' + qk.area))}</strong><span>${esc(t('quickN', n))}</span></a>`;
+      }
+      const d = state.ref.districts.find(x => x.slug === qk.district);
+      if (!d) return '';
+      const n = state.counts[d.slug] || 0;
+      return `<a class="area-tile" href="#/d/${d.slug}" style="--tone:${qk.tone}"><strong>${esc(nm(d))}</strong><span>${esc(t('quickN', n))}</span></a>`;
+    }).join('')}</nav>
     <div class="terraces">
       ${city.map(c => tierHTML(c, false)).join('')}
       <div class="sea" aria-hidden="true"><svg viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M0 7 Q 12.5 1 25 7 T 50 7 T 75 7 T 100 7 T 125 7 T 150 7 T 175 7 T 200 7" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
@@ -572,10 +648,11 @@ async function renderHome() {
       <div class="terraces">${towns.map(c => tierHTML(c, true)).join('')}</div></div>` : ''}`;
 }
 
-function cardHTML(p) {
+function cardHTML(p, opts = {}) {
   const facts = [];
   if (p.service_mode !== 'mobile' && (p.address || p.base_district)) {
-    const where = p.address || dName(p.base_district);
+    let where = p.address || dName(p.base_district);
+    if (opts.showDistrict && p.address && p.base_district) where = `${p.address} (${dName(p.base_district)})`;
     facts.push(`<div class="fact"><span class="k" aria-hidden="true">🏬</span><span>${esc(t('workshop'))}: ${esc(where)}</span></div>`);
   }
   if (p.service_mode === 'mobile' && p.base_district) {
@@ -615,6 +692,39 @@ function cardHTML(p) {
     <div class="actions">${actions.join('')}</div>
     <div class="card-foot">${trust}<button data-act="flag" data-id="${p.id}">${esc(t('flag'))}</button></div>
   </article>`;
+}
+
+async function renderArea(key) {
+  const all = await loadArea(key);
+  let list = all;
+  if (state.filterCat) list = list.filter(p => (p.categories || []).includes(state.filterCat));
+  if (state.filterMode === 'workshop') list = list.filter(p => p.service_mode !== 'mobile');
+  if (state.filterMode === 'mobile') list = list.filter(p => p.service_mode !== 'stationary');
+  if (state.filterLang) list = list.filter(p => (p.service_languages || []).includes(state.filterLang));
+  list = [...list].sort((a, b) => (Number(b.avg_rating) || 0) - (Number(a.avg_rating) || 0) || (b.report_count || 0) - (a.report_count || 0));
+
+  const usedCats = state.ref.categories.filter(c => all.some(p => (p.categories || []).includes(c.code)));
+  const catChips = [`<button class="chip" data-cat="" aria-pressed="${!state.filterCat}">${esc(t('allCats'))}</button>`]
+    .concat(usedCats.map(c => `<button class="chip" data-cat="${c.code}" aria-pressed="${state.filterCat === c.code}">${esc(nm(c))}</button>`)).join('');
+  const langChips = [`<button class="chip" data-lng="" aria-pressed="${!state.filterLang}">${esc(t('langAny'))}</button>`]
+    .concat(Object.keys(LANGS).map(l => `<button class="chip" data-lng="${l}" aria-pressed="${state.filterLang === l}">${LANGS[l]}</button>`)).join('');
+  const mode = ['all', 'workshop', 'mobile'].includes(state.filterMode) ? state.filterMode : 'all';
+
+  $('#app').innerHTML = `
+    <p class="back"><a href="#/">${state.lang === 'he' ? '→' : '←'} ${esc(t('back'))}</a></p>
+    <div class="district-head"><h1>${esc(t('area_' + key))}</h1><p>${esc(t('areaSub_' + key))}</p></div>
+    ${all.length ? `<div class="filters">
+      <div class="scroll-row" role="group">${catChips}</div>
+      <div class="seg" role="group">
+        <button data-mode="all" aria-pressed="${mode === 'all'}">${esc(t('modeAll'))}</button>
+        <button data-mode="workshop" aria-pressed="${mode === 'workshop'}">${esc(t('modeWorkshop'))}</button>
+        <button data-mode="mobile" aria-pressed="${mode === 'mobile'}">${esc(t('modeMobile'))}</button>
+      </div>
+      <div class="scroll-row" role="group">${langChips}</div>
+    </div>
+    <p class="count">${esc(t('inArea', list.length))}</p>` : ''}
+    ${list.length ? list.map(p => cardHTML(p, { showDistrict: true })).join('') :
+      `<div class="empty"><p>${esc(all.length ? t('empty') : t('emptyAll'))}</p><button class="btn btn-primary" data-act="add">${esc(t('add'))}</button></div>`}`;
 }
 
 async function renderDistrict(slug) {
