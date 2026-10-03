@@ -224,9 +224,8 @@ footer.site { color: var(--muted); font-size: 14px; border-top: 1px solid var(--
    публичный, его можно держать в коде сайта.
    ============================================================ */
 const CONFIG = {
- SUPABASE_URL: 'https://llizkyzqyjmwndebwobr.supabase.co',
-SUPABASE_ANON_KEY: 'sb_publishable_pmPUyTAl0VFuCZEyQD1bxA_FRC6uayU',
-
+  SUPABASE_URL: 'https://llizkyzqyjmwndebwobr.supabase.co',
+  SUPABASE_ANON_KEY: 'sb_publishable_pmPUyTAl0VFuCZEyQD1bxA_FRC6uayU',
   LOGIN_PROVIDERS: ['email'],          // позже можно добавить 'facebook', 'google'
   RESEARCH_CONSENT_ENABLED: false,     // включить после одобрения этического комитета
 };
@@ -266,6 +265,7 @@ const T = {
     emptyAll: 'В этом районе пока никого нет. Добавьте первого мастера, которого знаете.',
     waText: 'Здравствуйте! Нашёл(ла) вас в справочнике «Где починить в Хайфе». Нужен ремонт: ',
     footer: 'Справочник собирают жители Хайфы вместе с Re-Haifa Lab. Новые записи проходят проверку перед публикацией.',
+    osmCredit: 'Часть данных:',
     loginTitle: 'Войдите, чтобы добавить мастера или отзыв',
     loginWhy: 'Так мы защищаем справочник от спама и фальшивых отзывов. Под отзывом покажем только ваше имя.',
     email: 'Ваш email', sendLink: 'Прислать ссылку для входа',
@@ -321,6 +321,7 @@ const T = {
     emptyAll: 'עדיין אין בעלי מקצוע בשכונה הזו. הוסיפו את הראשון שאתם מכירים.',
     waText: 'שלום! מצאתי אותך במדריך "איפה מתקנים בחיפה". אני צריך/ה תיקון: ',
     footer: 'המדריך נבנה על ידי תושבי חיפה יחד עם Re-Haifa Lab. רשומות חדשות נבדקות לפני פרסום.',
+    osmCredit: 'חלק מהנתונים:',
     loginTitle: 'היכנסו כדי להוסיף בעל מקצוע או ביקורת',
     loginWhy: 'כך אנחנו מגינים על המדריך מספאם ומביקורות מזויפות. מתחת לביקורת יופיע רק השם שלכם.',
     email: 'האימייל שלכם', sendLink: 'שלחו לי קישור כניסה',
@@ -376,6 +377,7 @@ const T = {
     emptyAll: 'No repairers in this area yet. Add the first one you know.',
     waText: 'Hi! I found you in the "Where to repair in Haifa" directory. I need a repair: ',
     footer: 'Built by Haifa residents together with Re-Haifa Lab. New entries are checked before they are published.',
+    osmCredit: 'Some data:',
     loginTitle: 'Sign in to add a repairer or a review',
     loginWhy: 'This keeps the directory free of spam and fake reviews. Only your name appears under a review.',
     email: 'Your email', sendLink: 'Email me a sign-in link',
@@ -509,7 +511,7 @@ function applyLang() {
   document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === state.lang));
   $('#brand').innerHTML = `${esc(t('brand'))}<small>${esc(t('brandSub'))}</small>`;
   $('#loginBtn').textContent = state.user ? t('logout') : t('login');
-  $('#siteFooter').textContent = t('footer');
+  $('#siteFooter').innerHTML = `${esc(t('footer'))} ${esc(t('osmCredit'))} <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a>.`;
   document.title = t('h1');
 }
 
