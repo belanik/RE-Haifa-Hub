@@ -101,7 +101,7 @@
     &copy; RE Haifa, 2025 &mdash; Ecology, sharing and community in Haifa &nbsp;|&nbsp;
     <a href="mailto:rehaifa@gmail.com">rehaifa.info@gmail.com</a> &nbsp;|&nbsp;
     <a href="https://www.facebook.com/people/Re-Haifa/61575821814765/" target="_blank" rel="noopener">Facebook</a> &nbsp;|&nbsp;
-    <a href="https://t.me/rehaifahub" target="_blank">Telegram</a>
+    <a href="https://t.me/rehaifaeco" target="_blank">Telegram</a>
   `;
 
   window.addEventListener("DOMContentLoaded", () => {
