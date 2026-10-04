@@ -70,6 +70,7 @@
 
     <a href="/foodwasteprogram_en.html" style="color:#ffd200;">FOOD WASTE PROGRAM</a>
 
+  <a href="https://re-haifa.org/repair/" style="color:#ffd200;">Haifa Repair</a>
 
     <a href="/eco-analitics_EN/ecoanalytics_EN.html">Eco-Analytics</a>
     <a href="/english_version/eco_law_en.html">Eco Laws of Israel</a>
