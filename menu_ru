@@ -1,8 +1,6 @@
   <button class="menu-btn" id="menuBtn" aria-label="Открыть меню" aria-controls="sideMenu" aria-expanded="false">☰</button>
-
   <!-- Backdrop -->
   <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
-
   <!-- Side menu -->
   <nav id="sideMenu" class="side-menu" aria-label="Навигация">
     <a href="/index.html">Главная</a>
